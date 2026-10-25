@@ -2,6 +2,8 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 12 of 32 · about 2 weeks*
 
+**Before you start, check that** Ask MDN v0.2's chat page runs, and its log shows a search tool call when you ask a CSS question.
+
 ## Introduction
 
 > **Keyword search reads spelling. Today you hire a librarian who reads meaning.**
@@ -31,6 +33,15 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 This lesson has a 2-minute interactive warm-up. [Try it on the web page](https://faizan2001.github.io/ai-engineer-path/#embeddings-and-vector-search).
 
+## Before you read
+
+**Picture this:** A map of Dhaka where pages are pinned by meaning, not spelling. “Cheap fuchka near campus” and “affordable street snacks close to the university” share a street, while “campus Wi-Fi password” sits across town. An embedding is a page's coordinates, with hundreds of numbers instead of two, and vector search means: show me the nearest pins.
+
+An embedding turns a text into a few hundred numbers: a point on a map of meaning. Texts with similar meanings sit close together, and search means finding the page points closest to the question point. Zoomcamp says “dot product” where this course says cosine: when vectors have length 1, they give the same ranking.
+
+- **embedding**: a list of numbers that stands for a text's meaning
+- **chunk**: a few paragraphs from a long page, embedded on their own
+
 ## Assignment
 
 ### Prefer watching?
@@ -39,12 +50,12 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ### Day 1 · about 90 min
 
-1. Read Google's [Embeddings](https://developers.google.com/machine-learning/crash-course/embeddings) module for the big idea. Then Module 2: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/01-intro.md) and [02 Embeddings](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/02-embeddings.md) (focus on cosine similarity).
-2. Lesson 02 installs sentence-transformers, which pulls in PyTorch (hundreds of MB). On a slow connection or a small laptop, install the CPU-only build with `uv pip install torch --index-url https://download.pytorch.org/whl/cpu`, or work in a Codespace.
+1. Read Google's [Embeddings](https://developers.google.com/machine-learning/crash-course/embeddings) module for the big idea. Then Module 2: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/01-intro.md).
+2. Before Day 2: lesson 02 installs sentence-transformers, which pulls in PyTorch (hundreds of MB). On a slow connection or a small laptop, install the CPU-only build with `uv pip install torch --index-url https://download.pytorch.org/whl/cpu`, or work in a Codespace.
 
 ### Day 2 · about 90 min
 
-3. [03 Embeddings dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/03-embeddings-dataset.md).
+3. [02 Embeddings](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/02-embeddings.md) (focus on cosine similarity) and [03 Embeddings dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/03-embeddings-dataset.md).
 
 ### Day 3 · about 90 min
 
@@ -70,7 +81,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 9. Add to Ask MDN: build a sqlitesearch vector index of your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 10. Close this page. In your log, answer from memory, then check:
    - Why can vector search find answers that keyword search misses? ([where to check](https://developers.google.com/machine-learning/crash-course/embeddings))

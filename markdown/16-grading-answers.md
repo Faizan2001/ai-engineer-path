@@ -2,6 +2,8 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 16 of 32 · about 1 week*
 
+**Before you start, check that** running your ingestion script twice changes nothing, and the manifest is committed.
+
 ## Introduction
 
 > **Hiring a model to mark exams is clever. Not checking its marking isn't.**
@@ -12,7 +14,7 @@ A judge can be wrong too, so you'll check the judge against your own grades.
 
 **After this, you can** grade hundreds of answers and know when to trust the grader.
 
-**The skill that lasts:** checking the checker. Hamel Husain calls error analysis the most important activity in evals.
+**The skill that lasts:** checking the checker. Hamel Husain calls error analysis the most important activity in evals ([AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/)).
 
 ## Lesson overview
 
@@ -26,7 +28,18 @@ By the end of this lesson, you should be able to:
 
 Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
 
-**Predict:** If a model grades your app's answers, who checks the model?
+**Predict:** What agreement rate with your own grades would make you trust an LLM judge? Pick a number.
+
+This lesson has a 2-minute interactive warm-up. [Try it on the web page](https://faizan2001.github.io/ai-engineer-path/#grading-answers).
+
+## Before you read
+
+**Picture this:** An LLM judge is a new teaching assistant hired to mark 500 scripts. Before trusting them, the head teacher marks 30 of the same scripts and studies every disagreement, not just the average, and keeps spot-checking for as long as the assistant marks.
+
+A judge is a second model with a marking scheme. Question, answer and sources go in; a verdict and a reason come out. Judges are often too lenient, so grade a sample yourself and count how often you agree. As Zoomcamp's lesson 13 puts it, you can't use another judge to check the judge.
+
+- **LLM judge**: a model prompted to grade another model's answer
+- **agreement rate**: the share of answers where the judge's verdict matches yours
 
 ## Assignment
 
@@ -40,13 +53,13 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 ### Day 2 · about 90 min
 
-2. [13 LLM as judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md). Pay attention to “Evaluating the judge”. Then [14 Agent evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/14-agent-evaluation.md) and [15 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/15-next-steps.md); both are short.
+2. [13 LLM as judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md). Pay attention to “Evaluating the judge”. Then skim [14 Agent evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/14-agent-evaluation.md) and [15 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/15-next-steps.md). For 14, watch its 2-minute video and read only the headings; the page itself is long.
 
 ### Days 3–5 · about 4.5 hours
 
 3. Add to Ask MDN: generate answers for your 20 practice questions and save them to a file, so you can grade again without paying again. Grade them with a judge, then grade 10 of them yourself. Write down how often the judge agreed with you. Run the judge once per change, not after every small idea.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 4. Close this page. In your log, answer from memory, then check:
    - Why check an LLM judge against answers you graded yourself? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md))

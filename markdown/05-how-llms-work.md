@@ -4,11 +4,15 @@
 
 ## Introduction
 
-> **ChatGPT is autocomplete that read a library. Sounds insulting until you watch it work.**
+> **ChatGPT is autocomplete that read a library. That explains its genius, and why it can invent a court case with a straight face.**
 
 An LLM (large language model) is the kind of AI behind ChatGPT. You don't need the math to build with one, but you do need a simple picture of how it works.
 
 Here's the short version: text is split into small pieces called tokens. The model predicts the next token, again and again, until the answer is finished.
+
+**True story (2023): lawyers fined for ChatGPT's made-up cases.** Two New York lawyers filed a brief citing court cases that ChatGPT had made up. The judge fined them and their firm $5,000. [Source](https://news.bloomberglaw.com/bloomberg-government-news/chatgpt-phony-legal-filing-case-gets-lawyers-a-5-000-fine)
+
+**What you'll do differently:** treat fluent output as a guess, and check every citation against a real source.
 
 **After this, you can** predict when a model will guess, vary its answer or make something up.
 
@@ -30,13 +34,22 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 This lesson has a 2-minute interactive warm-up. [Try it on the web page](https://faizan2001.github.io/ai-engineer-path/#how-llms-work).
 
+## Before you read
+
+**Picture this:** Your phone's suggestion bar, after it has read a library. It never plans the sentence: it adds one likely next piece and asks again, hundreds of times. Before each pick, every word glances back at the others and asks which ones matter to it, so in “the bank of the river”, bank listens to river, not to money.
+
+The model never looks anything up. It splits your text into tokens, scores every possible next token, picks one with a little randomness, adds it and repeats. It aims for “sounds likely”, not “is true”. If chapter 5 gets heavy, stop at a natural pause and finish it the next day.
+
+- **token**: a small chunk of text the model reads and writes
+- **temperature**: how much randomness goes into each pick
+
 ## Assignment
 
 1. Watch 3Blue1Brown's [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs) (7 min). Watch for the idea of predicting one token at a time.
 2. Watch [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) (27 min). Pause often and write one sentence for each new idea. On mobile data, watch at 480p or download it on Wi-Fi first.
 3. In your log, before you rewatch anything, explain in 5 sentences how a chat model answers a question. Only use words you could explain to a friend.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 4. Close this page. In your log, answer from memory, then check:
    - What is a token, and what does the model predict? ([where to check](https://www.youtube.com/watch?v=LPZh9BOjkQs))

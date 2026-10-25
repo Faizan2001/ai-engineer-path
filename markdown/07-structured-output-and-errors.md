@@ -23,6 +23,14 @@ By the end of this lesson, you should be able to:
 - Retry the right errors and handle refusals.
 - Build a small form with Streamlit and test your code with pytest.
 
+## Try it first
+
+Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+
+**Predict:** Your code gets valid JSON back from the model. Is it safe to save? Write yes or no, and one reason.
+
+This lesson has a 2-minute interactive warm-up. [Try it on the web page](https://faizan2001.github.io/ai-engineer-path/#structured-output-and-errors).
+
 ## Assignment
 
 ### Day 1 · about 90 min
@@ -45,7 +53,7 @@ By the end of this lesson, you should be able to:
 7. Follow pytest's [getting started guide](https://docs.pytest.org/en/stable/getting-started.html), then write 3 tests for your code: one with good input, one with a missing field and one with a refusal.
 8. Follow Streamlit's [get started](https://docs.streamlit.io/get-started) page, then show your `Event` in a small [form](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form) with a Save button.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 9. Close this page. In your log, answer from memory, then check:
    - Which API errors should you retry, and which should you not? ([where to check](https://developers.openai.com/api/docs/guides/error-codes))

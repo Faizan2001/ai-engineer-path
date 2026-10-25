@@ -51,19 +51,32 @@
 
   // ---------- progress storage (synced when signed in to Claude)
   var KEY = "ai-engineer-path:progress:v1";
-  var state = { done: new Set(), days: {}, sessions: [], target: 6 };
+  var state = { done: new Set(), ticks: {}, sessions: [], target: 6 };
   var mode = "local", localOk = true, account = null, saving = false, pending = false, migrated = false;
   function record() {
-    var days = {};
-    Object.keys(state.days).forEach(function (k) { if (BY[k] && state.days[k].length) days[k] = state.days[k].slice().sort(function (a, b) { return a - b; }); });
-    return { v: 1, done: Array.from(state.done).filter(function (s) { return BY[s]; }), last: "", days: days, sessions: state.sessions.slice(-500), target: state.target };
+    var ticks = {}, days = {};
+    Object.keys(state.ticks).forEach(function (k) {
+      if (!BY[k] || !state.ticks[k].length) return;
+      ticks[k] = state.ticks[k].slice().sort();
+      var full = daysOf(k); if (full.length) days[k] = full;
+    });
+    return { v: 1, done: Array.from(state.done).filter(function (s) { return BY[s]; }), last: "", ticks: ticks, days: days, sessions: state.sessions.slice(-500), target: state.target };
   }
   function apply(d) {
     if (!d || d.v !== 1) return;
     state.done = new Set((Array.isArray(d.done) ? d.done : []).filter(function (s) { return BY[s]; }));
-    state.days = {};
-    if (d.days && typeof d.days === "object") Object.keys(d.days).forEach(function (k) {
-      if (BY[k] && Array.isArray(d.days[k])) state.days[k] = d.days[k].filter(function (i) { return typeof i === "number" && i >= 0 && i < (BY[k].assignment || []).length; });
+    state.ticks = {};
+    function ok(slug, id) {
+      var m = /^(\d+)\.(\d+)$/.exec(id), g = m && (BY[slug].assignment || [])[+m[1]];
+      return !!g && +m[2] < ticksIn(g);
+    }
+    if (d.ticks && typeof d.ticks === "object") Object.keys(d.ticks).forEach(function (k) {
+      if (BY[k] && Array.isArray(d.ticks[k])) state.ticks[k] = d.ticks[k].filter(function (id) { return typeof id === "string" && ok(k, id); });
+    });
+    else if (d.days && typeof d.days === "object") Object.keys(d.days).forEach(function (k) {   // older saves stored whole Day blocks
+      if (!BY[k] || !Array.isArray(d.days[k])) return;
+      state.ticks[k] = [];
+      d.days[k].forEach(function (gi) { var g = (BY[k].assignment || [])[gi]; if (g) for (var j = 0; j < ticksIn(g); j++) state.ticks[k].push(gi + "." + j); });
     });
     state.sessions = Array.isArray(d.sessions) ? d.sessions.filter(function (x) { return /^\d{4}-\d{2}-\d{2}$/.test(x); }) : [];
     state.target = d.target >= 3 && d.target <= 6 ? Math.round(d.target) : 6;
@@ -206,14 +219,20 @@
     var x = +m[1];
     return m[2] === "week" ? Math.round(x * 6) : m[2] === "hour" ? Math.max(1, Math.round(x / 1.5)) : 1;
   }
-  function daysOf(slug) { return state.days[slug] || []; }
+  // A "Days 8–11" block gets one tick per day; everything else gets one tick.
+  function ticksIn(g) { var m = /^Days\s+(\d+)[–-](\d+)/.exec(String((g && g.day) || "")); return m ? (+m[2]) - (+m[1]) + 1 : 1; }
+  function tickLabel(g, k) { var m = /^Days\s+(\d+)[–-](\d+)/.exec(String(g.day || "")); return m ? "Day " + ((+m[1]) + k) : dayLabel(g); }
+  function ticksOf(slug) { return state.ticks[slug] || []; }
+  function isTicked(slug, gi, k) { return ticksOf(slug).indexOf(gi + "." + k) >= 0; }
+  function groupDone(l, gi) { for (var k = 0; k < ticksIn(l.assignment[gi]); k++) if (!isTicked(l.slug, gi, k)) return false; return true; }
+  function daysOf(slug) { var l = BY[slug]; return l ? (l.assignment || []).map(function (g, i) { return i; }).filter(function (i) { return groupDone(l, i); }) : []; }
   function remainingSessions() {
     var n = 0;
     LESSONS.forEach(function (l) {
       if (state.done.has(l.slug)) return;
-      var groups = l.assignment || [], ticked = daysOf(l.slug);
+      var groups = l.assignment || [];
       if (!groups.length || !groups[0].day) { n += fromTime(l.time); return; }
-      groups.forEach(function (g, i) { if (ticked.indexOf(i) < 0) n += units(g); });
+      groups.forEach(function (g, i) { var per = units(g) / ticksIn(g); for (var k = 0; k < ticksIn(g); k++) if (!isTicked(l.slug, i, k)) n += per; });
     });
     return n;
   }
@@ -223,10 +242,10 @@
     return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
   }
   function firstOpenDay(l) {
-    var groups = l.assignment || [], ticked = daysOf(l.slug);
-    if (!groups.length || !groups[0].day || !ticked.length) return -1;
-    for (var i = 0; i < groups.length; i++) if (ticked.indexOf(i) < 0) return i;
-    return -1;
+    var groups = l.assignment || [];
+    if (!groups.length || !groups[0].day || !ticksOf(l.slug).length) return null;
+    for (var i = 0; i < groups.length; i++) for (var k = 0; k < ticksIn(groups[i]); k++) if (!isTicked(l.slug, i, k)) return { gi: i, k: k };
+    return null;
   }
   function ul(items, cls) {
     if (!items || !items.length) return "";
@@ -241,19 +260,20 @@
 
   // ---------- welcome back (shown after 3+ days away)
   function welcomeCard(compact) {
-    if (welcomeDismissed || awayDays < 3 || (!state.done.size && !Object.keys(state.days).length)) return "";
+    if (welcomeDismissed || awayDays < 3 || (!state.done.size && !Object.keys(state.ticks).length)) return "";
     var lf = lastFinished(), t = resumeTarget();
     var long = awayDays >= 14;
     var spaced = { recall: [] };
     if (long) LESSONS.filter(function (x) { return state.done.has(x.slug) && x.recall && x.recall.length; }).slice(-3).forEach(function (x) { spaced.recall.push(x.recall[0]); });
     var steps = long ? [
       "Reread the last entry in your log, and the note on why this matters to you. 3 minutes.",
-      "Check your setup still works: run <code>uv sync</code>, check your API key and credit, and run your last project's tests. 10 minutes.",
+      "Check your setup still works: run <code>uv sync</code>, start your Postgres container if you use one (<code>docker ps</code> shows it), check your API key and credit, run your last project's tests and make one test call. 10 minutes.",
       spaced.recall.length ? "From memory, answer these from your last few lessons. 5 minutes." + recallList(spaced) : "",
       t ? 'Then redo the last Day you finished, or start the smallest next step in <a href="#' + t.slug + '">' + esc(fullTitle(t)) + "</a>." : ""
     ].filter(Boolean) : [
       "Reread the last entry in your log. 2 minutes.",
       lf && lf.recall && lf.recall.length ? "From memory, answer these from <a href=\"#" + lf.slug + "\">" + esc(fullTitle(lf)) + "</a>. 5 minutes." + recallList(lf) : "",
+      t && t.checkpoint ? "Check where your code stands: " + fmt(t.checkpoint) : "",
       t ? 'Then do the smallest next step in <a href="#' + t.slug + '">' + esc(fullTitle(t)) + "</a>. One step is enough." : ""
     ].filter(Boolean);
     return '<section class="card welcome' + (compact ? " compact" : "") + '" aria-label="Welcome back"><div class="welcome-head"><h2>Welcome back. It\'s been ' + awayDays + " days.</h2>" +
@@ -279,7 +299,7 @@
   }
 
   // ---------- this week: a target, never a streak
-  var quickOpen = false, quickDone = false;
+  var quickOpen = false, quickDone = false, importMsg = "";
   function weekCard() {
     var n = weekCount(), T = state.target, dots = "";
     for (var i = 0; i < Math.max(T, n); i++) dots += '<span class="dot' + (i < n ? " on" : "") + (i >= T ? " bonus" : "") + '"></span>';
@@ -295,52 +315,68 @@
       '<div class="quick"' + (quickOpen ? "" : " hidden") + "><ol><li>Reread your last log entry.</li>" +
       (one ? "<li>Answer one question from memory:" + recallList(one) + "</li>" : "") +
       "<li>Write the smallest next step for your next session in your log.</li></ol>" +
-      (quickDone ? '<p class="quick-done" role="status">Logged. That counts as a session.</p>' : '<button type="button" class="w-btn" data-action="quick-done">I did my 15 minutes</button>') + "</div></section>";
+      (quickDone ? '<p class="quick-done" role="status">Logged. That counts as a session.</p>' : '<button type="button" class="w-btn" data-action="quick-done">I did my 15 minutes</button>') + "</div>" +
+      (IN_CLAUDE ? "" : '<div class="backup"><p>Progress is saved in this browser only. Moving to a new device, or clearing your browser? Save it to a file first.</p>' +
+        '<div class="week-controls"><button type="button" class="btn small" data-action="export">Save progress to a file</button>' +
+        '<button type="button" class="btn small" data-action="import">Load progress from a file</button><input type="file" id="import-file" accept=".json,application/json" hidden></div>' +
+        (importMsg ? '<p class="import-msg" role="status">' + esc(importMsg) + "</p>" : "") + "</div>") + "</section>";
+  }
+
+  // ---------- the route: 6 sections sized by weeks, filled as you go, with a "You" marker
+  function routeStrip(t, pct) {
+    var total = SECTIONS.reduce(function (a, s) { return a + s.weight; }, 0), pos = 1;
+    if (t) {
+      var before = 0;
+      for (var i = 0; i < t.section.n - 1; i++) before += SECTIONS[i].weight;
+      pos = (before + t.section.weight * (t.section.slugs.indexOf(t.slug) / t.section.slugs.length)) / total;
+    }
+    var segs = SECTIONS.map(function (s) {
+      var d = s.slugs.filter(function (x) { return state.done.has(x); }).length;
+      return '<li data-sec="' + s.n + '" class="seg' + (t && s.n === t.section.n ? " cur" : "") + '" style="flex:' + s.weight + '">' +
+        '<a href="#section-' + s.n + '" data-scroll-section="' + s.n + '" title="' + esc("Section " + s.n + ": " + s.title + ", " + s.weeks) + '">' +
+        '<span class="seg-bar" style="--fill:' + Math.round(100 * d / s.slugs.length) + '%"></span><span class="seg-num">' + s.n + '</span><span class="sr-only">Section ' + s.n + ": " + esc(s.title) + ", " + d + " of " + s.slugs.length + " done</span></a></li>";
+    }).join("");
+    var where = t ? "Section " + t.section.n + " of " + SECTIONS.length + ": " + esc(t.section.title) + ". Lesson " + t.n + " of " + LESSONS.length + ", " + pct + "% done."
+      : "All " + LESSONS.length + " lessons done.";
+    return '<div class="route"><ol class="segs">' + segs + '</ol><span class="you" style="left:clamp(22px, ' + (pos * 100).toFixed(1) + '%, calc(100% - 22px))" aria-hidden="true"><span class="you-tag">You</span></span>' +
+      '<p class="route-caption">' + where + "</p></div>";
   }
 
   // ---------- course page
   function renderHome() {
     view.removeAttribute("data-sec");
+    document.body.classList.remove("has-dock");
     var pct = updateTopProgress(), t = resumeTarget();
-    var started = state.done.size > 0 || Object.keys(state.days).length > 0;
-    var R = 64, CIRC = 2 * Math.PI * R;
-    var od = t ? firstOpenDay(t) : -1;
+    var started = state.done.size > 0 || Object.keys(state.ticks).length > 0;
+    var od = t ? firstOpenDay(t) : null;
     var cta = t
-      ? '<a class="btn gold" href="#' + t.slug + '"' + (od >= 0 ? ' data-resume-day="' + od + '"' : "") + ">" + (started ? "Continue: " : "Start the path: ") + esc(fullTitle(t)) +
-        (od >= 0 ? ", " + esc(dayLabel(t.assignment[od])) : "") + "</a>"
+      ? '<a class="btn gold" href="#' + t.slug + '"' + (od ? ' data-resume-day="' + od.gi + '"' : "") + ">" + (started ? "Continue: " : "Start the path: ") + esc(fullTitle(t)) +
+        (od ? ", " + esc(tickLabel(t.assignment[od.gi], od.k)) : "") + "</a>"
       : '<span class="btn is-done">Path complete. Plan your Campus Assistant next.</span>';
-    var curSec = t ? t.section.n : 0;
-    var timeline = SECTIONS.map(function (s) {
-      return '<div data-sec="' + s.n + '" class="' + (s.n === curSec ? "cur" : "") + '" style="flex:' + s.weight + '" title="' + esc(s.title + ", " + s.weeks) + '"><span>' + esc(s.title) + "</span></div>";
-    }).join("");
-    var marks = [1, Math.round(TOTAL_WEEKS / 3), Math.round(2 * TOTAL_WEEKS / 3), TOTAL_WEEKS];
     var sections = SECTIONS.map(function (s) {
       var doneN = s.slugs.filter(function (x) { return state.done.has(x); }).length;
       var rows = s.slugs.map(function (slug) {
         var l = BY[slug], on = state.done.has(slug), cur = t && t.slug === slug;
-        return '<li><a href="#' + slug + '"' + (cur ? ' class="is-next" aria-current="step"' : "") + '><span class="check' + (on ? " on" : "") + '" role="img" aria-label="' + (on ? "Completed" : "Not completed") + '">' + CHECK_SVG +
+        return '<li class="stop ' + (on ? "done" : cur ? "next" : "todo") + (l.kind === "project" ? " station" : "") + '"><a href="#' + slug + '"' + (cur ? ' aria-current="step"' : "") + ">" +
+          '<span class="node" role="img" aria-label="' + (on ? "Completed" : cur ? "Next up" : "Not started") + '">' + (on ? CHECK_SVG : "") +
           '</span><span class="l-title">' + (l.kind === "project" ? '<span class="p">Project: </span>' : "") + esc(l.title) + (cur ? ' <span class="you-are-here">You are here</span>' : "") + (l.kind === "project" && on ? ' <span class="shipped">Shipped</span>' : "") +
           '</span><span class="l-time">' + esc(l.time) + "</span></a></li>";
       }).join("");
-      return '<section class="card section-card" data-sec="' + s.n + '"><div class="section-head"><div class="section-top"><h2>' + esc(s.title) + '</h2><span class="count">' + doneN + " / " + s.slugs.length + " complete</span></div>" +
-        '<p class="sec-meta">Section ' + s.n + ", " + esc(String(s.weeks).replace(/^W/, "w")) + "</p><p>" + fmt(s.description) + "</p>" +
+      return '<section class="card section-card" data-sec="' + s.n + '" id="section-' + s.n + '"><div class="section-head"><span class="sec-num" aria-hidden="true">' + s.n + "</span>" +
+        '<div class="sec-body"><div class="section-top"><h2><span class="sr-only">Section ' + s.n + ": </span>" + esc(s.title) + '</h2><span class="count">' + doneN + " / " + s.slugs.length + " complete</span></div>" +
+        '<p class="sec-meta">' + esc(s.weeks) + "</p>" + (C.sections[s.n - 1].opener ? '<p class="opener">' + fmt(C.sections[s.n - 1].opener) + "</p>" : "") + "<p>" + fmt(s.description) + "</p>" +
         (s.shift ? '<dl class="shift"><div><dt>Before</dt><dd>' + fmt(s.shift.before) + "</dd></div><div><dt>After</dt><dd>" + fmt(s.shift.after) + "</dd></div></dl>" : "") +
-        '</div><ol class="lesson-list">' + rows + "</ol></section>";
+        '</div></div><ol class="lesson-list">' + rows + "</ol></section>";
     }).join("");
     view.innerHTML =
       '<div class="hero-band"><div class="wrap hero"><div class="hero-text"><h1>' + esc(C.title) + '</h1><p class="lede">' + fmt(C.tagline) + "</p>" +
       '<p class="hero-meta">A learning path of ' + esc(C.duration || "about " + TOTAL_WEEKS + " weeks") + ", at about 9 hours a week.</p>" +
       '<div class="hero-actions">' + cta +
       '<button type="button" class="btn" data-action="how">How it works</button></div>' +
-      '<p class="resume-note">' + state.done.size + " of " + LESSONS.length + " lessons complete</p></div>" +
-      '<div class="ring" role="img" aria-label="' + pct + '% complete"><svg viewBox="0 0 150 150"><circle class="track" cx="75" cy="75" r="' + R + '"/>' +
-      '<circle class="fill" cx="75" cy="75" r="' + R + '" stroke-dasharray="' + CIRC.toFixed(1) + '" stroke-dashoffset="' + (CIRC * (1 - pct / 100)).toFixed(1) + '"/></svg>' +
-      '<div class="ring-label"><strong>' + pct + "%</strong><span>complete</span></div></div></div></div>" +
+      "</div>" + routeStrip(t, pct) + "</div></div>" +
       '<div class="wrap page">' + welcomeCard(false) + weekCard() + powersCard() +
       '<section class="card" id="how"><h2>How this path works</h2>' + C.intro.map(function (p) { return "<p>" + fmt(p) + "</p>"; }).join("") +
-      '<ul class="how">' + C.how.map(function (p) { return "<li>" + fmt(p) + "</li>"; }).join("") + "</ul>" +
-      '<div class="timeline" role="img" aria-label="Timeline of the 6 sections across ' + TOTAL_WEEKS + ' weeks">' + timeline + '</div><div class="tl-key">' +
-      marks.map(function (w) { return "<span>Week " + w + "</span>"; }).join("") + "</div></section>" +
+      '<ul class="how">' + C.how.map(function (p) { return "<li>" + fmt(p) + "</li>"; }).join("") + "</ul></section>" +
       sections + "</div>";
   }
 
@@ -373,7 +409,10 @@
     var parts = [], toc = [];
     function add(id, title, body, cls) { parts.push('<section id="sec-' + id + '"' + (cls ? ' class="' + cls + '"' : "") + "><h2>" + title + "</h2>" + body + "</section>"); toc.push([id, title]); }
 
-    var introHtml = (l.hook ? '<p class="hook">' + fmt(l.hook) + "</p>" : "") + (l.intro || []).map(function (p) { return "<p>" + fmt(p) + "</p>"; }).join("");
+    var opener = l.section.slugs[0] === l.slug && C.sections[l.section.n - 1].opener ? '<p class="opener">' + fmt(C.sections[l.section.n - 1].opener) + "</p>" : "";
+    var introHtml = opener + (l.hook ? '<p class="hook">' + fmt(l.hook) + "</p>" : "") + (l.intro || []).map(function (p) { return "<p>" + fmt(p) + "</p>"; }).join("") +
+      (l.story ? '<details class="story"><summary><strong>True story (' + esc(l.story.year) + "):</strong> " + esc(l.story.title || "what went wrong") + "</summary>" +
+        "<p>" + fmt(l.story.what) + ' <a' + href(l.story.url) + ">Source</a></p><p><strong>What you'll do differently:</strong> " + fmt(l.story.lesson) + "</p></details>" : "");
     if (l.unlocks || l.edge) {
       introHtml += '<div class="why-box">' +
         (l.unlocks ? "<p><strong>After this, you can</strong> " + fmt(l.unlocks) + "</p>" : "") +
@@ -391,16 +430,24 @@
           '<div class="guess-actions"><button type="button" class="w-btn" data-action="lock-guess">Lock in my guess</button>' +
           '<button type="button" class="linkish" data-action="skip-guess">Skip guessing</button></div></div>' +
           '<p class="guess-locked"' + (locked ? "" : " hidden") + '><strong>Your guess:</strong> <span class="guess-text">' + esc(guess || "") + "</span>" +
-          (l.widget ? "" : " Check it against the reading, and again at Recall.") + "</p>" : "") +
+          (l.widget ? "" : " Check it against the reading, and again at the Memory check.") + "</p>" : "") +
         (l.widget ? '<div class="widget-wrap"' + (l.predict && !locked ? " hidden" : "") + '><div class="widget" data-widget="' + esc(l.widget) + '"><p class="lead-line">Loading the widget…</p></div></div>' : "") +
         '<button type="button" class="linkish skip-link" data-scroll="sec-assignment">Skip to the assignment</button></div>', "try");
     }
+    if (l.bridge || l.picture) {
+      var br = l.bridge || {};
+      add("before-read", "Before you read", '<div class="bridge">' + (l.picture ? '<p class="picture"><strong>Picture this:</strong> ' + fmt(l.picture) + "</p>" : "") +
+        (br.text ? "<p>" + fmt(br.text) + "</p>" : "") +
+        (br.terms && br.terms.length ? '<dl class="terms">' + br.terms.map(function (t) { return "<div><dt>" + fmt(t[0]) + "</dt><dd>" + fmt(t[1]) + "</dd></div>"; }).join("") + "</dl>" : "") + "</div>");
+    }
     var k = 1;
-    var ticked = daysOf(l.slug);
     var assign = (l.assignment || []).map(function (g, gi) {
-      var on = ticked.indexOf(gi) >= 0;
-      var head = g.day ? '<div class="day-head" id="day-' + gi + '"><h3 id="dayh-' + gi + '">' + esc(g.day) + "</h3>" +
-        '<label class="day-check"><input type="checkbox" data-day="' + gi + '"' + (on ? " checked" : "") + ' aria-describedby="dayh-' + gi + '"> Done</label></div>' : "";
+      var n = ticksIn(g), boxes = "";
+      for (var kk = 0; kk < n; kk++) {
+        boxes += '<label class="day-check"><input type="checkbox" data-tick="' + gi + "." + kk + '"' + (isTicked(l.slug, gi, kk) ? " checked" : "") +
+          ' aria-describedby="dayh-' + gi + '"> ' + (n > 1 ? esc(tickLabel(g, kk)) + " done" : "Done") + "</label>";
+      }
+      var head = g.day ? '<div class="day-head" id="day-' + gi + '"><h3 id="dayh-' + gi + '">' + esc(g.day) + '</h3><div class="day-ticks">' + boxes + "</div></div>" : "";
       var html = head + '<ol start="' + k + '">' + g.steps.map(function (s) { return "<li>" + fmt(s) + "</li>"; }).join("") + "</ol>";
       k += g.steps.length;
       return html;
@@ -409,11 +456,14 @@
       assign = '<div class="watch"><h3>Prefer watching?</h3><ul>' + l.watch.map(watchItem).join("") + "</ul></div>" + assign;
     }
     if (l.recall && l.recall.length) {
-      assign += "<h3>Recall · 10 min</h3>" + '<ol start="' + k + '"><li>Close this page. In your log, answer from memory, then check:' + recallList(l) +
+      assign += "<h3>Memory check · 10 min</h3>" + '<ol start="' + k + '"><li>Close this page. In your log, answer from memory, then check:' + recallList(l) +
         "</li><li>Write one more line: how will this lesson help your Campus Assistant?</li></ol>";
     }
     add("assignment", "Assignment", '<div class="panel">' + assign + "</div>");
     if (l.done && l.done.length) add("done", "You're done when", ul(l.done.map(fmt), "done-list"));
+    if (l.showoff) add("show-it-off", "Show it off", '<div class="showoff"><p class="pitch"><strong>Your one-line pitch:</strong> ' + fmt(l.showoff.pitch) + "</p>" +
+      "<p>A 3-minute demo, in this order:</p><ol>" + l.showoff.demo.map(function (d) { return "<li>" + fmt(d) + "</li>"; }).join("") + "</ol>" +
+      (l.showoff.proves && l.showoff.proves.length ? "<p>What it proves to employers:</p>" + ul(l.showoff.proves.map(fmt)) : "") + "</div>");
     if (l.extra_credit && l.extra_credit.length) add("extra-credit", "Extra credit", ul(l.extra_credit.map(fmt)));
     if (l.extra && l.extra.length) add("extra", l.slug === "whats-next" ? "Optional deep dives" : "Additional resources",
       '<p class="lead-line">These are optional. Use them if you want to go further.</p>' + ul(l.extra.map(fmt)));
@@ -438,25 +488,42 @@
       '<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Course</a> › <span class="sec-name">Section ' + l.section.n + ": " + esc(l.section.title) + "</span></nav>" +
       welcomeCard(true) +
       '<div class="lesson-head"><h1 tabindex="-1">' + (isP ? '<span class="badge">Project</span>' : "") + esc(l.title) + "</h1>" +
-      '<p class="lesson-meta">Lesson ' + l.n + " of " + LESSONS.length + ", " + esc(l.time) + "</p>" + pickUp(l) + "</div>" +
+      '<p class="lesson-meta">Lesson ' + l.n + " of " + LESSONS.length + ", " + esc(l.time) + dayDots(l) + "</p>" + pickUp(l) +
+      (l.checkpoint && !on && !ticksOf(l.slug).length ? '<p class="checkpoint"><strong>Before you start, check that</strong> ' + fmt(l.checkpoint) + "</p>" : "") + "</div>" +
       '<div class="lesson-layout"><div class="content">' +
       '<details class="toc-mobile"><summary>Lesson contents</summary><ul>' + tocButtons + "</ul></details>" +
       parts.join("") +
-      '<div class="lesson-actions">' + party + '<p class="all-days" role="status"' + (allDays(l) && !on ? "" : " hidden") + '>All Days ticked. Finish the Recall step, then mark this lesson complete.</p>' +
+      '<div class="lesson-actions">' + party + '<p class="all-days" role="status"' + (allDays(l) && !on ? "" : " hidden") + '>All Days ticked. Finish the Memory check, then mark this lesson complete.</p>' +
       '<div class="action-row">' + prevBtn + completeBtn + nextBtn + "</div>" +
       '<div class="action-row center"><a class="btn view-course" href="#home">View course</a></div>' +
       lessonLinks(l) + "</div></div>" +
-      '<aside class="toc" aria-label="Lesson contents"><span class="toc-title">Lesson contents</span><ul>' + tocButtons + "</ul></aside></div></div>";
+      '<aside class="toc" aria-label="Lesson contents"><span class="toc-title">Lesson contents</span><ul>' + tocButtons + "</ul></aside></div></div>" + dock(l, prev, next, on);
+    document.body.classList.add("has-dock");
     mountWidgets();
+  }
+  function dayDots(l) {
+    var g = l.assignment || [];
+    if (!g.length || !g[0].day) return "";
+    var dots = "", total = 0, got = 0;
+    g.forEach(function (x, i) { for (var k = 0; k < ticksIn(x); k++) { var on = isTicked(l.slug, i, k); total++; if (on) got++; dots += '<span class="' + (on ? "on" : "") + '"></span>'; } });
+    return '<span class="day-dots" role="img" aria-label="' + got + " of " + total + ' Days done">' + dots + "</span>";
+  }
+  function dock(l, prev, next, on) {
+    return '<nav class="dock" aria-label="Lesson navigation">' +
+      (prev ? '<a class="dock-btn" href="#' + prev.slug + '" aria-label="Previous lesson: ' + esc(fullTitle(prev)) + '">' + icon("left") + "</a>"
+        : '<a class="dock-btn" href="#home" aria-label="Course page">' + icon("left") + "</a>") +
+      '<button type="button" class="dock-complete' + (on ? " is-done" : "") + '" data-action="toggle-complete">' + (on ? icon("check") + "Completed" : "Mark complete") + "</button>" +
+      (next ? '<a class="dock-btn next" href="#' + next.slug + '" aria-label="Next lesson: ' + esc(fullTitle(next)) + '">Next' + icon("right") + "</a>"
+        : '<a class="dock-btn next" href="#home">Finish' + icon("right") + "</a>") + "</nav>";
   }
   function allDays(l) {
     var groups = l.assignment || [];
     return groups.length > 0 && !!groups[0].day && daysOf(l.slug).length === groups.length;
   }
   function pickUp(l) {
-    var i = firstOpenDay(l);
-    if (i < 0 || state.done.has(l.slug)) return "";
-    return '<p class="pick-up">Pick up at <button type="button" class="linkish" data-scroll="day-' + i + '">' + esc(dayLabel(l.assignment[i])) + "</button></p>";
+    var o = firstOpenDay(l);
+    if (!o || state.done.has(l.slug)) return "";
+    return '<p class="pick-up">Pick up at <button type="button" class="linkish" data-scroll="day-' + o.gi + '">' + esc(tickLabel(l.assignment[o.gi], o.k)) + "</button></p>";
   }
   var GUESS_KEY = "ai-engineer-path:guess:";
   function readGuess(slug) { try { return localStorage.getItem(GUESS_KEY + slug); } catch (e) { return null; } }
@@ -483,11 +550,22 @@
     var smooth = window.matchMedia && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
   }
+  function setMenu(open) {
+    var b = document.querySelector(".menu-btn"), m = document.getElementById("site-menu");
+    if (!b || !m) return;
+    b.setAttribute("aria-expanded", String(open));
+    m.classList.toggle("open", open);
+    if (open) { var f = m.querySelector("a, button"); if (f) f.focus(); }
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && document.querySelector(".menu.open")) { setMenu(false); var b = document.querySelector(".menu-btn"); if (b) b.focus(); }
+  });
   function route() {
+    setMenu(false);
     touchVisit();
     render();
     if (wantHow) { wantHow = false; scrollToId("how"); return; }
-    if (wantDay >= 0) { var d = wantDay; wantDay = -1; var el = document.getElementById("day-" + d); if (el) { el.scrollIntoView({ block: "start" }); var b = el.querySelector("input"); if (b) b.focus({ preventScroll: true }); return; } }
+    if (wantDay >= 0) { var d = wantDay; wantDay = -1; var el = document.getElementById("day-" + d); if (el) { el.scrollIntoView({ block: "start" }); var b = el.querySelector("input:not(:checked)") || el.querySelector("input"); if (b) b.focus({ preventScroll: true }); return; } }
     window.scrollTo(0, 0);
     var h = view.querySelector(".lesson-head h1");
     if (h) { try { h.focus({ preventScroll: true }); } catch (e) {} }
@@ -495,20 +573,33 @@
   document.addEventListener("click", function (e) {
     var rd = e.target.closest ? e.target.closest("[data-resume-day]") : null;
     if (rd) { wantDay = +rd.getAttribute("data-resume-day"); return; }
+    var openMenu = document.querySelector(".menu.open");
+    if (openMenu && !e.target.closest("#site-menu") && !e.target.closest(".menu-btn")) setMenu(false);
+    var sj = e.target.closest ? e.target.closest("[data-scroll-section]") : null;
+    if (sj) { e.preventDefault(); scrollToId("section-" + sj.getAttribute("data-scroll-section")); return; }
     var t = e.target.closest ? e.target.closest("[data-scroll], [data-action], #complete-btn") : null;
     if (!t) return;
-    if (t.id === "complete-btn") {
+    if (t.getAttribute("data-action") === "menu") { setMenu(t.getAttribute("aria-expanded") !== "true"); return; }
+    if (t.id === "complete-btn" || t.getAttribute("data-action") === "toggle-complete") {
+      var fromDock = t.classList.contains("dock-complete");
       var l = BY[(location.hash || "").replace(/^#/, "")];
       if (!l) return;
       if (state.done.has(l.slug)) state.done.delete(l.slug);
       else { state.done.add(l.slug); logSession(); if (l.kind === "project") celebrate = l.slug; }
       save(); render();
-      var btn = document.getElementById("complete-btn"); if (btn) btn.focus();
+      var btn = fromDock ? view.querySelector(".dock-complete") : document.getElementById("complete-btn"); if (btn) btn.focus();
       return;
     }
     var act = t.getAttribute("data-action");
     if (act === "skip-main") { var h1 = view.querySelector("h1"); if (h1) { h1.setAttribute("tabindex", "-1"); h1.focus(); } return; }
     if (act === "dismiss-welcome") { welcomeDismissed = true; render(); return; }
+    if (act === "export") {
+      var blob = new Blob([JSON.stringify(record(), null, 1)], { type: "application/json" }), a = document.createElement("a");
+      a.href = URL.createObjectURL(blob); a.download = "ai-engineer-path-progress-" + isoDay(new Date()) + ".json";
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+      return;
+    }
+    if (act === "import") { var fi = document.getElementById("import-file"); if (fi) fi.click(); return; }
     if (act === "quick") { quickOpen = !quickOpen; render(); var qb = view.querySelector('[data-action="quick"]'); if (qb) qb.focus(); return; }
     if (act === "quick-done") { logSession(); quickDone = true; save(); render(); var qd = view.querySelector(".quick-done"); if (qd) { qd.setAttribute("tabindex", "-1"); qd.focus(); } return; }
     if (act === "lock-guess" || act === "skip-guess") {
@@ -523,6 +614,7 @@
       return;
     }
     if (act === "how") {
+      setMenu(false);
       if (BY[(location.hash || "").replace(/^#/, "")]) { wantHow = true; location.hash = "#home"; }
       else scrollToId("how");
       return;
@@ -530,14 +622,30 @@
     if (t.hasAttribute("data-scroll")) scrollToId(t.getAttribute("data-scroll"));
   });
   document.addEventListener("change", function (e) {
-    if (e.target && e.target.matches && e.target.matches("input[data-day]")) {
+    if (e.target && e.target.matches && e.target.matches("input[data-tick]")) {
       var dl = BY[(location.hash || "").replace(/^#/, "")];
       if (!dl) return;
-      var gi = +e.target.getAttribute("data-day"), arr = (state.days[dl.slug] || []).filter(function (x) { return x !== gi; });
-      if (e.target.checked) { arr.push(gi); logSession(); }
-      state.days[dl.slug] = arr;
+      var id = e.target.getAttribute("data-tick"), arr = ticksOf(dl.slug).filter(function (x) { return x !== id; });
+      if (e.target.checked) { arr.push(id); logSession(); }
+      state.ticks[dl.slug] = arr;
       save();
       var nudge = view.querySelector(".all-days"); if (nudge) nudge.hidden = !(allDays(dl) && !state.done.has(dl.slug));
+      var dots = view.querySelector(".day-dots"); if (dots) dots.outerHTML = dayDots(dl);
+      var pu = view.querySelector(".pick-up"), nu = pickUp(dl);
+      if (pu) { if (nu) pu.outerHTML = nu; else pu.remove(); }
+      else if (nu) { var meta = view.querySelector(".lesson-meta"); if (meta) meta.insertAdjacentHTML("afterend", nu); }
+      return;
+    }
+    if (e.target && e.target.id === "import-file" && e.target.files && e.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var d = null;
+        try { d = JSON.parse(String(reader.result)); } catch (err) {}
+        if (!d || d.v !== 1 || !Array.isArray(d.done)) { importMsg = "That file isn't a saved progress file. Nothing was changed."; render(); return; }
+        if (!window.confirm("Replace the progress in this browser with the progress in this file? This can't be undone.")) { importMsg = "Nothing was changed."; render(); return; }
+        apply(d); save(); importMsg = "Loaded: " + state.done.size + " lessons complete."; render();
+      };
+      reader.readAsText(e.target.files[0]);
       return;
     }
     if (e.target && e.target.id === "target-select") { state.target = +e.target.value; save(); render(); var ts = document.getElementById("target-select"); if (ts) ts.focus(); }

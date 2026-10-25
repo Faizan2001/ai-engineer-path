@@ -28,7 +28,7 @@ By the end of this lesson, you should be able to:
 2. Watch Barry Zhang's talk [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) (15 min, Anthropic). Write down his advice on when not to build an agent.
 3. Exercise: list 5 features of your Campus Assistant idea or your Events platform. For each one, write the lowest step that solves it and why. At least one answer should be “plain code”. Keep this list: it becomes your Campus Assistant plan in [What's Next](32-whats-next.md).
 
-### Recall · 10 min
+### Memory check · 10 min
 
 4. Close this page. In your log, answer from memory, then check:
    - What's the difference between a workflow and an agent? ([where to check](https://www.anthropic.com/engineering/building-effective-agents))

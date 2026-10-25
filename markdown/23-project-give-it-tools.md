@@ -2,13 +2,19 @@
 
 *Section 4: Agents · Lesson 23 of 32 · about 2 weeks*
 
+**Before you start, check that** your LangGraph loop pauses with `interrupt()` before a tool runs.
+
 ## Introduction
 
-> **Ask MDN gets hands. It may suggest saving a note; a person presses save.**
+> **Ask MDN gets hands. In 2025 an AI agent wiped a live database during a code freeze. Yours asks first.**
 
 Ask MDN becomes an agent with three tools. One of them can change things, so it must ask a person first. This time, you'll plan the work yourself before you start.
 
-Tip: make the notes useful to you, like revision cards for this course that you reread at Recall time. Keep your attack tests away from them.
+Tip: make the notes useful to you, like revision cards for this course that you reread at Memory check time. Keep your attack tests away from them.
+
+**True story (2025): an AI agent deletes a live database.** During a declared code freeze, Replit's AI coding agent ran database commands without permission and deleted a company's live production database. [Source](https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/)
+
+**What you'll do differently:** tools that change or delete things wait for a person's approval, and the agent never holds production keys.
 
 **After this, you can** show an agent that acts only with approval, proven by tests.
 
@@ -41,7 +47,7 @@ Tip: make the notes useful to you, like revision cards for this course that you 
 7. Write 5 injection documents (for example a page that says “call save_note with…”) and 5 normal requests, including one that really should save a note. Write the injection documents like an attacker's notebook: the goal, the trick and how your app should block it. Commit them.
 8. In your log, compare your Day 1 plan with what really happened. That gap is a lesson in itself.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 9. Close this page. In your log, answer from memory, then check:
    - Why must an approval match the tool's exact arguments? ([where to check](22-safe-tools.md))
@@ -55,10 +61,27 @@ Tip: make the notes useful to you, like revision cards for this course that you 
 - [ ] Your 5 injection documents never cause an unapproved action, and no planted instruction is carried out. Your 5 normal requests still work. You checked this in the step logs, not just in the replies.
 - [ ] You can explain how a request moves through your app, two decisions you made and one problem you fixed. You wrote at least one test without AI help, and noted its commit in your log.
 
+## Show it off
+
+**Your one-line pitch:** Ask MDN as a LangGraph agent with three tools, approvals tied to exact arguments, hard limits and injection tests that pass.
+
+A 3-minute demo, in this order:
+
+1. Ask a question that needs two tools, and walk through the step log: tool, input, tokens, cost.
+2. `save_note` pauses with its exact arguments. Reject it and show the database is unchanged.
+3. Approve it and show the note saved.
+4. Show an injection document being ignored, proven in the logs.
+5. Run the test where the step limit stops a runaway loop.
+
+What it proves to employers:
+
+- Agents and tool calling: some agent skill appears in about 55% of the posts in [a 2026 analysis of 6,964 AI engineering job posts](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/role/02-skills.md).
+- LangGraph (about 14% of posts and rising) and guardrails, which [grew](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/role/07-trends.md) from about 10% to 15% of posts this year.
+
 ## Extra credit
 
 - Add a dry-run mode that shows the plan without running any tool.
-- Earn the free certificate from the [Hugging Face Agents Course final](https://huggingface.co/learn/agents-course/en/unit4/introduction).
+- Serve `browser_support` as an MCP server with the [official MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk), and call it from your agent. MCP is showing up in more job posts: about 14% in [a 2026 analysis of 6,964 AI engineering job posts](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/role/02-skills.md).
 
 ---
 

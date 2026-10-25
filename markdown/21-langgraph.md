@@ -2,6 +2,8 @@
 
 *Section 4: Agents · Lesson 21 of 32 · about 1.5 weeks*
 
+**Before you start, check that** your hand-written loop has a step limit and a second tool, and logs every step.
+
 ## Introduction
 
 > **Your hand-written loop forgets everything and can't wait. LangGraph adds memory and patience.**
@@ -22,11 +24,18 @@ By the end of this lesson, you should be able to:
 - Give an agent memory.
 - Pause for a person's approval with interrupts.
 
+## Before you read
+
+A graph is your agent loop drawn as boxes (nodes) and arrows (edges), all sharing one notebook called the state. A checkpointer saves that notebook after every box, which is what lets a run pause for a person and carry on later.
+
+- **state**: the shared data every node reads and updates
+- **interrupt**: a pause that waits for a person's input
+
 ## Assignment
 
 ### Days 1–3 · about 4.5 hours
 
-1. LangChain Academy [Intro to LangGraph](https://academy.langchain.com/courses/intro-to-langgraph), Module 1: Introduction. Some notebooks use LangSmith for tracing; a free [LangSmith](https://docs.smith.langchain.com/) account is enough, or skip those parts. Write the `langgraph` version you installed in your log, and skip LangGraph Studio for now.
+1. LangChain Academy [Intro to LangGraph](https://academy.langchain.com/courses/intro-to-langgraph), Module 1: Introduction (skip its deployment lesson). Some notebooks use LangSmith for tracing; a free [LangSmith](https://docs.smith.langchain.com/) account is enough, or skip those parts. Write the `langgraph` version you installed in your log, and skip LangGraph Studio for now.
 
 ### Days 4–5 · about 3 hours
 
@@ -34,14 +43,14 @@ By the end of this lesson, you should be able to:
 
 ### Days 6–7 · about 3 hours
 
-3. Module 3: UX and Human-in-the-Loop.
+3. Read the [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts) first. Then Module 3: UX and Human-in-the-Loop. Its notebooks pause with breakpoints (`interrupt_before`); that's fine for learning, but your project uses `interrupt()`. Skip the dynamic-breakpoints and time-travel notebooks.
 
 ### Day 8 · about 90 min
 
-4. Read LangGraph's [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts). For approvals, use `interrupt()` and resume with `Command(resume=...)`; the docs recommend static breakpoints only for debugging.
+4. Reread the approvals part of the [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts). For approvals, use `interrupt()` and resume with `Command(resume=...)`; the docs recommend static breakpoints only for debugging.
 5. Rebuild your loop in LangGraph with one interrupt before a tool runs. In your log, list what LangGraph now does that you wrote by hand.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 6. Close this page. In your log, answer from memory, then check:
    - How do you pause a graph for a person, and how do you continue it? ([where to check](https://docs.langchain.com/oss/python/langgraph/interrupts))

@@ -53,11 +53,20 @@ os.makedirs(OUT, exist_ok=True)
 for idx, l in enumerate(lessons):
     prev = lessons[idx - 1] if idx else None
     nxt = lessons[idx + 1] if idx + 1 < TOTAL else None
-    out = [f"# {full_title(l)}", "", f"*Section {l['section_n']}: {l['section_title']} · Lesson {l['n']} of {TOTAL} · {l['time']}*", "", "## Introduction", ""]
+    out = [f"# {full_title(l)}", "", f"*Section {l['section_n']}: {l['section_title']} · Lesson {l['n']} of {TOTAL} · {l['time']}*", ""]
+    if l.get("checkpoint"):
+        out += [f"**Before you start, check that** {md(l['checkpoint'])}", ""]
+    out += ["## Introduction", ""]
+    sec = course["sections"][l["section_n"] - 1]
+    if sec.get("opener") and sec["lessons"][0]["slug"] == l["slug"]:
+        out += [f"*{md(sec['opener'])}*", ""]
     if l.get("hook"):
         out += [f"> **{md(l['hook'])}**", ""]
     for p in l.get("intro", []):
         out += [md(p), ""]
+    if l.get("story"):
+        st = l["story"]
+        out += [f"**True story ({st['year']}): {st.get('title', 'what went wrong')}.** {md(st['what'])} [Source]({st['url']})", "", f"**What you'll do differently:** {md(st['lesson'])}", ""]
     if l.get("unlocks"):
         out += [f"**After this, you can** {md(l['unlocks'])}", ""]
     if l.get("edge"):
@@ -74,6 +83,10 @@ for idx, l in enumerate(lessons):
             site = course.get("site", "")
             out += [f"This lesson has a 2-minute interactive warm-up. [Try it on the web page]({site}#{l['slug']})." if site
                     else "This lesson has a 2-minute interactive warm-up. Open this lesson in `index.html` to try it.", ""]
+    if l.get("bridge") or l.get("picture"):
+        br = l.get("bridge") or {}
+        out += ["## Before you read", ""] + ([f"**Picture this:** {md(l['picture'])}", ""] if l.get("picture") else []) + ([md(br["text"]), ""] if br.get("text") else [])
+        out += [f"- **{md(t[0])}**: {md(t[1])}" for t in br.get("terms", [])] + [""]
     out += ["## Assignment", ""]
     if l.get("watch"):
         out += ["### Prefer watching?", ""]
@@ -90,11 +103,16 @@ for idx, l in enumerate(lessons):
             k += 1
         out.append("")
     if l.get("recall"):
-        out += ["### Recall · 10 min", "", f"{k}. Close this page. In your log, answer from memory, then check:"]
+        out += ["### Memory check · 10 min", "", f"{k}. Close this page. In your log, answer from memory, then check:"]
         out += [f"   - {md(r['q'])} ([where to check]({link_target(r['link'])}))" for r in l["recall"]]
         out += [f"{k + 1}. Write one more line: how will this lesson help your Campus Assistant?", ""]
     if l.get("done"):
         out += ["## You're done when", ""] + [f"- [ ] {md(p)}" for p in l["done"]] + [""]
+    if l.get("showoff"):
+        so = l["showoff"]
+        out += ["## Show it off", "", f"**Your one-line pitch:** {md(so['pitch'])}", "", "A 3-minute demo, in this order:", ""] + [f"{i}. {md(d)}" for i, d in enumerate(so["demo"], 1)] + [""]
+        if so.get("proves"):
+            out += ["What it proves to employers:", ""] + [f"- {md(x)}" for x in so["proves"]] + [""]
     if l.get("extra_credit"):
         out += ["## Extra credit", ""] + [f"- {md(p)}" for p in l["extra_credit"]] + [""]
     if l.get("extra"):
@@ -113,7 +131,7 @@ for idx, l in enumerate(lessons):
 readme = [f"# {course['title']} (Markdown version)", "", f"*{md(course['tagline'])}*", "",
           "This folder has every lesson as a Markdown file. For the full clickable course with progress tracking, open `index.html` in the folder above.", ""]
 for si, sec in enumerate(course["sections"], 1):
-    readme += [f"## Section {si}: {sec['title']} ({sec['weeks']})", "", md(sec.get("description", "")), ""]
+    readme += [f"## Section {si}: {sec['title']} ({sec['weeks']})", ""] + ([f"*{md(sec['opener'])}*", ""] if sec.get("opener") else []) + [md(sec.get("description", "")), ""]
     if sec.get("shift"):
         readme += [f"- **Before:** {md(sec['shift']['before'])}", f"- **After:** {md(sec['shift']['after'])}", ""]
     for l in [x for x in lessons if x["section_n"] == si]:

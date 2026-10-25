@@ -2,9 +2,11 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 18 of 32 · about 6 hours*
 
+**Before you start, check that** Ask MDN v0.5 saves every conversation with tokens, cost and a thumbs rating.
+
 ## Introduction
 
-> **Deploying is easy. Rolling back calmly is the skill.**
+> **Anyone can press deploy. The professional is the one who can undo it in two minutes, calmly, at midnight.**
 
 Deploying means putting your app online. It's an important skill, so you'll do it now.
 
@@ -12,7 +14,7 @@ Ask MDN will be a private app that only people you invite can use. Its search fi
 
 **After this, you can** put an app online privately and undo a bad release.
 
-**The skill that lasts:** a safe release routine, the same on every team.
+**The skill that lasts:** a safe release routine: deploy, check, roll back. Tools differ between teams; the routine carries over.
 
 ## Lesson overview
 
@@ -45,7 +47,7 @@ By the end of this lesson, you should be able to:
 
 8. Check your OpenAI budget alerts and credit balance, then write a short “How to deploy” section in your README. Recruiters can't open a private app, so add a short GIF or recording of it working. This is **Ask MDN v0.6**: it's online.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 9. Close this page. In your log, answer from memory, then check:
    - Where does the API key live when the app is online? ([where to check](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management))

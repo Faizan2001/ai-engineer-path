@@ -12,7 +12,7 @@ This lesson gives you two habits: ask clear questions, and understand every line
 
 **After this, you can** get fast answers to good questions, and defend every line you commit.
 
-**The skill that lasts:** owning code you didn't type. When AI writes more of the code, the person who can check it is the one people trust.
+**The skill that lasts:** owning code you didn't type. As AI writes more of the code, checking it well becomes a more visible skill.
 
 ## Lesson overview
 
@@ -30,7 +30,7 @@ By the end of this lesson, you should be able to:
 4. Copy this rule to the top of your log: “Before I commit code, I can explain what it does and why.” Here's why: in a [2026 Anthropic study](https://www.anthropic.com/research/AI-assistance-coding-skills), developers who used AI while learning a new Python library scored 50% on a quiz afterwards, against 67% for those who coded by hand. People who handed AI the whole task learned least; people who used it to ask questions and get explanations did much better. Interviewers check this too.
 5. Post a short hello in the Zoomcamp Slack with your weekly goal, and ask if anyone wants a study buddy. One person to check in with each week makes it much easier to keep going.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 6. Close this page. In your log, answer from memory, then check:
    - What should a good question for help include? ([where to check](https://www.theodinproject.com/lessons/foundations-asking-for-help))

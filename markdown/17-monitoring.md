@@ -2,9 +2,11 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 17 of 32 · about 1 week*
 
+**Before you start, check that** your log has saved answers for the 20 practice questions and a judge agreement number.
+
 ## Introduction
 
-> **Users will ask things you never imagined. Logs tell you what.**
+> **Sooner or later someone will ask Ask MDN for a biryani recipe. Logs show you the question, and what it said back.**
 
 Once people use your app, you need to see what's happening: what they ask, what it answers, how much it costs and how fast it is. You'll also save every chat so you can study real conversations later.
 
@@ -19,6 +21,13 @@ By the end of this lesson, you should be able to:
 - Turn your Streamlit page into a full chat app.
 - Save every conversation and its cost to a database.
 - Collect user feedback and show it on a dashboard.
+
+## Before you read
+
+Monitoring means keeping a receipt for every answer: the question, the answer, its sources, the time, tokens, cost and a thumbs up or down. Later you read the receipts to find failures. A dashboard is only a view of that table; the table is what matters.
+
+- **conversation log**: one database row per question and answer
+- **feedback**: the thumbs up or down saved on that row
 
 ## Assignment
 
@@ -42,7 +51,7 @@ By the end of this lesson, you should be able to:
 
 5. Add to Ask MDN: save every conversation with the question, answer, cited pages, time taken, tokens and cost. Add a thumbs up or down button. This is **Ask MDN v0.5**: you can see what people ask and what each answer costs.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 6. Close this page. In your log, answer from memory, then check:
    - What should you save for every answer? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/04-metrics.md))

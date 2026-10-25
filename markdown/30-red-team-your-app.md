@@ -2,6 +2,8 @@
 
 *Section 5: Make It Sturdy · Lesson 30 of 32 · about 6 hours*
 
+**Before you start, check that** your sync removes deleted pages and their chunks, and the deleted-page test passes.
+
 ## Introduction
 
 > **Today you're the attacker. Break your own app before a stranger does.**
@@ -28,6 +30,13 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 **Predict:** Your app passes all its normal tests. Is it safe?
 
+## Before you read
+
+Attacks come two ways: the user types something sneaky, or a page the app finds hides instructions. An attack works if the app shows or does something that user shouldn't get. The model-graded plugins are estimates; a canary phrase shown to the wrong user is proof.
+
+- **prompt injection**: text that tries to override the app's instructions
+- **canary**: a planted secret phrase that proves a leak if it appears
+
 ## Assignment
 
 ### Prefer watching?
@@ -40,7 +49,7 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 ### Day 2 · about 90 min
 
-2. Set up three plugins: [rbac](https://www.promptfoo.dev/docs/red-team/plugins/rbac/) (access control), [hijacking](https://www.promptfoo.dev/docs/red-team/plugins/hijacking/) and [indirect prompt injection](https://www.promptfoo.dev/docs/red-team/plugins/indirect-prompt-injection/). Generate 30 attack cases and commit them, so the test stays the same each time. Generating uses promptfoo's online service and counts toward its free limits, so generate once. If it's unavailable, write the cases by hand.
+2. Set up three plugins: [rbac](https://www.promptfoo.dev/docs/red-team/plugins/rbac/) (access control), [hijacking](https://www.promptfoo.dev/docs/red-team/plugins/hijacking/) and [indirect prompt injection](https://www.promptfoo.dev/docs/red-team/plugins/indirect-prompt-injection/). Generate 30 attack cases and commit them, so the test stays the same each time. Generating can use promptfoo's online service, which may have usage limits, so generate once. If it's unavailable, write the cases by hand.
 
 ### Day 3 · about 90 min
 
@@ -48,9 +57,9 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 ### Day 4 · about 90 min
 
-4. Run the attacks and write down every one that worked. You'll fix them in the project.
+4. Run the attacks and write down every one that worked. A passing rbac test is a model's opinion, not proof; a canary phrase shown to the wrong user is proof, so check the canaries and your database yourself. You'll fix the failures in the project.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 5. Close this page. In your log, answer from memory, then check:
    - What does the rbac plugin test? ([where to check](https://www.promptfoo.dev/docs/red-team/plugins/rbac/))

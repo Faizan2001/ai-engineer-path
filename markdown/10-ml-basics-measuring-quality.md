@@ -2,6 +2,8 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 10 of 32 · about 1 week*
 
+**Before you start, check that** Ask MDN v0.1 loads your two MDN folders into minsearch and finds a sensible page for “What does flex-wrap do?”.
+
 ## Introduction
 
 > **Write the exam, mark it yourself, score 100%. Machine learning calls that a bug.**
@@ -49,7 +51,7 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 4. Write 10 questions the docs can't answer, like “What's the best laptop for coding?”. Ask MDN must say “I don't know” to these.
 5. Commit both files. In Measuring Search you'll create 50 more questions that stay hidden until the final project.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 6. Close this page. In your log, answer from memory, then check:
    - Why must test questions stay hidden while you tune? ([where to check](https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets))

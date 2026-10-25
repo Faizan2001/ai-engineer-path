@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#23262B">
 <title>AI Engineer Path</title>
 <meta name="description" content="A free, step-by-step path to becoming an AI engineer: RAG, agents, testing and deployment, built through four projects, with small hands-on widgets along the way.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,16 +16,19 @@
 <body>
 <button type="button" class="skip-main" data-action="skip-main">Skip to content</button>
 <div class="topbar-wrap"><header class="wrap topbar">
-  <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">AE</span>AI Engineer Path</a>
-  <nav class="topnav" aria-label="Main">
-    <a href="#home">Course</a>
-    <button type="button" class="navlink" data-action="how">How it works</button>
-    <a id="nav-community" href="https://datatalks.club/slack.html" target="_blank" rel="noopener noreferrer">Community</a>
-    <a id="nav-github" href="https://github.com/Faizan2001/ai-engineer-path" target="_blank" rel="noopener noreferrer">GitHub</a>
-  </nav>
-  <span class="prog"><span id="prog-text">0 of 32 done</span><span class="minibar"><span id="prog-fill" style="width:0%"></span></span></span>
-  <span id="save-chip" class="chip">Saved in this browser</span>
-  <button type="button" id="theme-btn" class="theme-btn" hidden>Dark mode</button>
+  <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">AE</span><span class="brand-name">AI Engineer Path</span></a>
+  <span class="prog"><span id="prog-text">0 of 32 done</span><span class="minibar" aria-hidden="true"><span id="prog-fill" style="width:0%"></span></span></span>
+  <button type="button" class="menu-btn" data-action="menu" aria-expanded="false" aria-controls="site-menu">Menu</button>
+  <div class="menu" id="site-menu">
+    <nav class="topnav" aria-label="Main">
+      <a href="#home">Course</a>
+      <button type="button" class="navlink" data-action="how">How it works</button>
+      <a id="nav-community" href="https://datatalks.club/slack.html" target="_blank" rel="noopener noreferrer">Community</a>
+      <a id="nav-github" href="https://github.com/Faizan2001/ai-engineer-path" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <span id="save-chip" class="chip">Saved in this browser</span>
+    <button type="button" id="theme-btn" class="theme-btn" hidden>Dark mode</button>
+  </div>
 </header></div>
 <main id="view"></main>
 <footer class="wrap site-foot">

@@ -31,7 +31,7 @@ By the end of this lesson, you should be able to:
 3. Write down your goal for after this path: a **Campus Assistant** for your university Events platform, an assistant that answers students' questions and keeps each university's data separate. Every project here teaches part of it.
 4. Take 10 minutes and write in your log: why does this matter to you, and to the people you care about? Be specific. You'll reread it when motivation dips.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 5. Close this page. In your log, answer from memory, then check:
    - Which parts of an AI engineer's job are normal software engineering? ([where to check](https://github.com/alexeygrigorev/ai-engineering-field-guide))

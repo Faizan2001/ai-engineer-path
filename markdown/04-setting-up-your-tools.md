@@ -4,15 +4,21 @@
 
 ## Introduction
 
+*You paste a blurry concert poster into ChatGPT and it reads it perfectly. Then your code tries a hundred posters and gets back ninety-seven forms, an essay, a refusal and a rate-limit error. This section closes the gap between that demo and a real feature: tokens, typed output, retries, cost per call and a person who presses Approve.*
+
 > **Your API key is a password that spends money. Make leaking it hard, and cheap if it happens.**
 
 Let's get your computer ready. You'll use this setup for the whole path, so take your time.
 
 You'll also protect your API key. An API key is like a password that lets your code use a paid AI service, so it must stay secret.
 
+**True story (2023): secret code pasted into a chatbot.** Samsung engineers pasted internal source code into ChatGPT. The company then restricted AI chat tools on work devices. [Source](https://www.forbes.com.au/news/innovation/samsung-bans-chatgpt-among-employees-after-sensitive-code-leak/)
+
+**What you'll do differently:** write rules for your assistant on day one: no keys, secrets or private code in prompts.
+
 **After this, you can** run paid AI calls with capped cost and no leaked keys.
 
-**The skill that lasts:** secret and cost hygiene, the habit every team checks first.
+**The skill that lasts:** secret and cost hygiene, a habit reviewers notice quickly.
 
 ## Lesson overview
 
@@ -38,7 +44,7 @@ By the end of this lesson, you should be able to:
 6. **No AI for this one:** write a script that reads a CSV file, counts the rows for each value in one column and prints the top 3. Stuck for more than 20 minutes? Review the [Python tutorial](https://docs.python.org/3/tutorial/).
 7. Add an `AGENTS.md` file ([the format](https://agents.md/)) to your repo. It's a note for your AI coding assistant. Tell it to explain, review and ask you questions, not to write your lesson solutions.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 8. Close this page. In your log, answer from memory, then check:
    - Why must your API key never be in your code or Git history? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md))

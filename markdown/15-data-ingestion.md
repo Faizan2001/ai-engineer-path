@@ -2,6 +2,8 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 15 of 32 · about 4.5 hours*
 
+**Before you start, check that** Ask MDN v0.4 combines both searches and says “I don't know” below your cut-off.
+
 ## Introduction
 
 > **A good ingestion script is a lift button: press it ten times, still one trip.**
@@ -9,6 +11,10 @@
 Ingestion means loading your data into the app. Real data changes, so a good ingestion script is safe to run again and again without creating duplicates.
 
 You'll write Ask MDN's ingestion script now, and in Section 5 you'll extend it to handle edited and deleted pages.
+
+**True story (2024): glue on pizza.** Google's AI search answers suggested putting glue on pizza, built from a joke forum post. Google then limited which sources those answers could use. [Source](https://www.theregister.com/2024/05/31/google_ai_search_update)
+
+**What you'll do differently:** choose what you ingest, and record every source in your manifest, so a bad answer can be traced back.
 
 **After this, you can** reload changing data without creating duplicates.
 
@@ -21,6 +27,19 @@ By the end of this lesson, you should be able to:
 - Write ingestion that's safe to run twice.
 - Track every page with a content hash.
 - Keep a list (manifest) of everything you loaded.
+
+## Try it first
+
+Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+
+**Predict:** You run your ingestion script twice by accident. What happens to your search results?
+
+This lesson has a 2-minute interactive warm-up. [Try it on the web page](https://faizan2001.github.io/ai-engineer-path/#data-ingestion).
+
+## Before you read
+
+**Picture this:** A class register, not a guest book. A guest book adds a line every time someone walks in; a register has one row per roll number, so calling the roll twice changes nothing. Your ingestion keys each page by its URL and a content hash, so a rerun only touches pages that really changed.
+
 
 ## Assignment
 
@@ -36,7 +55,7 @@ By the end of this lesson, you should be able to:
 
 3. Save and commit a manifest file: a list of every page path and its hash from this run. You'll compare manifests in Fresh Data. Write 2 pytest tests for the script. Commit early and often, with messages that say what changed.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 4. Close this page. In your log, answer from memory, then check:
    - What makes an ingestion script safe to run twice? ([where to check](15-data-ingestion.md))

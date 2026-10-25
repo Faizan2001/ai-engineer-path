@@ -2,6 +2,8 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 11 of 32 · about 1 week*
 
+**Before you start, check that** your practice questions and unanswerable questions are committed in `ask-mdn`.
+
 ## Introduction
 
 > **The model can't run code. It can only ask nicely. Your code decides.**
@@ -28,6 +30,13 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 **Predict:** Can a language model run your Python function by itself? If not, who does?
 
+## Before you read
+
+The model can't run code. It sends back a structured request: “call search with this query”. Your code runs it, sends back the result and asks again. This repeats until the model answers in plain text, or a step limit stops it.
+
+- **function call**: the model's structured request for your code to run a named function
+- **developer message**: Zoomcamp's name for the message that holds the agent's instructions
+
 ## Assignment
 
 ### Prefer watching?
@@ -48,26 +57,26 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 ### Day 4 · about 90 min
 
-4. Skim [15 Frameworks](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/15-frameworks.md) and [16 Other frameworks](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/16-other-frameworks.md). This path uses LangGraph later.
-5. **No AI for this one:** close the course code and rewrite the agent loop from memory, in 20 minutes at most. Then compare and fix the gaps.
-6. Add to Ask MDN: turn your search into a tool, let the model call it, and log every call.
+4. **No AI for this one:** close the course code and rewrite the agent loop from memory, in 20 minutes at most. Then compare and fix the gaps.
+5. Add to Ask MDN: turn your search into a tool, let the model call it, and log every call.
 
 ### Day 5 · about 90 min
 
-7. Build a small Streamlit chat page for Ask MDN (about 20 lines, using what you learned in Structured Output and Errors). This is **Ask MDN v0.2**: you can chat with it, and it decides when to search. Ask it 5 of your practice questions, then show it to a friend if one is around.
+6. Build a small Streamlit chat page for Ask MDN (about 20 lines, using what you learned in Structured Output and Errors). This is **Ask MDN v0.2**: you can chat with it, and it decides when to search. Ask it 5 of your practice questions, then show it to a friend if one is around.
 
-### Recall · 10 min
+### Memory check · 10 min
 
-8. Close this page. In your log, answer from memory, then check:
+7. Close this page. In your log, answer from memory, then check:
    - What stops an agent loop from running forever? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md))
    - What is the difference between precision and recall? ([where to check](10-ml-basics-measuring-quality.md))
-9. Write one more line: how will this lesson help your Campus Assistant?
+8. Write one more line: how will this lesson help your Campus Assistant?
 
 ## Additional resources
 
 These are optional. Use them if you want to go further.
 
 - [Anthropic, Building effective agents (worth a second read now)](https://www.anthropic.com/engineering/building-effective-agents)
+- Zoomcamp [15 Frameworks](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/15-frameworks.md) and [16 Other frameworks](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/16-other-frameworks.md): a tour of agent frameworks. This path uses LangGraph in Section 4.
 - [You should write an agent](https://fly.io/blog/everyone-write-an-agent/) by Thomas Ptacek, Fly.io: why writing a small agent yourself teaches more than reading about one.
 
 ---

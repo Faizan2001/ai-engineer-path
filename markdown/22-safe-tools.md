@@ -10,9 +10,13 @@ As soon as an agent can do things, someone can try to trick it. A web page or do
 
 You can't fix this with a better prompt. You fix it with code and careful design.
 
+**True story (2024): a planted message turns Slack AI against its users.** Security researchers showed that a message planted in a public Slack channel could trick Slack AI into showing a user a link that, if clicked, sent private data to an attacker. [Source](https://www.theregister.com/2024/08/21/slack_ai_prompt_injection/)
+
+**What you'll do differently:** map the lethal trifecta before you build, then cut one leg in code.
+
 **After this, you can** spot an agent's attack path before you write any code.
 
-**The skill that lasts:** threat modelling. There's still no reliable prompt-only defence, so this design skill doesn't expire when models improve.
+**The skill that lasts:** threat modelling. There's no reliable prompt-only defence today, so designing safe tool access matters now.
 
 ## Lesson overview
 
@@ -41,7 +45,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 3. For Ask MDN's agent, write down its three trifecta parts: private data, untrusted content and a way to send data out (Simon Willison calls it external communication). Which part will you cut off, and how?
 4. Design your approval rule: a person approves the exact tool name and its exact arguments. If anything changes, the approval no longer counts.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 5. Close this page. In your log, answer from memory, then check:
    - What are the three parts of the lethal trifecta? ([where to check](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/))

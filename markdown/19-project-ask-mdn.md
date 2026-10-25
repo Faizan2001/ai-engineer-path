@@ -2,6 +2,8 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 19 of 32 · about 3 weeks*
 
+**Before you start, check that** Ask MDN v0.6 runs online as your private app, with conversations saved in Neon.
+
 ## Introduction
 
 > **You know MDN, so you'll spot Ask MDN's mistakes first. That's your unfair advantage.**
@@ -12,7 +14,7 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 
 **After this, you can** demo a live, cited RAG app, with scores measured on questions it never saw.
 
-**The skill that lasts:** end-to-end ownership, backed by evidence. This is the repo interviewers will ask you about.
+**The skill that lasts:** end-to-end ownership, backed by evidence. This is likely the repo interviewers will ask about.
 
 ## Before you start
 
@@ -44,7 +46,7 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 9. Finish the README. Open it with a real bug you once lost hours to, and Ask MDN's cited answer. Then: how it works, how to run it, your results, a GIF and what you'd improve.
 10. If a Zoomcamp cohort is open, submit your project for peer review. If not, share your repo in `#course-llm-zoomcamp` and ask for feedback.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 11. Close this page. In your log, answer from memory, then check:
    - What goes into a RAG prompt? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/06-building-prompt.md))
@@ -58,6 +60,23 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 - [ ] It says “I don't know” to all 10 questions the docs can't answer.
 - [ ] It runs online as your private Streamlit app, with the API key stored in Secrets and conversations saved in Neon.
 - [ ] You can explain how a request moves through your app, two decisions you made and one problem you fixed. You wrote at least one whole function without AI help, and noted its commit in your log.
+
+## Show it off
+
+**Your one-line pitch:** Hybrid-search RAG over MDN that cites its pages, says “I don't know”, and reports scores on questions it never saw.
+
+A 3-minute demo, in this order:
+
+1. Start with a real bug you once lost hours to, and show Ask MDN's cited answer.
+2. Ask something the docs don't cover and get “I don't know”.
+3. Show Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions.
+4. Show the logs: what each answer cost and how users rated it.
+5. Walk through one failure you found and fixed.
+
+What it proves to employers:
+
+- RAG, the most named pattern in job posts: about 40% of the posts in [a 2026 analysis of 6,964 AI engineering job posts](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/role/02-skills.md), and [rising](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/role/07-trends.md).
+- Vector search, measuring retrieval, and running and monitoring an LLM app in production.
 
 ## Extra credit
 

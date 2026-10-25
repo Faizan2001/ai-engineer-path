@@ -2,6 +2,8 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 14 of 32 · about 4.5 hours*
 
+**Before you start, check that** your README has Hit Rate@5 and MRR@5 for keyword and vector search, and the 50 held-back questions are committed.
+
 ## Introduction
 
 > **Keyword search knows `justify-content`; vector search knows “center a box”. RRF lets them vote.**
@@ -30,6 +32,15 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 This lesson has a 2-minute interactive warm-up. [Try it on the web page](https://faizan2001.github.io/ai-engineer-path/#hybrid-search).
 
+## Before you read
+
+**Picture this:** Two judges rank the same singers on different scales, so adding their marks means nothing. RRF throws away the marks and keeps only the places: each list gives a singer 1/(k + place) points, and the totals decide.
+
+Each search gives a ranked list, and their scores can't be compared. RRF ignores the scores and uses only positions: each list gives a page 1/(k + position) points, and you add them up. A page fairly high in both lists beats one at the top of only one.
+
+- **RRF**: merging ranked lists by adding 1 ÷ (k + position)
+- **threshold**: the score below which the app says “I don't know”
+
 ## Assignment
 
 ### Prefer watching?
@@ -38,7 +49,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ### Day 1 · about 90 min
 
-1. Read Module 6 lessons [02 Hybrid search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md) and [03 Reranking (RRF)](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/03-reranking.md). They were recorded in 2024, so some code is old. Take the ideas, not the code.
+1. Read Module 6 lessons [02 Hybrid search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md) and [03 Reranking (RRF)](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/03-reranking.md). They were recorded in 2024, so some code is old. Take the ideas, not the code. Skip the Elasticsearch part of 03: its built-in RRF needs a paid licence. Lesson 02 uses k = 1 and 03 uses 60; Ask MDN uses 60.
 
 ### Day 2 · about 90 min
 
@@ -47,9 +58,9 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 ### Day 3 · about 90 min
 
 3. Measure Hit Rate@5 and MRR@5 for hybrid search on your practice questions and compare with keyword and vector search.
-4. Set an “I don't know” threshold: look at the top search score for your practice questions and your 10 unanswerable ones, and pick a cut-off that separates them. Below it, Ask MDN says “I don't know”. Don't tune it forever: pick a cut-off today, write down the numbers and why, and move on. This is **Ask MDN v0.4**: it combines both searches and knows when to say “I don't know”.
+4. Set an “I don't know” threshold: look at the top search score for your practice questions and the 10 unanswerable questions you wrote in [ML Basics](10-ml-basics-measuring-quality.md), and pick a cut-off that separates them. Below it, Ask MDN says “I don't know”. Don't tune it forever: pick a cut-off today, write down the numbers and why, and move on. This is **Ask MDN v0.4**: it combines both searches and knows when to say “I don't know”.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 5. Close this page. In your log, answer from memory, then check:
    - What does RRF use from each result list? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md))

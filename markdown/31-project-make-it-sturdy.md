@@ -2,6 +2,8 @@
 
 *Section 5: Make It Sturdy · Lesson 31 of 32 · about 3.5 weeks*
 
+**Before you start, check that** your 30 attack cases and 5 canary documents are committed, with a list of the attacks that worked.
+
 ## Introduction
 
 > **Dress rehearsal for the Campus Assistant: two groups, real logins, one tireless attacker. It's you.**
@@ -42,7 +44,7 @@ It's very close to the Campus Assistant you'll build next. You've got this!
 8. Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.
 9. Update the README with your results and a diagram of how it fits together. End with a one-page pitch for the Campus Assistant: what you'd change to serve many universities.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 10. Close this page. In your log, answer from memory, then check:
    - Why can a role created in Neon's website skip your access rules? ([where to check](https://neon.com/docs/manage/roles))
@@ -58,11 +60,29 @@ It's very close to the Campus Assistant you'll build next. You've got this!
 - [ ] Cost tracking for each group, the rate limit and the off switch all work.
 - [ ] You can explain how a request moves through your app, two decisions you made and one problem you fixed. You found and fixed at least one bug without AI help, and wrote down how you found it.
 
+## Show it off
+
+**Your one-line pitch:** A two-group AI assistant with logins, Postgres row-level security, CI evals and red-team results showing zero leaks.
+
+A 3-minute demo, in this order:
+
+1. Sign in as the CSS user and try to reach a JS canary through search, a tool and a guessed document ID. Show the policy that blocks all three.
+2. Push a broken prompt and watch CI fail; revert it and watch it pass.
+3. Delete a page, run the sync, and show its citation is gone.
+4. Show the attack table: 30 cases, 3 runs each, zero leaks.
+5. Close with per-group cost, the rate limit, the off switch and your Campus Assistant pitch.
+
+What it proves to employers:
+
+- CI/CD (2,560 of the 6,964 posts in [a 2026 analysis of 6,964 AI engineering job posts](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/role/02-skills.md)), evals and security together.
+- PostgreSQL and SQL, and keeping a deployed system healthy.
+
 ## Extra credit
 
 - Give each group a monthly budget that pauses answers when it runs out.
 - Add a third group that can see both CSS and JavaScript docs.
 - Capture the flag: give a friend 30 minutes, signed in as the CSS team, to leak a JS canary. Add their attempts to your attack cases.
+- Put `answer()` behind a small FastAPI `/answer` endpoint with a Dockerfile, so the app can run on any cloud.
 
 ---
 

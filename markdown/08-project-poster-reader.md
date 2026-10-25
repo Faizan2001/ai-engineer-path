@@ -4,7 +4,7 @@
 
 ## Introduction
 
-> **Your first AI feature reads messy posters. Its best part: a human approves everything.**
+> **A blurry poster goes in; a clean event form comes out. The smartest part of the feature is the Approve button.**
 
 Time for your first real AI feature! You'll take a photo of an event poster and turn it into a filled event form.
 
@@ -37,7 +37,7 @@ A person always checks and approves the form before anything is saved. This is t
 6. Improve your prompt using only the 10 practice posters. When you're happy, run the 5 held-back posters once.
 7. Write a README: what it does, how to run it, your score on the held-back posters, the cost per poster and one note for every mistake. Add a 60-second recording or GIF: photo in, draft out, a human fix, then approval.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 8. Close this page. In your log, answer from memory, then check:
    - Why do the held-back posters stay hidden while you improve the prompt? ([where to check](08-project-poster-reader.md))
@@ -50,6 +50,22 @@ A person always checks and approves the form before anything is saved. This is t
 - [ ] Nothing can be saved without approval. You tried to break this and couldn't.
 - [ ] A failed API call is retried at most twice, then shows “needs a human”.
 - [ ] You can explain how a request moves through your app, two decisions you made and one problem you fixed. You made at least one change without AI help, and wrote down its commit in your log.
+
+## Show it off
+
+**Your one-line pitch:** A photo of a bilingual campus poster becomes a checked event form that saves only after a person approves it.
+
+A 3-minute demo, in this order:
+
+1. Upload a messy Bangla and English poster and show the draft form.
+2. Show a plain-code check catching an impossible date, and a failed call ending in “needs a human”.
+3. Fix one field, approve it, and show that nothing saves any other way.
+4. Open the README: your score on the 5 held-back posters, the cost per poster and one mistake you explain.
+
+What it proves to employers:
+
+- Python and model APIs, the base of the job: Python appears in about 71% of the posts in [a 2026 analysis of 6,964 AI engineering job posts](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/role/02-skills.md).
+- Evaluating on data you held back. Evals appear in about 60% of AI-first roles in the same analysis.
 
 ## Extra credit
 

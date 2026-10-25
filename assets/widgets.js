@@ -311,5 +311,139 @@
     draw();
   };
 
+
+  // ------------------------------------------------------------------ 7. Accept, retry or ask a human? (structured output)
+  W["form-check"] = function (root) {
+    var R = [
+      ['{"title": "Hackathon", "date": "2026-11-06", "time": "15:00", "venue": "Room 402"}', "accept", "Valid JSON, and every field passes your checks. Save the draft for a person to approve."],
+      ['Sure! Here is the event: {"title": "Hackathon", ...}', "retry", "Text around the JSON breaks parsing. Retry once; strict structured output stops this from happening at all."],
+      ['{"title": "Hackathon", "date": "next Friday", "time": "3pm", "venue": "Room 402"}', "human", "Valid JSON, invalid data. “next Friday” isn't a date your code can check, so a person decides."],
+      ['{"refusal": "I can\'t help with this image."}', "human", "A refusal won't change on retry. Log it and hand it to a person."],
+      ["HTTP 429: Rate limit reached. Try again in 2 seconds.", "retry", "Too many requests at once. Wait a moment and retry; it usually works."],
+      ["HTTP 400: Invalid image format.", "human", "Your request is wrong, so a retry fails every time and costs money. Fix the code or ask a person."]
+    ];
+    var LABEL = { accept: "Accept", retry: "Retry", human: "Human" };
+    var name = nid("fc"), picks = {};
+    root.innerHTML = '<p class="w-sentence">Your Poster Reader got these six replies. For each one: <mark>accept it, retry the call, or hand it to a human?</mark></p>' +
+      '<ol class="w-replies">' + R.map(function (x, i) {
+        return '<li><pre class="w-reply">' + esc(x[0]) + '</pre><fieldset class="w-choice"><legend class="sr-only">Reply ' + (i + 1) + "</legend>" +
+          ["accept", "retry", "human"].map(function (v) {
+            return '<label><input type="radio" name="' + name + i + '" value="' + v + '" data-i="' + i + '"> ' + LABEL[v] + "</label>";
+          }).join("") + '</fieldset><p class="w-why" hidden></p></li>';
+      }).join("") + "</ol>" +
+      '<div class="w-actions"><button type="button" class="w-btn" data-do="check">Check my answers</button></div><p class="w-result" aria-live="polite"></p>' +
+      reveal("Valid JSON isn't the same as valid data: your own checks decide what's safe to save. And only some failures deserve a retry. Rate limits and timeouts often pass on a second try; bad requests and refusals never do, so retrying them just burns credit.");
+    root.addEventListener("change", function (e) { if (e.target.name && e.target.name.indexOf(name) === 0) picks[e.target.getAttribute("data-i")] = e.target.value; });
+    root.addEventListener("click", function (e) {
+      if (!e.target.closest('[data-do="check"]')) return;
+      var right = 0, wasted = 0;
+      qa(root, ".w-replies > li").forEach(function (li, i) {
+        var p = picks[i], ok = p === R[i][1], why = q(li, ".w-why");
+        if (ok) right++;
+        if (p === "retry" && R[i][1] !== "retry") wasted++;
+        li.className = p ? (ok ? "ok" : "bad") : "";
+        why.hidden = false;
+        why.textContent = (p ? (ok ? "Right: " : "Better: " + LABEL[R[i][1]] + ". ") : "Best answer: " + LABEL[R[i][1]] + ". ") + R[i][2];
+      });
+      q(root, ".w-result").textContent = right + " of " + R.length + " right." + (wasted ? " " + wasted + " retr" + (wasted > 1 ? "ies" : "y") + " would have failed again and still cost money." : "");
+    });
+  };
+
+  // ------------------------------------------------------------------ 8. Run it twice (idempotent ingestion)
+  W["run-twice"] = function (root) {
+    var PAGES = [["flexbox", "Flexbox guide"], ["grid", "Grid layout"], ["align-items", "align-items"], ["justify-content", "justify-content"], ["gap", "gap"]];
+    var mode = "append", runs = 0, rows = [], log = [], m = nid("mode");
+    function hash(slug) { return slug === "align-items" && runs > 2 ? "v2" : "v1"; }
+    root.innerHTML = '<div class="w-row w-inline" role="radiogroup" aria-label="How the script saves pages">' +
+      '<label><input type="radio" name="' + m + '" value="append" checked> Append a row every time</label>' +
+      '<label><input type="radio" name="' + m + '" value="upsert"> Upsert by page URL and content hash</label></div>' +
+      '<div class="w-actions"><button type="button" class="w-btn" data-do="run">Run ingestion</button><button type="button" class="w-btn ghost" data-do="reset">Reset</button></div>' +
+      '<p class="w-meter" aria-live="polite"></p><div class="w-cols"><div><h3 class="w-h">Top 5 results for “flexbox”</h3><ol class="w-list top"></ol></div>' +
+      '<div><h3 class="w-h">What changed</h3><ul class="w-list chg"></ul></div></div>' +
+      reveal("Append mode adds every page again on each run, so after a few runs your top 5 results are copies of one page, and the model reads the same text five times. Upsert keeps one row per page URL and only rewrites a page when its content hash changes, like a class register: calling the roll twice changes nothing. That's what “safe to run twice” means.");
+    function run() {
+      runs++;
+      var changed = [];
+      PAGES.forEach(function (p) {
+        var h = hash(p[0]);
+        if (mode === "append") { rows.push({ slug: p[0], title: p[1], h: h }); changed.push("added " + p[0]); return; }
+        var ex = rows.filter(function (r) { return r.slug === p[0]; })[0];
+        if (!ex) { rows.push({ slug: p[0], title: p[1], h: h }); changed.push("added " + p[0]); }
+        else if (ex.h !== h) { ex.h = h; changed.push("updated " + p[0] + " (its text changed)"); }
+      });
+      log.unshift("Run " + runs + ": " + (changed.length ? changed.length > 3 ? changed.length + " rows added" : changed.join(", ") : "nothing changed"));
+      if (runs === 2) log.unshift("Meanwhile, MDN edits the align-items page.");
+    }
+    function draw() {
+      var ranked = rows.slice().sort(function (a, b) { return (b.slug === "flexbox") - (a.slug === "flexbox") || (b.slug === "justify-content" || b.slug === "align-items") - (a.slug === "justify-content" || a.slug === "align-items"); });
+      var seen = {};
+      q(root, ".top").innerHTML = ranked.length ? ranked.slice(0, 5).map(function (r) {
+        var dup = seen[r.slug]; seen[r.slug] = true;
+        return "<li>" + esc(r.title) + (dup ? ' <span class="w-tag bad">copy</span>' : "") + "</li>";
+      }).join("") : '<li class="w-none">Nothing yet. Press Run ingestion.</li>';
+      q(root, ".chg").innerHTML = log.slice(0, 5).map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") || '<li class="w-none">No runs yet.</li>';
+      q(root, ".w-meter").textContent = "Runs: " + runs + " · rows in the index: " + rows.length + " (the docs have " + PAGES.length + " pages)";
+      q(root, '[data-do="run"]').disabled = runs >= 5;
+    }
+    root.addEventListener("change", function (e) { if (e.target.name === m) { mode = e.target.value; runs = 0; rows = []; log = []; draw(); } });
+    root.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-do]"); if (!b) return;
+      if (b.getAttribute("data-do") === "run") run(); else { runs = 0; rows = []; log = []; }
+      draw();
+    });
+    draw();
+  };
+
+  // ------------------------------------------------------------------ 9. Mark the marker (checking an LLM judge)
+  W["mark-the-marker"] = function (root) {
+    var A = [
+      ["Does gap work with flexbox?", "Yes. gap works in flex containers in all modern browsers.", 1, 1],
+      ["What does justify-content do in a flex row?", "It spaces items along the main axis, which is horizontal in a row.", 1, 1],
+      ["Is Array.prototype.sort() stable?", "Yes. Since ES2019, sort must keep equal items in their original order.", 1, 1],
+      ["What does align-items: center do in a flex row?", "It centers the items horizontally.", 0, 1],
+      ["Does fetch() reject the promise on a 404?", "Yes. fetch rejects for any 4xx or 5xx status.", 0, 1],
+      ["What does Array.prototype.map() return?", "A new array with the result of calling your function on each item.", 1, 1],
+      ["Can place-items set align-items and justify-items together?", "Yes, it's a shorthand for both.", 1, 1],
+      ["What's the best laptop for coding?", "I don't know. The MDN docs don't cover that.", 1, 1],
+      ["Does const make an object unchangeable?", "No. It stops reassignment, but the object's properties can still change.", 1, 1],
+      ["What is the default flex-direction?", "column", 0, 0]
+    ];
+    var mine = {}, shown = false;
+    root.innerHTML = '<p class="w-sentence">Grade Ask MDN’s answers yourself: <mark>pass if it’s correct, fail if it isn’t.</mark> Then see what an LLM judge said.</p>' +
+      '<ol class="w-marks">' + A.map(function (a, i) {
+        return '<li><p class="w-q">' + esc(a[0]) + '</p><p class="w-a">' + esc(a[1]) + '</p><div class="w-pf" role="group" aria-label="Your grade for answer ' + (i + 1) + '">' +
+          '<button type="button" class="w-btn ghost" data-i="' + i + '" data-v="1" aria-pressed="false">Pass</button><button type="button" class="w-btn ghost" data-i="' + i + '" data-v="0" aria-pressed="false">Fail</button></div>' +
+          '<p class="w-judge" hidden></p></li>';
+      }).join("") + "</ol>" +
+      '<div class="w-actions"><button type="button" class="w-btn" data-do="judge">Show the judge’s grades</button></div><div class="w-out" aria-live="polite"></div>' +
+      reveal("The judge agreed with the right grades 8 times out of 10, which sounds fine. But both misses were the dangerous kind: it passed confident, wrong answers about align-items and fetch(). An average hides that, so look at every disagreement, not just the percentage, and keep spot-checking the judge after you start trusting it.");
+    root.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-i]");
+      if (b) {
+        var i = b.getAttribute("data-i"); mine[i] = +b.getAttribute("data-v");
+        qa(b.parentNode, "button").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); x.classList.toggle("on", x === b); });
+        if (shown) score();
+        return;
+      }
+      if (e.target.closest('[data-do="judge"]')) { shown = true; score(); }
+    });
+    function score() {
+      var n = 0, agreeJ = 0, falsePass = 0, cells = { pp: 0, pf: 0, fp: 0, ff: 0 };
+      qa(root, ".w-marks > li").forEach(function (li, i) {
+        var a = A[i], j = q(li, ".w-judge");
+        j.hidden = false;
+        j.textContent = "Judge: " + (a[3] ? "pass" : "fail") + ". Correct grade: " + (a[2] ? "pass" : "fail") + "." + (a[3] && !a[2] ? " The judge passed a wrong answer." : "");
+        li.className = a[3] !== a[2] ? "bad" : "";
+        if (a[3] === a[2]) agreeJ++; else if (a[3] && !a[2]) falsePass++;
+        if (mine[i] !== undefined) { n++; cells[(mine[i] ? "p" : "f") + (a[3] ? "p" : "f")]++; }
+      });
+      var you = n ? Math.round(100 * (cells.pp + cells.ff) / n) : 0;
+      q(root, ".w-out").innerHTML = '<p class="w-result">The judge matched the correct grades on ' + agreeJ + " of 10, and passed " + falsePass + " wrong answers." +
+        (n ? " You and the judge agreed on " + you + "% of the " + n + " you graded." : " Grade a few yourself to compare.") + "</p>" +
+        '<table class="w-grid2"><caption class="sr-only">You versus the judge</caption><thead><tr><th scope="col"></th><th scope="col">Judge: pass</th><th scope="col">Judge: fail</th></tr></thead><tbody>' +
+        "<tr><th scope=\"row\">You: pass</th><td>" + cells.pp + "</td><td>" + cells.pf + "</td></tr><tr><th scope=\"row\">You: fail</th><td>" + cells.fp + "</td><td>" + cells.ff + "</td></tr></tbody></table>";
+    }
+  };
+
   window.AEP_WIDGETS = W;
 })();

@@ -2,7 +2,11 @@
 
 *Section 5: Make It Sturdy · Lesson 25 of 32 · about 1 week*
 
+**Before you start, check that** `save_note` only runs after approval, and your step, cost and retry limit tests pass.
+
 ## Introduction
+
+*Picture next year's demo. University A's events officer asks your Campus Assistant about next week, and one forgotten WHERE clause shows her University B's unannounced fest. This section rehearses that day with a CSS team and a JS team, and makes the leak impossible rather than unlikely.*
 
 > **“4.2 out of 5” fixes nothing. Fifty real conversations show exactly what to fix.**
 
@@ -12,7 +16,7 @@ In this lesson you'll turn your app's logs into tests. Evals are simply tests fo
 
 **After this, you can** turn real failures into tests that catch them next time.
 
-**The skill that lasts:** error analysis: deciding what “good” means. People discover their criteria by grading real outputs, so this can't be automated away.
+**The skill that lasts:** error analysis: deciding what “good” means. People discover their criteria by grading real outputs, so your judgment sets the bar.
 
 ## Lesson overview
 
@@ -22,6 +26,13 @@ By the end of this lesson, you should be able to:
 - Write a pass-or-fail check for each kind of failure.
 - Check that an LLM judge agrees with you.
 
+## Before you read
+
+Don't invent metrics first. Read 50 real conversations, note each failure in one line, then sort the notes into groups. Each group becomes one yes-or-no test. You find out what “good” means by reading.
+
+- **error analysis**: reading real outputs, noting failures and grouping them
+- **trace**: the full record of one conversation, including tool calls
+
 ## Assignment
 
 ### Prefer watching?
@@ -30,7 +41,7 @@ By the end of this lesson, you should be able to:
 
 ### Day 1 · about 90 min
 
-1. Read the error analysis parts of the [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/) by Hamel Husain and Shreya Shankar.
+1. Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later.
 
 ### Day 2 · about 90 min
 
@@ -48,7 +59,7 @@ By the end of this lesson, you should be able to:
 
 5. Grade 20 answers yourself, then check how often your LLM judge agrees with you.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 6. Close this page. In your log, answer from memory, then check:
    - Why use pass or fail instead of a 1 to 5 score? ([where to check](https://hamel.dev/blog/posts/evals-faq/))

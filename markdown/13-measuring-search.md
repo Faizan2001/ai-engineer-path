@@ -2,6 +2,8 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 13 of 32 · about 1 week*
 
+**Before you start, check that** Ask MDN v0.3 answers from a sqlitesearch vector index built with the ONNX embedder, and keyword search still works.
+
 ## Introduction
 
 > **“It feels better” isn't a metric. Ask MDN gets a report card it can't charm.**
@@ -30,6 +32,14 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 This lesson has a 2-minute interactive warm-up. [Try it on the web page](https://faizan2001.github.io/ai-engineer-path/#measuring-search).
 
+## Before you read
+
+To grade search you need an answer key: questions whose correct page you already know. Run search and see where that page lands. Hit Rate asks “was it in the top 5?”. MRR asks how near the top: 1st scores 1, 2nd ½, 3rd ⅓, missing 0, then you take the average. Careful, three different things share a name: recall (the ML metric), Recall@k (Zoomcamp's other name for Hit Rate) and this site's Memory check.
+
+- **ground truth**: questions paired with the page that answers them
+- **held-back set**: questions you never use for tuning
+- **Recall@k**: Zoomcamp's name for Hit Rate: was a right page in the top k?
+
 ## Assignment
 
 ### Day 1 · about 90 min
@@ -47,17 +57,17 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ### Day 4 · about 90 min
 
-5. [04 Search evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/04-search-evaluation.md) and [05 Search metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md).
+5. [04 Search evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/04-search-evaluation.md).
 
 ### Day 5 · about 90 min
 
-6. [06 Search tuning](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/06-search-tuning.md).
+6. [05 Search metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md) and [06 Search tuning](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/06-search-tuning.md).
 
 ### Days 6–7 · about 3 hours
 
 7. Add to Ask MDN: measure Hit Rate@5 and MRR@5 (the @5 means only the top 5 results count) for keyword and vector search on your 20 practice questions. Write the numbers in your README.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 8. Close this page. In your log, answer from memory, then check:
    - What does MRR reward that Hit Rate doesn't? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md))

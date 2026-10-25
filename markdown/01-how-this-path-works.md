@@ -4,6 +4,8 @@
 
 ## Introduction
 
+*A club secretary asks whether your Events platform could just answer students' questions. You say yes, open a browser and drown in forty buzzwords. This week shrinks them to one job description, one study routine and one promise: after any break, you only owe the next small step.*
+
 > **34 weeks sounds long. It's really about 200 short sessions, and you only ever owe the next one.**
 
 Welcome! This path takes you from your first call to an AI model all the way to a tested, secure AI app that you can put online.
@@ -12,7 +14,7 @@ Each lesson points you to free material, then gives you something to build. Plea
 
 **After this, you can** restart after any break with one small step.
 
-**The skill that lasts:** running your own learning loop. Every new tool you meet after this path, you'll learn the same way.
+**The skill that lasts:** running your own learning loop. You can reuse it for every new tool you meet.
 
 ## Lesson overview
 
@@ -28,10 +30,10 @@ By the end of this lesson, you should be able to:
 2. Pick your study days and a fixed time, and put them in your calendar. Aim for about 9 hours a week: 6 sessions of 90 minutes, or fewer, longer ones. Set the same number as your weekly target on the [course page](README.md). It counts sessions per week, never a daily streak.
 3. Create a private GitHub repository called `ai-engineer-path` and add a file called `log.md`. Each project will get its own public repo later.
 4. Split each session: about 30 minutes learning, 45 minutes building and 15 minutes writing in your log. Write what you did, what broke and how you fixed it.
-5. Add three rules to the top of your log. Coming back after a break: “Reread my last entry, then do the smallest next step.” Low-energy day: “15 minutes counts: reread my log, answer one Recall question, write my next step.” Stuck: “Stuck for more than 20 minutes? Write down what you tried, take a short break, search the course FAQ or docs, then ask with your code and the exact error.”
+5. Add three rules to the top of your log. Coming back after a break: “Reread my last entry, then do the smallest next step.” Low-energy day: “15 minutes counts: reread my log, answer one Memory check question, write my next step.” Stuck: “Stuck for more than 20 minutes? Write down what you tried, take a short break, search the course FAQ or docs, then ask with your code and the exact error.”
 6. Mark exams, Ramadan, Eid and family events in your calendar now. In those weeks, do shorter sessions on the next build step. The path has 2 spare weeks for exactly this.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 7. Close this page. In your log, answer from memory, then check:
    - How is a 90-minute session split? ([where to check](01-how-this-path-works.md))

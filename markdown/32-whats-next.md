@@ -4,7 +4,9 @@
 
 ## Introduction
 
-> **You started by calling a model. Now you can ship one that keeps secrets.**
+*Thirty-odd weeks ago a model call felt like magic. Now you know where it guesses, how to catch it and how to keep two groups apart. The Campus Assistant is no longer a vague dream; it's a list of parts you've built and tested. These two weeks decide which parts come first, and which features get a no.*
+
+> **Week 1 you called a model. Now you can ship an app that keeps two groups' data apart, and prove it. Next: your Campus Assistant.**
 
 You made it! You can now design, build, test, secure and ship an AI app, and explain every part of it. That's a big achievement.
 
@@ -29,7 +31,7 @@ By the end of this lesson, you should be able to:
 3. Pick at most one deep dive, and only if a job you want asks for it: fine-tuning ([mlabonne's LLM course](https://github.com/mlabonne/llm-course)), how models work inside ([LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch)), or coding agents ([Hugging Face Context Course](https://huggingface.co/learn/context-course/unit0/introduction)).
 4. Keep your weekly job application block going, and make the first Campus Assistant commit within 7 days. Momentum is easier to keep than to restart.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 5. Close this page. In your log, answer from memory, then check:
    - Which three projects make up Ask MDN, and what did each add? ([where to check](README.md))

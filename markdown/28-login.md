@@ -2,13 +2,19 @@
 
 *Section 5: Make It Sturdy · Lesson 28 of 32 · about 1 week*
 
+**Before you start, check that** search runs in Postgres with row-level security, and your CSS-group tests return zero JS chunks.
+
 ## Introduction
 
-> **Login answers “who are you?” It politely declines “what may you see?” That's your job.**
+> **Your student ID gets you through the campus gate. It doesn't open the exam-paper cupboard. Login is the gate; the lock is yours.**
 
 Now Ask MDN needs to know who each user is (authentication) so the database can decide what they may see (authorization).
 
 You'll add “Sign in with Google”-style login and connect each signed-in user to the right group.
+
+**True story (2025): password 123456 on an AI hiring platform.** Researchers got into a test admin account on McDonald's AI hiring platform using the password 123456, then changed applicant ID numbers to reach other people's applications. [Source](https://www.csoonline.com/article/4020919/mcdonalds-ai-hiring-tools-password-123456-exposes-data-of-64m-applicants.html)
+
+**What you'll do differently:** decide on the server what each signed-in user may see, and never trust an ID sent from the browser.
 
 **After this, you can** tie each signed-in user to the right data, decided on the server.
 
@@ -28,6 +34,15 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 **Predict:** Someone has signed in with Google. Should they see everything in your app?
 
+## Before you read
+
+**Picture this:** OpenID Connect is a student ID card: it proves who you are, signed by an issuer the gate trusts, such as Google. OAuth is the spare key you lend a friend to collect one parcel: it says what the holder may do for you, not who they are.
+
+Login only answers “who is this?”. Google proves the email, and Streamlit keeps it in a signed cookie. Deciding what they may see is still your job: look the email up in your own table on the server and set the group for that transaction.
+
+- **OIDC**: the standard behind “Sign in with Google”
+- **redirect URI**: the exact address Google sends the user back to
+
 ## Assignment
 
 ### Prefer watching?
@@ -37,7 +52,7 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 ### Days 1–2 · about 3 hours
 
 1. Read Streamlit's [authentication guide](https://docs.streamlit.io/develop/concepts/connections/authentication). It uses OIDC, the standard behind “Sign in with Google”. Login tells you who someone is, not what they may see.
-2. Follow Streamlit's [Google login tutorial](https://docs.streamlit.io/develop/tutorials/authentication/google) to create a Google sign-in (OAuth) client and add `st.login` to Ask MDN locally. If an OAuth error (like a redirect URI mismatch) eats more than 45 minutes, stop and ask with the exact error message.
+2. Follow Streamlit's [Google login tutorial](https://docs.streamlit.io/develop/tutorials/authentication/google) to create a Google sign-in (OAuth) client and add `st.login` to Ask MDN locally. If an OAuth error (like a redirect URI mismatch) eats more than 45 minutes, stop and ask with the exact error message. Also add your two test accounts as Test users on Google's consent screen, or Google won't let them sign in.
 
 ### Days 3–4 · about 3 hours
 
@@ -47,7 +62,7 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 4. Use two fake test accounts, never real students. Write tests: a CSS user gets zero JavaScript chunks through search, through the agent's tools, and when guessing a document ID. A user with no group gets nothing.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 5. Close this page. In your log, answer from memory, then check:
    - Why isn't login enough to keep the groups apart? ([where to check](https://docs.streamlit.io/develop/concepts/connections/authentication))

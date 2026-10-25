@@ -2,7 +2,11 @@
 
 *Section 4: Agents · Lesson 20 of 32 · about 1 week*
 
+**Before you start, check that** Ask MDN v1.0 is online, and your README has the held-back results table.
+
 ## Introduction
+
+*Until now Ask MDN could only talk. Here it gets hands: three tools, and one of them, saving a note, changes things for real. Hands raise the stakes, because any page it reads can whisper instructions. By the end you can read its loop step by step, and nothing changes until a person says yes.*
 
 > **An agent is a loop with opinions. Today you read its mind, step by step.**
 
@@ -30,6 +34,13 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 This lesson has a 2-minute interactive warm-up. [Try it on the web page](https://faizan2001.github.io/ai-engineer-path/#agent-fundamentals).
 
+## Before you read
+
+The Hugging Face course shows what the API hides. Your message list becomes one long text with special markers, and older agents wrote their actions as plain text that code had to parse. OpenAI's tool calling does that parsing for you. It's the same think, act, observe loop with different wiring.
+
+- **chat template**: the format that turns a message list into one prompt
+- **ReAct**: a pattern where the model alternates reasoning and actions
+
 ## Assignment
 
 ### Day 1 · about 90 min
@@ -48,7 +59,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 4. **No AI for this one:** take the agent loop you wrote in Tools and the Agent Loop and add two things: a step limit (stop after 5 steps) and a second tool that returns a page's title. Log every step.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 5. Close this page. In your log, answer from memory, then check:
    - What are the three parts of the agent cycle? ([where to check](https://huggingface.co/learn/agents-course/en/unit1/agent-steps-and-structure))

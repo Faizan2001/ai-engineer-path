@@ -2,6 +2,8 @@
 
 *Section 5: Make It Sturdy · Lesson 29 of 32 · about 4.5 hours*
 
+**Before you start, check that** signed-in users get their group from your `user_groups` table, and a user with no group gets nothing.
+
 ## Introduction
 
 > **An assistant quoting a deleted page is a tour guide pointing at a building that's gone.**
@@ -9,6 +11,10 @@
 Docs change. Pages get edited, and some get deleted.
 
 If your app doesn't keep up, it will quote pages that no longer exist. You already save a manifest of every page; now you'll use it.
+
+**True story (2025): private code that wouldn't stay deleted.** Researchers found Microsoft Copilot could still surface code from thousands of GitHub repositories that had been public and were later made private, through a search engine's cache. [Source](https://techcrunch.com/2025/02/26/thousands-of-exposed-github-repositories-now-private-can-still-be-accessed-through-copilot)
+
+**What you'll do differently:** push every deletion through every index and cache, then test that removed pages never come back.
 
 **After this, you can** make deleted content disappear from answers, and prove it.
 
@@ -32,7 +38,7 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 ### Day 1 · about 90 min
 
-1. First, reread your Recall answers from [Data Ingestion](15-data-ingestion.md). Then extend your ingestion script: compare the new manifest with the last one. Re-index edited pages, add new ones, and delete removed pages together with all their chunks.
+1. First, reread your Memory check answers from [Data Ingestion](15-data-ingestion.md). Then extend your ingestion script: compare the new manifest with the last one. Re-index edited pages, add new ones, and delete removed pages together with all their chunks.
 
 ### Day 2 · about 90 min
 
@@ -42,7 +48,7 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 3. Ask about the deleted pages in a new chat and in an existing one. No answer may retrieve or cite them. Turn this into a test.
 
-### Recall · 10 min
+### Memory check · 10 min
 
 4. Close this page. In your log, answer from memory, then check:
    - Why can't content hashes alone tell you a page was deleted? ([where to check](15-data-ingestion.md))
