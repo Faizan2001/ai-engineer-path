@@ -42,7 +42,7 @@ Progress is saved per browser, so each visitor keeps their own. Use "Save progre
 ## Changing the lessons
 
 1. Open `data/course.js` in your editor and change any text. Inside text you can use `[label](https://link)`, `[label](#lesson-slug)` for another lesson, `**bold**` and `` `code` ``.
-2. Save and refresh the page. No build step is needed.
+2. Save and refresh the page. No build step is needed. Before you publish, raise the `?v=` number on the four file links in `index.html`, so returning visitors get the new files instead of cached old ones.
 3. If you also want the Markdown copies updated, run:
 
 ```bash
