@@ -1,0 +1,58 @@
+# Fresh Data
+
+*Section 5: Make It Sturdy · Lesson 29 of 32 · about 4.5 hours*
+
+## Introduction
+
+> **An assistant quoting a deleted page is a tour guide pointing at a building that's gone.**
+
+Docs change. Pages get edited, and some get deleted.
+
+If your app doesn't keep up, it will quote pages that no longer exist. You already save a manifest of every page; now you'll use it.
+
+**After this, you can** make deleted content disappear from answers, and prove it.
+
+**The skill that lasts:** taking responsibility for data from start to end.
+
+## Lesson overview
+
+By the end of this lesson, you should be able to:
+
+- Compare two manifests to find added, edited and deleted pages.
+- Remove deleted pages completely.
+- Test that deleted pages never come back in answers.
+
+## Try it first
+
+Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+
+**Predict:** You delete a page from your docs. Will Ask MDN stop quoting it on its own?
+
+## Assignment
+
+### Day 1 · about 90 min
+
+1. First, reread your Recall answers from [Data Ingestion](15-data-ingestion.md). Then extend your ingestion script: compare the new manifest with the last one. Re-index edited pages, add new ones, and delete removed pages together with all their chunks.
+
+### Day 2 · about 90 min
+
+2. Make a test copy of your data: delete 3 pages and edit 2, then sync.
+
+### Day 3 · about 90 min
+
+3. Ask about the deleted pages in a new chat and in an existing one. No answer may retrieve or cite them. Turn this into a test.
+
+### Recall · 10 min
+
+4. Close this page. In your log, answer from memory, then check:
+   - Why can't content hashes alone tell you a page was deleted? ([where to check](15-data-ingestion.md))
+   - Where does each request's group come from? ([where to check](28-login.md))
+5. Write one more line: how will this lesson help your Campus Assistant?
+
+---
+
+- [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
+
+[← Previous: Login](28-login.md) · [Course map](README.md) · [Next lesson: Red-Team Your App →](30-red-team-your-app.md)
+
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026

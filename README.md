@@ -1,6 +1,8 @@
 # AI Engineer Path
 
-A free, step-by-step course for becoming an AI engineer, set out like The Odin Project: short lessons, four projects, and a **Next lesson** button that always tells you what to do next. It takes about 30 weeks at 90 minutes a day.
+A free, step-by-step course for becoming an AI engineer, set out like The Odin Project: short lessons, four projects, and a **Next lesson** button that always tells you what to do next. It takes about 34 weeks at 90 minutes a day.
+
+Along the way you get small hands-on widgets (try an idea for 2 minutes before you read about it), a short recall check at the end of every lesson, and a "Welcome back" restart plan if you've been away for a few days.
 
 Format inspired by The Odin Project; not affiliated. Lessons link to outside material owned by its authors.
 
@@ -30,7 +32,8 @@ Progress is saved per browser, so each visitor keeps their own. All links are re
 |---|---|
 | `index.html` | The course page. Open this. |
 | `assets/styles.css` | How the page looks. |
-| `assets/app.js` | How the page works: lessons, buttons and saved progress. |
+| `assets/app.js` | How the page works: lessons, buttons, saved progress and the welcome-back panel. |
+| `assets/widgets.js` | The "Try it first" widgets (next-token sampler, embedding map, search scores, rank fusion, agent loop, row-level security, lethal trifecta). |
 | `data/course.js` | **All the lesson content.** Edit this to change the course. |
 | `markdown/` | Every lesson as a Markdown file, for reading on GitHub or in a notes app. |
 | `tools/export_markdown.py` | Rebuilds `markdown/` from `data/course.js`. |
@@ -47,3 +50,13 @@ python3 tools/export_markdown.py
 ```
 
 Keep each lesson's `slug` unique and don't rename slugs once you've started; saved progress is stored by slug.
+
+### Optional lesson fields
+
+| Field | Shows up as |
+|---|---|
+| `hook` | The big first line of the Introduction. |
+| `unlocks`, `edge` | The "After this, you can…" and "The skill that lasts" box. `unlocks` also fills "What you can do now" on the course page. |
+| `predict`, `widget` | The "Try it first" section. `widget` is an id from `assets/widgets.js`. |
+| `watch` | "If you like to watch first" videos: a list of `{url, title, channel, length, why}`. |
+| `recall` | The Recall step at the end of the Assignment: a list of `{q, link}`. |

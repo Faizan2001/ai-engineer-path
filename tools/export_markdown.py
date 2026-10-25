@@ -54,13 +54,33 @@ for idx, l in enumerate(lessons):
     prev = lessons[idx - 1] if idx else None
     nxt = lessons[idx + 1] if idx + 1 < TOTAL else None
     out = [f"# {full_title(l)}", "", f"*Section {l['section_n']}: {l['section_title']} · Lesson {l['n']} of {TOTAL} · {l['time']}*", "", "## Introduction", ""]
+    if l.get("hook"):
+        out += [f"> **{md(l['hook'])}**", ""]
     for p in l.get("intro", []):
         out += [md(p), ""]
+    if l.get("unlocks"):
+        out += [f"**After this, you can** {md(l['unlocks'])}", ""]
+    if l.get("edge"):
+        out += [f"**The skill that lasts:** {md(l['edge'])}", ""]
     if l.get("overview"):
         out += ["## Lesson overview", "", "By the end of this lesson, you should be able to:", ""] + [f"- {md(p)}" for p in l["overview"]] + [""]
     if l.get("before"):
         out += ["## Before you start", ""] + [f"- {md(p)}" for p in l["before"]] + [""]
+    if l.get("predict") or l.get("widget"):
+        out += ["## Try it first", "", "Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.", ""]
+        if l.get("predict"):
+            out += [f"**Predict:** {md(l['predict'])}", ""]
+        if l.get("widget"):
+            site = course.get("site", "")
+            out += [f"This lesson has a 2-minute interactive warm-up. [Try it on the web page]({site}#{l['slug']})." if site
+                    else "This lesson has a 2-minute interactive warm-up. Open this lesson in `index.html` to try it.", ""]
     out += ["## Assignment", ""]
+    if l.get("watch"):
+        out += ["### Prefer watching?", ""]
+        for v in l["watch"]:
+            meta = ", ".join(x for x in (v.get("channel"), v.get("length")) if x)
+            out.append(f"- ▶ [{v['title']}]({v['url']})" + (f" ({meta})" if meta else "") + (f": {md(v['why'])}" if v.get("why") else ""))
+        out.append("")
     k = 1
     for g in l.get("assignment", []):
         if g.get("day"):
@@ -69,19 +89,24 @@ for idx, l in enumerate(lessons):
             out.append(f"{k}. {md(s)}")
             k += 1
         out.append("")
+    if l.get("recall"):
+        out += ["### Recall · 10 min", "", f"{k}. Close this page. In your log, answer from memory, then check:"]
+        out += [f"   - {md(r['q'])} ([where to check]({link_target(r['link'])}))" for r in l["recall"]]
+        out += [f"{k + 1}. Write one more line: how will this lesson help your Campus Assistant?", ""]
     if l.get("done"):
         out += ["## You're done when", ""] + [f"- [ ] {md(p)}" for p in l["done"]] + [""]
     if l.get("extra_credit"):
         out += ["## Extra credit", ""] + [f"- {md(p)}" for p in l["extra_credit"]] + [""]
-    if l.get("check"):
-        out += ["## Knowledge check", "", "Use these questions to check what you learned. If one stumps you, follow its link and review. You don't need to memorize anything.", ""]
-        out += [f"- [{c['q']}]({link_target(c['link'])})" for c in l["check"]] + [""]
     if l.get("extra"):
         head = "Optional deep dives" if l["slug"] == "whats-next" else "Additional resources"
         out += [f"## {head}", "", "These are optional. Use them if you want to go further.", ""] + [f"- {md(p)}" for p in l["extra"]] + [""]
     nav = [f"[← Previous: {full_title(prev)}]({prev['file']})" if prev else "[← Course map](README.md)", "[Course map](README.md)",
            f"[Next lesson: {full_title(nxt)} →]({nxt['file']})" if nxt else "[Back to the course map →](README.md)"]
-    out += ["---", "", " · ".join(nav), ""]
+    out += ["---", "", "- [ ] Mark complete (a note for yourself; it doesn't sync with the web page)", "", " · ".join(nav), ""]
+    repo = course.get("repo", "")
+    if repo:
+        out += [f"[Improve on GitHub]({repo}/edit/main/data/course.js) · [Report an issue]({repo}/issues/new) · [See lesson changelog]({repo}/commits/main/data/course.js)" +
+                (f" · Links checked {course['checked']}" if course.get("checked") else ""), ""]
     with open(os.path.join(OUT, l["file"]), "w", encoding="utf-8") as f:
         f.write("\n".join(out))
 
@@ -89,6 +114,8 @@ readme = [f"# {course['title']} (Markdown version)", "", f"*{md(course['tagline'
           "This folder has every lesson as a Markdown file. For the full clickable course with progress tracking, open `index.html` in the folder above.", ""]
 for si, sec in enumerate(course["sections"], 1):
     readme += [f"## Section {si}: {sec['title']} ({sec['weeks']})", "", md(sec.get("description", "")), ""]
+    if sec.get("shift"):
+        readme += [f"- **Before:** {md(sec['shift']['before'])}", f"- **After:** {md(sec['shift']['after'])}", ""]
     for l in [x for x in lessons if x["section_n"] == si]:
         readme.append(f"{l['n']}. " + ("**Project:** " if l["kind"] == "project" else "") + f"[{l['title']}]({l['file']}) · {l['time']}")
     readme.append("")

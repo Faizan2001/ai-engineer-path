@@ -1,12 +1,18 @@
 # Keyword RAG
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 9 of 30 · about 1 week*
+*Section 3: RAG with LLM Zoomcamp · Lesson 9 of 32 · about 1 week*
 
 ## Introduction
+
+> **An open-book exam is easy if you find the right page. RAG is mostly finding.**
 
 RAG (retrieval-augmented generation) is like an open-book exam. First you find the right pages, then the model answers using only those pages.
 
 You'll start with plain keyword search because it's fast, cheap and easy to debug. This lesson also starts Ask MDN, an assistant for web docs that you'll keep improving until the end of the path.
+
+**After this, you can** make a model answer from your documents, not from memory.
+
+**The skill that lasts:** grounding answers in sources you can point to.
 
 ## Lesson overview
 
@@ -16,39 +22,58 @@ By the end of this lesson, you should be able to:
 - Search documents with minsearch, a tiny search library.
 - Build a prompt from search results.
 
+## Try it first
+
+Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+
+**Predict:** A model has never seen your university's notice board. How could it still answer questions about it?
+
 ## Assignment
 
-### Day 1
+### Prefer watching?
 
-1. Zoomcamp Module 1: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/01-intro.md), [03 RAG](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/03-rag.md) and [04 Dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/04-dataset.md). You already did 02 during setup.
+- ▶ [What is Retrieval-Augmented Generation (RAG)?](https://www.youtube.com/watch?v=T-D1OfcDW1M) (IBM Technology, 7 min): Covers the same idea as the reading. Afterwards, write one sentence about it in your log.
 
-### Day 2
+### Day 1 · about 90 min
 
-2. [05 Search](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/05-search.md) and [06 Building the prompt](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/06-building-prompt.md).
+1. Zoomcamp Module 1: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/01-intro.md), [03 RAG](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md) (notice why plain models don't know your data) and [04 Dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/04-dataset.md). You already did 02 during setup.
 
-### Day 3
+### Day 2 · about 90 min
 
-3. [07 LLM](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/07-llm.md) and [08 RAG helper](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/08-rag-helper.md).
+2. [05 Search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/05-search.md) (watch how boosting fields changes results) and [06 Building the prompt](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/06-building-prompt.md).
 
-### Day 4
+### Day 3 · about 90 min
 
-4. [09 Data ingestion](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/09-data-ingestion.md) and [10 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/10-rag-next-steps.md).
-5. Start Ask MDN: clone [mdn/content](https://github.com/mdn/content) and write its commit ID (the SHA) in your README. That exact version is your data from now on, so your tests stay fair.
-6. Load two folders into minsearch: CSS properties (`files/en-us/web/css/reference/properties`) and JavaScript global objects (`files/en-us/web/javascript/reference/global_objects`). Ask it three questions and look at what it finds.
+3. [07 LLM](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/07-llm.md) (it shows how to calculate the price, like you did for posters) and [08 RAG helper](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/08-rag-helper.md).
 
-## Knowledge check
+### Day 4 · about 90 min
 
-Use these questions to check what you learned. If one stumps you, follow its link and review. You don't need to memorize anything.
+4. [09 Data ingestion](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/09-data-ingestion.md) and [10 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/10-rag-next-steps.md).
+5. Start Ask MDN: create a **public** repo called `ask-mdn`. Download only the two folders you need from [mdn/content](https://github.com/mdn/content) (the whole repo is about 500 MB): `git clone --depth 1 --filter=blob:none --sparse https://github.com/mdn/content.git`, then inside it run `git sparse-checkout set files/en-us/web/css/reference/properties files/en-us/web/javascript/reference/global_objects`.
+6. Write the commit ID (`git rev-parse HEAD`) in your README. That exact version is your data from now on, so your tests stay fair.
 
-- [Why start with keyword search before vector search?](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/05-search.md)
-- [What goes into a RAG prompt?](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-agentic-rag/06-building-prompt.md)
+### Day 5 · about 90 min
+
+7. Load the two folders into minsearch: CSS properties and JavaScript global objects. Ask it three questions and look at what it finds. This is **Ask MDN v0.1**: it finds the right pages for a question. Commit early and often, with messages that say what changed.
+
+### Recall · 10 min
+
+8. Close this page. In your log, answer from memory, then check:
+   - What are the steps of RAG, from question to answer? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md))
+   - What makes structured output better than free text for an app? ([where to check](07-structured-output-and-errors.md))
+9. Write one more line: how will this lesson help your Campus Assistant?
 
 ## Additional resources
 
 These are optional. Use them if you want to go further.
 
-- [Chip Huyen, chapter 6, section “RAG” (book)](https://github.com/chiphuyen/aie-book)
+- [Chip Huyen, AI Engineering, chapter 6, section “RAG” (book)](https://github.com/chiphuyen/aie-book)
+- [Understanding the BM25 full-text search algorithm](https://emschwartz.me/understanding-the-bm25-full-text-search-algorithm/) by Evan Schwartz: how keyword search decides which page wins, in plain words.
 
 ---
 
-[← Previous: Project: Poster Reader](08-project-poster-reader.md) · [Course map](README.md) · [Next lesson: Tools and the Agent Loop →](10-tools-and-the-agent-loop.md)
+- [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
+
+[← Previous: Project: Poster Reader](08-project-poster-reader.md) · [Course map](README.md) · [Next lesson: ML Basics: Measuring Quality →](10-ml-basics-measuring-quality.md)
+
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
