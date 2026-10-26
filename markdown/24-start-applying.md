@@ -38,7 +38,7 @@ By the end of this lesson, you should be able to:
 7. Close this page. In your log, answer from memory, then check:
    - Which project numbers belong on your resume? ([where to check](https://www.techinterviewhandbook.org/resume/))
    - How does `interrupt()` keep `save_note` safe? ([where to check](23-project-give-it-tools.md))
-8. Write one more line: how will this lesson help your Campus Assistant?
+8. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

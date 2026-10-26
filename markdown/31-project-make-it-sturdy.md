@@ -10,9 +10,9 @@
 
 This is the final project of the path. Ask MDN gets logins, separate groups, fresh data, automatic tests and an attack test it must pass.
 
-It's very close to the Campus Assistant you'll build next. You've got this!
+This brings the pieces together in a small deployed system. Passing these checks demonstrates this project's behavior under the cases you tested; a real institutional rollout still needs its own requirements and operational review.
 
-**After this, you can** ship an AI app that keeps two groups apart, with CI and attack results to prove it.
+**After this, you can** demonstrate a small AI app with access checks, release gates and recorded reliability tests.
 
 **The skill that lasts:** owning reliability, security and cost at the same time.
 
@@ -41,28 +41,29 @@ It's very close to the Campus Assistant you'll build next. You've got this!
 ### Weeks 3–4 · about 13 hours
 
 7. Run your attack test (30 cases plus 5 canaries), 3 times for each case. Fix what breaks, then run it again.
-8. Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.
-9. Update the README with your results and a diagram of how it fits together. End with a one-page pitch for the Campus Assistant: what you'd change to serve many universities.
+8. Set aside 12 fresh questions after freezing this version: 4 each for CSS and JS with expected answers/supporting passages, plus 4 plausible questions unsupported by that user's permitted documents. Before running them, record an acceptance rule: for this learning project, at least 7 of 8 supported answers correct and supported by citations, all 4 unsupported requests declined, and no unauthorized reads/writes. Grade manually and show counts and all failures. These small-sample targets are practice gates, not production guarantees. If you fix a failure, keep these as regression cases and reserve fresh cases for another independent check.
+9. Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.
+10. Update the README with your results and a diagram of how it fits together. End with a one-page pitch for the Campus Assistant: what you'd change to serve many universities.
 
 ### Memory check · 10 min
 
-10. Close this page. In your log, answer from memory, then check:
+11. Close this page. In your log, answer from memory, then check:
    - Why can a role created in Neon's website skip your access rules? ([where to check](https://neon.com/docs/manage/roles))
    - What counts as a breach in your attack test? ([where to check](30-red-team-your-app.md))
-11. Write one more line: how will this lesson help your Campus Assistant?
+12. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## You're done when
 
-- [ ] Tests prove a CSS user can't reach JavaScript docs or notes through search, through tools, or by guessing document IDs.
+- [ ] Tests cover document, note, saved-chat, checkpoint and approval access: another user cannot use a guessed ID to read or resume private state. Document tests also enforce group separation.
 - [ ] After a sync, the deleted test pages produce no search results and no citations in new answers, including in existing chats.
-- [ ] pytest and promptfoo run in GitHub Actions (model-graded checks on pull requests), and a broken prompt makes CI fail.
+- [ ] Required checks prevent a failing PR from reaching the deployment branch. The live app stays on the last passing version; the final fresh quality check also meets its recorded criteria.
 - [ ] Across 3 runs of every attack case: zero unauthorized reads or writes, zero canary leaks to the other group, and zero planted instructions carried out, while normal requests still work. You checked this in the tool logs and the database, not just in the replies.
 - [ ] Cost tracking for each group, the rate limit and the off switch all work.
-- [ ] You can explain how a request moves through your app, two decisions you made and one problem you fixed. You found and fixed at least one bug without AI help, and wrote down how you found it.
+- [ ] Explain the request flow, two decisions and one failure. Diagnose and fix a real retrieval, authorization, stale-state or retry bug without AI doing the diagnosis or fix. Show a failing regression check, your reasoning, and the passing result; documentation is allowed.
 
 ## Show it off
 
-**Your one-line pitch:** A two-group AI assistant with logins, Postgres row-level security, CI evals and red-team results showing zero leaks.
+**Your one-line pitch:** A two-group AI assistant with logins, database policies, release checks and a documented attack suite with zero observed leaks in those runs.
 
 A 3-minute demo, in this order:
 

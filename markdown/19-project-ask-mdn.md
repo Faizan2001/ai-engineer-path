@@ -36,7 +36,7 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 ### Week 2 · about 9 hours
 
 4. Check the “I don't know” path on your 10 unanswerable questions.
-5. Run your tests on the 50 held-back questions, once, and record the results.
+5. Run your tests on the 50 held-back questions, once, and record the results. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.
 6. Checkpoint: your README has the results table.
 
 ### Week 3 · about 9 hours
@@ -51,15 +51,15 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 11. Close this page. In your log, answer from memory, then check:
    - What goes into a RAG prompt? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/06-building-prompt.md))
    - How do you roll back a bad deploy? ([where to check](18-deploy-it-safely.md))
-12. Write one more line: how will this lesson help your Campus Assistant?
+12. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## You're done when
 
 - [ ] Your README reports Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions. If hybrid doesn't win, you explain why.
-- [ ] Every answer shows links to the MDN pages it used.
-- [ ] It says “I don't know” to all 10 questions the docs can't answer.
+- [ ] Every factual answer identifies its source passages. Your README includes manual correctness and citation-support grades for a 10-answer sample, with failures explained.
+- [ ] Report abstention results on the 10 known unanswerable questions and incorrect refusals on answerable questions. Call this a regression result, not proof of performance on new questions.
 - [ ] It runs online as your private Streamlit app, with the API key stored in Secrets and conversations saved in Neon.
-- [ ] You can explain how a request moves through your app, two decisions you made and one problem you fixed. You wrote at least one whole function without AI help, and noted its commit in your log.
+- [ ] Explain the request flow, two design decisions and one failure. Write a core retrieval function without AI-generated code (such as page deduplication or rank fusion), test duplicate/missing results, and explain its behavior on a new input. Documentation is allowed; note the commit.
 
 ## Show it off
 

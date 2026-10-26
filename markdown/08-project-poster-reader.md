@@ -42,14 +42,14 @@ A person always checks and approves the form before anything is saved. This is t
 8. Close this page. In your log, answer from memory, then check:
    - Why do the held-back posters stay hidden while you improve the prompt? ([where to check](08-project-poster-reader.md))
    - How do you work out what a model call cost? ([where to check](07-structured-output-and-errors.md))
-9. Write one more line: how will this lesson help your Campus Assistant?
+9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## You're done when
 
 - [ ] Your public repo's README shows the score on the 5 held-back posters (using your scoring guide) and the cost per poster, with a note on every mistake.
-- [ ] Nothing can be saved without approval. You tried to break this and couldn't.
+- [ ] A test shows that the save path rejects an unapproved draft; an approved draft saves. Record the scenarios you tested.
 - [ ] A failed API call is retried at most twice, then shows “needs a human”.
-- [ ] You can explain how a request moves through your app, two decisions you made and one problem you fixed. You made at least one change without AI help, and wrote down its commit in your log.
+- [ ] Explain the request flow, two decisions and one failure. Without AI-generated code, change a real validation rule (for example, an end time before its start). Predict the result and show a check failing before the fix and passing after. Documentation is allowed.
 
 ## Show it off
 

@@ -56,7 +56,7 @@ Monitoring means keeping a receipt for every answer: the question, the answer, i
 6. Close this page. In your log, answer from memory, then check:
    - What should you save for every answer? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/04-metrics.md))
    - Why can't you fully trust an LLM judge without checking it? ([where to check](16-grading-answers.md))
-7. Write one more line: how will this lesson help your Campus Assistant?
+7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

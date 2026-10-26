@@ -10,7 +10,7 @@
 
 MDN questions mix meaning (“how do I center a box?”) with exact names (`justify-content`). Keyword search is great with names. Vector search is great with meaning.
 
-Hybrid search runs both and combines the results, so you get the best of each. You'll also teach Ask MDN when to say “I don't know”.
+Hybrid search combines both result lists. You will measure whether that helps. You will also separate two questions: “Which pages rank first?” and “Do these pages actually support an answer?”
 
 **After this, you can** combine two searches and make the app admit “I don't know”.
 
@@ -22,11 +22,11 @@ By the end of this lesson, you should be able to:
 
 - Know when each kind of search does better.
 - Combine two result lists with Reciprocal Rank Fusion (RRF).
-- Set a score threshold for “I don't know”.
+- Distinguish result ranking from evidence that a question can be answered.
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** One list ranks a page 1st and the other doesn't have it at all. Another page is 2nd in both lists. Which should win?
 
@@ -36,10 +36,10 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 **Picture this:** Two judges rank the same singers on different scales, so adding their marks means nothing. RRF throws away the marks and keeps only the places: each list gives a singer 1/(k + place) points, and the totals decide.
 
-Each search gives a ranked list, and their scores can't be compared. RRF ignores the scores and uses only positions: each list gives a page 1/(k + position) points, and you add them up. A page fairly high in both lists beats one at the top of only one.
+Each search gives a ranked list, and their scores can't be compared. RRF ignores the scores and uses only positions: each list gives a page 1/(k + position) points, and you add them up. A page fairly high in both lists beats one at the top of only one. RRF is a ranking score, not a probability that the answer exists. Two irrelevant lists can agree perfectly.
 
 - **RRF**: merging ranked lists by adding 1 ÷ (k + position)
-- **threshold**: the score below which the app says “I don't know”
+- **evidence sufficiency**: whether the available passages support an answer to this question
 
 ## Assignment
 
@@ -53,19 +53,37 @@ Each search gives a ranked list, and their scores can't be compared. RRF ignores
 
 ### Day 2 · about 90 min
 
-2. **No AI for this one:** write your own RRF function, about 15 lines. A page gets more points the higher it ranks in each list, and its points are added up. Then add a `hybrid_search()` that runs both searches and combines them.
+2. **No AI for this one:** write your own RRF function, about 15 lines. A page gets more points the higher it ranks in each list, and its points are added up. Then add a `hybrid_search()` that runs both searches and combines them. Fuse unique page lists using the convention from Embeddings, with ranks starting at 1. Test repeated chunks and a page present in only one list.
 
 ### Day 3 · about 90 min
 
 3. Measure Hit Rate@5 and MRR@5 for hybrid search on your practice questions and compare with keyword and vector search.
-4. Set an “I don't know” threshold: look at the top search score for your practice questions and the 10 unanswerable questions you wrote in [ML Basics](10-ml-basics-measuring-quality.md), and pick a cut-off that separates them. Below it, Ask MDN says “I don't know”. Don't tune it forever: pick a cut-off today, write down the numbers and why, and move on. This is **Ask MDN v0.4**: it combines both searches and knows when to say “I don't know”.
+4. Do not use the RRF score as an “answer exists” cutoff. Put the top passages in a structured prompt asking for `supported`, an answer only if supported, and the supporting chunk IDs and short quotes. Reject missing or unknown IDs and quotes that are not in those chunks. Say “I don't know from these sources” when evidence is missing. This check can still misjudge meaning: inspect its decisions on the 20 practice and 10 unanswerable questions, including plausible in-topic questions with absent answers. Record unsupported answers and unnecessary refusals separately. You will assess this more carefully in Grading Answers. This is **Ask MDN v0.4**.
 
 ### Memory check · 10 min
 
 5. Close this page. In your log, answer from memory, then check:
    - What does RRF use from each result list? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md))
    - What does Hit Rate@5 measure? ([where to check](13-measuring-search.md))
-6. Write one more line: how will this lesson help your Campus Assistant?
+6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: What does RRF use from each result list?</summary>
+
+RRF uses each item's rank position, rather than the search engines' raw scores, and adds 1/(k + rank) across lists containing that item. This produces a combined ranking, not a probability that the retrieved evidence can answer the question.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: What does Hit Rate@5 measure?</summary>
+
+Hit Rate@5 is the fraction of evaluated questions for which at least one known relevant page appears in the top five results. It does not measure the final answer's correctness or distinguish first place from fifth.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 
@@ -74,6 +92,7 @@ These are optional. Use them if you want to go further.
 - [RAG Techniques: reranking and fusion notebooks](https://github.com/NirDiamant/RAG_Techniques)
 - [Better RAG results with reciprocal rank fusion and hybrid search](https://www.assembled.com/blog/better-rag-results-with-reciprocal-rank-fusion-and-hybrid-search) by Assembled: a real team's results with the exact method you just built.
 - [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) by Anthropic: how adding a little context to each chunk cut failed searches.
+- [How RRF scoring works](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking): the formula uses ranks, so matching high ranks cannot prove a passage answers the question. Read the explanation; no Azure account is needed.
 
 ---
 

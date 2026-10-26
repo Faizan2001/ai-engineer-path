@@ -27,7 +27,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** Someone asks “How do I place something in the center?” Will a keyword search find a page titled “a box in the middle”?
 
@@ -76,17 +76,36 @@ An embedding turns a text into a few hundred numbers: a point on a map of meanin
 ### Day 7 · about 90 min
 
 8. Read [Chunking for longer texts](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/07-project-example/07-chunking.md). MDN pages can be long, so split each page into chunks of a few paragraphs, and keep the page ID on every chunk.
+9. Keep two IDs: `page_id` identifies the source page; `chunk_id` identifies one piece. Store each piece's text and source URL. For evaluation and RRF, convert each ranked chunk list into a list of unique pages, keeping the first occurrence: `[A:1, A:2, B:1, C:1]` becomes `[A, B, C]`. B is now rank 2. Keep the matching chunks separately for the answer prompt. This is our course convention, not the only possible design.
 
 ### Days 8–11 · about 6 hours
 
-9. Add to Ask MDN: build a sqlitesearch vector index of your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning.
+10. Add to Ask MDN: build a sqlitesearch vector index of your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning.
 
 ### Memory check · 10 min
 
-10. Close this page. In your log, answer from memory, then check:
+11. Close this page. In your log, answer from memory, then check:
    - Why can vector search find answers that keyword search misses? ([where to check](https://developers.google.com/machine-learning/crash-course/embeddings))
    - What does function calling let the model do? ([where to check](11-tools-and-the-agent-loop.md))
-11. Write one more line: how will this lesson help your Campus Assistant?
+12. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: Why can vector search find answers that keyword search misses?</summary>
+
+Embeddings can place texts with similar meanings near one another even when their words differ. Vector search can therefore retrieve useful paraphrases that keyword matching misses, but similarity does not guarantee relevance or correctness.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: What does function calling let the model do?</summary>
+
+Function calling lets the model request a named tool with structured arguments. Your application decides whether to execute it and sends the result back; the model does not run the function itself.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

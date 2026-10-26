@@ -55,7 +55,25 @@ A graph is your agent loop drawn as boxes (nodes) and arrows (edges), all sharin
 6. Close this page. In your log, answer from memory, then check:
    - How do you pause a graph for a person, and how do you continue it? ([where to check](https://docs.langchain.com/oss/python/langgraph/interrupts))
    - Why put a limit on an agent's number of steps? ([where to check](20-agent-fundamentals.md))
-7. Write one more line: how will this lesson help your Campus Assistant?
+7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: How do you pause a graph for a person, and how do you continue it?</summary>
+
+Call interrupt() where human input is needed, with a checkpointer and thread ID configured. Resume the same thread with Command(resume=...), and use the returned input to decide whether the proposed action may proceed.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: Why put a limit on an agent's number of steps?</summary>
+
+A model can keep requesting tools or repeat an unproductive cycle. An application-enforced step limit bounds those repeated actions and their resource use, although separate timeouts and cost limits are still needed.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

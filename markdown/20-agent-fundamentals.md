@@ -28,7 +28,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** If the tool an agent calls keeps failing, what stops the agent from trying forever?
 
@@ -64,7 +64,7 @@ The Hugging Face course shows what the API hides. Your message list becomes one 
 5. Close this page. In your log, answer from memory, then check:
    - What are the three parts of the agent cycle? ([where to check](https://huggingface.co/learn/agents-course/en/unit1/agent-steps-and-structure))
    - What does RRF do with two result lists? ([where to check](14-hybrid-search.md))
-6. Write one more line: how will this lesson help your Campus Assistant?
+6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

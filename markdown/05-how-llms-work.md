@@ -28,7 +28,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** Ask a chat model the same question twice. Will you get the same answer? Write yes or no, and one reason.
 
@@ -36,9 +36,9 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ## Before you read
 
-**Picture this:** Your phone's suggestion bar, after it has read a library. It never plans the sentence: it adds one likely next piece and asks again, hundreds of times. Before each pick, every word glances back at the others and asks which ones matter to it, so in “the bank of the river”, bank listens to river, not to money.
+**Picture this:** Think of your phone's suggestion bar, scaled up enormously. It produces tokens one at a time, using the context to choose what comes next. Attention helps relate words: in “the bank of the river”, river changes how bank is interpreted. This is an intuition for generation, not a complete account of reasoning or planning.
 
-The model never looks anything up. It splits your text into tokens, scores every possible next token, picks one with a little randomness, adds it and repeats. It aims for “sounds likely”, not “is true”. If chapter 5 gets heavy, stop at a natural pause and finish it the next day.
+A model call predicts tokens from its input and learned patterns. It does not automatically search your files or verify facts. An application can give it tools or retrieved documents; later lessons build that layer. A fluent answer can still be wrong. Pause the video when you need to sketch the process yourself.
 
 - **token**: a small chunk of text the model reads and writes
 - **temperature**: how much randomness goes into each pick
@@ -54,7 +54,25 @@ The model never looks anything up. It splits your text into tokens, scores every
 4. Close this page. In your log, answer from memory, then check:
    - What is a token, and what does the model predict? ([where to check](https://www.youtube.com/watch?v=LPZh9BOjkQs))
    - Why should you never put an API key in Git? ([where to check](04-setting-up-your-tools.md))
-5. Write one more line: how will this lesson help your Campus Assistant?
+5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: What is a token, and what does the model predict?</summary>
+
+A token is a small unit of text, such as part of a word or punctuation. The model predicts possible next tokens from the available context and generates an answer one token at a time.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: Why should you never put an API key in Git?</summary>
+
+An API key can let someone make calls using your account's permissions and credit. Git preserves history, so deleting a key from the latest file does not remove it from earlier commits.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

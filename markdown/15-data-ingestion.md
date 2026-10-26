@@ -2,7 +2,7 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 15 of 32 · about 4.5 hours*
 
-**Before you start, check that** Ask MDN v0.4 combines both searches and says “I don't know” below your cut-off.
+**Before you start, check that** Ask MDN v0.4 combines both searches and declines when it cannot find supporting evidence; you have recorded both false answers and unnecessary refusals.
 
 ## Introduction
 
@@ -30,7 +30,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** You run your ingestion script twice by accident. What happens to your search results?
 
@@ -60,7 +60,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 4. Close this page. In your log, answer from memory, then check:
    - What makes an ingestion script safe to run twice? ([where to check](15-data-ingestion.md))
    - How does Ask MDN decide to say “I don't know”? ([where to check](14-hybrid-search.md))
-5. Write one more line: how will this lesson help your Campus Assistant?
+5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

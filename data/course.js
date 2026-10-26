@@ -7,23 +7,24 @@
 window.COURSE = {
  "title": "AI Engineer Path",
  "duration": "about 34 weeks",
- "tagline": "A step-by-step path from your very first AI model call to a tested, secure AI app you can put online.",
+ "tagline": "A step-by-step path from your first AI model call to a deployed app with evaluations, access controls and tests.",
  "repo": "https://github.com/Faizan2001/ai-engineer-path",
  "site": "https://faizan2001.github.io/ai-engineer-path/",
  "community": "https://datatalks.club/slack.html",
  "intro": [
-  "This path helps a software developer become an AI engineer: someone who builds useful apps on top of AI models that already exist. You'll learn RAG, agents, testing and deployment by building four projects. The last three grow into one real app, and when you finish you'll be ready to build your own Campus Assistant.",
+  "This path is for a software developer learning to build with existing AI models. You will practise reliable model calls, RAG, agents, evaluation and deployment in four projects; the last three grow into one app. The finish line is an independently tested small AI application. Model training, research and large-scale platform engineering need further study.",
   "It works like The Odin Project. Each lesson points you to the best free material for one topic, then asks you to build something with it. You learn by building, breaking things and fixing them.",
-  "Every lesson tells you what it unlocks and which skill lasts. Some start with a 2-minute widget: guess first, then play. Wrong guesses are welcome here; they make the right answer stick."
+  "Every lesson tells you what it unlocks and which engineering judgment it practises. Some begin with a 2-minute experiment: make a prediction, check it, then explain what changed your mind. You do not have to memorise API syntax."
  ],
  "how": [
   "Study about 9 hours a week, in sessions of about 90 minutes: roughly 30 minutes learning, 45 building and 15 writing in your log. Set a weekly target on this page. It counts sessions, never a daily streak.",
-  "The whole path takes about 34 weeks, including 2 spare weeks for exams, illness, Ramadan, Eid and family events. All times are estimates. Going slower is fine; skipping the projects isn't.",
+  "Plan about 34 weeks at 9 hours a week, with spare time for breaks and consolidation. Allow 2–4 more weeks if prerequisite repair, deployment or debugging needs it. Follow the checks, not a deadline; the project work matters more than the calendar.",
   "Long lessons are split into **Day** steps. Tick each Day as you finish it, and stop at the end of a Day. Missed a few days? Reread your last log entry, then do the smallest next step. Low on energy? A 15-minute session still counts.",
-  "Every lesson ends with a short **Memory check**: answer two questions from memory, then check. Getting one wrong is useful; it shows you what to review. Struggling feels slow, but that's how learning sticks.",
+  "Finish each lesson's **Memory check** before marking it complete. Explain the idea without looking, compare with the feedback or source, and correct missing pieces. Retry a missed question at the next session. For projects, show the working evidence in “You're done when”; a tick alone is not a skill test.",
   "Your coding assistant is welcome, but every project raises the bar on work you do by hand: one change, then one function, then one test, then one bug fixed without AI. [Mindset and Asking for Help](#mindset-and-asking-for-help) explains why.",
   "Cost: about $15–20 of OpenAI credit for the whole path (an estimate); everything else is free. Paying from Bangladesh needs a card for international payments; [Setting Up Your Tools](#setting-up-your-tools) has a free fallback. There's no certificate. Your public project repos are your proof.",
-  "On mobile data, or expecting a power cut? Open the next lesson's links on Wi-Fi first. Videos are always optional and show their length."
+  "On mobile data, or expecting a power cut? Open the next lesson's links on Wi-Fi first. Videos are always optional and show their length.",
+  "Assignments are the required path. Videos can help an idea click; Additional resources and Extra credit are optional. Use the materials named for the current step, then build. If two sessions end in the same confusion, pause new material and repair that prerequisite with a smaller example."
  ],
  "disclaimer": "Format inspired by The Odin Project; not affiliated. Lessons link to outside material owned by its authors.",
  "sections": [
@@ -39,36 +40,38 @@ window.COURSE = {
      "time": "about 45 min",
      "hook": "34 weeks sounds long. It's really about 200 short sessions, and you only ever owe the next one.",
      "intro": [
-      "Welcome! This path takes you from your first call to an AI model all the way to a tested, secure AI app that you can put online.",
+      "Welcome! This path takes you from your first AI model call to a small deployed app you can evaluate, debug and explain.",
       "Each lesson points you to free material, then gives you something to build. Please don't skip the building. That's where the real learning happens."
      ],
      "unlocks": "restart after any break with one small step.",
      "edge": "running your own learning loop. You can reuse it for every new tool you meet.",
      "overview": [
-      "How the path is organized.",
-      "How to split your study time.",
-      "How to keep a learning log, and how to come back after a break."
+      "Explain the finish line and what this path assumes you already know.",
+      "Choose a study rhythm and distinguish required work from optional reading.",
+      "Leave a short restart note and use it after a break."
      ],
      "assignment": [
       {
        "steps": [
         "Look over the [course page](#home). There are 6 sections and 4 projects. The whole path takes about 34 weeks.",
         "Pick your study days and a fixed time, and put them in your calendar. Aim for about 9 hours a week: 6 sessions of 90 minutes, or fewer, longer ones. Set the same number as your weekly target on the [course page](#home). It counts sessions per week, never a daily streak.",
-        "Create a private GitHub repository called `ai-engineer-path` and add a file called `log.md`. Each project will get its own public repo later.",
-        "Split each session: about 30 minutes learning, 45 minutes building and 15 minutes writing in your log. Write what you did, what broke and how you fixed it.",
-        "Add three rules to the top of your log. Coming back after a break: “Reread my last entry, then do the smallest next step.” Low-energy day: “15 minutes counts: reread my log, answer one Memory check question, write my next step.” Stuck: “Stuck for more than 20 minutes? Write down what you tried, take a short break, search the course FAQ or docs, then ask with your code and the exact error.”",
+        "Create a private GitHub repository called `ai-learning-log` and add `log.md`. Keep your personal notes there; this public course already uses the name `ai-engineer-path`. Each project gets its own public repo later.",
+        "Use a 90-minute session as a flexible guide: about 30 minutes learning, 45 building and 15 checking your work and making a short log entry. Take breaks when needed. End with two lines: one result you checked, and the exact file or next 10-minute action to resume.",
+        "Add three rules to your log. After a break: “Check my last result, then take one small next step.” Low energy: “15 minutes of review counts; it does not need to finish a lesson.” Stuck: “After 20 minutes without a useful clue, reduce the problem, check the docs, then ask with my attempt and exact error.” If two sessions end at the same obstacle, revisit only the missing prerequisite; do not restart the whole course.",
         "Mark exams, Ramadan, Eid and family events in your calendar now. In those weeks, do shorter sessions on the next build step. The path has 2 spare weeks for exactly this."
        ]
       }
      ],
      "recall": [
       {
-       "q": "How is a 90-minute session split?",
-       "link": "#how-this-path-works"
+       "q": "How do you decide that a lesson is finished, without memorising every detail?",
+       "link": "#how-this-path-works",
+       "answer": "Complete the assignment, explain the main idea, and check your result against the lesson criteria. Use documentation for syntax; correct a missed memory question and retry it next session."
       },
       {
        "q": "What do you do first when you come back after missing a few days?",
-       "link": "#how-this-path-works"
+       "link": "#how-this-path-works",
+       "answer": "Read your last checked result and next-action note, try a short recall question, then resume one small step. Repair only a missing prerequisite rather than deleting progress."
       }
      ],
      "extra": [
@@ -143,8 +146,8 @@ window.COURSE = {
         "Read The Odin Project's [Motivation and Mindset](https://www.theodinproject.com/lessons/foundations-motivation-and-mindset) lesson, especially the part about what to do when you're stuck.",
         "Reread their [Asking for Help](https://www.theodinproject.com/lessons/foundations-asking-for-help) lesson. The same tips apply here.",
         "Join the [DataTalks.Club Slack](https://datatalks.club/slack.html) and find the `#course-llm-zoomcamp` channel. Always search the [Zoomcamp FAQ](https://datatalks.club/faq/llm-zoomcamp.html) before you post. Join the [Hugging Face Discord](https://hf.co/join/discord) too; you'll ask agent questions there in Section 4.",
-        "Copy this rule to the top of your log: “Before I commit code, I can explain what it does and why.” Here's why: in a [2026 Anthropic study](https://www.anthropic.com/research/AI-assistance-coding-skills), developers who used AI while learning a new Python library scored 50% on a quiz afterwards, against 67% for those who coded by hand. People who handed AI the whole task learned least; people who used it to ask questions and get explanations did much better. Interviewers check this too.",
-        "Post a short hello in the Zoomcamp Slack with your weekly goal, and ask if anyone wants a study buddy. One person to check in with each week makes it much easier to keep going."
+        "Copy this rule to your log: “I can trace and check the code I keep.” A [52-developer study](https://www.anthropic.com/research/AI-assistance-coding-skills) found lower immediate quiz scores in its AI-assisted group when learning a new Python library. It does not tell us your long-term outcome. Use AI to explain a concept or offer a hint; predict what your code will do, run it, and explain discrepancies yourself.",
+        "If you want a study buddy, post a short hello in Zoomcamp Slack with your weekly goal. You can start alone: at each project, record your demo and seek one specific piece of feedback. If nobody replies, use the project rubric and write one uncertainty to revisit."
        ]
       }
      ],
@@ -214,7 +217,7 @@ window.COURSE = {
        "day": "Day 2 · about 90 min",
        "steps": [
         "Install Docker ([get started](https://docs.docker.com/get-started/)) and run `docker run hello-world`. Docker runs programs in their own little boxes called containers. Low on memory or disk space? Use a free [GitHub Codespace](https://docs.github.com/en/codespaces/getting-started/quickstart) instead; it runs in the browser and has Docker built in.",
-        "**No AI for this one:** write a script that reads a CSV file, counts the rows for each value in one column and prints the top 3. Stuck for more than 20 minutes? Review the [Python tutorial](https://docs.python.org/3/tutorial/).",
+        "**No AI for this one:** write a script that reads a CSV file, counts the rows for each value in one column and prints the top 3. Stuck for more than 20 minutes? Review the [Python tutorial](https://docs.python.org/3/tutorial/). Check it with six rows whose counts you already know. If files, dictionaries or functions feel unfamiliar, spend up to two extra sessions on those Python tutorial sections and retry with a different CSV. Ask for a hint after 20 stuck minutes. Pass this small check before the model-call assignments; needing the bridge is normal.",
         "Add an `AGENTS.md` file ([the format](https://agents.md/)) to your repo. It's a note for your AI coding assistant. Tell it to explain, review and ask you questions, not to write your lesson solutions."
        ]
       }
@@ -245,7 +248,7 @@ window.COURSE = {
       "An LLM (large language model) is the kind of AI behind ChatGPT. You don't need the math to build with one, but you do need a simple picture of how it works.",
       "Here's the short version: text is split into small pieces called tokens. The model predicts the next token, again and again, until the answer is finished."
      ],
-     "picture": "Your phone's suggestion bar, after it has read a library. It never plans the sentence: it adds one likely next piece and asks again, hundreds of times. Before each pick, every word glances back at the others and asks which ones matter to it, so in “the bank of the river”, bank listens to river, not to money.",
+     "picture": "Think of your phone's suggestion bar, scaled up enormously. It produces tokens one at a time, using the context to choose what comes next. Attention helps relate words: in “the bank of the river”, river changes how bank is interpreted. This is an intuition for generation, not a complete account of reasoning or planning.",
      "story": {
       "year": "2023",
       "what": "Two New York lawyers filed a brief citing court cases that ChatGPT had made up. The judge fined them and their firm $5,000.",
@@ -263,7 +266,7 @@ window.COURSE = {
      "predict": "Ask a chat model the same question twice. Will you get the same answer? Write yes or no, and one reason.",
      "widget": "next-token",
      "bridge": {
-      "text": "The model never looks anything up. It splits your text into tokens, scores every possible next token, picks one with a little randomness, adds it and repeats. It aims for “sounds likely”, not “is true”. If chapter 5 gets heavy, stop at a natural pause and finish it the next day.",
+      "text": "A model call predicts tokens from its input and learned patterns. It does not automatically search your files or verify facts. An application can give it tools or retrieved documents; later lessons build that layer. A fluent answer can still be wrong. Pause the video when you need to sketch the process yourself.",
       "terms": [
        [
         "token",
@@ -287,11 +290,13 @@ window.COURSE = {
      "recall": [
       {
        "q": "What is a token, and what does the model predict?",
-       "link": "https://www.youtube.com/watch?v=LPZh9BOjkQs"
+       "link": "https://www.youtube.com/watch?v=LPZh9BOjkQs",
+       "answer": "A token is a small unit of text, such as part of a word or punctuation. The model predicts possible next tokens from the available context and generates an answer one token at a time."
       },
       {
        "q": "Why should you never put an API key in Git?",
-       "link": "#setting-up-your-tools"
+       "link": "#setting-up-your-tools",
+       "answer": "An API key can let someone make calls using your account's permissions and credit. Git preserves history, so deleting a key from the latest file does not remove it from earlier commits."
       }
      ],
      "extra": [
@@ -330,11 +335,13 @@ window.COURSE = {
      "recall": [
       {
        "q": "What's the difference between a workflow and an agent?",
-       "link": "https://www.anthropic.com/engineering/building-effective-agents"
+       "link": "https://www.anthropic.com/engineering/building-effective-agents",
+       "answer": "A workflow follows steps and branches defined in code; an agent lets the model choose its next actions or tools within limits set by the application."
       },
       {
        "q": "Why can the same question get different answers from a model?",
-       "link": "#how-llms-work"
+       "link": "#how-llms-work",
+       "answer": "Generation can sample among several possible next tokens, so the same question can produce different wording or answers. Temperature affects this randomness; a plausible answer is not necessarily correct."
       }
      ],
      "extra": [
@@ -396,11 +403,13 @@ window.COURSE = {
      "recall": [
       {
        "q": "Which API errors should you retry, and which should you not?",
-       "link": "https://developers.openai.com/api/docs/guides/error-codes"
+       "link": "https://developers.openai.com/api/docs/guides/error-codes",
+       "answer": "Retry temporary rate limits, server failures or timeouts with a wait and a fixed retry limit. Do not blindly retry invalid requests, authentication or permission errors, exhausted credit, or model refusals; address the cause or use the fallback."
       },
       {
        "q": "When is a workflow a better choice than an agent?",
-       "link": "#the-ai-staircase"
+       "link": "#the-ai-staircase",
+       "answer": "Choose a workflow when the steps are predictable and predefined branches can handle the task. An agent is useful only when choosing the next action dynamically adds enough value to justify its extra complexity and cost."
       }
      ],
      "extra": [
@@ -450,9 +459,9 @@ window.COURSE = {
      ],
      "done": [
       "Your public repo's README shows the score on the 5 held-back posters (using your scoring guide) and the cost per poster, with a note on every mistake.",
-      "Nothing can be saved without approval. You tried to break this and couldn't.",
+      "A test shows that the save path rejects an unapproved draft; an approved draft saves. Record the scenarios you tested.",
       "A failed API call is retried at most twice, then shows “needs a human”.",
-      "You can explain how a request moves through your app, two decisions you made and one problem you fixed. You made at least one change without AI help, and wrote down its commit in your log."
+      "Explain the request flow, two decisions and one failure. Without AI-generated code, change a real validation rule (for example, an end time before its start). Predict the result and show a check failing before the fix and passing after. Documentation is allowed."
      ],
      "showoff": {
       "pitch": "A photo of a bilingual campus poster becomes a checked event form that saves only after a person approves it.",
@@ -509,7 +518,7 @@ window.COURSE = {
      "story": {
       "year": "2024",
       "what": "Air Canada's website chatbot told a grieving passenger he could claim a bereavement discount after booking. The airline's own policy said he couldn't, and a tribunal ordered it to pay.",
-      "lesson": "answer only from the pages you retrieved, and show them, so an answer can't contradict its source.",
+      "lesson": "Retrieve sources, show them and check whether they support the answer. A citation makes verification possible; it does not guarantee the claim is correct.",
       "url": "https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know",
       "title": "an airline chatbot invents a refund rule"
      },
@@ -638,7 +647,7 @@ window.COURSE = {
        "day": "Days 3–5 · about 4.5 hours",
        "steps": [
         "Write 20 practice questions for Ask MDN. For each one, list the page IDs (file paths) that answer it. These are for tuning, so use them as often as you like.",
-        "Write 10 questions the docs can't answer, like “What's the best laptop for coding?”. Ask MDN must say “I don't know” to these.",
+        "Write 10 questions your selected docs cannot answer: mix clearly unrelated questions with plausible CSS/JavaScript questions whose answer is absent from your frozen subset. Record why each is unsupported. Use these to develop and test abstention; they are practice data, not an unseen test.",
         "Commit both files. In Measuring Search you'll create 50 more questions that stay hidden until the final project."
        ]
       }
@@ -722,7 +731,8 @@ window.COURSE = {
        "day": "Day 4 · about 90 min",
        "steps": [
         "**No AI for this one:** close the course code and rewrite the agent loop from memory, in 20 minutes at most. Then compare and fix the gaps.",
-        "Add to Ask MDN: turn your search into a tool, let the model call it, and log every call."
+        "Add to Ask MDN: turn your search into a tool, let the model call it, and log every call.",
+        "Before putting the loop in the chat page, add a maximum of 8 model/tool rounds, a timeout on each network call and a clear stopped status. Test with a fake model that keeps requesting search: it must terminate at the limit. Keep tools read-only here. A step limit is not a guarantee about cost; record usage too."
        ]
       },
       {
@@ -735,17 +745,23 @@ window.COURSE = {
      "recall": [
       {
        "q": "What stops an agent loop from running forever?",
-       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md"
+       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md",
+       "answer": "The loop normally ends when the model produces a final answer without requesting another tool. A step limit enforced by your code stops repeated tool calls even if the model never decides to finish."
       },
       {
        "q": "What is the difference between precision and recall?",
-       "link": "#ml-basics-measuring-quality"
+       "link": "#ml-basics-measuring-quality",
+       "answer": "For search, precision is the fraction of retrieved items that are relevant; recall is the fraction of all relevant items that were retrieved. In classification, the corresponding formulas are TP/(TP+FP) and TP/(TP+FN)."
       }
      ],
      "extra": [
       "[Anthropic, Building effective agents (worth a second read now)](https://www.anthropic.com/engineering/building-effective-agents)",
       "Zoomcamp [15 Frameworks](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/15-frameworks.md) and [16 Other frameworks](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/16-other-frameworks.md): a tour of agent frameworks. This path uses LangGraph in Section 4.",
       "[You should write an agent](https://fly.io/blog/everyone-write-an-agent/) by Thomas Ptacek, Fly.io: why writing a small agent yourself teaches more than reading about one."
+     ],
+     "done": [
+      "Your loop shows the search result being passed back to the model.",
+      "A fake model that never finishes is stopped after at most 8 rounds; a stalled network call times out."
      ]
     },
     {
@@ -833,7 +849,8 @@ window.COURSE = {
       {
        "day": "Day 7 · about 90 min",
        "steps": [
-        "Read [Chunking for longer texts](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/07-project-example/07-chunking.md). MDN pages can be long, so split each page into chunks of a few paragraphs, and keep the page ID on every chunk."
+        "Read [Chunking for longer texts](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/07-project-example/07-chunking.md). MDN pages can be long, so split each page into chunks of a few paragraphs, and keep the page ID on every chunk.",
+        "Keep two IDs: `page_id` identifies the source page; `chunk_id` identifies one piece. Store each piece's text and source URL. For evaluation and RRF, convert each ranked chunk list into a list of unique pages, keeping the first occurrence: `[A:1, A:2, B:1, C:1]` becomes `[A, B, C]`. B is now rank 2. Keep the matching chunks separately for the answer prompt. This is our course convention, not the only possible design."
        ]
       },
       {
@@ -846,11 +863,13 @@ window.COURSE = {
      "recall": [
       {
        "q": "Why can vector search find answers that keyword search misses?",
-       "link": "https://developers.google.com/machine-learning/crash-course/embeddings"
+       "link": "https://developers.google.com/machine-learning/crash-course/embeddings",
+       "answer": "Embeddings can place texts with similar meanings near one another even when their words differ. Vector search can therefore retrieve useful paraphrases that keyword matching misses, but similarity does not guarantee relevance or correctness."
       },
       {
        "q": "What does function calling let the model do?",
-       "link": "#tools-and-the-agent-loop"
+       "link": "#tools-and-the-agent-loop",
+       "answer": "Function calling lets the model request a named tool with structured arguments. Your application decides whether to execute it and sends the result back; the model does not run the function itself."
       }
      ],
      "extra": [
@@ -931,18 +950,20 @@ window.COURSE = {
       {
        "day": "Days 6–7 · about 3 hours",
        "steps": [
-        "Add to Ask MDN: measure Hit Rate@5 and MRR@5 (the @5 means only the top 5 results count) for keyword and vector search on your 20 practice questions. Write the numbers in your README."
+        "Add to Ask MDN: measure Hit Rate@5 and MRR@5 (the @5 means only the top 5 results count) for keyword and vector search on your 20 practice questions. Write the numbers in your README. Score the first 5 distinct `page_id` values, not 5 chunks. Fetch more chunk candidates if needed, deduplicate in rank order, and report fewer results honestly if fewer remain. Add a tiny test where repeated chunks from page A cannot crowd page B out of the five-page metric."
        ]
       }
      ],
      "recall": [
       {
        "q": "What does MRR reward that Hit Rate doesn't?",
-       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md"
+       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md",
+       "answer": "MRR rewards placing the first relevant result nearer the top, while Hit Rate only checks whether a relevant result was found within the cutoff. At @5, the reciprocal rank is zero if no relevant result appears in the first five positions."
       },
       {
        "q": "Why did you split long MDN pages into chunks?",
-       "link": "#embeddings-and-vector-search"
+       "link": "#embeddings-and-vector-search",
+       "answer": "Chunks let search match a focused passage instead of representing many topics with one whole-page embedding. Keeping the parent page ID connects each chunk to its source for citations and evaluation."
       }
      ],
      "extra": [
@@ -957,7 +978,7 @@ window.COURSE = {
      "hook": "Keyword search knows `justify-content`; vector search knows “center a box”. RRF lets them vote.",
      "intro": [
       "MDN questions mix meaning (“how do I center a box?”) with exact names (`justify-content`). Keyword search is great with names. Vector search is great with meaning.",
-      "Hybrid search runs both and combines the results, so you get the best of each. You'll also teach Ask MDN when to say “I don't know”."
+      "Hybrid search combines both result lists. You will measure whether that helps. You will also separate two questions: “Which pages rank first?” and “Do these pages actually support an answer?”"
      ],
      "picture": "Two judges rank the same singers on different scales, so adding their marks means nothing. RRF throws away the marks and keeps only the places: each list gives a singer 1/(k + place) points, and the totals decide.",
      "unlocks": "combine two searches and make the app admit “I don't know”.",
@@ -965,21 +986,21 @@ window.COURSE = {
      "overview": [
       "Know when each kind of search does better.",
       "Combine two result lists with Reciprocal Rank Fusion (RRF).",
-      "Set a score threshold for “I don't know”."
+      "Distinguish result ranking from evidence that a question can be answered."
      ],
      "predict": "One list ranks a page 1st and the other doesn't have it at all. Another page is 2nd in both lists. Which should win?",
      "widget": "rank-fusion",
      "checkpoint": "your README has Hit Rate@5 and MRR@5 for keyword and vector search, and the 50 held-back questions are committed.",
      "bridge": {
-      "text": "Each search gives a ranked list, and their scores can't be compared. RRF ignores the scores and uses only positions: each list gives a page 1/(k + position) points, and you add them up. A page fairly high in both lists beats one at the top of only one.",
+      "text": "Each search gives a ranked list, and their scores can't be compared. RRF ignores the scores and uses only positions: each list gives a page 1/(k + position) points, and you add them up. A page fairly high in both lists beats one at the top of only one. RRF is a ranking score, not a probability that the answer exists. Two irrelevant lists can agree perfectly.",
       "terms": [
        [
         "RRF",
         "merging ranked lists by adding 1 ÷ (k + position)"
        ],
        [
-        "threshold",
-        "the score below which the app says “I don't know”"
+        "evidence sufficiency",
+        "whether the available passages support an answer to this question"
        ]
       ]
      },
@@ -1002,31 +1023,34 @@ window.COURSE = {
       {
        "day": "Day 2 · about 90 min",
        "steps": [
-        "**No AI for this one:** write your own RRF function, about 15 lines. A page gets more points the higher it ranks in each list, and its points are added up. Then add a `hybrid_search()` that runs both searches and combines them."
+        "**No AI for this one:** write your own RRF function, about 15 lines. A page gets more points the higher it ranks in each list, and its points are added up. Then add a `hybrid_search()` that runs both searches and combines them. Fuse unique page lists using the convention from Embeddings, with ranks starting at 1. Test repeated chunks and a page present in only one list."
        ]
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Measure Hit Rate@5 and MRR@5 for hybrid search on your practice questions and compare with keyword and vector search.",
-        "Set an “I don't know” threshold: look at the top search score for your practice questions and the 10 unanswerable questions you wrote in [ML Basics](#ml-basics-measuring-quality), and pick a cut-off that separates them. Below it, Ask MDN says “I don't know”. Don't tune it forever: pick a cut-off today, write down the numbers and why, and move on. This is **Ask MDN v0.4**: it combines both searches and knows when to say “I don't know”."
+        "Do not use the RRF score as an “answer exists” cutoff. Put the top passages in a structured prompt asking for `supported`, an answer only if supported, and the supporting chunk IDs and short quotes. Reject missing or unknown IDs and quotes that are not in those chunks. Say “I don't know from these sources” when evidence is missing. This check can still misjudge meaning: inspect its decisions on the 20 practice and 10 unanswerable questions, including plausible in-topic questions with absent answers. Record unsupported answers and unnecessary refusals separately. You will assess this more carefully in Grading Answers. This is **Ask MDN v0.4**."
        ]
       }
      ],
      "recall": [
       {
        "q": "What does RRF use from each result list?",
-       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md"
+       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md",
+       "answer": "RRF uses each item's rank position, rather than the search engines' raw scores, and adds 1/(k + rank) across lists containing that item. This produces a combined ranking, not a probability that the retrieved evidence can answer the question."
       },
       {
        "q": "What does Hit Rate@5 measure?",
-       "link": "#measuring-search"
+       "link": "#measuring-search",
+       "answer": "Hit Rate@5 is the fraction of evaluated questions for which at least one known relevant page appears in the top five results. It does not measure the final answer's correctness or distinguish first place from fifth."
       }
      ],
      "extra": [
       "[RAG Techniques: reranking and fusion notebooks](https://github.com/NirDiamant/RAG_Techniques)",
       "[Better RAG results with reciprocal rank fusion and hybrid search](https://www.assembled.com/blog/better-rag-results-with-reciprocal-rank-fusion-and-hybrid-search) by Assembled: a real team's results with the exact method you just built.",
-      "[Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) by Anthropic: how adding a little context to each chunk cut failed searches."
+      "[Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) by Anthropic: how adding a little context to each chunk cut failed searches.",
+      "[How RRF scoring works](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking): the formula uses ranks, so matching high ranks cannot prove a passage answers the question. Read the explanation; no Azure account is needed."
      ]
     },
     {
@@ -1056,7 +1080,7 @@ window.COURSE = {
      ],
      "predict": "You run your ingestion script twice by accident. What happens to your search results?",
      "widget": "run-twice",
-     "checkpoint": "Ask MDN v0.4 combines both searches and says “I don't know” below your cut-off.",
+     "checkpoint": "Ask MDN v0.4 combines both searches and declines when it cannot find supporting evidence; you have recorded both false answers and unnecessary refusals.",
      "assignment": [
       {
        "day": "Day 1 · about 90 min",
@@ -1158,11 +1182,13 @@ window.COURSE = {
      "recall": [
       {
        "q": "Why check an LLM judge against answers you graded yourself?",
-       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md"
+       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md",
+       "answer": "An LLM judge can be wrong or too lenient, so compare its verdicts with your own grades using the same criteria and inspect disagreements. Agreement on a small sample is useful evidence, not proof that the judge is always reliable."
       },
       {
        "q": "Why save a content hash for every page?",
-       "link": "#data-ingestion"
+       "link": "#data-ingestion",
+       "answer": "A saved content hash lets you detect changed page text and skip unchanged pages on later ingestion runs. Compare page IDs in successive manifests as well, because hashes alone do not reveal pages that have disappeared."
       }
      ],
      "extra": [
@@ -1343,7 +1369,7 @@ window.COURSE = {
        "day": "Week 2 · about 9 hours",
        "steps": [
         "Check the “I don't know” path on your 10 unanswerable questions.",
-        "Run your tests on the 50 held-back questions, once, and record the results.",
+        "Run your tests on the 50 held-back questions, once, and record the results. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.",
         "Checkpoint: your README has the results table."
        ]
       },
@@ -1359,10 +1385,10 @@ window.COURSE = {
      ],
      "done": [
       "Your README reports Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions. If hybrid doesn't win, you explain why.",
-      "Every answer shows links to the MDN pages it used.",
-      "It says “I don't know” to all 10 questions the docs can't answer.",
+      "Every factual answer identifies its source passages. Your README includes manual correctness and citation-support grades for a 10-answer sample, with failures explained.",
+      "Report abstention results on the 10 known unanswerable questions and incorrect refusals on answerable questions. Call this a regression result, not proof of performance on new questions.",
       "It runs online as your private Streamlit app, with the API key stored in Secrets and conversations saved in Neon.",
-      "You can explain how a request moves through your app, two decisions you made and one problem you fixed. You wrote at least one whole function without AI help, and noted its commit in your log."
+      "Explain the request flow, two design decisions and one failure. Write a core retrieval function without AI-generated code (such as page deduplication or rank fusion), test duplicate/missing results, and explain its behavior on a new input. Documentation is allowed; note the commit."
      ],
      "showoff": {
       "pitch": "Hybrid-search RAG over MDN that cites its pages, says “I don't know”, and reports scores on questions it never saw.",
@@ -1545,11 +1571,13 @@ window.COURSE = {
      "recall": [
       {
        "q": "How do you pause a graph for a person, and how do you continue it?",
-       "link": "https://docs.langchain.com/oss/python/langgraph/interrupts"
+       "link": "https://docs.langchain.com/oss/python/langgraph/interrupts",
+       "answer": "Call interrupt() where human input is needed, with a checkpointer and thread ID configured. Resume the same thread with Command(resume=...), and use the returned input to decide whether the proposed action may proceed."
       },
       {
        "q": "Why put a limit on an agent's number of steps?",
-       "link": "#agent-fundamentals"
+       "link": "#agent-fundamentals",
+       "answer": "A model can keep requesting tools or repeat an unproductive cycle. An application-enforced step limit bounds those repeated actions and their resource use, although separate timeouts and cost limits are still needed."
       }
      ],
      "extra": [
@@ -1565,7 +1593,7 @@ window.COURSE = {
      "hook": "If your agent reads the internet, the internet can talk to your agent.",
      "intro": [
       "As soon as an agent can do things, someone can try to trick it. A web page or document can hide instructions for your agent. This is called prompt injection.",
-      "You can't fix this with a better prompt. You fix it with code and careful design."
+      "A prompt alone is not a dependable security boundary. Use permissions, restricted tools and approval checks to reduce the risk, then test their limits."
      ],
      "story": {
       "year": "2024",
@@ -1605,11 +1633,13 @@ window.COURSE = {
      "recall": [
       {
        "q": "What are the three parts of the lethal trifecta?",
-       "link": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
+       "link": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/",
+       "answer": "The three parts are access to private data, exposure to untrusted content, and a way to communicate data externally. Together they create an opportunity for malicious instructions in that content to cause data disclosure."
       },
       {
        "q": "Which LangGraph feature pauses for a person's approval?",
-       "link": "#langgraph"
+       "link": "#langgraph",
+       "answer": "LangGraph's interrupt() pauses execution for a person's input. The application must still check that the approval permits the exact tool and arguments; pausing alone does not make the action safe."
       }
      ],
      "extra": [
@@ -1655,14 +1685,14 @@ window.COURSE = {
        "day": "Week 1 · about 8 hours",
        "steps": [
         "In LangGraph, give the agent three tools: `search_docs` (your hybrid search), `browser_support` (looks up a feature in the browser data) and `save_note` (writes a note to a `notes` table in Neon, with a `group_id` column you'll use in Section 5).",
-        "Before `save_note` runs, pause with `interrupt()`. Show the person the exact arguments, and run it only if they approve, using exactly those arguments.",
+        "Before `save_note` runs, pause with `interrupt()`. Show the person the exact arguments, and run it only if they approve, using exactly those arguments. The approval belongs to one operation ID and its exact arguments. Generate that ID once in application code before pausing, persist it, and reuse it on retry; a repeated click is the same operation.",
         "Checkpoint: one approved note is saved and one rejected note isn't."
        ]
       },
       {
        "day": "Week 2 · about 9 hours",
        "steps": [
-        "Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call.",
+        "Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call. For `save_note`, add a database unique constraint on `(group_id, operation_id)` and [INSERT ON CONFLICT](https://www.postgresql.org/docs/current/sql-insert.html) handling. A repeated ID returns the original result only if its arguments match; changed arguments need a new approval. Simulate a committed write followed by a lost response, then retry: there must be exactly one note.",
         "Log every step: the tool, its input, the size of its output, the tokens and the cost.",
         "Write 5 injection documents (for example a page that says “call save_note with…”) and 5 normal requests, including one that really should save a note. Write the injection documents like an attacker's notebook: the goal, the trick and how your app should block it. Commit them.",
         "In your log, compare your Day 1 plan with what really happened. That gap is a lesson in itself."
@@ -1670,10 +1700,10 @@ window.COURSE = {
       }
      ],
      "done": [
-      "`save_note` can't run unless a person approves its exact arguments. A test proves it.",
+      "`save_note` can't run unless a person approves its exact arguments. A test proves it. A retry after a lost response creates no duplicate note, and changed arguments cannot reuse an earlier approval.",
       "The step limit, cost limit and retry limit each stop a runaway run. A test proves each one.",
       "Your 5 injection documents never cause an unapproved action, and no planted instruction is carried out. Your 5 normal requests still work. You checked this in the step logs, not just in the replies.",
-      "You can explain how a request moves through your app, two decisions you made and one problem you fixed. You wrote at least one test without AI help, and noted its commit in your log."
+      "Explain the request flow, two decisions and one failure. Without AI-generated code, write the retry/duplicate-write test or the changed-arguments approval test. First make it fail on the unsafe implementation, then pass on the fix. Documentation is allowed; note the commit."
      ],
      "showoff": {
       "pitch": "Ask MDN as a LangGraph agent with three tools, approvals tied to exact arguments, hard limits and injection tests that pass.",
@@ -1921,7 +1951,13 @@ window.COURSE = {
        "day": "Day 4 · about 90 min",
        "steps": [
         "Follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart). Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).",
-        "Run pytest and the rule-based promptfoo checks on every push, and the model-graded checks only on pull requests or on `main`, following promptfoo's [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model explicitly and turn on caching, so CI doesn't spend credit on every tiny push. Break a prompt on purpose and watch CI fail."
+        "Run pytest and rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly; cache unchanged evaluations. Do not expose API secrets to untrusted fork code."
+       ]
+      },
+      {
+       "day": "Day 5 · about 90 min",
+       "steps": [
+        "Protect your deployment branch with [required status checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), including the pre-merge evaluation job, and apply the rule to yourself too. Use a pull request for changes; Streamlit deploys from the protected branch. Break a prompt in a PR: prove the PR cannot merge and the live app stays on the previous version. Fix it, wait for the required checks, then merge. A red workflow after deployment is too late."
        ]
       }
      ],
@@ -2025,11 +2061,13 @@ window.COURSE = {
      "recall": [
       {
        "q": "Which database roles can skip row-level security?",
-       "link": "https://www.postgresql.org/docs/current/ddl-rowsecurity.html"
+       "link": "https://www.postgresql.org/docs/current/ddl-rowsecurity.html",
+       "answer": "Superusers and roles with BYPASSRLS bypass row-level security. Table owners normally bypass it too unless FORCE ROW LEVEL SECURITY applies; FORCE does not remove the superuser or BYPASSRLS exemptions."
       },
       {
        "q": "How does promptfoo call Ask MDN without the web page?",
-       "link": "#testing-and-ci"
+       "link": "#testing-and-ci",
+       "answer": "A promptfoo Python provider calls your answer(question, user) function directly, using the test user supplied in context['vars']. The adapter returns the answer and retrieved context needed for evaluation, so it does not need the Streamlit page."
       }
      ],
      "extra": [
@@ -2098,35 +2136,39 @@ window.COURSE = {
       {
        "day": "Days 3–4 · about 3 hours",
        "steps": [
-        "Make a `user_groups` table on the server that maps each email to a group. For every request, look up the signed-in user's group and set it in the database transaction. Never trust a group sent from the browser."
+        "Make a `user_groups` table on the server that maps each email to a group. For every request, look up the signed-in user's group and set it in the database transaction. Never trust a group sent from the browser.",
+        "Give each conversation a server-recorded `owner_id`, `group_id` and random thread ID. Before loading history, loading a checkpoint, or resuming a pending approval, verify that the signed-in user owns the conversation and still has its group. A thread ID locates state; it grants no permission. Clear the browser session's chat state on logout or user change. Use private-by-default history for this course."
        ]
       },
       {
        "day": "Days 5–6 · about 3 hours",
        "steps": [
-        "Use two fake test accounts, never real students. Write tests: a CSS user gets zero JavaScript chunks through search, through the agent's tools, and when guessing a document ID. A user with no group gets nothing."
+        "Use two fake test accounts, never real students. Write tests: a CSS user gets zero JavaScript chunks through search, through the agent's tools, and when guessing a document ID. A user with no group gets nothing. Also try a known JS conversation/thread ID as the CSS user, and as a second user in the same group: neither may read or resume the owner's private chat or approval. Test switching users in the same browser. Do not send any loaded state to a model before these checks pass."
        ]
       }
      ],
      "recall": [
       {
        "q": "Why isn't login enough to keep the groups apart?",
-       "link": "https://docs.streamlit.io/develop/concepts/connections/authentication"
+       "link": "https://docs.streamlit.io/develop/concepts/connections/authentication",
+       "answer": "Login establishes who the user is, not which data they may access. The server must map that identity to an allowed group and enforce authorization for each request, denying access when no group is assigned."
       },
       {
        "q": "How does your app tell Postgres which group is asking?",
-       "link": "#postgres-search-and-access-rules"
+       "link": "#postgres-search-and-access-rules",
+       "answer": "For each request, the server looks up the signed-in user's group and sets it for the database transaction with set_config. Row-level policies read that setting with current_setting; the group must not come from an untrusted browser value."
       }
      ],
      "extra": [
-      "[The Copenhagen Book](https://thecopenhagenbook.com/) by Pilcrow: a free, practical guide to doing login right."
+      "[The Copenhagen Book](https://thecopenhagenbook.com/) by Pilcrow: a free, practical guide to doing login right.",
+      "[LangGraph checkpointers](https://docs.langchain.com/oss/python/langgraph/checkpointers): understand what a thread ID loads, then protect that lookup with your own ownership check."
      ]
     },
     {
      "slug": "fresh-data",
      "title": "Fresh Data",
      "kind": "lesson",
-     "time": "about 4.5 hours",
+     "time": "about 6 hours",
      "hook": "An assistant quoting a deleted page is a tour guide pointing at a building that's gone.",
      "intro": [
       "Docs change. Pages get edited, and some get deleted.",
@@ -2152,19 +2194,26 @@ window.COURSE = {
       {
        "day": "Day 1 · about 90 min",
        "steps": [
-        "First, reread your Memory check answers from [Data Ingestion](#data-ingestion). Then extend your ingestion script: compare the new manifest with the last one. Re-index edited pages, add new ones, and delete removed pages together with all their chunks."
+        "Before rereading, sketch your ingestion process from memory. Compare with [Data Ingestion](#data-ingestion), then extend it: compare manifests, re-index edited pages, add new ones, and delete removed pages and chunks. Publish a new `corpus_version` only after the sync succeeds."
        ]
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
-        "Make a test copy of your data: delete 3 pages and edit 2, then sync."
+        "Make a test copy of your data: delete 3 pages and edit 2, then sync.",
+        "Store the corpus version with each conversation. Choose a simple policy: if it changes, expire that conversation's pending approvals and start a fresh, server-owned agent thread before the next answer. Do not copy old retrieved chunks or assistant answers into the new prompt. Tell the user that the sources changed. Check thread ownership before inspecting or resetting any state. This avoids building a selective memory-invalidation system now."
        ]
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
-        "Ask about the deleted pages in a new chat and in an existing one. No answer may retrieve or cite them. Turn this into a test."
+        "Ask about the deleted pages in a new chat and one started before the sync. Inspect the actual model input: no removed chunks or old answers should be carried into it. Validate every returned citation against the current, permitted source records. Reject stale IDs. Test an edit as well as a deletion, and prove an old pending approval cannot resume. This prevents reuse in new answers; it does not erase a transcript someone has already read or copied."
+       ]
+      },
+      {
+       "day": "Day 4 · about 90 min",
+       "steps": [
+        "Finish the edit/deletion and stale-approval tests. Record one limitation of this conservative reset policy, such as losing conversational context when unrelated pages change."
        ]
       }
      ],
@@ -2271,9 +2320,9 @@ window.COURSE = {
      "hook": "Dress rehearsal for the Campus Assistant: two groups, real logins, one tireless attacker. It's you.",
      "intro": [
       "This is the final project of the path. Ask MDN gets logins, separate groups, fresh data, automatic tests and an attack test it must pass.",
-      "It's very close to the Campus Assistant you'll build next. You've got this!"
+      "This brings the pieces together in a small deployed system. Passing these checks demonstrates this project's behavior under the cases you tested; a real institutional rollout still needs its own requirements and operational review."
      ],
-     "unlocks": "ship an AI app that keeps two groups apart, with CI and attack results to prove it.",
+     "unlocks": "demonstrate a small AI app with access checks, release gates and recorded reliability tests.",
      "edge": "owning reliability, security and cost at the same time.",
      "before": [
       "Write your own week-by-week plan in your log first, then compare it with the steps below. Do Extra credit only after every “You're done when” line passes.",
@@ -2304,21 +2353,22 @@ window.COURSE = {
        "day": "Weeks 3–4 · about 13 hours",
        "steps": [
         "Run your attack test (30 cases plus 5 canaries), 3 times for each case. Fix what breaks, then run it again.",
+        "Set aside 12 fresh questions after freezing this version: 4 each for CSS and JS with expected answers/supporting passages, plus 4 plausible questions unsupported by that user's permitted documents. Before running them, record an acceptance rule: for this learning project, at least 7 of 8 supported answers correct and supported by citations, all 4 unsupported requests declined, and no unauthorized reads/writes. Grade manually and show counts and all failures. These small-sample targets are practice gates, not production guarantees. If you fix a failure, keep these as regression cases and reserve fresh cases for another independent check.",
         "Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.",
         "Update the README with your results and a diagram of how it fits together. End with a one-page pitch for the Campus Assistant: what you'd change to serve many universities."
        ]
       }
      ],
      "done": [
-      "Tests prove a CSS user can't reach JavaScript docs or notes through search, through tools, or by guessing document IDs.",
+      "Tests cover document, note, saved-chat, checkpoint and approval access: another user cannot use a guessed ID to read or resume private state. Document tests also enforce group separation.",
       "After a sync, the deleted test pages produce no search results and no citations in new answers, including in existing chats.",
-      "pytest and promptfoo run in GitHub Actions (model-graded checks on pull requests), and a broken prompt makes CI fail.",
+      "Required checks prevent a failing PR from reaching the deployment branch. The live app stays on the last passing version; the final fresh quality check also meets its recorded criteria.",
       "Across 3 runs of every attack case: zero unauthorized reads or writes, zero canary leaks to the other group, and zero planted instructions carried out, while normal requests still work. You checked this in the tool logs and the database, not just in the replies.",
       "Cost tracking for each group, the rate limit and the off switch all work.",
-      "You can explain how a request moves through your app, two decisions you made and one problem you fixed. You found and fixed at least one bug without AI help, and wrote down how you found it."
+      "Explain the request flow, two decisions and one failure. Diagnose and fix a real retrieval, authorization, stale-state or retry bug without AI doing the diagnosis or fix. Show a failing regression check, your reasoning, and the passing result; documentation is allowed."
      ],
      "showoff": {
-      "pitch": "A two-group AI assistant with logins, Postgres row-level security, CI evals and red-team results showing zero leaks.",
+      "pitch": "A two-group AI assistant with logins, database policies, release checks and a documented attack suite with zero observed leaks in those runs.",
       "demo": [
        "Sign in as the CSS user and try to reach a JS canary through search, a tool and a guessed document ID. Show the policy that blocks all three.",
        "Push a broken prompt and watch CI fail; revert it and watch it pass.",
@@ -2366,25 +2416,26 @@ window.COURSE = {
      "title": "What's Next",
      "kind": "lesson",
      "time": "about 2 weeks (spare)",
-     "hook": "Week 1 you called a model. Now you can ship an app that keeps two groups' data apart, and prove it. Next: your Campus Assistant.",
+     "hook": "The final test is a new problem, small enough to finish, different enough to make you think.",
      "intro": [
-      "You made it! You can now design, build, test, secure and ship an AI app, and explain every part of it. That's a big achievement.",
-      "Use these two weeks to catch up, polish your work and plan your Campus Assistant."
+      "You have reached the end of the guided path. The useful question now is: can you apply the ideas when the dataset and requirements change?",
+      "Use this consolidation time to repair gaps and try one small independent task. Your Campus Assistant can follow afterwards; it is not required to finish this course."
      ],
-     "unlocks": "plan a product from skills you've already proven.",
+     "unlocks": "test whether your skills transfer to a new dataset and choose your next practice task.",
      "edge": "scoping, and saying no to features.",
      "overview": [
-      "Plan the Campus Assistant using what you built.",
-      "Choose one deep dive, but only if a job you want asks for it.",
-      "Keep your job application routine going."
+      "Demonstrate transfer on unfamiliar public material.",
+      "Identify a weak skill and choose a specific repair exercise.",
+      "Choose a next project or a role-specific deeper track."
      ],
      "assignment": [
       {
        "steps": [
-        "Finish anything you skipped. Then read back through your log and write one page: what you can build now that you couldn't at the start.",
-        "Plan the Campus Assistant on one page, starting from the feature list you made in [The AI Staircase](#the-ai-staircase). Match each feature to something you've already built: login, row-level security, hybrid search, approvals, evals, CI and attack tests.",
-        "Pick at most one deep dive, and only if a job you want asks for it: fine-tuning ([mlabonne's LLM course](https://github.com/mlabonne/llm-course)), how models work inside ([LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch)), or coding agents ([Hugging Face Context Course](https://huggingface.co/learn/context-course/unit0/introduction)).",
-        "Keep your weekly job application block going, and make the first Campus Assistant commit within 7 days. Momentum is easier to keep than to restart."
+        "Finish the required project checks. Select one unfamiliar public source, such as a small museum visitor FAQ or an open-source project's installation guide. Keep the dataset to 5–10 pages; record its source and reuse terms. Write a short brief, 6 expected question/answer cases (including 2 unsupported cases), and a cost limit before coding.",
+        "Spend 3–6 hours adapting your existing app. First choose the simplest useful design and explain whether retrieval or an agent is needed. Documentation and your own code are allowed; during this exercise, keep AI in explanation/review mode rather than having it design or implement the solution. No new framework required.",
+        "Demo 3 unfamiliar questions and one failure. Trace the full request, show your evidence, and make one small requirement change without an AI-produced patch. Ask a friend or peer to choose the change if available; otherwise add a new document format or a restriction you did not build for. If you cannot finish independently, revisit only the relevant lesson and retry. This is a diagnostic, not a speed contest.",
+        "Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Plan the Campus Assistant or another product only after this check; no compulsory launch deadline.",
+        "Choose deeper study only for a specific goal: [ML Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp) for broader ML modeling, [LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch) for model internals, or serving/infrastructure work for an AI platform role. This path covers applied LLM applications; it does not claim mastery of every AI specialty or immunity from automation."
        ]
       }
      ],
@@ -2403,6 +2454,11 @@ window.COURSE = {
       "[More project ideas: awesome-llm-apps](https://github.com/Shubhamsaboo/awesome-llm-apps)",
       "[2025: The year in LLMs](https://simonwillison.net/2025/Dec/31/the-year-in-llms/) by Simon Willison: a calm, detailed review of what changed and what mattered.",
       "[AI Engineer Reading List](https://www.latent.space/p/2025-papers) by Latent Space: the papers and posts working AI engineers actually read."
+     ],
+     "done": [
+      "Your small new-domain app meets the brief and recorded checks, or your evidence review clearly identifies what needs repair.",
+      "You can explain an architecture choice, inspect a wrong answer, and modify a core behavior with documentation but without an AI-produced solution.",
+      "You have one concrete next practice task tied to evidence, rather than another list of courses."
      ]
     }
    ],

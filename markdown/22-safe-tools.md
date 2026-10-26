@@ -8,7 +8,7 @@
 
 As soon as an agent can do things, someone can try to trick it. A web page or document can hide instructions for your agent. This is called prompt injection.
 
-You can't fix this with a better prompt. You fix it with code and careful design.
+A prompt alone is not a dependable security boundary. Use permissions, restricted tools and approval checks to reduce the risk, then test their limits.
 
 **True story (2024): a planted message turns Slack AI against its users.** Security researchers showed that a message planted in a public Slack channel could trick Slack AI into showing a user a link that, if clicked, sent private data to an attacker. [Source](https://www.theregister.com/2024/08/21/slack_ai_prompt_injection/)
 
@@ -28,7 +28,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** A web page tells your agent to copy private notes somewhere public. Can a better prompt reliably stop that?
 
@@ -50,7 +50,25 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 5. Close this page. In your log, answer from memory, then check:
    - What are the three parts of the lethal trifecta? ([where to check](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/))
    - Which LangGraph feature pauses for a person's approval? ([where to check](21-langgraph.md))
-6. Write one more line: how will this lesson help your Campus Assistant?
+6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: What are the three parts of the lethal trifecta?</summary>
+
+The three parts are access to private data, exposure to untrusted content, and a way to communicate data externally. Together they create an opportunity for malicious instructions in that content to cause data disclosure.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: Which LangGraph feature pauses for a person's approval?</summary>
+
+LangGraph's interrupt() pauses execution for a person's input. The application must still check that the approval permits the exact tool and arguments; pausing alone does not make the action safe.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

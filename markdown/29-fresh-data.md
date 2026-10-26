@@ -1,6 +1,6 @@
 # Fresh Data
 
-*Section 5: Make It Sturdy · Lesson 29 of 32 · about 4.5 hours*
+*Section 5: Make It Sturdy · Lesson 29 of 32 · about 6 hours*
 
 **Before you start, check that** signed-in users get their group from your `user_groups` table, and a user with no group gets nothing.
 
@@ -30,7 +30,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** You delete a page from your docs. Will Ask MDN stop quoting it on its own?
 
@@ -38,22 +38,27 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 
 ### Day 1 · about 90 min
 
-1. First, reread your Memory check answers from [Data Ingestion](15-data-ingestion.md). Then extend your ingestion script: compare the new manifest with the last one. Re-index edited pages, add new ones, and delete removed pages together with all their chunks.
+1. Before rereading, sketch your ingestion process from memory. Compare with [Data Ingestion](15-data-ingestion.md), then extend it: compare manifests, re-index edited pages, add new ones, and delete removed pages and chunks. Publish a new `corpus_version` only after the sync succeeds.
 
 ### Day 2 · about 90 min
 
 2. Make a test copy of your data: delete 3 pages and edit 2, then sync.
+3. Store the corpus version with each conversation. Choose a simple policy: if it changes, expire that conversation's pending approvals and start a fresh, server-owned agent thread before the next answer. Do not copy old retrieved chunks or assistant answers into the new prompt. Tell the user that the sources changed. Check thread ownership before inspecting or resetting any state. This avoids building a selective memory-invalidation system now.
 
 ### Day 3 · about 90 min
 
-3. Ask about the deleted pages in a new chat and in an existing one. No answer may retrieve or cite them. Turn this into a test.
+4. Ask about the deleted pages in a new chat and one started before the sync. Inspect the actual model input: no removed chunks or old answers should be carried into it. Validate every returned citation against the current, permitted source records. Reject stale IDs. Test an edit as well as a deletion, and prove an old pending approval cannot resume. This prevents reuse in new answers; it does not erase a transcript someone has already read or copied.
+
+### Day 4 · about 90 min
+
+5. Finish the edit/deletion and stale-approval tests. Record one limitation of this conservative reset policy, such as losing conversational context when unrelated pages change.
 
 ### Memory check · 10 min
 
-4. Close this page. In your log, answer from memory, then check:
+6. Close this page. In your log, answer from memory, then check:
    - Why can't content hashes alone tell you a page was deleted? ([where to check](15-data-ingestion.md))
    - Where does each request's group come from? ([where to check](28-login.md))
-5. Write one more line: how will this lesson help your Campus Assistant?
+7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ---
 

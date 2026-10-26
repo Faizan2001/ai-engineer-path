@@ -14,7 +14,7 @@ You'll start with plain keyword search because it's fast, cheap and easy to debu
 
 **True story (2024): an airline chatbot invents a refund rule.** Air Canada's website chatbot told a grieving passenger he could claim a bereavement discount after booking. The airline's own policy said he couldn't, and a tribunal ordered it to pay. [Source](https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know)
 
-**What you'll do differently:** answer only from the pages you retrieved, and show them, so an answer can't contradict its source.
+**What you'll do differently:** Retrieve sources, show them and check whether they support the answer. A citation makes verification possible; it does not guarantee the claim is correct.
 
 **After this, you can** make a model answer from your documents, not from memory.
 
@@ -30,7 +30,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** A model has never seen your university's notice board. How could it still answer questions about it?
 
@@ -74,7 +74,7 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 8. Close this page. In your log, answer from memory, then check:
    - What are the steps of RAG, from question to answer? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md))
    - What makes structured output better than free text for an app? ([where to check](07-structured-output-and-errors.md))
-9. Write one more line: how will this lesson help your Campus Assistant?
+9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

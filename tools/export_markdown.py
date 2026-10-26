@@ -76,7 +76,7 @@ for idx, l in enumerate(lessons):
     if l.get("before"):
         out += ["## Before you start", ""] + [f"- {md(p)}" for p in l["before"]] + [""]
     if l.get("predict") or l.get("widget"):
-        out += ["## Try it first", "", "Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.", ""]
+        out += ["## Try it first", "", "Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.", ""]
         if l.get("predict"):
             out += [f"**Predict:** {md(l['predict'])}", ""]
         if l.get("widget"):
@@ -105,7 +105,10 @@ for idx, l in enumerate(lessons):
     if l.get("recall"):
         out += ["### Memory check · 10 min", "", f"{k}. Close this page. In your log, answer from memory, then check:"]
         out += [f"   - {md(r['q'])} ([where to check]({link_target(r['link'])}))" for r in l["recall"]]
-        out += [f"{k + 1}. Write one more line: how will this lesson help your Campus Assistant?", ""]
+        out += [f"{k + 1}. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.", ""]
+        for r in l["recall"]:
+            if r.get("answer"):
+                out += ["<details>", f"<summary>Check your answer: {r['q']}</summary>", "", md(r["answer"]), "", "Different wording is fine. Correct missing pieces, then retry without looking next session.", "", "</details>", ""]
     if l.get("done"):
         out += ["## You're done when", ""] + [f"- [ ] {md(p)}" for p in l["done"]] + [""]
     if l.get("showoff"):

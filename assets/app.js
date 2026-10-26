@@ -126,7 +126,7 @@
 
   // ---------- time away (this browser only; a phone and a laptop each keep their own)
   var VISIT_KEY = "ai-engineer-path:last-visit";
-  var awayDays = 0, welcomeDismissed = false;
+  var awayDays = 0, welcomeDismissed = false, restartRequested = false;
   function readVisit() {
     var now = Date.now(), prev = 0;
     try { prev = +localStorage.getItem(VISIT_KEY) || 0; localStorage.setItem(VISIT_KEY, String(now)); } catch (e) {}
@@ -253,33 +253,34 @@
   }
   function recallList(l) {
     return '<ol class="recall-q" type="a">' + l.recall.map(function (r) {
-      return "<li>" + fmt(r.q) + '<details class="peek"><summary>Where to check</summary><a' + href(r.link) + ">" +
+      return "<li>" + fmt(r.q) + '<details class="peek"><summary>' + (r.answer ? "Check your answer" : "Where to check") + '</summary>' +
+        (r.answer ? '<p><strong>Look for these ideas:</strong> ' + fmt(r.answer) + '</p><p>Different wording is fine. Correct anything missing, then retry without looking next session.</p>' : '') + '<a' + href(r.link) + '>' +
         (r.link.charAt(0) === "#" ? "Review: " + esc(fullTitle(BY[r.link.slice(1)] || { title: "the course page", kind: "" })) : "Open the source") + "</a></details></li>";
     }).join("") + "</ol>";
   }
 
   // ---------- welcome back (shown after 3+ days away)
   function welcomeCard(compact) {
-    if (welcomeDismissed || awayDays < 3 || (!state.done.size && !Object.keys(state.ticks).length)) return "";
-    var lf = lastFinished(), t = resumeTarget();
-    var long = awayDays >= 14;
-    var spaced = { recall: [] };
-    if (long) LESSONS.filter(function (x) { return state.done.has(x.slug) && x.recall && x.recall.length; }).slice(-3).forEach(function (x) { spaced.recall.push(x.recall[0]); });
-    var steps = long ? [
-      "Reread the last entry in your log, and the note on why this matters to you. 3 minutes.",
-      "Check your setup still works: run <code>uv sync</code>, start your Postgres container if you use one (<code>docker ps</code> shows it), check your API key and credit, run your last project's tests and make one test call. 10 minutes.",
-      spaced.recall.length ? "From memory, answer these from your last few lessons. 5 minutes." + recallList(spaced) : "",
-      t ? 'Then redo the last Day you finished, or start the smallest next step in <a href="#' + t.slug + '">' + esc(fullTitle(t)) + "</a>." : ""
-    ].filter(Boolean) : [
-      "Reread the last entry in your log. 2 minutes.",
-      lf && lf.recall && lf.recall.length ? "From memory, answer these from <a href=\"#" + lf.slug + "\">" + esc(fullTitle(lf)) + "</a>. 5 minutes." + recallList(lf) : "",
-      t && t.checkpoint ? "Check where your code stands: " + fmt(t.checkpoint) : "",
-      t ? 'Then do the smallest next step in <a href="#' + t.slug + '">' + esc(fullTitle(t)) + "</a>. One step is enough." : ""
-    ].filter(Boolean);
-    return '<section class="card welcome' + (compact ? " compact" : "") + '" aria-label="Welcome back"><div class="welcome-head"><h2>Welcome back. It\'s been ' + awayDays + " days.</h2>" +
-      '<button type="button" class="btn small" data-action="dismiss-welcome">Got it</button></div>' +
-      (compact ? '<p>Warm up first: <a href="#home">see the 10-minute restart on the course page</a>.</p>'
-        : "<p>No guilt, no catching up. Restart small:</p><ol>" + steps.map(function (s) { return "<li>" + s + "</li>"; }).join("") + "</ol>") + "</section>";
+    var hasProgress = state.done.size || Object.keys(state.ticks).some(function (k) { return state.ticks[k].length; });
+    if (welcomeDismissed || (!restartRequested && (awayDays < 3 || !hasProgress))) return "";
+    var lf = lastFinished(), t = resumeTarget(), long = awayDays >= 14;
+    var review = long ? LESSONS.filter(function (x) { return state.done.has(x.slug) && x.recall && x.recall.length; }).slice(-3) : (lf && lf.recall ? [lf] : []);
+    var spaced = { recall: review.map(function (x) { return x.recall[0]; }) };
+    var steps = ["Open your log. Find the last result you checked and your next small action. If you left no note, look at your last changed file. 2 minutes."];
+    if (long && state.done.has("setting-up-your-tools")) {
+      var setup = "In the project you last used, run <code>uv sync</code> with its existing lockfile. Check your API key and credit before one small test call.";
+      if (state.done.has("postgres-search-and-access-rules")) setup += " Start the Postgres container you used for that project.";
+      if (state.done.has("structured-output-and-errors")) setup += " Run its existing tests.";
+      steps.push(setup + " Allow 10 minutes; if setup is broken, make fixing that today's task. No new tools needed.");
+    }
+    if (spaced.recall.length) steps.push("Try these from memory, then use the check links. If one is fuzzy, review just that part and explain it again in your own words. 5 minutes." + recallList(spaced));
+    if (t && t.checkpoint) steps.push("Check your starting point: " + fmt(t.checkpoint));
+    if (t) steps.push('Open <a href="#' + t.slug + '">' + esc(fullTitle(t)) + '</a> and do one 10-minute action. If a prerequisite is missing, repair that piece first. Keep the progress you have.');
+    else steps.push("All lessons are marked complete. Re-run one project demo or try the transfer challenge in the final lesson to see what still needs practice.");
+    return '<section id="welcome-back" class="card welcome' + (compact ? " compact" : "") + '" aria-label="Restart guide"><div class="welcome-head"><h2 id="restart-title" tabindex="-1">' +
+      (awayDays >= 3 ? "Welcome back. It's been " + awayDays + " days." : "Pick up where you left off.") + '</h2><button type="button" class="btn small" data-action="dismiss-welcome">Got it</button></div>' +
+      (compact ? '<p><a href="#home">Open your restart guide on the course page</a>. Review only what you need.</p>'
+        : "<p>Take 10–20 minutes to find your place. Fixing a forgotten step is progress too.</p><ol>" + steps.map(function (s) { return "<li>" + s + "</li>"; }).join("") + "</ol>") + "</section>";
   }
 
   // ---------- "what you can do now" (only lessons with an unlocks line count)
@@ -293,8 +294,8 @@
       ? '<ul class="powers">' + recent.map(function (l) { return '<li><a href="#' + l.slug + '">' + esc(l.title) + "</a>: " + fmt(l.unlocks) + "</li>"; }).join("") + "</ul>" +
         (got.length > 3 ? '<details class="more-powers"><summary>All ' + got.length + " so far</summary>" +
           ul(got.slice(0, -3).reverse().map(function (l) { return '<a href="#' + l.slug + '">' + esc(l.title) + "</a>: " + fmt(l.unlocks); })) + "</details>" : "")
-      : '<p class="lead-line">Nothing yet. Every lesson you finish adds a new thing you can do to this list.</p>';
-    return '<section class="card powers-card"><div class="section-top"><h2>What you can do now</h2><span class="count">' + got.length + " of " + withU.length + "</span></div>" + body +
+      : '<p class="lead-line">Your existing software skills are the starting point. Finished lessons appear here; project demos help you check what you can do independently.</p>';
+    return '<section class="card powers-card"><div class="section-top"><h2>What you have practised</h2><span class="count">' + got.length + " of " + withU.length + "</span></div>" + body +
       (next ? '<p class="next-power"><strong>Next up</strong>, after <a href="#' + next.slug + '">' + esc(fullTitle(next)) + "</a>: " + fmt(next.unlocks) + "</p>" : "") + "</section>";
   }
 
@@ -309,9 +310,9 @@
     return '<section class="card week-card"><div class="section-top"><h2>This week</h2><span class="count">' + n + " of " + T + " sessions</span></div>" +
       '<div class="dots" role="img" aria-label="' + n + " of " + T + ' sessions this week">' + dots + "</div>" +
       "<p>" + (n >= T ? "Target reached. Anything more is a bonus." : "Every session counts, even a short one.") +
-      " At " + T + " sessions a week, with some breathing room, you'd finish around <strong>" + finishDate() + "</strong>.</p>" +
+      (state.done.size === LESSONS.length ? " All lessons are marked complete. Your project checks show what you can do." : " If your " + T + " study days each include about 90 minutes of course work, the rough finish date is <strong>" + finishDate() + "</strong>. Short sessions help you return; the date is a guide, not a deadline.") + "</p>" +
       '<div class="week-controls"><label for="target-select">Weekly target</label><select id="target-select">' + opts + "</select>" +
-      '<button type="button" class="btn small" data-action="quick" aria-expanded="' + quickOpen + '">Low on energy? Do 15 minutes</button></div>' +
+      '<button type="button" class="btn small" data-action="quick" aria-expanded="' + quickOpen + '">Low on energy? Do 15 minutes</button><button type="button" class="btn small" data-action="restart">Help me restart</button></div>' +
       '<div class="quick"' + (quickOpen ? "" : " hidden") + "><ol><li>Reread your last log entry.</li>" +
       (one ? "<li>Answer one question from memory:" + recallList(one) + "</li>" : "") +
       "<li>Write the smallest next step for your next session in your log.</li></ol>" +
@@ -424,7 +425,7 @@
     if (l.predict || l.widget) {
       var guess = readGuess(l.slug), locked = guess !== null;
       add("try", "Try it first", '<div class="try-box">' +
-        '<p class="lead-line">Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.</p>' +
+        '<p class="lead-line">Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.</p>' +
         (l.predict ? '<p class="predict"><strong>Predict:</strong> ' + fmt(l.predict) + "</p>" +
           '<div class="guess"' + (locked ? " hidden" : "") + '><label for="guess-input">Your guess</label><textarea id="guess-input" rows="2"></textarea>' +
           '<div class="guess-actions"><button type="button" class="w-btn" data-action="lock-guess">Lock in my guess</button>' +
@@ -457,7 +458,7 @@
     }
     if (l.recall && l.recall.length) {
       assign += "<h3>Memory check · 10 min</h3>" + '<ol start="' + k + '"><li>Close this page. In your log, answer from memory, then check:' + recallList(l) +
-        "</li><li>Write one more line: how will this lesson help your Campus Assistant?</li></ol>";
+        "</li><li>If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.</li></ol>";
     }
     add("assignment", "Assignment", '<div class="panel">' + assign + "</div>");
     if (l.done && l.done.length) add("done", "You're done when", ul(l.done.map(fmt), "done-list"));
@@ -592,7 +593,8 @@
     }
     var act = t.getAttribute("data-action");
     if (act === "skip-main") { var h1 = view.querySelector("h1"); if (h1) { h1.setAttribute("tabindex", "-1"); h1.focus(); } return; }
-    if (act === "dismiss-welcome") { welcomeDismissed = true; render(); return; }
+    if (act === "dismiss-welcome") { welcomeDismissed = true; restartRequested = false; render(); return; }
+    if (act === "restart") { restartRequested = true; welcomeDismissed = false; render(); var restartTitle = document.getElementById("restart-title"); if (restartTitle) { restartTitle.focus({ preventScroll: true }); var bar = document.querySelector(".topbar-wrap"); var inset = bar ? bar.getBoundingClientRect().height : 0; window.scrollTo(0, restartTitle.getBoundingClientRect().top + window.scrollY - inset - 16); } return; }
     if (act === "export") {
       var blob = new Blob([JSON.stringify(record(), null, 1)], { type: "application/json" }), a = document.createElement("a");
       a.href = URL.createObjectURL(blob); a.download = "ai-engineer-path-progress-" + isoDay(new Date()) + ".json";

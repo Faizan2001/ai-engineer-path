@@ -31,7 +31,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** Your app connects to Postgres as the owner of the table. Do your row-level security rules still apply?
 
@@ -78,7 +78,25 @@ Row-level security adds a hidden WHERE to every query on a table. Your app says 
 10. Close this page. In your log, answer from memory, then check:
    - Which database roles can skip row-level security? ([where to check](https://www.postgresql.org/docs/current/ddl-rowsecurity.html))
    - How does promptfoo call Ask MDN without the web page? ([where to check](26-testing-and-ci.md))
-11. Write one more line: how will this lesson help your Campus Assistant?
+11. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: Which database roles can skip row-level security?</summary>
+
+Superusers and roles with BYPASSRLS bypass row-level security. Table owners normally bypass it too unless FORCE ROW LEVEL SECURITY applies; FORCE does not remove the superuser or BYPASSRLS exemptions.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: How does promptfoo call Ask MDN without the web page?</summary>
+
+A promptfoo Python provider calls your answer(question, user) function directly, using the test user supplied in context['vars']. The adapter returns the answer and retrieved context needed for evaluation, so it does not need the Streamlit page.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

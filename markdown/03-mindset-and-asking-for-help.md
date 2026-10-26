@@ -27,15 +27,15 @@ By the end of this lesson, you should be able to:
 1. Read The Odin Project's [Motivation and Mindset](https://www.theodinproject.com/lessons/foundations-motivation-and-mindset) lesson, especially the part about what to do when you're stuck.
 2. Reread their [Asking for Help](https://www.theodinproject.com/lessons/foundations-asking-for-help) lesson. The same tips apply here.
 3. Join the [DataTalks.Club Slack](https://datatalks.club/slack.html) and find the `#course-llm-zoomcamp` channel. Always search the [Zoomcamp FAQ](https://datatalks.club/faq/llm-zoomcamp.html) before you post. Join the [Hugging Face Discord](https://hf.co/join/discord) too; you'll ask agent questions there in Section 4.
-4. Copy this rule to the top of your log: “Before I commit code, I can explain what it does and why.” Here's why: in a [2026 Anthropic study](https://www.anthropic.com/research/AI-assistance-coding-skills), developers who used AI while learning a new Python library scored 50% on a quiz afterwards, against 67% for those who coded by hand. People who handed AI the whole task learned least; people who used it to ask questions and get explanations did much better. Interviewers check this too.
-5. Post a short hello in the Zoomcamp Slack with your weekly goal, and ask if anyone wants a study buddy. One person to check in with each week makes it much easier to keep going.
+4. Copy this rule to your log: “I can trace and check the code I keep.” A [52-developer study](https://www.anthropic.com/research/AI-assistance-coding-skills) found lower immediate quiz scores in its AI-assisted group when learning a new Python library. It does not tell us your long-term outcome. Use AI to explain a concept or offer a hint; predict what your code will do, run it, and explain discrepancies yourself.
+5. If you want a study buddy, post a short hello in Zoomcamp Slack with your weekly goal. You can start alone: at each project, record your demo and seek one specific piece of feedback. If nobody replies, use the project rubric and write one uncertainty to revisit.
 
 ### Memory check · 10 min
 
 6. Close this page. In your log, answer from memory, then check:
    - What should a good question for help include? ([where to check](https://www.theodinproject.com/lessons/foundations-asking-for-help))
    - What will you build after finishing this path? ([where to check](02-what-ai-engineers-do.md))
-7. Write one more line: how will this lesson help your Campus Assistant?
+7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

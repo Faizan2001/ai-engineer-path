@@ -26,7 +26,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** Your app passes all its normal tests. Is it safe?
 
@@ -64,7 +64,7 @@ Attacks come two ways: the user types something sneaky, or a page the app finds 
 5. Close this page. In your log, answer from memory, then check:
    - What does the rbac plugin test? ([where to check](https://www.promptfoo.dev/docs/red-team/plugins/rbac/))
    - What must happen to a deleted page's chunks? ([where to check](29-fresh-data.md))
-6. Write one more line: how will this lesson help your Campus Assistant?
+6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

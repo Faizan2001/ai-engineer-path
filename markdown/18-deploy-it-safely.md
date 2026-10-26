@@ -52,7 +52,7 @@ By the end of this lesson, you should be able to:
 9. Close this page. In your log, answer from memory, then check:
    - Where does the API key live when the app is online? ([where to check](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management))
    - Why should your app's database role be created with SQL on Neon? ([where to check](https://neon.com/docs/manage/roles))
-10. Write one more line: how will this lesson help your Campus Assistant?
+10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ---
 

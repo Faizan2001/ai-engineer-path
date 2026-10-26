@@ -33,7 +33,25 @@ By the end of this lesson, you should be able to:
 4. Close this page. In your log, answer from memory, then check:
    - What's the difference between a workflow and an agent? ([where to check](https://www.anthropic.com/engineering/building-effective-agents))
    - Why can the same question get different answers from a model? ([where to check](05-how-llms-work.md))
-5. Write one more line: how will this lesson help your Campus Assistant?
+5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: What's the difference between a workflow and an agent?</summary>
+
+A workflow follows steps and branches defined in code; an agent lets the model choose its next actions or tools within limits set by the application.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: Why can the same question get different answers from a model?</summary>
+
+Generation can sample among several possible next tokens, so the same question can produce different wording or answers. Temperature affects this randomness; a plausible answer is not necessarily correct.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

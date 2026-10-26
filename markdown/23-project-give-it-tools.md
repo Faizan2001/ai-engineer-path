@@ -37,12 +37,12 @@ Tip: make the notes useful to you, like revision cards for this course that you 
 ### Week 1 · about 8 hours
 
 2. In LangGraph, give the agent three tools: `search_docs` (your hybrid search), `browser_support` (looks up a feature in the browser data) and `save_note` (writes a note to a `notes` table in Neon, with a `group_id` column you'll use in Section 5).
-3. Before `save_note` runs, pause with `interrupt()`. Show the person the exact arguments, and run it only if they approve, using exactly those arguments.
+3. Before `save_note` runs, pause with `interrupt()`. Show the person the exact arguments, and run it only if they approve, using exactly those arguments. The approval belongs to one operation ID and its exact arguments. Generate that ID once in application code before pausing, persist it, and reuse it on retry; a repeated click is the same operation.
 4. Checkpoint: one approved note is saved and one rejected note isn't.
 
 ### Week 2 · about 9 hours
 
-5. Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call.
+5. Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call. For `save_note`, add a database unique constraint on `(group_id, operation_id)` and [INSERT ON CONFLICT](https://www.postgresql.org/docs/current/sql-insert.html) handling. A repeated ID returns the original result only if its arguments match; changed arguments need a new approval. Simulate a committed write followed by a lost response, then retry: there must be exactly one note.
 6. Log every step: the tool, its input, the size of its output, the tokens and the cost.
 7. Write 5 injection documents (for example a page that says “call save_note with…”) and 5 normal requests, including one that really should save a note. Write the injection documents like an attacker's notebook: the goal, the trick and how your app should block it. Commit them.
 8. In your log, compare your Day 1 plan with what really happened. That gap is a lesson in itself.
@@ -52,14 +52,14 @@ Tip: make the notes useful to you, like revision cards for this course that you 
 9. Close this page. In your log, answer from memory, then check:
    - Why must an approval match the tool's exact arguments? ([where to check](22-safe-tools.md))
    - What does MRR measure? ([where to check](13-measuring-search.md))
-10. Write one more line: how will this lesson help your Campus Assistant?
+10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## You're done when
 
-- [ ] `save_note` can't run unless a person approves its exact arguments. A test proves it.
+- [ ] `save_note` can't run unless a person approves its exact arguments. A test proves it. A retry after a lost response creates no duplicate note, and changed arguments cannot reuse an earlier approval.
 - [ ] The step limit, cost limit and retry limit each stop a runaway run. A test proves each one.
 - [ ] Your 5 injection documents never cause an unapproved action, and no planted instruction is carried out. Your 5 normal requests still work. You checked this in the step logs, not just in the replies.
-- [ ] You can explain how a request moves through your app, two decisions you made and one problem you fixed. You wrote at least one test without AI help, and noted its commit in your log.
+- [ ] Explain the request flow, two decisions and one failure. Without AI-generated code, write the retry/duplicate-write test or the changed-arguments approval test. First make it fail on the unsafe implementation, then pass on the fix. Documentation is allowed; note the commit.
 
 ## Show it off
 

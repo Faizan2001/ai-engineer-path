@@ -59,14 +59,18 @@ promptfoo runs tests against your app. A YAML file lists the questions and the c
 ### Day 4 · about 90 min
 
 5. Follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart). Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).
-6. Run pytest and the rule-based promptfoo checks on every push, and the model-graded checks only on pull requests or on `main`, following promptfoo's [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model explicitly and turn on caching, so CI doesn't spend credit on every tiny push. Break a prompt on purpose and watch CI fail.
+6. Run pytest and rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly; cache unchanged evaluations. Do not expose API secrets to untrusted fork code.
+
+### Day 5 · about 90 min
+
+7. Protect your deployment branch with [required status checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), including the pre-merge evaluation job, and apply the rule to yourself too. Use a pull request for changes; Streamlit deploys from the protected branch. Break a prompt in a PR: prove the PR cannot merge and the live app stays on the previous version. Fix it, wait for the required checks, then merge. A red workflow after deployment is too late.
 
 ### Memory check · 10 min
 
-7. Close this page. In your log, answer from memory, then check:
+8. Close this page. In your log, answer from memory, then check:
    - What does context-faithfulness check? ([where to check](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/))
    - Why does each failure group get its own pass-or-fail check? ([where to check](25-evals-that-catch-real-bugs.md))
-8. Write one more line: how will this lesson help your Campus Assistant?
+9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

@@ -36,7 +36,7 @@ By the end of this lesson, you should be able to:
 5. Close this page. In your log, answer from memory, then check:
    - Which parts of an AI engineer's job are normal software engineering? ([where to check](https://github.com/alexeygrigorev/ai-engineering-field-guide))
    - How long is one study session, and how is it split? ([where to check](01-how-this-path-works.md))
-6. Write one more line: how will this lesson help your Campus Assistant?
+6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

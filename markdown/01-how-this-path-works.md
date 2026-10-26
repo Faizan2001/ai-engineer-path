@@ -8,7 +8,7 @@
 
 > **34 weeks sounds long. It's really about 200 short sessions, and you only ever owe the next one.**
 
-Welcome! This path takes you from your first call to an AI model all the way to a tested, secure AI app that you can put online.
+Welcome! This path takes you from your first AI model call to a small deployed app you can evaluate, debug and explain.
 
 Each lesson points you to free material, then gives you something to build. Please don't skip the building. That's where the real learning happens.
 
@@ -20,25 +20,43 @@ Each lesson points you to free material, then gives you something to build. Plea
 
 By the end of this lesson, you should be able to:
 
-- How the path is organized.
-- How to split your study time.
-- How to keep a learning log, and how to come back after a break.
+- Explain the finish line and what this path assumes you already know.
+- Choose a study rhythm and distinguish required work from optional reading.
+- Leave a short restart note and use it after a break.
 
 ## Assignment
 
 1. Look over the [course page](README.md). There are 6 sections and 4 projects. The whole path takes about 34 weeks.
 2. Pick your study days and a fixed time, and put them in your calendar. Aim for about 9 hours a week: 6 sessions of 90 minutes, or fewer, longer ones. Set the same number as your weekly target on the [course page](README.md). It counts sessions per week, never a daily streak.
-3. Create a private GitHub repository called `ai-engineer-path` and add a file called `log.md`. Each project will get its own public repo later.
-4. Split each session: about 30 minutes learning, 45 minutes building and 15 minutes writing in your log. Write what you did, what broke and how you fixed it.
-5. Add three rules to the top of your log. Coming back after a break: “Reread my last entry, then do the smallest next step.” Low-energy day: “15 minutes counts: reread my log, answer one Memory check question, write my next step.” Stuck: “Stuck for more than 20 minutes? Write down what you tried, take a short break, search the course FAQ or docs, then ask with your code and the exact error.”
+3. Create a private GitHub repository called `ai-learning-log` and add `log.md`. Keep your personal notes there; this public course already uses the name `ai-engineer-path`. Each project gets its own public repo later.
+4. Use a 90-minute session as a flexible guide: about 30 minutes learning, 45 building and 15 checking your work and making a short log entry. Take breaks when needed. End with two lines: one result you checked, and the exact file or next 10-minute action to resume.
+5. Add three rules to your log. After a break: “Check my last result, then take one small next step.” Low energy: “15 minutes of review counts; it does not need to finish a lesson.” Stuck: “After 20 minutes without a useful clue, reduce the problem, check the docs, then ask with my attempt and exact error.” If two sessions end at the same obstacle, revisit only the missing prerequisite; do not restart the whole course.
 6. Mark exams, Ramadan, Eid and family events in your calendar now. In those weeks, do shorter sessions on the next build step. The path has 2 spare weeks for exactly this.
 
 ### Memory check · 10 min
 
 7. Close this page. In your log, answer from memory, then check:
-   - How is a 90-minute session split? ([where to check](01-how-this-path-works.md))
+   - How do you decide that a lesson is finished, without memorising every detail? ([where to check](01-how-this-path-works.md))
    - What do you do first when you come back after missing a few days? ([where to check](01-how-this-path-works.md))
-8. Write one more line: how will this lesson help your Campus Assistant?
+8. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: How do you decide that a lesson is finished, without memorising every detail?</summary>
+
+Complete the assignment, explain the main idea, and check your result against the lesson criteria. Use documentation for syntax; correct a missed memory question and retry it next session.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: What do you do first when you come back after missing a few days?</summary>
+
+Read your last checked result and next-action note, try a short recall question, then resume one small step. Repair only a missing prerequisite rather than deleting progress.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

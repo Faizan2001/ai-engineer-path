@@ -25,7 +25,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** Your code gets valid JSON back from the model. Is it safe to save? Write yes or no, and one reason.
 
@@ -58,7 +58,25 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 9. Close this page. In your log, answer from memory, then check:
    - Which API errors should you retry, and which should you not? ([where to check](https://developers.openai.com/api/docs/guides/error-codes))
    - When is a workflow a better choice than an agent? ([where to check](06-the-ai-staircase.md))
-10. Write one more line: how will this lesson help your Campus Assistant?
+10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: Which API errors should you retry, and which should you not?</summary>
+
+Retry temporary rate limits, server failures or timeouts with a wait and a fixed retry limit. Do not blindly retry invalid requests, authentication or permission errors, exhausted credit, or model refusals; address the cause or use the fallback.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: When is a workflow a better choice than an agent?</summary>
+
+Choose a workflow when the steps are predictable and predefined branches can handle the task. An agent is useful only when choosing the next action dynamically adds enough value to justify its extra complexity and cost.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

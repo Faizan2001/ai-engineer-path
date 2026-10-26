@@ -26,7 +26,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** Two searches both find the right page somewhere in their top 5. Can one still be better? How would you tell?
 
@@ -65,14 +65,32 @@ To grade search you need an answer key: questions whose correct page you already
 
 ### Days 6–7 · about 3 hours
 
-7. Add to Ask MDN: measure Hit Rate@5 and MRR@5 (the @5 means only the top 5 results count) for keyword and vector search on your 20 practice questions. Write the numbers in your README.
+7. Add to Ask MDN: measure Hit Rate@5 and MRR@5 (the @5 means only the top 5 results count) for keyword and vector search on your 20 practice questions. Write the numbers in your README. Score the first 5 distinct `page_id` values, not 5 chunks. Fetch more chunk candidates if needed, deduplicate in rank order, and report fewer results honestly if fewer remain. Add a tiny test where repeated chunks from page A cannot crowd page B out of the five-page metric.
 
 ### Memory check · 10 min
 
 8. Close this page. In your log, answer from memory, then check:
    - What does MRR reward that Hit Rate doesn't? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md))
    - Why did you split long MDN pages into chunks? ([where to check](12-embeddings-and-vector-search.md))
-9. Write one more line: how will this lesson help your Campus Assistant?
+9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: What does MRR reward that Hit Rate doesn't?</summary>
+
+MRR rewards placing the first relevant result nearer the top, while Hit Rate only checks whether a relevant result was found within the cutoff. At @5, the reciprocal rank is zero if no relevant result appears in the first five positions.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: Why did you split long MDN pages into chunks?</summary>
+
+Chunks let search match a focused passage instead of representing many topics with one whole-page embedding. Keeping the parent page ID connects each chunk to its source for citations and evaluation.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

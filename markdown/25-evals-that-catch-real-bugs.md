@@ -64,7 +64,7 @@ Don't invent metrics first. Read 50 real conversations, note each failure in one
 6. Close this page. In your log, answer from memory, then check:
    - Why use pass or fail instead of a 1 to 5 score? ([where to check](https://hamel.dev/blog/posts/evals-faq/))
    - What do you save for every conversation in Ask MDN? ([where to check](17-monitoring.md))
-7. Write one more line: how will this lesson help your Campus Assistant?
+7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

@@ -27,7 +27,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** You tune a prompt until it scores 100% on your test questions. Is it good? What could be wrong?
 
@@ -48,7 +48,7 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 ### Days 3–5 · about 4.5 hours
 
 3. Write 20 practice questions for Ask MDN. For each one, list the page IDs (file paths) that answer it. These are for tuning, so use them as often as you like.
-4. Write 10 questions the docs can't answer, like “What's the best laptop for coding?”. Ask MDN must say “I don't know” to these.
+4. Write 10 questions your selected docs cannot answer: mix clearly unrelated questions with plausible CSS/JavaScript questions whose answer is absent from your frozen subset. Record why each is unsupported. Use these to develop and test abstention; they are practice data, not an unseen test.
 5. Commit both files. In Measuring Search you'll create 50 more questions that stay hidden until the final project.
 
 ### Memory check · 10 min
@@ -56,7 +56,7 @@ Two minutes, before the reading. Guess first: a wrong guess makes the right answ
 6. Close this page. In your log, answer from memory, then check:
    - Why must test questions stay hidden while you tune? ([where to check](https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets))
    - Why did you freeze one exact version of the MDN docs? ([where to check](09-keyword-rag.md))
-7. Write one more line: how will this lesson help your Campus Assistant?
+7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

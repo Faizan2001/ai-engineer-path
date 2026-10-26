@@ -1,6 +1,6 @@
 # AI Engineer Path (Markdown version)
 
-*A step-by-step path from your very first AI model call to a tested, secure AI app you can put online.*
+*A step-by-step path from your first AI model call to a deployed app with evaluations, access controls and tests.*
 
 This folder has every lesson as a Markdown file. For the full clickable course with progress tracking, open `index.html` in the folder above.
 
@@ -81,7 +81,7 @@ Get your app ready for real users: tests that run automatically, logins, access 
 26. [Testing and CI](26-testing-and-ci.md) · about 1 week
 27. [Postgres Search and Access Rules](27-postgres-search-and-access-rules.md) · about 1.5 weeks
 28. [Login](28-login.md) · about 1 week
-29. [Fresh Data](29-fresh-data.md) · about 4.5 hours
+29. [Fresh Data](29-fresh-data.md) · about 6 hours
 30. [Red-Team Your App](30-red-team-your-app.md) · about 6 hours
 31. **Project:** [Make It Sturdy](31-project-make-it-sturdy.md) · about 3.5 weeks
 

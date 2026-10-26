@@ -26,7 +26,7 @@ By the end of this lesson, you should be able to:
 
 ## Try it first
 
-Two minutes, before the reading. Guess first: a wrong guess makes the right answer stick.
+Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
 **Predict:** What agreement rate with your own grades would make you trust an LLM judge? Pick a number.
 
@@ -64,7 +64,25 @@ A judge is a second model with a marking scheme. Question, answer and sources go
 4. Close this page. In your log, answer from memory, then check:
    - Why check an LLM judge against answers you graded yourself? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md))
    - Why save a content hash for every page? ([where to check](15-data-ingestion.md))
-5. Write one more line: how will this lesson help your Campus Assistant?
+5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: Why check an LLM judge against answers you graded yourself?</summary>
+
+An LLM judge can be wrong or too lenient, so compare its verdicts with your own grades using the same criteria and inspect disagreements. Agreement on a small sample is useful evidence, not proof that the judge is always reliable.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
+
+<details>
+<summary>Check your answer: Why save a content hash for every page?</summary>
+
+A saved content hash lets you detect changed page text and skip unchanged pages on later ingestion runs. Compare page IDs in successive manifests as well, because hashes alone do not reveal pages that have disappeared.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 
