@@ -29,10 +29,10 @@ Set up your tools and learn how language models work. You'll finish by building 
 4. [Setting Up Your Tools](04-setting-up-your-tools.md) · about 3 hours
 5. [How LLMs Work](05-how-llms-work.md) · about 2 hours
 6. [The AI Staircase](06-the-ai-staircase.md) · about 1.5 hours
-7. [Structured Output and Errors](07-structured-output-and-errors.md) · about 6 hours
+7. [Structured Output and Errors](07-structured-output-and-errors.md) · about 7.5 hours
 8. **Project:** [Poster Reader](08-project-poster-reader.md) · about 2 weeks
 
-## Section 3: RAG with LLM Zoomcamp (Weeks 5–18)
+## Section 3: RAG with LLM Zoomcamp (Weeks 5–19)
 
 *Ask a model about a CSS property and it answers like a confident senior, even when it's wrong. These fourteen weeks hand it an open book: MDN. Ask MDN learns to find the right page, show it, say “I don't know” when the page isn't there, and earn a report card it can't charm.*
 
@@ -48,12 +48,12 @@ Learn RAG: finding the right information and letting a model answer from it. You
 13. [Measuring Search](13-measuring-search.md) · about 1 week
 14. [Hybrid Search](14-hybrid-search.md) · about 4.5 hours
 15. [Data Ingestion](15-data-ingestion.md) · about 4.5 hours
-16. [Grading Answers](16-grading-answers.md) · about 1 week
-17. [Monitoring](17-monitoring.md) · about 1 week
+16. [Grading Answers](16-grading-answers.md) · about 9 hours
+17. [Monitoring](17-monitoring.md) · about 12 hours
 18. [Deploy It Safely](18-deploy-it-safely.md) · about 6 hours
 19. **Project:** [Ask MDN](19-project-ask-mdn.md) · about 3 weeks
 
-## Section 4: Agents (Weeks 19–23)
+## Section 4: Agents (Weeks 20–24)
 
 *Until now Ask MDN could only talk. Here it gets hands: three tools, and one of them, saving a note, changes things for real. Hands raise the stakes, because any page it reads can whisper instructions. By the end you can read its loop step by step, and nothing changes until a person says yes.*
 
@@ -63,12 +63,12 @@ Give your app tools so it can take actions. You'll learn how agents work, build 
 - **After:** Tests proving `save_note` needs approval of its exact arguments, and logs showing injections ignored.
 
 20. [Agent Fundamentals](20-agent-fundamentals.md) · about 1 week
-21. [LangGraph](21-langgraph.md) · about 1.5 weeks
+21. [LangGraph](21-langgraph.md) · about 13.5 hours
 22. [Safe Tools](22-safe-tools.md) · about 3 hours
 23. **Project:** [Give It Tools](23-project-give-it-tools.md) · about 2 weeks
 24. [Start Applying](24-start-applying.md) · about 3 hours, then 1 hour a week
 
-## Section 5: Make It Sturdy (Weeks 24–32)
+## Section 5: Make It Sturdy (Weeks 25–34)
 
 *Picture next year's demo. University A's events officer asks your Campus Assistant about next week, and one forgotten WHERE clause shows her University B's unannounced fest. This section rehearses that day with a CSS team and a JS team, and makes the leak impossible rather than unlikely.*
 
@@ -83,16 +83,16 @@ Get your app ready for real users: tests that run automatically, logins, access 
 28. [Login](28-login.md) · about 1 week
 29. [Fresh Data](29-fresh-data.md) · about 6 hours
 30. [Red-Team Your App](30-red-team-your-app.md) · about 6 hours
-31. **Project:** [Make It Sturdy](31-project-make-it-sturdy.md) · about 3.5 weeks
+31. **Project:** [Make It Sturdy](31-project-make-it-sturdy.md) · about 5 weeks
 
-## Section 6: Conclusion (Weeks 33–34)
+## Section 6: Conclusion (Weeks 35–36)
 
-*Thirty-odd weeks ago a model call felt like magic. Now you know where it guesses, how to catch it and how to keep two groups apart. The Campus Assistant is no longer a vague dream; it's a list of parts you've built and tested. These two weeks decide which parts come first, and which features get a no.*
+*You can now follow an answer from input to evidence, inspect a failed tool call and explain the cost of a design choice. These two weeks test those skills on unfamiliar material and leave room to repair one weak spot.*
 
 Catch up, polish your projects and plan what you'll build next.
 
 - **Before:** You followed someone else's plan.
-- **After:** A one-page Campus Assistant plan that maps each feature to a repo you built, and its first commit.
+- **After:** A new-domain demonstration, an evidence table and one targeted next practice task.
 
 32. [What's Next](32-whats-next.md) · about 2 weeks (spare)
 

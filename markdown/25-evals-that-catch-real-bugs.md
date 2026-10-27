@@ -49,7 +49,7 @@ Don't invent metrics first. Read 50 real conversations, note each failure in one
 
 ### Day 3 · about 90 min
 
-3. Collect 50 conversations: your own chats in Neon, topped up with the Zoomcamp [synthetic data generator](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md) if you have fewer. Read them in two 25-minute blocks, write down every failure and sort them into 3 to 6 groups.
+3. Collect 50 permitted public/synthetic conversations: use recent redacted diagnostic examples from Neon, topped up with the Zoomcamp [synthetic data generator](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md). Review them before keeping a separate evaluation fixture; do not extend raw-log retention to fill the count. Read in two 25-minute blocks, write down every failure and sort them into 3 to 6 groups.
 
 ### Day 4 · about 90 min
 

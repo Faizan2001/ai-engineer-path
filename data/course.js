@@ -6,7 +6,7 @@
 // "repo", "site" and "community" feed the GitHub and Community buttons. Change them if you fork this.
 window.COURSE = {
  "title": "AI Engineer Path",
- "duration": "about 34 weeks",
+ "duration": "about 36 weeks",
  "tagline": "A step-by-step path from your first AI model call to a deployed app with evaluations, access controls and tests.",
  "repo": "https://github.com/Faizan2001/ai-engineer-path",
  "site": "https://faizan2001.github.io/ai-engineer-path/",
@@ -18,13 +18,14 @@ window.COURSE = {
  ],
  "how": [
   "Study about 9 hours a week, in sessions of about 90 minutes: roughly 30 minutes learning, 45 building and 15 writing in your log. Set a weekly target on this page. It counts sessions, never a daily streak.",
-  "Plan about 34 weeks at 9 hours a week, with spare time for breaks and consolidation. Allow 2–4 more weeks if prerequisite repair, deployment or debugging needs it. Follow the checks, not a deadline; the project work matters more than the calendar.",
+  "Plan about 36 weeks at 9 hours a week, with spare time for breaks and consolidation. Allow 2–4 more weeks if prerequisite repair, deployment or debugging needs it. Follow the checks, not a deadline; the project work matters more than the calendar.",
   "Long lessons are split into **Day** steps. Tick each Day as you finish it, and stop at the end of a Day. Missed a few days? Reread your last log entry, then do the smallest next step. Low on energy? A 15-minute session still counts.",
   "Finish each lesson's **Memory check** before marking it complete. Explain the idea without looking, compare with the feedback or source, and correct missing pieces. Retry a missed question at the next session. For projects, show the working evidence in “You're done when”; a tick alone is not a skill test.",
   "Your coding assistant is welcome, but every project raises the bar on work you do by hand: one change, then one function, then one test, then one bug fixed without AI. [Mindset and Asking for Help](#mindset-and-asking-for-help) explains why.",
-  "Cost: about $15–20 of OpenAI credit for the whole path (an estimate); everything else is free. Paying from Bangladesh needs a card for international payments; [Setting Up Your Tools](#setting-up-your-tools) has a free fallback. There's no certificate. Your public project repos are your proof.",
+  "Cost: the learning materials are free; model calls and some hosting options can cost money. Set your own API budget, price each experiment before running it, and use fake responses for routine tests. You do not need accounts with three model providers. [Setting Up Your Tools](#setting-up-your-tools) includes a free-tier fallback. There is no course certificate; your projects and independent checks provide the evidence.",
   "On mobile data, or expecting a power cut? Open the next lesson's links on Wi-Fi first. Videos are always optional and show their length.",
-  "Assignments are the required path. Videos can help an idea click; Additional resources and Extra credit are optional. Use the materials named for the current step, then build. If two sessions end in the same confusion, pause new material and repair that prerequisite with a smaller example."
+  "Assignments are the required path. Videos can help an idea click; Additional resources and Extra credit are optional. Use the materials named for the current step, then build. If two sessions end in the same confusion, pause new material and repair that prerequisite with a smaller example.",
+  "Already started? The [provider and university comparison](https://github.com/Faizan2001/ai-engineer-path/blob/main/PROVIDER-UNIVERSITY-REVIEW.md) lists the added practice by lesson. Keep your saved progress; revisit only additions to lessons you have finished."
  ],
  "disclaimer": "Format inspired by The Odin Project; not affiliated. Lessons link to outside material owned by its authors.",
  "sections": [
@@ -38,7 +39,7 @@ window.COURSE = {
      "title": "How This Path Will Work",
      "kind": "lesson",
      "time": "about 45 min",
-     "hook": "34 weeks sounds long. It's really about 200 short sessions, and you only ever owe the next one.",
+     "hook": "One lesson, one checked result, one small next step. That is enough for today.",
      "intro": [
       "Welcome! This path takes you from your first AI model call to a small deployed app you can evaluate, debug and explain.",
       "Each lesson points you to free material, then gives you something to build. Please don't skip the building. That's where the real learning happens."
@@ -53,12 +54,12 @@ window.COURSE = {
      "assignment": [
       {
        "steps": [
-        "Look over the [course page](#home). There are 6 sections and 4 projects. The whole path takes about 34 weeks.",
+        "Look over the [course page](#home). There are 6 sections and 4 projects. The whole path takes about 36 weeks.",
         "Pick your study days and a fixed time, and put them in your calendar. Aim for about 9 hours a week: 6 sessions of 90 minutes, or fewer, longer ones. Set the same number as your weekly target on the [course page](#home). It counts sessions per week, never a daily streak.",
         "Create a private GitHub repository called `ai-learning-log` and add `log.md`. Keep your personal notes there; this public course already uses the name `ai-engineer-path`. Each project gets its own public repo later.",
         "Use a 90-minute session as a flexible guide: about 30 minutes learning, 45 building and 15 checking your work and making a short log entry. Take breaks when needed. End with two lines: one result you checked, and the exact file or next 10-minute action to resume.",
         "Add three rules to your log. After a break: “Check my last result, then take one small next step.” Low energy: “15 minutes of review counts; it does not need to finish a lesson.” Stuck: “After 20 minutes without a useful clue, reduce the problem, check the docs, then ask with my attempt and exact error.” If two sessions end at the same obstacle, revisit only the missing prerequisite; do not restart the whole course.",
-        "Mark exams, Ramadan, Eid and family events in your calendar now. In those weeks, do shorter sessions on the next build step. The path has 2 spare weeks for exactly this."
+        "Mark exams, Ramadan, Eid and family events in your calendar now. Use shorter sessions in those weeks. The final two weeks include consolidation and a small independent exercise; longer breaks simply move your finish date."
        ]
       }
      ],
@@ -86,9 +87,9 @@ window.COURSE = {
      "time": "about 1.5 hours",
      "hook": "Most of this job is one you already do, plus a very confident new colleague.",
      "intro": [
-      "An AI engineer builds apps on top of AI models that already exist. You won't train models from scratch. That's usually a job for research teams.",
+      "This path targets applied AI engineering: building useful software around existing models. Some AI roles also train or fine-tune models; those need additional practice after this path.",
       "Good news: most of the work is normal software engineering. You load data, call a model, check its answer, test it and watch how it behaves. Your web development skills will help a lot.",
-      "Here's why this path focuses on judgment, not typing. AI agents are improving fast: the length of task they can finish on their own has been doubling about every 7 months ([METR](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)). A [Stanford study](https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine/) of US payroll data found no economy-wide job loss, but young workers in the jobs most exposed to AI are 19% below where they'd otherwise be, while experienced workers show no such gap. So the plan is to learn the experienced part of the job early: framing problems, checking AI output, testing, securing and explaining."
+      "Your strongest evidence will be an app you can explain, test and change when the requirements move. Framework names help you find a job listing; the project checks help you show what you can actually do. Completion alone is not a hiring guarantee."
      ],
      "unlocks": "read an AI job post and spot what you already do.",
      "edge": "matching your skills to what teams actually need.",
@@ -102,7 +103,7 @@ window.COURSE = {
        "steps": [
         "Read the README of Alexey Grigorev's [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Write down the 5 tasks that show up most in job posts.",
         "In your log, mark which of those tasks you've already done as a web developer and which are new to you.",
-        "Write down your goal for after this path: a **Campus Assistant** for your university Events platform, an assistant that answers students' questions and keeps each university's data separate. Every project here teaches part of it.",
+        "Choose a goal for after this path. It can be a Campus Assistant for your Events platform, or another small product you care about. The course projects stand on their own; integrating them into your university platform is not required.",
         "Take 10 minutes and write in your log: why does this matter to you, and to the people you care about? Be specific. You'll reread it when motivation dips."
        ]
       }
@@ -207,7 +208,7 @@ window.COURSE = {
       {
        "day": "Day 1 · about 90 min",
        "steps": [
-        "Follow the Zoomcamp [environment lesson](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md): install uv, create a project, put your OpenAI key in a `.env` file and run the test call.",
+        "Follow the Zoomcamp [environment lesson](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md): install uv, create a project, put your OpenAI key in a `.env` file and run the test call. Record the package version, model ID and API endpoint that worked. The pinned course examples may use a different API from current docs: check tool, image and structured-output support before changing models. An SDK having a familiar method name does not guarantee provider compatibility.",
         "Make a separate OpenAI project and key just for this path. Keep only a small amount of credit on the account, and turn auto-recharge off if your account uses prepaid credit. Set budget alerts too, and check whether they stop spending or only send a warning.",
         "**Paying from Bangladesh:** OpenAI needs a card that works for international online payments (many banks offer a dual-currency card; ask yours). Add credit $5 at a time. **No such card yet?** Don't stop. Use Google's Gemini free tier through its [OpenAI-compatible endpoint](https://ai.google.dev/gemini-api/docs/openai): change the `base_url`, key and model name. Send only public data, because Google may use free-tier content to improve its products ([pricing page](https://ai.google.dev/gemini-api/docs/pricing)). Expect small differences: its examples use Chat Completions, there's no documented `refusal` field (fake one in your tests), and you'll set promptfoo's grading model yourself. Switch to OpenAI when you can.",
         "Add `.env` to your `.gitignore` file before your first commit, so the key never reaches GitHub."
@@ -328,7 +329,7 @@ window.COURSE = {
        "steps": [
         "Read Anthropic's [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents). Notice how a workflow is different from an agent.",
         "Watch Barry Zhang's talk [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) (15 min, Anthropic). Write down his advice on when not to build an agent.",
-        "Exercise: list 5 features of your Campus Assistant idea or your Events platform. For each one, write the lowest step that solves it and why. At least one answer should be “plain code”. Keep this list: it becomes your Campus Assistant plan in [What's Next](#whats-next)."
+        "Choose 3 possible product features. For each, name the user, the problem, the simplest useful solution and one measurable success rule. Include a plain-code baseline. Then sort these failures: missing facts → supply context or retrieval; inconsistent format → schema and validation; repeated task behavior still wrong after prompt/data fixes → consider fine-tuning with a separate test set. Training from scratch is a different project. Keep this one-page brief."
        ]
       }
      ],
@@ -354,7 +355,7 @@ window.COURSE = {
      "slug": "structured-output-and-errors",
      "title": "Structured Output and Errors",
      "kind": "lesson",
-     "time": "about 6 hours",
+     "time": "about 7.5 hours",
      "hook": "Essays are lovely to read and miserable to parse. Today the model fills in forms.",
      "intro": [
       "Real apps need the model to fill in a form, not write an essay. That's called structured output.",
@@ -366,7 +367,8 @@ window.COURSE = {
       "Get typed, checked output with Pydantic, a Python library for data models.",
       "Send an image to a model and work out what the call cost.",
       "Retry the right errors and handle refusals.",
-      "Build a small form with Streamlit and test your code with pytest."
+      "Build a small form with Streamlit and test your code with pytest.",
+      "Improve a prompt by changing one thing and checking the same examples."
      ],
      "predict": "Your code gets valid JSON back from the model. Is it safe to save? Write yes or no, and one reason.",
      "widget": "form-check",
@@ -388,7 +390,7 @@ window.COURSE = {
       {
        "day": "Day 3 · about 90 min",
        "steps": [
-        "Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a timeout and at most 2 retries, with a short wait between them, for rate-limit and server errors. Don't retry bad requests: they will fail every time.",
+        "Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a request timeout and at most 2 retries for retryable rate-limit/server errors. Respect Retry-After when supplied; otherwise use increasing waits with a little randomness. Keep an overall deadline too. Do not retry invalid credentials or bad requests unchanged.",
         "Handle refusals: log them and return “needs a human” instead of crashing."
        ]
       },
@@ -398,13 +400,21 @@ window.COURSE = {
         "Follow pytest's [getting started guide](https://docs.pytest.org/en/stable/getting-started.html), then write 3 tests for your code: one with good input, one with a missing field and one with a refusal.",
         "Follow Streamlit's [get started](https://docs.streamlit.io/get-started) page, then show your `Event` in a small [form](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form) with a Save button."
        ]
+      },
+      {
+       "day": "Day 5 · about 90 min",
+       "steps": [
+        "Spend 15 minutes on Anthropic’s [Providing examples](https://academy.claude.com/courses/building-with-the-claude-api/providing-examples). Use the explanation or video; the exercise works with your existing provider. Few-shot prompting means showing a small number of input/output examples.",
+        "Make 6 practice inputs, including an ambiguous date and a missing venue. Save prompt v1. Change only one thing: clearer instructions OR two examples. Run both versions on the same inputs with the same model and settings. Keep the raw outputs and mark each field correct, wrong or appropriately unknown. Better formatting is not evidence of better facts.",
+        "Keep the better version only if the results support it. Write the model ID, prompt version, settings and cost beside the scores. If the six cases are tied, say so. These are practice cases; they do not replace Poster Reader’s held-back posters."
+       ]
       }
      ],
      "recall": [
       {
-       "q": "Which API errors should you retry, and which should you not?",
-       "link": "https://developers.openai.com/api/docs/guides/error-codes",
-       "answer": "Retry temporary rate limits, server failures or timeouts with a wait and a fixed retry limit. Do not blindly retry invalid requests, authentication or permission errors, exhausted credit, or model refusals; address the cause or use the fallback."
+       "q": "How do you tell whether a prompt change helped?",
+       "answer": "Change one factor, use the same practice cases and scoring rule, keep both outputs, and compare failures as well as successes. Then use untouched cases for the later final check. A schema checks shape, not factual truth.",
+       "link": "#structured-output-and-errors"
       },
       {
        "q": "When is a workflow a better choice than an agent?",
@@ -502,7 +512,7 @@ window.COURSE = {
   },
   {
    "title": "RAG with LLM Zoomcamp",
-   "weeks": "Weeks 5–18",
+   "weeks": "Weeks 5–19",
    "description": "Learn RAG: finding the right information and letting a model answer from it. You'll follow the free LLM Zoomcamp course and build Ask MDN, an assistant for web docs.",
    "lessons": [
     {
@@ -1120,7 +1130,7 @@ window.COURSE = {
      "slug": "grading-answers",
      "title": "Grading Answers",
      "kind": "lesson",
-     "time": "about 1 week",
+     "time": "about 9 hours",
      "hook": "Hiring a model to mark exams is clever. Not checking its marking isn't.",
      "intro": [
       "Good search isn't enough: the final answer also has to be right. Checking hundreds of answers by hand is slow, so you'll use a model to grade them. This is called an LLM judge.",
@@ -1132,7 +1142,8 @@ window.COURSE = {
      "overview": [
       "Generate answers for many questions at once.",
       "Grade answers with an LLM judge.",
-      "Check that the judge agrees with you."
+      "Check that the judge agrees with you.",
+      "Choose a model configuration using quality, delay and cost together."
      ],
      "predict": "What agreement rate with your own grades would make you trust an LLM judge? Pick a number.",
      "widget": "mark-the-marker",
@@ -1177,13 +1188,22 @@ window.COURSE = {
        "steps": [
         "Add to Ask MDN: generate answers for your 20 practice questions and save them to a file, so you can grade again without paying again. Grade them with a judge, then grade 10 of them yourself. Write down how often the judge agreed with you. Run the judge once per change, not after every small idea."
        ]
+      },
+      {
+       "day": "Day 6 · about 90 min",
+       "steps": [
+        "Read only “Design your eval process” in OpenAI’s [evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices). Use your own files and grader; this assignment does not need OpenAI’s hosted Evals platform.",
+        "Choose 10 of your practice questions, including exact identifiers and unsupported questions. Compare two available models from your current provider using the SAME retrieved chunks, prompt and output limit. Estimate the spend first. If only one model is affordable or available, compare two supported configurations and label this a configuration comparison, not a model comparison. No extra provider account is required.",
+        "Hide the model names while you grade correctness, citation support and refusals. Record cost, total time and failures for each answer. Re-run the two most ambiguous cases once to notice variability. Keep the frozen final questions untouched.",
+        "Write a five-line decision: acceptable quality, maximum wait/cost, which option meets those limits, a failure it still has, and what would make you reconsider. Save a run manifest: model ID, prompt/config version, corpus hash, date and scores. This is a small engineering experiment, not a model leaderboard."
+       ]
       }
      ],
      "recall": [
       {
-       "q": "Why check an LLM judge against answers you graded yourself?",
-       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md",
-       "answer": "An LLM judge can be wrong or too lenient, so compare its verdicts with your own grades using the same criteria and inspect disagreements. Agreement on a small sample is useful evidence, not proof that the judge is always reliable."
+       "q": "When is the cheaper model the better engineering choice?",
+       "answer": "When it meets the task’s predeclared quality and safety criteria within the latency and cost limits. Compare identical inputs, inspect failures, and record uncertainty; a tiny test set cannot establish universal superiority.",
+       "link": "#grading-answers"
       },
       {
        "q": "Why save a content hash for every page?",
@@ -1193,32 +1213,34 @@ window.COURSE = {
      ],
      "extra": [
       "[AI Evals FAQ by Hamel Husain and Shreya Shankar (a preview of Section 5)](https://hamel.dev/blog/posts/evals-faq/)",
-      "[Creating an LLM-as-a-judge that drives business results](https://hamel.dev/blog/posts/llm-judge/) by Hamel Husain: how to build a judge you can actually trust."
+      "[Creating an LLM-as-a-judge that drives business results](https://hamel.dev/blog/posts/llm-judge/) by Hamel Husain: how to build a judge you can actually trust.",
+      "[Building with the Claude API: prompt evaluation](https://academy.claude.com/courses/building-with-the-claude-api) — optional video alternative. Use the Prompt evaluation section only; you do not need a second complete course."
      ]
     },
     {
      "slug": "monitoring",
      "title": "Monitoring",
      "kind": "lesson",
-     "time": "about 1 week",
+     "time": "about 12 hours",
      "hook": "Sooner or later someone will ask Ask MDN for a biryani recipe. Logs show you the question, and what it said back.",
      "intro": [
-      "Once people use your app, you need to see what's happening: what they ask, what it answers, how much it costs and how fast it is. You'll also save every chat so you can study real conversations later."
+      "Once people use your app, you need to see where answers fail, how much they cost and how long they take. Record metadata for each request. Keep diagnostic conversation content only for permitted public or synthetic examples, with a short retention period."
      ],
      "unlocks": "see what users ask, what each answer costs and where it fails.",
      "edge": "owning how your app behaves after launch.",
      "overview": [
       "Turn your Streamlit page into a full chat app.",
-      "Save every conversation and its cost to a database.",
-      "Collect user feedback and show it on a dashboard."
+      "Save request metadata and permitted diagnostic examples to a database.",
+      "Collect user feedback and inspect it alongside failed requests.",
+      "Trace a failure without keeping unnecessary private data."
      ],
      "checkpoint": "your log has saved answers for the 20 practice questions and a judge agreement number.",
      "bridge": {
-      "text": "Monitoring means keeping a receipt for every answer: the question, the answer, its sources, the time, tokens, cost and a thumbs up or down. Later you read the receipts to find failures. A dashboard is only a view of that table; the table is what matters.",
+      "text": "A request ID connects the steps behind one answer: search, model calls, time, cost and errors. That lets you find where a failure started. For this course, save diagnostic text only from permitted public/synthetic examples and remove it after 7 days. Your evaluation fixtures are a separate, reviewed dataset.",
       "terms": [
        [
-        "conversation log",
-        "one database row per question and answer"
+        "request trace",
+        "linked records showing the steps behind one answer"
        ],
        [
         "feedback",
@@ -1236,7 +1258,7 @@ window.COURSE = {
       {
        "day": "Day 2 · about 90 min",
        "steps": [
-        "[04 Metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/04-metrics.md) and [05 Database](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/05-database.md) (this is where every conversation gets saved)."
+        "[04 Metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/04-metrics.md) and [05 Database](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/05-database.md) (adapt the example to your metadata and retention policy)."
        ]
       },
       {
@@ -1254,14 +1276,23 @@ window.COURSE = {
       {
        "day": "Days 5–7 · about 4.5 hours",
        "steps": [
-        "Add to Ask MDN: save every conversation with the question, answer, cited pages, time taken, tokens and cost. Add a thumbs up or down button. This is **Ask MDN v0.5**: you can see what people ask and what each answer costs."
+        "Add to Ask MDN: one request ID joining retrieval, model calls and errors. Save step durations, retrieved page IDs, model/prompt/corpus versions, tokens, cost and user feedback. Use only public or synthetic test conversations; inspect a failed run from input to output. This is **Ask MDN v0.5**: a wrong answer now leaves clues."
+       ]
+      },
+      {
+       "day": "Day 8 · about 90 min",
+       "steps": [
+        "Skim the monitoring and privacy topics in [Stanford CS329S](https://stanford-cs329s.github.io/syllabus.html). Then write a small data policy: what leaves your app, where logs live, who can read them and when they are deleted. For this exercise, retain diagnostic content for 7 days; never log keys, auth headers or real private messages. Keep approved synthetic evaluation fixtures separately.",
+        "Test the policy with a fake email and token-shaped string: redact them before saving diagnostics. Do not assume a regex removes every kind of personal information. Add a cleanup command and test it on old fake logs. A restricted log is still stored data.",
+        "Make a 5-request sample report: where time went, cost per request, one retrieval failure and one model failure. Plain JSON and a short table are enough; a new tracing service is optional."
        ]
       }
      ],
      "recall": [
       {
-       "q": "What should you save for every answer?",
-       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/04-metrics.md"
+       "q": "What should a useful trace reveal, and what should it leave out?",
+       "answer": "A request ID joins retrieval, model and tool steps with durations, versions, costs and errors. Keep only necessary permitted content; omit credentials and private messages, restrict access and test deletion. Logging everything forever creates another problem.",
+       "link": "#monitoring"
       },
       {
        "q": "Why can't you fully trust an LLM judge without checking it?",
@@ -1292,7 +1323,7 @@ window.COURSE = {
       "Store logs in a hosted Postgres database safely.",
       "Make your app private, and undo a bad deploy (roll back)."
      ],
-     "checkpoint": "Ask MDN v0.5 saves every conversation with tokens, cost and a thumbs rating.",
+     "checkpoint": "Ask MDN v0.5 saves request metadata, permitted diagnostic examples, costs and feedback.",
      "assignment": [
       {
        "day": "Day 1 · about 90 min",
@@ -1319,7 +1350,7 @@ window.COURSE = {
       {
        "day": "Day 4 · about 90 min",
        "steps": [
-        "Check your OpenAI budget alerts and credit balance, then write a short “How to deploy” section in your README. Recruiters can't open a private app, so add a short GIF or recording of it working. This is **Ask MDN v0.6**: it's online."
+        "Check your OpenAI budget alerts and credit balance, then write a short “How to deploy” section in your README. Recruiters can't open a private app, so add a short GIF or recording of it working. This is **Ask MDN v0.6**: it's online. Declare a local success target, such as 9 of 10 normal requests finishing within your chosen time and cost limits. Put failure thresholds, the stop switch and rollback instructions in a short runbook. Those are learning targets, not a production service guarantee."
        ]
       }
      ],
@@ -1333,7 +1364,9 @@ window.COURSE = {
        "link": "https://neon.com/docs/manage/roles"
       }
      ],
-     "extra": []
+     "extra": [
+      "[OpenAI production best practices](https://developers.openai.com/api/docs/guides/production-best-practices) — read Staging projects, Managing rate limits and Managing costs. Keep development traffic separate from the live app; model names and account limits change."
+     ]
     },
     {
      "slug": "project-ask-mdn",
@@ -1384,7 +1417,7 @@ window.COURSE = {
       }
      ],
      "done": [
-      "Your README reports Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions. If hybrid doesn't win, you explain why.",
+      "Your README reports Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions. If hybrid doesn't win, you explain why. Include your model/configuration comparison and its decision, with prompt and corpus versions.",
       "Every factual answer identifies its source passages. Your README includes manual correctness and citation-support grades for a 10-answer sample, with failures explained.",
       "Report abstention results on the 10 known unanswerable questions and incorrect refusals on answerable questions. Call this a regression result, not proof of performance on new questions.",
       "It runs online as your private Streamlit app, with the API key stored in Secrets and conversations saved in Neon.",
@@ -1407,7 +1440,7 @@ window.COURSE = {
      "extra_credit": [
       "Add a real reranker (a second model that re-scores the top results) and measure whether it helps.",
       "Compare two embedding models on your practice questions.",
-      "Optional Zoomcamp extras that earn points: Docker Compose, a 5-chart dashboard, a dedicated ingestion tool, comparing prompts and query rewriting."
+      "Optional Zoomcamp extras that earn points: Docker Compose, a 5-chart dashboard, a dedicated ingestion tool and query rewriting. The core path already compares prompts and model configurations."
      ],
      "recall": [
       {
@@ -1430,7 +1463,7 @@ window.COURSE = {
   },
   {
    "title": "Agents",
-   "weeks": "Weeks 19–23",
+   "weeks": "Weeks 20–24",
    "description": "Give your app tools so it can take actions. You'll learn how agents work, build one with LangGraph, and learn to keep tools safe.",
    "lessons": [
     {
@@ -1514,7 +1547,7 @@ window.COURSE = {
      "slug": "langgraph",
      "title": "LangGraph",
      "kind": "lesson",
-     "time": "about 1.5 weeks",
+     "time": "about 13.5 hours",
      "hook": "Your hand-written loop forgets everything and can't wait. LangGraph adds memory and patience.",
      "intro": [
       "LangGraph is a framework for building agents. It adds what your hand-written loop doesn't have: saved state (memory), branches, and a way to pause and wait for a person.",
@@ -1525,7 +1558,8 @@ window.COURSE = {
      "overview": [
       "Build a graph (a map of steps) that keeps state.",
       "Give an agent memory.",
-      "Pause for a person's approval with interrupts."
+      "Pause for a person's approval with interrupts.",
+      "Keep useful conversation context within a budget without changing permissions."
      ],
      "checkpoint": "your hand-written loop has a step limit and a second tool, and logs every step.",
      "bridge": {
@@ -1566,13 +1600,22 @@ window.COURSE = {
         "Reread the approvals part of the [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts). For approvals, use `interrupt()` and resume with `Command(resume=...)`; the docs recommend static breakpoints only for debugging.",
         "Rebuild your loop in LangGraph with one interrupt before a tool runs. In your log, list what LangGraph now does that you wrote by hand."
        ]
+      },
+      {
+       "day": "Day 9 · about 90 min",
+       "steps": [
+        "Read the “anatomy of effective context” section of Anthropic’s [context engineering guide](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents), for 15 minutes. Think of context as what the model can see now. A saved conversation, a summary and a permission record serve different jobs.",
+        "Build a small context-selection function. Set an input budget below your chosen model’s context limit, reserving space for output and any reasoning allowance. Use its tokenizer/counting method where available; reject an oversized request safely if you cannot fit it. Keep instructions, the current question and recent complete turns; select relevant evidence and cap tool output size. Never split a tool call from its result.",
+        "Try a synthetic 20-turn conversation with an early browser/version constraint. Check that your selection preserves that constraint or asks the user to repeat it. Keep critical task facts in explicit application state; an optional model-made summary can be wrong and must not supply authorization or approval. Test one oversized tool result and one lost constraint.",
+        "Stop here: long-term personalized memory is optional. In [Login](#login) and [Fresh Data](#fresh-data), you will also restrict saved state by owner and invalidate stale evidence."
+       ]
       }
      ],
      "recall": [
       {
-       "q": "How do you pause a graph for a person, and how do you continue it?",
-       "link": "https://docs.langchain.com/oss/python/langgraph/interrupts",
-       "answer": "Call interrupt() where human input is needed, with a checkpointer and thread ID configured. Resume the same thread with Command(resume=...), and use the returned input to decide whether the proposed action may proceed."
+       "q": "What belongs in model context, and what must remain outside its authority?",
+       "answer": "Supply the relevant task, complete recent interactions and permitted evidence within a budget. Keep identity, permissions, approvals and operation IDs in application-controlled state. A summary can help recall but cannot grant access or approve a write.",
+       "link": "#langgraph"
       },
       {
        "q": "Why put a limit on an agent's number of steps?",
@@ -1582,7 +1625,8 @@ window.COURSE = {
      ],
      "extra": [
       "[Hugging Face Agents Course, Unit 2 LangGraph pages](https://huggingface.co/learn/agents-course/en/unit2/langgraph/introduction)",
-      "[Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) by Anthropic: what to put in an agent's memory, and what to leave out."
+      "[Google/Kaggle AI Agents Intensive](https://www.kaggle.com/learn-guide/5-day-agents) — optional alternative: Day 3, Context Engineering: Sessions & Memory. Read the concepts or watch its recording; skip the ADK rewrite.",
+      "[Berkeley Advanced LLM Agents, Spring 2025](https://llmagents-learning.org/sp25) — optional depth: Yu Su’s lecture on reasoning, memory and planning. Research context, not another prerequisite."
      ]
     },
     {
@@ -1626,7 +1670,7 @@ window.COURSE = {
         "Read Simon Willison's [The lethal trifecta for AI agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/).",
         "Read OWASP [LLM01 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) and [LLM06 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/).",
         "For Ask MDN's agent, write down its three trifecta parts: private data, untrusted content and a way to send data out (Simon Willison calls it external communication). Which part will you cut off, and how?",
-        "Design your approval rule: a person approves the exact tool name and its exact arguments. If anything changes, the approval no longer counts."
+        "Design your approval rule: a person approves the exact tool name and its exact arguments. If anything changes, the approval no longer counts. A tool discovered through MCP needs the same checks. MCP standardizes the connection; it does not make an arbitrary server trustworthy or give it permission to act."
        ]
       }
      ],
@@ -1644,7 +1688,8 @@ window.COURSE = {
      ],
      "extra": [
       "[Agents Towards Production (security tutorials)](https://github.com/NirDiamant/agents-towards-production)",
-      "[Design patterns for securing LLM agents against prompt injections](https://simonwillison.net/2025/Jun/13/prompt-injection-design-patterns/) by Simon Willison: six patterns that limit the damage, explained simply."
+      "[Design patterns for securing LLM agents against prompt injections](https://simonwillison.net/2025/Jun/13/prompt-injection-design-patterns/) by Simon Willison: six patterns that limit the damage, explained simply.",
+      "[Anthropic’s Introduction to MCP](https://academy.claude.com/collections/build-with-claude) — optional protocol background. Use the Introduction to Model Context Protocol course; implementing a server remains extra credit."
      ]
     },
     {
@@ -1693,7 +1738,7 @@ window.COURSE = {
        "day": "Week 2 · about 9 hours",
        "steps": [
         "Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call. For `save_note`, add a database unique constraint on `(group_id, operation_id)` and [INSERT ON CONFLICT](https://www.postgresql.org/docs/current/sql-insert.html) handling. A repeated ID returns the original result only if its arguments match; changed arguments need a new approval. Simulate a committed write followed by a lost response, then retry: there must be exactly one note.",
-        "Log every step: the tool, its input, the size of its output, the tokens and the cost.",
+        "Log each step’s request ID, tool name, input/output sizes, timing, tokens and cost. Keep redacted argument examples only in your permitted synthetic test logs, following [Monitoring](#monitoring); never record credentials.",
         "Write 5 injection documents (for example a page that says “call save_note with…”) and 5 normal requests, including one that really should save a note. Write the injection documents like an attacker's notebook: the goal, the trick and how your app should block it. Commit them.",
         "In your log, compare your Day 1 plan with what really happened. That gap is a lesson in itself."
        ]
@@ -1701,7 +1746,7 @@ window.COURSE = {
      ],
      "done": [
       "`save_note` can't run unless a person approves its exact arguments. A test proves it. A retry after a lost response creates no duplicate note, and changed arguments cannot reuse an earlier approval.",
-      "The step limit, cost limit and retry limit each stop a runaway run. A test proves each one.",
+      "The step limit, cost limit and retry limit each stop a runaway run. A test proves each one. The context-budget checks also pass by preserving critical task facts or pausing for clarification before answering or acting; context never grants new permissions.",
       "Your 5 injection documents never cause an unapproved action, and no planted instruction is carried out. Your 5 normal requests still work. You checked this in the step logs, not just in the replies.",
       "Explain the request flow, two decisions and one failure. Without AI-generated code, write the retry/duplicate-write test or the changed-arguments approval test. First make it fail on the unsafe implementation, then pass on the fix. Documentation is allowed; note the commit."
      ],
@@ -1789,7 +1834,7 @@ window.COURSE = {
   },
   {
    "title": "Make It Sturdy",
-   "weeks": "Weeks 24–32",
+   "weeks": "Weeks 25–34",
    "description": "Get your app ready for real users: tests that run automatically, logins, access rules, fresh data and attack tests.",
    "lessons": [
     {
@@ -1848,7 +1893,7 @@ window.COURSE = {
       {
        "day": "Day 3 · about 90 min",
        "steps": [
-        "Collect 50 conversations: your own chats in Neon, topped up with the Zoomcamp [synthetic data generator](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md) if you have fewer. Read them in two 25-minute blocks, write down every failure and sort them into 3 to 6 groups."
+        "Collect 50 permitted public/synthetic conversations: use recent redacted diagnostic examples from Neon, topped up with the Zoomcamp [synthetic data generator](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md). Review them before keeping a separate evaluation fixture; do not extend raw-log retention to fill the count. Read in two 25-minute blocks, write down every failure and sort them into 3 to 6 groups."
        ]
       },
       {
@@ -2316,13 +2361,14 @@ window.COURSE = {
      "slug": "project-make-it-sturdy",
      "title": "Make It Sturdy",
      "kind": "project",
-     "time": "about 3.5 weeks",
+     "time": "about 5 weeks",
      "hook": "Dress rehearsal for the Campus Assistant: two groups, real logins, one tireless attacker. It's you.",
      "intro": [
       "This is the final project of the path. Ask MDN gets logins, separate groups, fresh data, automatic tests and an attack test it must pass.",
-      "This brings the pieces together in a small deployed system. Passing these checks demonstrates this project's behavior under the cases you tested; a real institutional rollout still needs its own requirements and operational review."
+      "This brings the pieces together in a small deployed system. Passing these checks demonstrates this project's behavior under the cases you tested; a real institutional rollout still needs its own requirements and operational review.",
+      "Finish the existing app first. Then give its read-only answer function a small API, so another application can use it. You will reuse your validation, permissions and tests; this is not a fifth project."
      ],
-     "unlocks": "demonstrate a small AI app with access checks, release gates and recorded reliability tests.",
+     "unlocks": "demonstrate a tested AI app and a portable backend, including what happens when dependencies fail.",
      "edge": "owning reliability, security and cost at the same time.",
      "before": [
       "Write your own week-by-week plan in your log first, then compare it with the steps below. Do Extra credit only after every “You're done when” line passes.",
@@ -2355,7 +2401,39 @@ window.COURSE = {
         "Run your attack test (30 cases plus 5 canaries), 3 times for each case. Fix what breaks, then run it again.",
         "Set aside 12 fresh questions after freezing this version: 4 each for CSS and JS with expected answers/supporting passages, plus 4 plausible questions unsupported by that user's permitted documents. Before running them, record an acceptance rule: for this learning project, at least 7 of 8 supported answers correct and supported by citations, all 4 unsupported requests declined, and no unauthorized reads/writes. Grade manually and show counts and all failures. These small-sample targets are practice gates, not production guarantees. If you fix a failure, keep these as regression cases and reserve fresh cases for another independent check.",
         "Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.",
-        "Update the README with your results and a diagram of how it fits together. End with a one-page pitch for the Campus Assistant: what you'd change to serve many universities."
+        "Update the README with your results and an architecture diagram. Keep a short list of changes a real team deployment would need. Your university integration can wait until after the course."
+       ]
+      },
+      {
+       "day": "Days 22–23 · about 3 hours",
+       "steps": [
+        "**Backend lab, first checkpoint:** read FastAPI’s [request body](https://fastapi.tiangolo.com/tutorial/body/) and [response model](https://fastapi.tiangolo.com/tutorial/response-model/) guides. Reuse `answer(question, user)` behind a read-only `POST /answer`; add `GET /health`. Use Pydantic for a bounded question field and a response containing answer, source IDs and request ID. Reject extra identity/group fields. The API must not expose `save_note` or approval-resume operations. Use the RAG function directly or a read-only tool allowlist; hiding a write endpoint does not disable writes inside an agent.",
+        "Start with a fake model, a fixed synthetic test account and a server listening only on localhost. Return a clear validation error for malformed input and a safe timeout/unavailable response for dependency failures. Keep stack traces and keys out of responses. Checkpoint: a command-line HTTP client gets a valid answer and predictable errors. Replace the fixed account with token verification in the next step before using real data.",
+        "Spend 15 minutes on FastAPI’s [concurrency guide](https://fastapi.tiangolo.com/async/). If your SDK/database calls block, start with a normal `def` endpoint; do not call blocking code directly inside `async def`. Use timeouts on the dependency calls themselves."
+       ]
+      },
+      {
+       "day": "Days 24–25 · about 3 hours",
+       "steps": [
+        "Read FastAPI’s [HTTPBearer reference](https://fastapi.tiangolo.com/reference/security/#fastapi.security.HTTPBearer). It extracts a token; your code must verify it. For this local machine-client exercise, generate two high-entropy opaque tokens, kept in environment secrets, and map each to one synthetic server-side account. Use a constant-time comparison, reject missing/unknown tokens and test revocation. Look up the account’s current group through the SAME authorization code as the UI. Never accept the principal or group from JSON. Tokens are not your model provider’s API key.",
+        "Use [TestClient](https://fastapi.tiangolo.com/tutorial/testing/) to check valid, missing, revoked and wrong-user requests, malformed input, a provider timeout and group isolation. Keep authentication real in these tests; fake only the model/provider. Reuse the database checks. This API lab stays local; a public deployment needs TLS and a suitable identity/token lifecycle rather than copying test credentials. Send a request that asks the HTTP service to save a note: verify no write tool runs and the database is unchanged."
+       ]
+      },
+      {
+       "day": "Days 26–27 · about 3 hours",
+       "steps": [
+        "Follow the [FastAPI container guide](https://fastapi.tiangolo.com/deployment/docker/) to package the service. Pin dependencies; use a non-root runtime user, `.dockerignore` and environment secrets. Bind the published port to localhost for this lab. Build from a fresh checkout, run without your editor and call `/health` plus `/answer`. Keep API tests and an image-build check in CI. No additional paid hosting is required.",
+        "Checkpoint: one documented command starts the container and the protected HTTP checks pass. Record the remaining deployment work: TLS, credential rotation, backups and shared quota enforcement if you add replicas. Streamlit remains your private online demo."
+       ]
+      },
+      {
+       "day": "Days 28–29 · about 3 hours",
+       "steps": [
+        "**Failure drill:** fake the model-provider boundary for timeouts and retryable rate limits. Separately inject a database connection/query failure at the database boundary, or stop only your disposable local test database. Require a safe error within your recorded deadline. Never interrupt the online database.",
+        "For a repeatable overload check, run one API worker with at most 2 model requests in flight and no waiting queue. Use a fake provider held at a test barrier: while 2 requests are busy, send a third and require a clear 429 retry-later response. Release the barrier; both accepted requests must finish within a 5-second test deadline. Then send 20 fake-provider requests at concurrency 1 and 5 and record accepted/rejected counts. This local limit is not a shared quota across replicas. Use Python’s [threading events/barriers](https://docs.python.org/3/library/threading.html) or the async equivalent to hold the fake calls deterministically; a fixed sleep is not a reliable test barrier.",
+        "Run two simultaneous agent writes with the SAME approved operation ID. Check the database: exactly one note, matching arguments, and no cross-user state. This exercises the existing write tool separately; the new HTTP endpoint stays read-only.",
+        "Record success counts and p50/p95 response times (typical time and the slow tail). Twenty requests are a smoke test, not capacity proof. Trace one failure, operate the off switch and follow your rollback runbook. Write a 5-line incident note: symptom, cause, fix, regression check and remaining limitation.",
+        "Optional UX experiment: add progress events or streamed draft text. Distinguish time to first visible feedback from time to a validated final answer. Never treat partial JSON or streamed text as approval to perform a write."
        ]
       }
      ],
@@ -2365,39 +2443,44 @@ window.COURSE = {
       "Required checks prevent a failing PR from reaching the deployment branch. The live app stays on the last passing version; the final fresh quality check also meets its recorded criteria.",
       "Across 3 runs of every attack case: zero unauthorized reads or writes, zero canary leaks to the other group, and zero planted instructions carried out, while normal requests still work. You checked this in the tool logs and the database, not just in the replies.",
       "Cost tracking for each group, the rate limit and the off switch all work.",
+      "A fresh checkout builds and runs the protected read-only API container. HTTP tests exercise real token verification and group isolation. Fake-provider failure/concurrency tests terminate within recorded limits; the runbook and small-sample latency report are committed.",
       "Explain the request flow, two decisions and one failure. Diagnose and fix a real retrieval, authorization, stale-state or retry bug without AI doing the diagnosis or fix. Show a failing regression check, your reasoning, and the passing result; documentation is allowed."
      ],
      "showoff": {
       "pitch": "A two-group AI assistant with logins, database policies, release checks and a documented attack suite with zero observed leaks in those runs.",
       "demo": [
        "Sign in as the CSS user and try to reach a JS canary through search, a tool and a guessed document ID. Show the policy that blocks all three.",
-       "Push a broken prompt and watch CI fail; revert it and watch it pass.",
+       "Open a PR with a broken prompt and show the required check preventing merge and deployment. Fix it and show the passing result.",
        "Delete a page, run the sync, and show its citation is gone.",
        "Show the attack table: 30 cases, 3 runs each, zero leaks.",
-       "Close with per-group cost, the rate limit, the off switch and your Campus Assistant pitch."
+       "Show the protected API container, one failure trace, the rate limit and the off switch. Finish with one known limitation and the next improvement it justifies."
       ],
       "proves": [
        "CI/CD (2,560 of the 6,964 posts in [a 2026 analysis of 6,964 AI engineering job posts](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/role/02-skills.md)), evals and security together.",
-       "PostgreSQL and SQL, and keeping a deployed system healthy."
+       "PostgreSQL, authorization, a tested HTTP boundary and a reproducible container, with evidence from a small operational drill."
       ]
      },
      "extra_credit": [
       "Give each group a monthly budget that pauses answers when it runs out.",
       "Add a third group that can see both CSS and JavaScript docs.",
       "Capture the flag: give a friend 30 minutes, signed in as the CSS team, to leak a JS canary. Add their attempts to your attack cases.",
-      "Put `answer()` behind a small FastAPI `/answer` endpoint with a Dockerfile, so the app can run on any cloud."
+      "Deploy the API separately after adding TLS and an appropriate identity/token lifecycle. Use a staging database first; never point a load test at real users or private institutional data."
      ],
      "recall": [
       {
-       "q": "Why can a role created in Neon's website skip your access rules?",
-       "link": "https://neon.com/docs/manage/roles"
+       "q": "Why can a working Streamlit demo still need a backend check?",
+       "answer": "An HTTP boundary adds input contracts, authentication, error responses, concurrent callers and packaging. Reuse the application’s authorization rules and test them through the endpoint. A container that starts is not proof of reliability under real load.",
+       "link": "#project-make-it-sturdy"
       },
       {
        "q": "What counts as a breach in your attack test?",
        "link": "#red-team-your-app"
       }
      ],
-     "extra": []
+     "extra": [
+      "[Stanford CS329S: deployment, monitoring and system design](https://stanford-cs329s.github.io/syllabus.html) — optional systems perspective. The public material is from 2022; use current library docs for code.",
+      "[Claude API: response streaming](https://academy.claude.com/courses/building-with-the-claude-api/response-streaming) — optional video for the UX experiment. The pattern transfers; event formats differ by provider."
+     ]
     }
    ],
    "shift": {
@@ -2408,7 +2491,7 @@ window.COURSE = {
   },
   {
    "title": "Conclusion",
-   "weeks": "Weeks 33–34",
+   "weeks": "Weeks 35–36",
    "description": "Catch up, polish your projects and plan what you'll build next.",
    "lessons": [
     {
@@ -2434,7 +2517,7 @@ window.COURSE = {
         "Finish the required project checks. Select one unfamiliar public source, such as a small museum visitor FAQ or an open-source project's installation guide. Keep the dataset to 5–10 pages; record its source and reuse terms. Write a short brief, 6 expected question/answer cases (including 2 unsupported cases), and a cost limit before coding.",
         "Spend 3–6 hours adapting your existing app. First choose the simplest useful design and explain whether retrieval or an agent is needed. Documentation and your own code are allowed; during this exercise, keep AI in explanation/review mode rather than having it design or implement the solution. No new framework required.",
         "Demo 3 unfamiliar questions and one failure. Trace the full request, show your evidence, and make one small requirement change without an AI-produced patch. Ask a friend or peer to choose the change if available; otherwise add a new document format or a restriction you did not build for. If you cannot finish independently, revisit only the relevant lesson and retry. This is a diagnostic, not a speed contest.",
-        "Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Plan the Campus Assistant or another product only after this check; no compulsory launch deadline.",
+        "Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Plan the Campus Assistant or another product only after this check; no compulsory launch deadline. Add a portfolio evidence table: requirement → code → test → result → limitation. Ask someone to review one requirement, or record a ten-minute walkthrough yourself. Start applying to applied AI/backend roles; use interview feedback to select the next repair task.",
         "Choose deeper study only for a specific goal: [ML Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp) for broader ML modeling, [LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch) for model internals, or serving/infrastructure work for an AI platform role. This path covers applied LLM applications; it does not claim mastery of every AI specialty or immunity from automation."
        ]
       }
@@ -2450,10 +2533,10 @@ window.COURSE = {
       }
      ],
      "extra": [
-      "[Chip Huyen, AI Engineering, chapter 10, “AI Engineering Architecture and User Feedback” (book)](https://github.com/chiphuyen/aie-book)",
-      "[More project ideas: awesome-llm-apps](https://github.com/Shubhamsaboo/awesome-llm-apps)",
-      "[2025: The year in LLMs](https://simonwillison.net/2025/Dec/31/the-year-in-llms/) by Simon Willison: a calm, detailed review of what changed and what mattered.",
-      "[AI Engineer Reading List](https://www.latent.space/p/2025-papers) by Latent Space: the papers and posts working AI engineers actually read."
+      "[Provider and university comparison](https://github.com/Faizan2001/ai-engineer-path/blob/main/PROVIDER-UNIVERSITY-REVIEW.md) — why these additions are required and which deeper courses can wait.",
+      "[Harvard CS50 AI](https://cs50.harvard.edu/ai/) — optional broader AI foundations: search, uncertainty and learning, with programming projects. Useful for gaps in those ideas; not a required restart.",
+      "[MIT 6.S191, 2026](https://introtodeeplearning.com/) — optional model-training direction: neural-network lectures and labs. Review calculus and linear algebra first.",
+      "[Stanford CS336, Spring 2026](https://cs336.stanford.edu/) — advanced model-building direction after PyTorch, ML, probability and systems prerequisites. Heavy implementation and GPU work; not the next compulsory course."
      ],
      "done": [
       "Your small new-domain app meets the brief and recorded checks, or your evidence review clearly identifies what needs repair.",
@@ -2464,9 +2547,9 @@ window.COURSE = {
    ],
    "shift": {
     "before": "You followed someone else's plan.",
-    "after": "A one-page Campus Assistant plan that maps each feature to a repo you built, and its first commit."
+    "after": "A new-domain demonstration, an evidence table and one targeted next practice task."
    },
-   "opener": "Thirty-odd weeks ago a model call felt like magic. Now you know where it guesses, how to catch it and how to keep two groups apart. The Campus Assistant is no longer a vague dream; it's a list of parts you've built and tested. These two weeks decide which parts come first, and which features get a no."
+   "opener": "You can now follow an answer from input to evidence, inspect a failed tool call and explain the cost of a design choice. These two weeks test those skills on unfamiliar material and leave room to repair one weak spot."
   }
  ],
  "checked": "25 Oct 2026",

@@ -6,11 +6,11 @@
 
 > **Most of this job is one you already do, plus a very confident new colleague.**
 
-An AI engineer builds apps on top of AI models that already exist. You won't train models from scratch. That's usually a job for research teams.
+This path targets applied AI engineering: building useful software around existing models. Some AI roles also train or fine-tune models; those need additional practice after this path.
 
 Good news: most of the work is normal software engineering. You load data, call a model, check its answer, test it and watch how it behaves. Your web development skills will help a lot.
 
-Here's why this path focuses on judgment, not typing. AI agents are improving fast: the length of task they can finish on their own has been doubling about every 7 months ([METR](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)). A [Stanford study](https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine/) of US payroll data found no economy-wide job loss, but young workers in the jobs most exposed to AI are 19% below where they'd otherwise be, while experienced workers show no such gap. So the plan is to learn the experienced part of the job early: framing problems, checking AI output, testing, securing and explaining.
+Your strongest evidence will be an app you can explain, test and change when the requirements move. Framework names help you find a job listing; the project checks help you show what you can actually do. Completion alone is not a hiring guarantee.
 
 **After this, you can** read an AI job post and spot what you already do.
 
@@ -28,7 +28,7 @@ By the end of this lesson, you should be able to:
 
 1. Read the README of Alexey Grigorev's [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Write down the 5 tasks that show up most in job posts.
 2. In your log, mark which of those tasks you've already done as a web developer and which are new to you.
-3. Write down your goal for after this path: a **Campus Assistant** for your university Events platform, an assistant that answers students' questions and keeps each university's data separate. Every project here teaches part of it.
+3. Choose a goal for after this path. It can be a Campus Assistant for your Events platform, or another small product you care about. The course projects stand on their own; integrating them into your university platform is not required.
 4. Take 10 minutes and write in your log: why does this matter to you, and to the people you care about? Be specific. You'll reread it when motivation dips.
 
 ### Memory check · 10 min

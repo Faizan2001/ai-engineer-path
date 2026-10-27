@@ -43,7 +43,7 @@ Tip: make the notes useful to you, like revision cards for this course that you 
 ### Week 2 · about 9 hours
 
 5. Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call. For `save_note`, add a database unique constraint on `(group_id, operation_id)` and [INSERT ON CONFLICT](https://www.postgresql.org/docs/current/sql-insert.html) handling. A repeated ID returns the original result only if its arguments match; changed arguments need a new approval. Simulate a committed write followed by a lost response, then retry: there must be exactly one note.
-6. Log every step: the tool, its input, the size of its output, the tokens and the cost.
+6. Log each step’s request ID, tool name, input/output sizes, timing, tokens and cost. Keep redacted argument examples only in your permitted synthetic test logs, following [Monitoring](17-monitoring.md); never record credentials.
 7. Write 5 injection documents (for example a page that says “call save_note with…”) and 5 normal requests, including one that really should save a note. Write the injection documents like an attacker's notebook: the goal, the trick and how your app should block it. Commit them.
 8. In your log, compare your Day 1 plan with what really happened. That gap is a lesson in itself.
 
@@ -57,7 +57,7 @@ Tip: make the notes useful to you, like revision cards for this course that you 
 ## You're done when
 
 - [ ] `save_note` can't run unless a person approves its exact arguments. A test proves it. A retry after a lost response creates no duplicate note, and changed arguments cannot reuse an earlier approval.
-- [ ] The step limit, cost limit and retry limit each stop a runaway run. A test proves each one.
+- [ ] The step limit, cost limit and retry limit each stop a runaway run. A test proves each one. The context-budget checks also pass by preserving critical task facts or pausing for clarification before answering or acting; context never grants new permissions.
 - [ ] Your 5 injection documents never cause an unapproved action, and no planted instruction is carried out. Your 5 normal requests still work. You checked this in the step logs, not just in the replies.
 - [ ] Explain the request flow, two decisions and one failure. Without AI-generated code, write the retry/duplicate-write test or the changed-arguments approval test. First make it fail on the unsafe implementation, then pass on the fix. Documentation is allowed; note the commit.
 

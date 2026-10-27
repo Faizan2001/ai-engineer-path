@@ -1,6 +1,6 @@
 # Grading Answers
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 16 of 32 · about 1 week*
+*Section 3: RAG with LLM Zoomcamp · Lesson 16 of 32 · about 9 hours*
 
 **Before you start, check that** running your ingestion script twice changes nothing, and the manifest is committed.
 
@@ -23,6 +23,7 @@ By the end of this lesson, you should be able to:
 - Generate answers for many questions at once.
 - Grade answers with an LLM judge.
 - Check that the judge agrees with you.
+- Choose a model configuration using quality, delay and cost together.
 
 ## Try it first
 
@@ -59,17 +60,24 @@ A judge is a second model with a marking scheme. Question, answer and sources go
 
 3. Add to Ask MDN: generate answers for your 20 practice questions and save them to a file, so you can grade again without paying again. Grade them with a judge, then grade 10 of them yourself. Write down how often the judge agreed with you. Run the judge once per change, not after every small idea.
 
+### Day 6 · about 90 min
+
+4. Read only “Design your eval process” in OpenAI’s [evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices). Use your own files and grader; this assignment does not need OpenAI’s hosted Evals platform.
+5. Choose 10 of your practice questions, including exact identifiers and unsupported questions. Compare two available models from your current provider using the SAME retrieved chunks, prompt and output limit. Estimate the spend first. If only one model is affordable or available, compare two supported configurations and label this a configuration comparison, not a model comparison. No extra provider account is required.
+6. Hide the model names while you grade correctness, citation support and refusals. Record cost, total time and failures for each answer. Re-run the two most ambiguous cases once to notice variability. Keep the frozen final questions untouched.
+7. Write a five-line decision: acceptable quality, maximum wait/cost, which option meets those limits, a failure it still has, and what would make you reconsider. Save a run manifest: model ID, prompt/config version, corpus hash, date and scores. This is a small engineering experiment, not a model leaderboard.
+
 ### Memory check · 10 min
 
-4. Close this page. In your log, answer from memory, then check:
-   - Why check an LLM judge against answers you graded yourself? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md))
+8. Close this page. In your log, answer from memory, then check:
+   - When is the cheaper model the better engineering choice? ([where to check](16-grading-answers.md))
    - Why save a content hash for every page? ([where to check](15-data-ingestion.md))
-5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
-<summary>Check your answer: Why check an LLM judge against answers you graded yourself?</summary>
+<summary>Check your answer: When is the cheaper model the better engineering choice?</summary>
 
-An LLM judge can be wrong or too lenient, so compare its verdicts with your own grades using the same criteria and inspect disagreements. Agreement on a small sample is useful evidence, not proof that the judge is always reliable.
+When it meets the task’s predeclared quality and safety criteria within the latency and cost limits. Compare identical inputs, inspect failures, and record uncertainty; a tiny test set cannot establish universal superiority.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -90,6 +98,7 @@ These are optional. Use them if you want to go further.
 
 - [AI Evals FAQ by Hamel Husain and Shreya Shankar (a preview of Section 5)](https://hamel.dev/blog/posts/evals-faq/)
 - [Creating an LLM-as-a-judge that drives business results](https://hamel.dev/blog/posts/llm-judge/) by Hamel Husain: how to build a judge you can actually trust.
+- [Building with the Claude API: prompt evaluation](https://academy.claude.com/courses/building-with-the-claude-api) — optional video alternative. Use the Prompt evaluation section only; you do not need a second complete course.
 
 ---
 

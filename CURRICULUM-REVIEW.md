@@ -55,3 +55,7 @@ The quiet design, existing stories, videos and ten small widgets remain. New vis
 ## Verification
 
 Local browser checks cover all 32 lesson routes, mobile overflow, hidden answer feedback, backward-compatible progress, continuation after browsing future lessons, and simulated short/long breaks. Static checks cover data structure, internal links, lesson order and generated Markdown. These verify the learning site's behavior; they do not certify student implementations or security of future deployments.
+
+## Subsequent provider/university comparison (v7.3)
+
+The [official-source comparison](PROVIDER-UNIVERSITY-REVIEW.md) adds about 18 hours of bounded practice: prompt/model comparisons, context budgets, diagnostic-data handling, and a protected local API/container plus failure drill. The schedule is now approximately 36 weeks. This follow-up intentionally promotes one previously optional backend exercise; it does not repeat the full courses or change the 32 lesson addresses. The earlier review above records the preceding revision.

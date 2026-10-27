@@ -4,7 +4,7 @@
 
 ## Introduction
 
-*Thirty-odd weeks ago a model call felt like magic. Now you know where it guesses, how to catch it and how to keep two groups apart. The Campus Assistant is no longer a vague dream; it's a list of parts you've built and tested. These two weeks decide which parts come first, and which features get a no.*
+*You can now follow an answer from input to evidence, inspect a failed tool call and explain the cost of a design choice. These two weeks test those skills on unfamiliar material and leave room to repair one weak spot.*
 
 > **The final test is a new problem, small enough to finish, different enough to make you think.**
 
@@ -29,7 +29,7 @@ By the end of this lesson, you should be able to:
 1. Finish the required project checks. Select one unfamiliar public source, such as a small museum visitor FAQ or an open-source project's installation guide. Keep the dataset to 5–10 pages; record its source and reuse terms. Write a short brief, 6 expected question/answer cases (including 2 unsupported cases), and a cost limit before coding.
 2. Spend 3–6 hours adapting your existing app. First choose the simplest useful design and explain whether retrieval or an agent is needed. Documentation and your own code are allowed; during this exercise, keep AI in explanation/review mode rather than having it design or implement the solution. No new framework required.
 3. Demo 3 unfamiliar questions and one failure. Trace the full request, show your evidence, and make one small requirement change without an AI-produced patch. Ask a friend or peer to choose the change if available; otherwise add a new document format or a restriction you did not build for. If you cannot finish independently, revisit only the relevant lesson and retry. This is a diagnostic, not a speed contest.
-4. Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Plan the Campus Assistant or another product only after this check; no compulsory launch deadline.
+4. Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Plan the Campus Assistant or another product only after this check; no compulsory launch deadline. Add a portfolio evidence table: requirement → code → test → result → limitation. Ask someone to review one requirement, or record a ten-minute walkthrough yourself. Start applying to applied AI/backend roles; use interview feedback to select the next repair task.
 5. Choose deeper study only for a specific goal: [ML Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp) for broader ML modeling, [LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch) for model internals, or serving/infrastructure work for an AI platform role. This path covers applied LLM applications; it does not claim mastery of every AI specialty or immunity from automation.
 
 ### Memory check · 10 min
@@ -49,10 +49,10 @@ By the end of this lesson, you should be able to:
 
 These are optional. Use them if you want to go further.
 
-- [Chip Huyen, AI Engineering, chapter 10, “AI Engineering Architecture and User Feedback” (book)](https://github.com/chiphuyen/aie-book)
-- [More project ideas: awesome-llm-apps](https://github.com/Shubhamsaboo/awesome-llm-apps)
-- [2025: The year in LLMs](https://simonwillison.net/2025/Dec/31/the-year-in-llms/) by Simon Willison: a calm, detailed review of what changed and what mattered.
-- [AI Engineer Reading List](https://www.latent.space/p/2025-papers) by Latent Space: the papers and posts working AI engineers actually read.
+- [Provider and university comparison](https://github.com/Faizan2001/ai-engineer-path/blob/main/PROVIDER-UNIVERSITY-REVIEW.md) — why these additions are required and which deeper courses can wait.
+- [Harvard CS50 AI](https://cs50.harvard.edu/ai/) — optional broader AI foundations: search, uncertainty and learning, with programming projects. Useful for gaps in those ideas; not a required restart.
+- [MIT 6.S191, 2026](https://introtodeeplearning.com/) — optional model-training direction: neural-network lectures and labs. Review calculus and linear algebra first.
+- [Stanford CS336, Spring 2026](https://cs336.stanford.edu/) — advanced model-building direction after PyTorch, ML, probability and systems prerequisites. Heavy implementation and GPU work; not the next compulsory course.
 
 ---
 

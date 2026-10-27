@@ -6,7 +6,7 @@
 
 *A club secretary asks whether your Events platform could just answer students' questions. You say yes, open a browser and drown in forty buzzwords. This week shrinks them to one job description, one study routine and one promise: after any break, you only owe the next small step.*
 
-> **34 weeks sounds long. It's really about 200 short sessions, and you only ever owe the next one.**
+> **One lesson, one checked result, one small next step. That is enough for today.**
 
 Welcome! This path takes you from your first AI model call to a small deployed app you can evaluate, debug and explain.
 
@@ -26,12 +26,12 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
-1. Look over the [course page](README.md). There are 6 sections and 4 projects. The whole path takes about 34 weeks.
+1. Look over the [course page](README.md). There are 6 sections and 4 projects. The whole path takes about 36 weeks.
 2. Pick your study days and a fixed time, and put them in your calendar. Aim for about 9 hours a week: 6 sessions of 90 minutes, or fewer, longer ones. Set the same number as your weekly target on the [course page](README.md). It counts sessions per week, never a daily streak.
 3. Create a private GitHub repository called `ai-learning-log` and add `log.md`. Keep your personal notes there; this public course already uses the name `ai-engineer-path`. Each project gets its own public repo later.
 4. Use a 90-minute session as a flexible guide: about 30 minutes learning, 45 building and 15 checking your work and making a short log entry. Take breaks when needed. End with two lines: one result you checked, and the exact file or next 10-minute action to resume.
 5. Add three rules to your log. After a break: “Check my last result, then take one small next step.” Low energy: “15 minutes of review counts; it does not need to finish a lesson.” Stuck: “After 20 minutes without a useful clue, reduce the problem, check the docs, then ask with my attempt and exact error.” If two sessions end at the same obstacle, revisit only the missing prerequisite; do not restart the whole course.
-6. Mark exams, Ramadan, Eid and family events in your calendar now. In those weeks, do shorter sessions on the next build step. The path has 2 spare weeks for exactly this.
+6. Mark exams, Ramadan, Eid and family events in your calendar now. Use shorter sessions in those weeks. The final two weeks include consolidation and a small independent exercise; longer breaks simply move your finish date.
 
 ### Memory check · 10 min
 

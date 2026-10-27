@@ -1,6 +1,6 @@
 # LangGraph
 
-*Section 4: Agents · Lesson 21 of 32 · about 1.5 weeks*
+*Section 4: Agents · Lesson 21 of 32 · about 13.5 hours*
 
 **Before you start, check that** your hand-written loop has a step limit and a second tool, and logs every step.
 
@@ -23,6 +23,7 @@ By the end of this lesson, you should be able to:
 - Build a graph (a map of steps) that keeps state.
 - Give an agent memory.
 - Pause for a person's approval with interrupts.
+- Keep useful conversation context within a budget without changing permissions.
 
 ## Before you read
 
@@ -50,17 +51,24 @@ A graph is your agent loop drawn as boxes (nodes) and arrows (edges), all sharin
 4. Reread the approvals part of the [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts). For approvals, use `interrupt()` and resume with `Command(resume=...)`; the docs recommend static breakpoints only for debugging.
 5. Rebuild your loop in LangGraph with one interrupt before a tool runs. In your log, list what LangGraph now does that you wrote by hand.
 
+### Day 9 · about 90 min
+
+6. Read the “anatomy of effective context” section of Anthropic’s [context engineering guide](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents), for 15 minutes. Think of context as what the model can see now. A saved conversation, a summary and a permission record serve different jobs.
+7. Build a small context-selection function. Set an input budget below your chosen model’s context limit, reserving space for output and any reasoning allowance. Use its tokenizer/counting method where available; reject an oversized request safely if you cannot fit it. Keep instructions, the current question and recent complete turns; select relevant evidence and cap tool output size. Never split a tool call from its result.
+8. Try a synthetic 20-turn conversation with an early browser/version constraint. Check that your selection preserves that constraint or asks the user to repeat it. Keep critical task facts in explicit application state; an optional model-made summary can be wrong and must not supply authorization or approval. Test one oversized tool result and one lost constraint.
+9. Stop here: long-term personalized memory is optional. In [Login](28-login.md) and [Fresh Data](29-fresh-data.md), you will also restrict saved state by owner and invalidate stale evidence.
+
 ### Memory check · 10 min
 
-6. Close this page. In your log, answer from memory, then check:
-   - How do you pause a graph for a person, and how do you continue it? ([where to check](https://docs.langchain.com/oss/python/langgraph/interrupts))
+10. Close this page. In your log, answer from memory, then check:
+   - What belongs in model context, and what must remain outside its authority? ([where to check](21-langgraph.md))
    - Why put a limit on an agent's number of steps? ([where to check](20-agent-fundamentals.md))
-7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+11. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
-<summary>Check your answer: How do you pause a graph for a person, and how do you continue it?</summary>
+<summary>Check your answer: What belongs in model context, and what must remain outside its authority?</summary>
 
-Call interrupt() where human input is needed, with a checkpointer and thread ID configured. Resume the same thread with Command(resume=...), and use the returned input to decide whether the proposed action may proceed.
+Supply the relevant task, complete recent interactions and permitted evidence within a budget. Keep identity, permissions, approvals and operation IDs in application-controlled state. A summary can help recall but cannot grant access or approve a write.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -80,7 +88,8 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 These are optional. Use them if you want to go further.
 
 - [Hugging Face Agents Course, Unit 2 LangGraph pages](https://huggingface.co/learn/agents-course/en/unit2/langgraph/introduction)
-- [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) by Anthropic: what to put in an agent's memory, and what to leave out.
+- [Google/Kaggle AI Agents Intensive](https://www.kaggle.com/learn-guide/5-day-agents) — optional alternative: Day 3, Context Engineering: Sessions & Memory. Read the concepts or watch its recording; skip the ADK rewrite.
+- [Berkeley Advanced LLM Agents, Spring 2025](https://llmagents-learning.org/sp25) — optional depth: Yu Su’s lecture on reasoning, memory and planning. Research context, not another prerequisite.
 
 ---
 

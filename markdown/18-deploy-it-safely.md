@@ -2,7 +2,7 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 18 of 32 · about 6 hours*
 
-**Before you start, check that** Ask MDN v0.5 saves every conversation with tokens, cost and a thumbs rating.
+**Before you start, check that** Ask MDN v0.5 saves request metadata, permitted diagnostic examples, costs and feedback.
 
 ## Introduction
 
@@ -45,7 +45,7 @@ By the end of this lesson, you should be able to:
 
 ### Day 4 · about 90 min
 
-8. Check your OpenAI budget alerts and credit balance, then write a short “How to deploy” section in your README. Recruiters can't open a private app, so add a short GIF or recording of it working. This is **Ask MDN v0.6**: it's online.
+8. Check your OpenAI budget alerts and credit balance, then write a short “How to deploy” section in your README. Recruiters can't open a private app, so add a short GIF or recording of it working. This is **Ask MDN v0.6**: it's online. Declare a local success target, such as 9 of 10 normal requests finishing within your chosen time and cost limits. Put failure thresholds, the stop switch and rollback instructions in a short runbook. Those are learning targets, not a production service guarantee.
 
 ### Memory check · 10 min
 
@@ -53,6 +53,12 @@ By the end of this lesson, you should be able to:
    - Where does the API key live when the app is online? ([where to check](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management))
    - Why should your app's database role be created with SQL on Neon? ([where to check](https://neon.com/docs/manage/roles))
 10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+## Additional resources
+
+These are optional. Use them if you want to go further.
+
+- [OpenAI production best practices](https://developers.openai.com/api/docs/guides/production-best-practices) — read Staging projects, Managing rate limits and Managing costs. Keep development traffic separate from the live app; model names and account limits change.
 
 ---
 

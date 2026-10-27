@@ -1,6 +1,6 @@
 # Monitoring
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 17 of 32 · about 1 week*
+*Section 3: RAG with LLM Zoomcamp · Lesson 17 of 32 · about 12 hours*
 
 **Before you start, check that** your log has saved answers for the 20 practice questions and a judge agreement number.
 
@@ -8,7 +8,7 @@
 
 > **Sooner or later someone will ask Ask MDN for a biryani recipe. Logs show you the question, and what it said back.**
 
-Once people use your app, you need to see what's happening: what they ask, what it answers, how much it costs and how fast it is. You'll also save every chat so you can study real conversations later.
+Once people use your app, you need to see where answers fail, how much they cost and how long they take. Record metadata for each request. Keep diagnostic conversation content only for permitted public or synthetic examples, with a short retention period.
 
 **After this, you can** see what users ask, what each answer costs and where it fails.
 
@@ -19,14 +19,15 @@ Once people use your app, you need to see what's happening: what they ask, what 
 By the end of this lesson, you should be able to:
 
 - Turn your Streamlit page into a full chat app.
-- Save every conversation and its cost to a database.
-- Collect user feedback and show it on a dashboard.
+- Save request metadata and permitted diagnostic examples to a database.
+- Collect user feedback and inspect it alongside failed requests.
+- Trace a failure without keeping unnecessary private data.
 
 ## Before you read
 
-Monitoring means keeping a receipt for every answer: the question, the answer, its sources, the time, tokens, cost and a thumbs up or down. Later you read the receipts to find failures. A dashboard is only a view of that table; the table is what matters.
+A request ID connects the steps behind one answer: search, model calls, time, cost and errors. That lets you find where a failure started. For this course, save diagnostic text only from permitted public/synthetic examples and remove it after 7 days. Your evaluation fixtures are a separate, reviewed dataset.
 
-- **conversation log**: one database row per question and answer
+- **request trace**: linked records showing the steps behind one answer
 - **feedback**: the thumbs up or down saved on that row
 
 ## Assignment
@@ -37,7 +38,7 @@ Monitoring means keeping a receipt for every answer: the question, the answer, i
 
 ### Day 2 · about 90 min
 
-2. [04 Metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/04-metrics.md) and [05 Database](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/05-database.md) (this is where every conversation gets saved).
+2. [04 Metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/04-metrics.md) and [05 Database](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/05-database.md) (adapt the example to your metadata and retention policy).
 
 ### Day 3 · about 90 min
 
@@ -49,14 +50,29 @@ Monitoring means keeping a receipt for every answer: the question, the answer, i
 
 ### Days 5–7 · about 4.5 hours
 
-5. Add to Ask MDN: save every conversation with the question, answer, cited pages, time taken, tokens and cost. Add a thumbs up or down button. This is **Ask MDN v0.5**: you can see what people ask and what each answer costs.
+5. Add to Ask MDN: one request ID joining retrieval, model calls and errors. Save step durations, retrieved page IDs, model/prompt/corpus versions, tokens, cost and user feedback. Use only public or synthetic test conversations; inspect a failed run from input to output. This is **Ask MDN v0.5**: a wrong answer now leaves clues.
+
+### Day 8 · about 90 min
+
+6. Skim the monitoring and privacy topics in [Stanford CS329S](https://stanford-cs329s.github.io/syllabus.html). Then write a small data policy: what leaves your app, where logs live, who can read them and when they are deleted. For this exercise, retain diagnostic content for 7 days; never log keys, auth headers or real private messages. Keep approved synthetic evaluation fixtures separately.
+7. Test the policy with a fake email and token-shaped string: redact them before saving diagnostics. Do not assume a regex removes every kind of personal information. Add a cleanup command and test it on old fake logs. A restricted log is still stored data.
+8. Make a 5-request sample report: where time went, cost per request, one retrieval failure and one model failure. Plain JSON and a short table are enough; a new tracing service is optional.
 
 ### Memory check · 10 min
 
-6. Close this page. In your log, answer from memory, then check:
-   - What should you save for every answer? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/04-metrics.md))
+9. Close this page. In your log, answer from memory, then check:
+   - What should a useful trace reveal, and what should it leave out? ([where to check](17-monitoring.md))
    - Why can't you fully trust an LLM judge without checking it? ([where to check](16-grading-answers.md))
-7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: What should a useful trace reveal, and what should it leave out?</summary>
+
+A request ID joins retrieval, model and tool steps with durations, versions, costs and errors. Keep only necessary permitted content; omit credentials and private messages, restrict access and test deletion. Logging everything forever creates another problem.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

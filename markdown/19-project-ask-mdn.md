@@ -55,7 +55,7 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 
 ## You're done when
 
-- [ ] Your README reports Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions. If hybrid doesn't win, you explain why.
+- [ ] Your README reports Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions. If hybrid doesn't win, you explain why. Include your model/configuration comparison and its decision, with prompt and corpus versions.
 - [ ] Every factual answer identifies its source passages. Your README includes manual correctness and citation-support grades for a 10-answer sample, with failures explained.
 - [ ] Report abstention results on the 10 known unanswerable questions and incorrect refusals on answerable questions. Call this a regression result, not proof of performance on new questions.
 - [ ] It runs online as your private Streamlit app, with the API key stored in Secrets and conversations saved in Neon.
@@ -82,7 +82,7 @@ What it proves to employers:
 
 - Add a real reranker (a second model that re-scores the top results) and measure whether it helps.
 - Compare two embedding models on your practice questions.
-- Optional Zoomcamp extras that earn points: Docker Compose, a 5-chart dashboard, a dedicated ingestion tool, comparing prompts and query rewriting.
+- Optional Zoomcamp extras that earn points: Docker Compose, a 5-chart dashboard, a dedicated ingestion tool and query rewriting. The core path already compares prompts and model configurations.
 
 ---
 

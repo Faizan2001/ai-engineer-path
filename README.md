@@ -1,6 +1,6 @@
 # AI Engineer Path
 
-A free, step-by-step course for becoming an AI engineer, set out like The Odin Project: short lessons, four projects, and a **Next lesson** button that always tells you what to do next. Plan about 34 weeks at nine hours a week; allow 2–4 extra weeks for prerequisite repair or debugging.
+A free, step-by-step course for becoming an AI engineer, set out like The Odin Project: short lessons, four projects, and a **Next lesson** button that always tells you what to do next. Plan about 36 weeks at nine hours a week; allow 2–4 extra weeks for prerequisite repair or debugging.
 
 Along the way you get small hands-on widgets (guess first, then try an idea for 2 minutes), true stories of AI going wrong, a "Before you read" note for hard outside material, a short Memory check at the end of every lesson, and a stage-aware "Welcome back" restart plan if you've been away. "Help me restart" is always available on the course page. On a phone, Previous, Mark complete and Next sit in a dock under your thumb.
 
@@ -69,3 +69,5 @@ Keep each lesson's `slug` unique and don't rename slugs once you've started; sav
 ## Curriculum review
 
 The [27 October learning and coverage review](CURRICULUM-REVIEW.md) records what three independent reviewers found, the changes made, the sources behind them, and the limits of the course's claims. The final lesson includes a small new-domain exercise to check independent transfer.
+
+The [provider and university comparison](PROVIDER-UNIVERSITY-REVIEW.md) maps official Anthropic, OpenAI, Google, Stanford, Berkeley, Harvard and MIT material to the path. Its bounded additions include prompt/model experiments, context budgeting, diagnostic data handling and a protected API/container lab. The same 32 lesson slugs and saved-progress keys are retained.

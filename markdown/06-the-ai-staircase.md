@@ -26,7 +26,7 @@ By the end of this lesson, you should be able to:
 
 1. Read Anthropic's [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents). Notice how a workflow is different from an agent.
 2. Watch Barry Zhang's talk [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) (15 min, Anthropic). Write down his advice on when not to build an agent.
-3. Exercise: list 5 features of your Campus Assistant idea or your Events platform. For each one, write the lowest step that solves it and why. At least one answer should be “plain code”. Keep this list: it becomes your Campus Assistant plan in [What's Next](32-whats-next.md).
+3. Choose 3 possible product features. For each, name the user, the problem, the simplest useful solution and one measurable success rule. Include a plain-code baseline. Then sort these failures: missing facts → supply context or retrieval; inconsistent format → schema and validation; repeated task behavior still wrong after prompt/data fixes → consider fine-tuning with a separate test set. Training from scratch is a different project. Keep this one-page brief.
 
 ### Memory check · 10 min
 

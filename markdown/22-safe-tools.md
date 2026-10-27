@@ -43,7 +43,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 1. Read Simon Willison's [The lethal trifecta for AI agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/).
 2. Read OWASP [LLM01 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) and [LLM06 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/).
 3. For Ask MDN's agent, write down its three trifecta parts: private data, untrusted content and a way to send data out (Simon Willison calls it external communication). Which part will you cut off, and how?
-4. Design your approval rule: a person approves the exact tool name and its exact arguments. If anything changes, the approval no longer counts.
+4. Design your approval rule: a person approves the exact tool name and its exact arguments. If anything changes, the approval no longer counts. A tool discovered through MCP needs the same checks. MCP standardizes the connection; it does not make an arbitrary server trustworthy or give it permission to act.
 
 ### Memory check · 10 min
 
@@ -76,6 +76,7 @@ These are optional. Use them if you want to go further.
 
 - [Agents Towards Production (security tutorials)](https://github.com/NirDiamant/agents-towards-production)
 - [Design patterns for securing LLM agents against prompt injections](https://simonwillison.net/2025/Jun/13/prompt-injection-design-patterns/) by Simon Willison: six patterns that limit the damage, explained simply.
+- [Anthropic’s Introduction to MCP](https://academy.claude.com/collections/build-with-claude) — optional protocol background. Use the Introduction to Model Context Protocol course; implementing a server remains extra credit.
 
 ---
 

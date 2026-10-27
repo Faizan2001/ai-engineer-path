@@ -237,7 +237,7 @@
     return n;
   }
   function finishDate() {
-    var weeks = Math.ceil(remainingSessions() / state.target) + 2;  // 2 weeks of breathing room, as in the 34-week plan
+    var weeks = Math.ceil(remainingSessions() / state.target) + 2;  // 2 weeks of breathing room, as in the course plan
     var d = new Date(); d.setDate(d.getDate() + weeks * 7);
     return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
   }

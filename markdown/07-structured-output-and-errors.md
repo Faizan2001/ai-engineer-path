@@ -1,6 +1,6 @@
 # Structured Output and Errors
 
-*Section 2: Foundations · Lesson 7 of 32 · about 6 hours*
+*Section 2: Foundations · Lesson 7 of 32 · about 7.5 hours*
 
 ## Introduction
 
@@ -22,6 +22,7 @@ By the end of this lesson, you should be able to:
 - Send an image to a model and work out what the call cost.
 - Retry the right errors and handle refusals.
 - Build a small form with Streamlit and test your code with pytest.
+- Improve a prompt by changing one thing and checking the same examples.
 
 ## Try it first
 
@@ -45,7 +46,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ### Day 3 · about 90 min
 
-5. Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a timeout and at most 2 retries, with a short wait between them, for rate-limit and server errors. Don't retry bad requests: they will fail every time.
+5. Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a request timeout and at most 2 retries for retryable rate-limit/server errors. Respect Retry-After when supplied; otherwise use increasing waits with a little randomness. Keep an overall deadline too. Do not retry invalid credentials or bad requests unchanged.
 6. Handle refusals: log them and return “needs a human” instead of crashing.
 
 ### Day 4 · about 90 min
@@ -53,17 +54,23 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 7. Follow pytest's [getting started guide](https://docs.pytest.org/en/stable/getting-started.html), then write 3 tests for your code: one with good input, one with a missing field and one with a refusal.
 8. Follow Streamlit's [get started](https://docs.streamlit.io/get-started) page, then show your `Event` in a small [form](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form) with a Save button.
 
+### Day 5 · about 90 min
+
+9. Spend 15 minutes on Anthropic’s [Providing examples](https://academy.claude.com/courses/building-with-the-claude-api/providing-examples). Use the explanation or video; the exercise works with your existing provider. Few-shot prompting means showing a small number of input/output examples.
+10. Make 6 practice inputs, including an ambiguous date and a missing venue. Save prompt v1. Change only one thing: clearer instructions OR two examples. Run both versions on the same inputs with the same model and settings. Keep the raw outputs and mark each field correct, wrong or appropriately unknown. Better formatting is not evidence of better facts.
+11. Keep the better version only if the results support it. Write the model ID, prompt version, settings and cost beside the scores. If the six cases are tied, say so. These are practice cases; they do not replace Poster Reader’s held-back posters.
+
 ### Memory check · 10 min
 
-9. Close this page. In your log, answer from memory, then check:
-   - Which API errors should you retry, and which should you not? ([where to check](https://developers.openai.com/api/docs/guides/error-codes))
+12. Close this page. In your log, answer from memory, then check:
+   - How do you tell whether a prompt change helped? ([where to check](07-structured-output-and-errors.md))
    - When is a workflow a better choice than an agent? ([where to check](06-the-ai-staircase.md))
-10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
-<summary>Check your answer: Which API errors should you retry, and which should you not?</summary>
+<summary>Check your answer: How do you tell whether a prompt change helped?</summary>
 
-Retry temporary rate limits, server failures or timeouts with a wait and a fixed retry limit. Do not blindly retry invalid requests, authentication or permission errors, exhausted credit, or model refusals; address the cause or use the fallback.
+Change one factor, use the same practice cases and scoring rule, keep both outputs, and compare failures as well as successes. Then use untouched cases for the later final check. A schema checks shape, not factual truth.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
