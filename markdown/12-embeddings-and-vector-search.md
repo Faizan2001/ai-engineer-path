@@ -1,6 +1,6 @@
 # Embeddings and Vector Search
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 12 of 32 · about 2 weeks*
+*Section 3: RAG with LLM Zoomcamp · Lesson 12 of 41 · about 2 weeks, plus 45 min*
 
 **Before you start, check that** Ask MDN v0.2's chat page runs, and its log shows a search tool call when you ask a CSS question.
 
@@ -67,7 +67,7 @@ An embedding turns a text into a few hundred numbers: a point on a map of meanin
 
 ### Day 5 · about 90 min
 
-6. [07 sqlitesearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/07-sqlitesearch-vector.md). This keeps your search index in one file, which is what Ask MDN will use online. Skip lesson 08 (pgvector) for now: you'll do it in [Postgres Search and Access Rules](27-postgres-search-and-access-rules.md), right when you need it.
+6. [07 sqlitesearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/07-sqlitesearch-vector.md). This keeps your search index in one file, which is what Ask MDN will use online. Skip lesson 08 (pgvector) for now: you'll do it in [Postgres Search and Access Rules](28-postgres-search-and-access-rules.md), right when you need it.
 
 ### Day 6 · about 90 min
 
@@ -82,12 +82,17 @@ An embedding turns a text into a few hundred numbers: a point on a map of meanin
 
 10. Add to Ask MDN: build a sqlitesearch vector index of your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning.
 
+### Day 12 · campus track, about 45 min
+
+11. Take 8 intents from your question bank and write each three ways: English, Bangla and Banglish. Embed all 24 sentences with today's embedder, then with one embedder whose model card lists Bengali among its training languages.
+12. For each sentence and each other language, search only that language's sentences; a hit means the nearest one has the same intent. Record a hit rate per language pair and model in your log. Expect Banglish to be the hardest: on a public benchmark, one popular multilingual embedder found the right English passage about 92% of the time for Bengali-script questions but only about 47% for romanized ones. With 8 sentences per pair, one miss moves a score by 12.5 points, so treat this as a first signal and confirm it in [Multilingual Search](34-multilingual-search.md).
+
 ### Memory check · 10 min
 
-11. Close this page. In your log, answer from memory, then check:
+13. Close this page. In your log, answer from memory, then check:
    - Why can vector search find answers that keyword search misses? ([where to check](https://developers.google.com/machine-learning/crash-course/embeddings))
    - What does function calling let the model do? ([where to check](11-tools-and-the-agent-loop.md))
-12. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+14. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: Why can vector search find answers that keyword search misses?</summary>
@@ -121,4 +126,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Tools and the Agent Loop](11-tools-and-the-agent-loop.md) · [Course map](README.md) · [Next lesson: Measuring Search →](13-measuring-search.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

@@ -1,6 +1,6 @@
 # LangGraph
 
-*Section 4: Agents · Lesson 21 of 32 · about 13.5 hours*
+*Section 4: Agents · Lesson 22 of 41 · about 13.5 hours*
 
 **Before you start, check that** your hand-written loop has a step limit and a second tool, and logs every step.
 
@@ -56,13 +56,13 @@ A graph is your agent loop drawn as boxes (nodes) and arrows (edges), all sharin
 6. Read the “anatomy of effective context” section of Anthropic’s [context engineering guide](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents), for 15 minutes. Think of context as what the model can see now. A saved conversation, a summary and a permission record serve different jobs.
 7. Build a small context-selection function. Set an input budget below your chosen model’s context limit, reserving space for output and any reasoning allowance. Use its tokenizer/counting method where available; reject an oversized request safely if you cannot fit it. Keep instructions, the current question and recent complete turns; select relevant evidence and cap tool output size. Never split a tool call from its result.
 8. Try a synthetic 20-turn conversation with an early browser/version constraint. Check that your selection preserves that constraint or asks the user to repeat it. Keep critical task facts in explicit application state; an optional model-made summary can be wrong and must not supply authorization or approval. Test one oversized tool result and one lost constraint.
-9. Stop here: long-term personalized memory is optional. In [Login](28-login.md) and [Fresh Data](29-fresh-data.md), you will also restrict saved state by owner and invalidate stale evidence.
+9. Stop here: long-term personalized memory is optional. In [Login](29-login.md) and [Fresh Data](30-fresh-data.md), you will also restrict saved state by owner and invalidate stale evidence.
 
 ### Memory check · 10 min
 
 10. Close this page. In your log, answer from memory, then check:
-   - What belongs in model context, and what must remain outside its authority? ([where to check](21-langgraph.md))
-   - Why put a limit on an agent's number of steps? ([where to check](20-agent-fundamentals.md))
+   - What belongs in model context, and what must remain outside its authority? ([where to check](22-langgraph.md))
+   - Why put a limit on an agent's number of steps? ([where to check](21-agent-fundamentals.md))
 11. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
@@ -95,6 +95,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Agent Fundamentals](20-agent-fundamentals.md) · [Course map](README.md) · [Next lesson: Safe Tools →](22-safe-tools.md)
+[← Previous: Agent Fundamentals](21-agent-fundamentals.md) · [Course map](README.md) · [Next lesson: Safe Tools →](23-safe-tools.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

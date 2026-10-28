@@ -6,26 +6,27 @@
 // "repo", "site" and "community" feed the GitHub and Community buttons. Change them if you fork this.
 window.COURSE = {
  "title": "AI Engineer Path",
- "duration": "about 36 weeks",
+ "duration": "about 52 weeks",
  "tagline": "A step-by-step path from your first AI model call to a deployed app with evaluations, access controls and tests.",
  "repo": "https://github.com/Faizan2001/ai-engineer-path",
  "site": "https://faizan2001.github.io/ai-engineer-path/",
  "community": "https://datatalks.club/slack.html",
  "intro": [
-  "This path is for a software developer learning to build with existing AI models. You will practise reliable model calls, RAG, agents, evaluation and deployment in four projects; the last three grow into one app. The finish line is an independently tested small AI application. Model training, research and large-scale platform engineering need further study.",
+  "This path is for a software developer learning to build with existing AI models. You will practise reliable model calls, RAG, agents, evaluation and deployment in five projects. The first four teach each skill on clean, public material. The fifth, the capstone, puts them together as a **Campus Assistant**: it answers students' repeated questions from approved sources, asks when details matter, and says who to contact when it can't answer. The finish line is a small pilot with evidence that it is correct, honest about gaps and affordable. Model training, research and large-scale platform work need further study; the optional Electives section shows where to start.",
   "It works like The Odin Project. Each lesson points you to the best free material for one topic, then asks you to build something with it. You learn by building, breaking things and fixing them.",
   "Every lesson tells you what it unlocks and which engineering judgment it practises. Some begin with a 2-minute experiment: make a prediction, check it, then explain what changed your mind. You do not have to memorise API syntax."
  ],
  "how": [
   "Study about 9 hours a week, in sessions of about 90 minutes: roughly 30 minutes learning, 45 building and 15 writing in your log. Set a weekly target on this page. It counts sessions, never a daily streak.",
-  "Plan about 36 weeks at 9 hours a week, with spare time for breaks and consolidation. Allow 2–4 more weeks if prerequisite repair, deployment or debugging needs it. Follow the checks, not a deadline; the project work matters more than the calendar.",
+  "Plan about 52 weeks at 9 hours a week (about 39 at 12 hours), with spare time for breaks and consolidation. Allow 2–4 more weeks if prerequisite repair, deployment or debugging needs it. Follow the checks, not a deadline; the project work matters more than the calendar.",
+  "From [Campus Knowledge Base](#campus-knowledge-base) onward, one hour of each study week goes to your capstone's data: permission, official sources and approved answers. Data takes calendar time, so it grows while you learn the rest. The [Campus Assistant review](https://github.com/Faizan2001/ai-engineer-path/blob/main/CAMPUS-ASSISTANT-REVIEW.md) explains this change and what stayed the same. Steps that wait on other people, such as permission, staff replies and pilot approval, take calendar time: start them early and keep studying while you wait.",
   "Long lessons are split into **Day** steps. Tick each Day as you finish it, and stop at the end of a Day. Missed a few days? Reread your last log entry, then do the smallest next step. Low on energy? A 15-minute session still counts.",
   "Finish each lesson's **Memory check** before marking it complete. Explain the idea without looking, compare with the feedback or source, and correct missing pieces. Retry a missed question at the next session. For projects, show the working evidence in “You're done when”; a tick alone is not a skill test.",
   "Your coding assistant is welcome, but every project raises the bar on work you do by hand: one change, then one function, then one test, then one bug fixed without AI. [Mindset and Asking for Help](#mindset-and-asking-for-help) explains why.",
   "Cost: the learning materials are free; model calls and some hosting options can cost money. Set your own API budget, price each experiment before running it, and use fake responses for routine tests. You do not need accounts with three model providers. [Setting Up Your Tools](#setting-up-your-tools) includes a free-tier fallback. There is no course certificate; your projects and independent checks provide the evidence.",
   "On mobile data, or expecting a power cut? Open the next lesson's links on Wi-Fi first. Videos are always optional and show their length.",
   "Assignments are the required path. Videos can help an idea click; Additional resources and Extra credit are optional. Use the materials named for the current step, then build. If two sessions end in the same confusion, pause new material and repair that prerequisite with a smaller example.",
-  "Already started? The [provider and university comparison](https://github.com/Faizan2001/ai-engineer-path/blob/main/PROVIDER-UNIVERSITY-REVIEW.md) lists the added practice by lesson. Keep your saved progress; revisit only additions to lessons you have finished."
+  "Already started? Keep your saved progress. Anything added behind you (a new lesson, or a new Day in a lesson you finished) appears on the course page under “New since you passed this point”. The [Campus Assistant review](https://github.com/Faizan2001/ai-engineer-path/blob/main/CAMPUS-ASSISTANT-REVIEW.md) and the [provider and university comparison](https://github.com/Faizan2001/ai-engineer-path/blob/main/PROVIDER-UNIVERSITY-REVIEW.md) explain what was added and why."
  ],
  "disclaimer": "Format inspired by The Odin Project; not affiliated. Lessons link to outside material owned by its authors.",
  "sections": [
@@ -54,7 +55,7 @@ window.COURSE = {
      "assignment": [
       {
        "steps": [
-        "Look over the [course page](#home). There are 6 sections and 4 projects. The whole path takes about 36 weeks.",
+        "Look over the [course page](#home). There are 7 sections and 5 projects, plus optional Electives. The core path takes about 52 weeks and ends with your Campus Assistant capstone.",
         "Pick your study days and a fixed time, and put them in your calendar. Aim for about 9 hours a week: 6 sessions of 90 minutes, or fewer, longer ones. Set the same number as your weekly target on the [course page](#home). It counts sessions per week, never a daily streak.",
         "Create a private GitHub repository called `ai-learning-log` and add `log.md`. Keep your personal notes there; this public course already uses the name `ai-engineer-path`. Each project gets its own public repo later.",
         "Use a 90-minute session as a flexible guide: about 30 minutes learning, 45 building and 15 checking your work and making a short log entry. Take breaks when needed. End with two lines: one result you checked, and the exact file or next 10-minute action to resume.",
@@ -103,7 +104,7 @@ window.COURSE = {
        "steps": [
         "Read the README of Alexey Grigorev's [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Write down the 5 tasks that show up most in job posts.",
         "In your log, mark which of those tasks you've already done as a web developer and which are new to you.",
-        "Choose a goal for after this path. It can be a Campus Assistant for your Events platform, or another small product you care about. The course projects stand on their own; integrating them into your university platform is not required.",
+        "Write down your capstone goal. This path ends with a Campus Assistant that answers students' repeated questions from approved sources. This path's author builds it for IUB inside the Events platform, for the website and the Android/iOS app. No platform of your own? Choose any community whose questions repeat, such as a club, a society or a team wiki. The data, search, answer and evaluation lessons work the same. The platform lessons give a smaller fallback: a simple web chat with two demo groups instead of universities, a phone-friendly web page instead of a native app, and a rehearsal pilot.",
         "Take 10 minutes and write in your log: why does this matter to you, and to the people you care about? Be specific. You'll reread it when motivation dips."
        ]
       }
@@ -512,8 +513,8 @@ window.COURSE = {
   },
   {
    "title": "RAG with LLM Zoomcamp",
-   "weeks": "Weeks 5–19",
-   "description": "Learn RAG: finding the right information and letting a model answer from it. You'll follow the free LLM Zoomcamp course and build Ask MDN, an assistant for web docs.",
+   "weeks": "Weeks 5–20",
+   "description": "Learn RAG: finding the right information and letting a model answer from it. You'll follow the free LLM Zoomcamp course, build Ask MDN, an assistant for web docs, then start the knowledge base for your Campus Assistant.",
    "lessons": [
     {
      "slug": "keyword-rag",
@@ -615,7 +616,7 @@ window.COURSE = {
      "slug": "ml-basics-measuring-quality",
      "title": "ML Basics: Measuring Quality",
      "kind": "lesson",
-     "time": "about 1 week",
+     "time": "about 1 week, plus 45 min",
      "hook": "Write the exam, mark it yourself, score 100%. Machine learning calls that a bug.",
      "intro": [
       "Before you improve Ask MDN, you need a fair way to measure it. Every test depends on two basic ideas.",
@@ -658,8 +659,17 @@ window.COURSE = {
        "steps": [
         "Write 20 practice questions for Ask MDN. For each one, list the page IDs (file paths) that answer it. These are for tuning, so use them as often as you like.",
         "Write 10 questions your selected docs cannot answer: mix clearly unrelated questions with plausible CSS/JavaScript questions whose answer is absent from your frozen subset. Record why each is unsupported. Use these to develop and test abstention; they are practice data, not an unseen test.",
-        "Commit both files. In Measuring Search you'll create 50 more questions that stay hidden until the final project."
+        "Commit both files. In Measuring Search you'll create 50 more questions that stay hidden until the Ask MDN project."
        ]
+      },
+      {
+       "day": "Day 6 · campus track, about 45 min",
+       "steps": [
+        "Start your capstone question bank in a new **private** repository, `campus-assistant-data`. Write 20 questions students at your university really repeat: fees, add/drop, withdrawal, scholarships, exams, services. Write them in your own words, and write some the way students type: English, Bangla and Banglish (romanized Bangla, such as “withdraw korle ki scholarship thakbe?”).",
+        "For each question add an intent label (for example `withdraw-scholarship`), the office you think owns the answer, and whether you believe an official page answers it. Never store names, usernames, profile links or screenshots of real people. That rule holds for the whole capstone.",
+        "Split the bank the way you split Ask MDN's questions: 14 for practice, 6 held back. It grows in [Campus Knowledge Base](#campus-knowledge-base)."
+       ],
+       "added": "2026-10-28"
       }
      ],
      "recall": [
@@ -778,7 +788,7 @@ window.COURSE = {
      "slug": "embeddings-and-vector-search",
      "title": "Embeddings and Vector Search",
      "kind": "lesson",
-     "time": "about 2 weeks",
+     "time": "about 2 weeks, plus 45 min",
      "hook": "Keyword search reads spelling. Today you hire a librarian who reads meaning.",
      "intro": [
       "Keyword search only finds exact words. If someone asks about “centering” but the page says “alignment”, it can miss. Embeddings fix this.",
@@ -868,6 +878,14 @@ window.COURSE = {
        "steps": [
         "Add to Ask MDN: build a sqlitesearch vector index of your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning."
        ]
+      },
+      {
+       "day": "Day 12 · campus track, about 45 min",
+       "steps": [
+        "Take 8 intents from your question bank and write each three ways: English, Bangla and Banglish. Embed all 24 sentences with today's embedder, then with one embedder whose model card lists Bengali among its training languages.",
+        "For each sentence and each other language, search only that language's sentences; a hit means the nearest one has the same intent. Record a hit rate per language pair and model in your log. Expect Banglish to be the hardest: on a public benchmark, one popular multilingual embedder found the right English passage about 92% of the time for Bengali-script questions but only about 47% for romanized ones. With 8 sentences per pair, one miss moves a score by 12.5 points, so treat this as a first signal and confirm it in [Multilingual Search](#multilingual-search)."
+       ],
+       "added": "2026-10-28"
       }
      ],
      "recall": [
@@ -896,7 +914,7 @@ window.COURSE = {
      "hook": "“It feels better” isn't a metric. Ask MDN gets a report card it can't charm.",
      "intro": [
       "Now you'll measure how good Ask MDN's search really is, with numbers instead of guesses.",
-      "You'll also create the 50 held-back questions for your final project. Once they're committed, you don't look at them again until then."
+      "You'll also create the 50 held-back questions for the Ask MDN project. Once they're committed, you don't look at them again until then."
      ],
      "unlocks": "prove search got better with numbers, not vibes.",
      "edge": "turning “better” into something you can measure.",
@@ -1453,17 +1471,117 @@ window.COURSE = {
       }
      ],
      "extra": []
+    },
+    {
+     "slug": "campus-knowledge-base",
+     "title": "Campus Knowledge Base",
+     "kind": "lesson",
+     "time": "about 9 hours, then 1 hour a week",
+     "hook": "The hard part of a campus assistant isn't the model. It's knowing which answer is true this semester.",
+     "intro": [
+      "Your capstone is a Campus Assistant: students ask about rules, fees, courses and services, and get a short answer that cites an approved source, or an honest “I don't know, ask this office”. You already know how to search and answer. What you don't have yet is trustworthy data, and data takes calendar time: permissions, official documents and checked answers. So you start now and spend one hour a week on it.",
+      "Student groups are full of these questions, often asked again every semester. They are excellent for learning **what** students ask and how they phrase it. They are poor as an answer store: replies conflict, rules change, and the posts belong to other people. Use the group for questions; take answers from official sources or from a staff member who confirms them."
+     ],
+     "unlocks": "start a real knowledge base with permission, provenance and a weekly curation habit.",
+     "edge": "turning messy community knowledge into data you can defend. Data curation is one of the least automated parts of AI work.",
+     "overview": [
+      "Set data rules and ask for permission before collecting anything.",
+      "List the official sources that can answer students' questions, with dates and owners.",
+      "Turn repeated questions into intents, then write your first approved answers with citations."
+     ],
+     "checkpoint": "Ask MDN v1.0 is online and your question bank from [ML Basics](#ml-basics-measuring-quality) has 20 questions.",
+     "bridge": {
+      "text": "Every answer your assistant gives will point back to one entry in this knowledge base. An entry is a promise: this answer was true, for these students, on this date, according to this source.",
+      "terms": [
+       [
+        "Intent",
+        "What the student wants, independent of wording or language. “Withdraw dile scholarship thakbe?” and “Will a withdrawal affect my scholarship?” share one intent."
+       ],
+       [
+        "Source tier",
+        "How much to trust an answer: A = official document, B = confirmed by staff, C = student know-how a curator approved. Raw posts are never served."
+       ],
+       [
+        "Provenance",
+        "Where a fact came from and when: URL or office, retrieval date, semester it applies to."
+       ],
+       [
+        "Review-by date",
+        "When an entry must be rechecked. Fees, deadlines and calendars expire every semester."
+       ]
+      ]
+     },
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "Write a one-page data policy in a new private repository, `campus-assistant-data/POLICY.md`: what you collect (question wording, rewritten in your own words), what you never collect (names, usernames, profile links, photos, private messages, ratings of named teachers), where it is stored, and when you delete it.",
+        "Read Meta's [Automated Data Collection Terms](https://www.facebook.com/legal/automated_data_collection_terms). They cover any automated collection, naming bots, crawlers and similar tools, and require Meta's written permission. An AI agent driving your logged-in browser fits that description, so don't use one. Read the group yourself and write down only the question, in your own words.",
+        "Start with consent: make a short form where students submit questions they wish someone had answered, with no names, IDs or personal cases. If you post it in a Facebook group, Meta's [Pages, Groups and Events policies](https://www.facebook.com/policies_center/pages_groups_events) require notice and explicit consent, and must make clear that you, not Meta, are collecting. Put that at the top of the form.",
+        "Ask for help, not just permission. Message the group's admins: explain what you will and won't collect and ask them to pin the form. Email the student affairs or registrar office: ask for the official rule documents and whether someone could confirm answers once a month."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Build `sources.csv` with at least 25 official sources: academic rules, scholarships and waivers, fees and deadlines, the academic calendar, degree curricula and prerequisites, registration and advising steps, student services, and an office contact list. For each, record the URL, owning office, format, the semester it applies to and the date you retrieved it.",
+        "Check the site's `robots.txt` and terms before downloading. Save a dated copy of each document, because pages change without notice, and note which ones are scanned images that will need OCR.",
+        "Mark the gaps: questions in your bank that no public source answers. Those need a staff answer or stay unanswerable."
+       ]
+      },
+      {
+       "day": "Days 3–4 · about 3 hours",
+       "steps": [
+        "Grow the question bank to 100: form submissions first, then questions friends and juniors ask, then patterns you notice reading the group yourself. Rewrite each in your own words, keep the student's language (English, Bangla or Banglish) and record the month. Note a conflicting community answer only as a hint to check, never as the answer.",
+        "Before grouping anything, freeze a held-back set: move every third new question into `held_back.jsonl`, at least 5 per language. Its wording never goes into `paraphrases`, FAQ entries or prompts. That keeps your later search scores honest.",
+        "Group the remaining questions into intents by hand, using the labels you started in lesson 10. If you automate it, embed with the Bengali-capable model from your lesson 12 check and confirm every group yourself, because English, Bangla and Banglish versions of one question often land in different groups ([clustering overview](https://scikit-learn.org/stable/modules/clustering.html)). Count each intent; the top 20 are your first FAQ entries."
+       ]
+      },
+      {
+       "day": "Days 5–6 · about 3 hours",
+       "steps": [
+        "Write 20 entries in `faq.jsonl`. Each has: `intent`, `question`, `paraphrases` (including Bangla and Banglish, written by you, never copied from `held_back.jsonl`), `answer`, `conditions` (for example credit load or intake year), `applies_to`, `sources` with quoted text, `tier`, `effective_semester`, `review_by` and `status`.",
+        "Answer only from the quoted source. If the source doesn't settle a case, write the condition the student must check and the office to ask. Mark entries without an official source `needs-staff`.",
+        "From now until the capstone, block **1 hour a week** inside your 9 hours: add or review 5 entries, add 3 new questions (form submissions first) and move every third into `held_back.jsonl`, recheck one changed page, and log new gaps. Target by the capstone: 150 questions, with at least 15 per language held back."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why are student-group replies used as questions and hints, but not as answers?",
+       "link": "#campus-knowledge-base",
+       "answer": "Replies conflict, go out of date and belong to other people. Questions show real demand and wording; answers must trace to an official source or a staff confirmation with a date."
+      },
+      {
+       "q": "Which fields stop an FAQ entry from going stale or being applied to the wrong student?",
+       "link": "#campus-knowledge-base",
+       "answer": "Conditions and applies_to (who it is for), effective_semester and review_by (when it is true), and sources with quoted text (why it is true)."
+      },
+      {
+       "q": "What do you do with a question no public source answers?",
+       "link": "#campus-knowledge-base",
+       "answer": "Record it as a gap, mark the entry needs-staff, and ask the owning office. Until then the assistant should say it doesn't know and name the office."
+      }
+     ],
+     "extra": [
+      "[Meta Automated Data Collection Terms](https://www.facebook.com/legal/automated_data_collection_terms): the rules for collecting data from Facebook by automated means."
+     ],
+     "added": "2026-10-28",
+     "before": [
+      "Marked [ML Basics](#ml-basics-measuring-quality) or [Embeddings and Vector Search](#embeddings-and-vector-search) complete before 28 Oct 2026? Do ML Basics Day 6 (45 min) before this lesson, and Embeddings Day 12 before [Multilingual Search](#multilingual-search). The course page lists both under “New since you passed this point”.",
+      "Reading a Facebook group yourself is fine for spotting questions. Copying it with a script, a bot or an AI agent is automated collection, which needs Meta's written permission. Group admins can't give that permission for Meta or for each author."
+     ]
     }
    ],
    "shift": {
     "before": "Your model answers from memory, and you can't prove search got better.",
-    "after": "A live, private Ask MDN with citations, “I don't know”, a Hit Rate and MRR table, and logs of every answer."
+    "after": "A live, private Ask MDN with citations, “I don't know”, a Hit Rate and MRR table and logs of every answer, plus a campus knowledge base with its first 20 sourced answers."
    },
    "opener": "Ask a model about a CSS property and it answers like a confident senior, even when it's wrong. These fourteen weeks hand it an open book: MDN. Ask MDN learns to find the right page, show it, say “I don't know” when the page isn't there, and earn a report card it can't charm."
   },
   {
    "title": "Agents",
-   "weeks": "Weeks 20–24",
+   "weeks": "Weeks 21–26",
    "description": "Give your app tools so it can take actions. You'll learn how agents work, build one with LangGraph, and learn to keep tools safe.",
    "lessons": [
     {
@@ -1834,7 +1952,7 @@ window.COURSE = {
   },
   {
    "title": "Make It Sturdy",
-   "weeks": "Weeks 25–34",
+   "weeks": "Weeks 27–38",
    "description": "Get your app ready for real users: tests that run automatically, logins, access rules, fresh data and attack tests.",
    "lessons": [
     {
@@ -2364,9 +2482,9 @@ window.COURSE = {
      "time": "about 5 weeks",
      "hook": "Dress rehearsal for the Campus Assistant: two groups, real logins, one tireless attacker. It's you.",
      "intro": [
-      "This is the final project of the path. Ask MDN gets logins, separate groups, fresh data, automatic tests and an attack test it must pass.",
+      "This is the last practice project before the capstone. Ask MDN gets logins, separate groups, fresh data, automatic tests and an attack test it must pass.",
       "This brings the pieces together in a small deployed system. Passing these checks demonstrates this project's behavior under the cases you tested; a real institutional rollout still needs its own requirements and operational review.",
-      "Finish the existing app first. Then give its read-only answer function a small API, so another application can use it. You will reuse your validation, permissions and tests; this is not a fifth project."
+      "Finish the existing app first. Then give its read-only answer function a small API, so another application can use it. You will reuse your validation, permissions and tests."
      ],
      "unlocks": "demonstrate a tested AI app and a portable backend, including what happens when dependencies fail.",
      "edge": "owning reliability, security and cost at the same time.",
@@ -2401,7 +2519,7 @@ window.COURSE = {
         "Run your attack test (30 cases plus 5 canaries), 3 times for each case. Fix what breaks, then run it again.",
         "Set aside 12 fresh questions after freezing this version: 4 each for CSS and JS with expected answers/supporting passages, plus 4 plausible questions unsupported by that user's permitted documents. Before running them, record an acceptance rule: for this learning project, at least 7 of 8 supported answers correct and supported by citations, all 4 unsupported requests declined, and no unauthorized reads/writes. Grade manually and show counts and all failures. These small-sample targets are practice gates, not production guarantees. If you fix a failure, keep these as regression cases and reserve fresh cases for another independent check.",
         "Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.",
-        "Update the README with your results and an architecture diagram. Keep a short list of changes a real team deployment would need. Your university integration can wait until after the course."
+        "Update the README with your results and an architecture diagram. Keep a short list of changes a real team deployment would need. Your university integration is the capstone: [Ship It: Service and Website](#assistant-service-and-web)."
        ]
       },
       {
@@ -2490,9 +2608,572 @@ window.COURSE = {
    "opener": "Picture next year's demo. University A's events officer asks your Campus Assistant about next week, and one forgotten WHERE clause shows her University B's unannounced fest. This section rehearses that day with a CSS team and a JS team, and makes the leak impossible rather than unlikely."
   },
   {
+   "title": "Capstone: Campus Assistant",
+   "weeks": "Weeks 39–50",
+   "description": "Put everything together. Your knowledge base gets a verification pipeline, search learns Bangla and Banglish, answers learn to ask, cite or route, and the assistant ships inside your own platform: website and mobile app. You finish with a small pilot and the evidence to decide what comes next.",
+   "shift": {
+    "before": "Your skills live in practice projects on public data.",
+    "after": "A piloted Campus Assistant in your web and mobile app, with release gates, a cost report and a verified knowledge base."
+   },
+   "opener": "Registration week. Three freshers ask the same question in three languages within an hour: will dropping a course cost them their scholarship? Last year a senior answered from memory and was half right. This section builds the assistant that answers from the rule itself, asks how many credits they are taking, and names the office when the rule doesn't cover their case.",
+   "lessons": [
+    {
+     "slug": "curation-and-verification",
+     "title": "Curation and Verification",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "Automate the checking, not the trusting.",
+     "intro": [
+      "Your knowledge base now has entries written over many weeks. Before an assistant serves them, every entry needs the same checks, and you need a queue that shows what is waiting, what changed and what expired.",
+      "You'll build automatic checks with an LLM judge, then measure how often the judge agrees with you. Automation earns trust only after that number is known, and only for low-risk topics. Fees, scholarships and discipline always get a human."
+     ],
+     "unlocks": "run a curation queue where an automatic judge does the first pass and you can prove how far to trust it.",
+     "edge": "calibrating an automated reviewer against human judgment, one of the most transferable evaluation skills.",
+     "overview": [
+      "Move every entry through clear statuses, from draft to approved to expired.",
+      "Check citations, contradictions, personal data and staleness automatically.",
+      "Measure judge–human agreement and set a written auto-approval policy."
+     ],
+     "checkpoint": "your knowledge base has at least 60 entries with sources, and [Grading Answers](#grading-answers) and [Fresh Data](#fresh-data) are complete.",
+     "bridge": {
+      "text": "An LLM judge is a second model that grades an answer against a rubric. It is fast and cheap, and it is wrong in patterns. You find those patterns by grading the same items yourself.",
+      "terms": [
+       [
+        "Cohen's kappa",
+        "Agreement between two graders, corrected for the agreement you'd expect by chance. 1 is perfect, 0 is chance level, and it can be negative."
+       ],
+       [
+        "Confusion matrix",
+        "A 2×2 count of judge versus human: both pass, both fail, judge passed what you failed, judge failed what you passed. For auto-approval, the costly cell is “judge passed what you failed”."
+       ],
+       [
+        "Entailment check",
+        "Does the quoted source actually support each claim in the answer?"
+       ],
+       [
+        "Audit sample",
+        "A random slice of auto-approved items that a human regrades every week."
+       ]
+      ]
+     },
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "Add statuses to every entry: `draft → checked → needs-human → approved → expired`. Write a small script that prints the queue: counts per status, entries past `review_by`, and entries whose source changed since approval.",
+        "Reuse your [Fresh Data](#fresh-data) manifest idea: hash each saved source document so a changed rule automatically moves its entries back to `needs-human`."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Write automatic checks: every claim cites quoted source text; the judge says the quote supports the claim; no conflict with another approved entry; no personal data about individuals (student names, IDs, phone numbers); `review_by` is in the future. Contacts from your official office directory are allowed, and staff confirmations are recorded by office or role plus date, not by a person's name.",
+        "Topics on your sensitive list (fees, scholarships, discipline, health) always go to `needs-human`. Make each check return a reason, not just pass or fail."
+       ]
+      },
+      {
+       "day": "Day 3 · about 90 min",
+       "steps": [
+        "Grade 60 entries yourself: correct and supported, or not. Include 15 you deliberately broke (wrong number, outdated semester, unsupported claim). Run the judge on the same 60 and build the confusion matrix. Compute Cohen's kappa too ([scikit-learn's cohen_kappa_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html)).",
+        "Read every disagreement and fix the rubric, not the labels. Rerun once. These 60 are now tuning data, so their scores are optimistic."
+       ]
+      },
+      {
+       "day": "Days 4–5 · about 3 hours",
+       "steps": [
+        "Grade a fresh, untuned sample of 40 real entries yourself, then run the judge on them. This is the number that counts.",
+        "Write `AUTO-APPROVAL.md`: which low-risk topics the judge may approve alone, and the gate. Gate first on counts: the judge passed 0 of the entries you failed, and caught most of the broken ones. Report kappa as a secondary number; with few errors in the sample it can look fine or be meaningless. Set the weekly audit size and what an audit failure does.",
+        "Approve your first batch by hand through the queue, with a changelog line for each approval: who or what approved it, and why."
+       ]
+      },
+      {
+       "day": "Day 6 · about 90 min",
+       "steps": [
+        "Without AI-written code, add one new check (for example: an answer that mentions a date must cite the academic calendar). Test it on a passing and a failing entry, and explain it in your log."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why must you measure the judge on a fresh sample before letting it approve anything?",
+       "link": "#curation-and-verification",
+       "answer": "The rubric was tuned on the first sample, so its scores are optimistic. Only a fresh sample shows how often the judge passes entries you would fail, which is the costly mistake."
+      },
+      {
+       "q": "What moves an approved entry back to needs-human without anyone noticing a problem?",
+       "link": "#curation-and-verification",
+       "answer": "A changed source hash, a passed review_by date, or a conflict with a newly approved entry."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "multilingual-search",
+     "title": "Multilingual Search: Bangla, Banglish, English",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "Students don't switch language for your search engine. Your search engine switches for them.",
+     "intro": [
+      "Your users write in English, in Bangla script, in romanized Bangla, and in all three in one sentence. Keyword search fails across scripts, and many embedders handle romanized Bangla poorly. Your lesson 12 check gave a first signal of where; if you finished lesson 12 before it had that Day, do it now.",
+      "You'll measure each language separately, then try two fixes: a multilingual embedder, and a small model call that rewrites the question into English and Bangla before searching. Keep whichever wins on your held-back questions, per language."
+     ],
+     "unlocks": "search a knowledge base in the languages your users actually type, with a score per language.",
+     "edge": "evaluating by slice. An average hides the group your product fails.",
+     "overview": [
+      "Report Hit Rate and MRR separately for English, Bangla and Banglish questions.",
+      "Compare a multilingual embedder with query rewriting, and combine them with hybrid search.",
+      "Reply in the language the student used."
+     ],
+     "checkpoint": "your question bank has at least 150 questions tagged by language and linked to intents, with at least 15 per language held back in `held_back.jsonl`.",
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "First, write a leak check: it fails if any held-back question (normalised: lower case, single spaces, Unicode NFC) appears anywhere in your indexed text. Run it before every evaluation.",
+        "Index your approved entries (question, paraphrases and answer) with your Ask MDN search code. Run the practice questions and report Hit Rate@5 and MRR@5 for each language slice."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Swap in a multilingual embedder and rerun. Then try adding Bangla and Banglish paraphrases to each entry's text. Record both results per slice."
+       ]
+      },
+      {
+       "day": "Day 3 · about 90 min",
+       "steps": [
+        "Add a rewrite step: one cheap model call returns `{language, english_query, bangla_query}` as structured output (lesson 7), with `bangla_query` in Bengali script, not romanized. Dense-search the raw question and both rewrites, run keyword search on the raw and English versions, and fuse everything with RRF (lesson 14). Don't stem or “fix” Banglish spelling; for Bengali text, Unicode normalisation is enough. Check 10 rewrites by hand for changed meaning, and measure the extra time and cost per question."
+       ]
+      },
+      {
+       "day": "Day 4 · about 90 min",
+       "steps": [
+        "Pick the configuration per your numbers, then run the held-back questions once. Write the table into your README with the decision and its cost.",
+        "Make the answer prompt reply in the student's language, and test 5 mixed-language questions by hand."
+       ]
+      },
+      {
+       "day": "Day 5 · about 90 min",
+       "steps": [
+        "Without AI-written code, write the function that merges and deduplicates results from the two rewrites. Test it with an empty list, duplicates and a missing language."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why report search quality per language instead of one overall number?",
+       "link": "#multilingual-search",
+       "answer": "A good average can hide a failing group. Banglish questions might be a third of traffic and fail badly while English carries the average."
+      },
+      {
+       "q": "What does query rewriting cost you, and how do you decide whether it's worth it?",
+       "link": "#multilingual-search",
+       "answer": "An extra model call: latency and money per question. Keep it only if it improves the held-back slices enough to justify the measured cost."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "answer-ask-or-route",
+     "title": "Answer, Ask or Route",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "“It depends” is a good answer when you say what it depends on.",
+     "intro": [
+      "Many campus questions have a right answer only once you know a detail: your credit load, your program, your intake year. Others have no answer in your sources at all, and some should never be answered by a bot.",
+      "Your assistant chooses between five moves: answer with citations, ask one clarifying question, answer the part that is established and name what's missing, route to the right office, or decline a false premise (“No one can guarantee an A”) and offer what it can do. You'll test every move on purpose-built questions, including impossible ones. Never show a confidence percentage: search similarity is not a probability of being right."
+     ],
+     "unlocks": "handle unanswerable, ambiguous and out-of-scope questions without inventing rules.",
+     "edge": "designing failure behavior. Users forgive “I don't know, ask the registrar”; they don't forgive a confident wrong rule.",
+     "overview": [
+      "Check whether retrieved evidence is enough before answering.",
+      "Ask one clarifying question when an entry's conditions require it.",
+      "Route to an office, or refuse, with tested rules for sensitive topics."
+     ],
+     "checkpoint": "[Multilingual Search](#multilingual-search) is complete and you have an office directory with contact channels and hours.",
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "Store your office directory as data: office, topics it owns, official contact channel and hours. The assistant may only route to entries in this file.",
+        "Write the answer card: short answer; who it applies to (program, curriculum version, semester); evidence with tier labels; what's still needed; one next step; the date it was last verified."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Add an evidence check before answering: do the retrieved entries cover this question for this student? If an entry has `conditions` the student hasn't given, ask one question instead (for example “How many credits are you taking this semester?”).",
+        "Keep that pending question on the server: store the conversation's open condition, so when the student replies “15”, the next turn knows it answers the credit question. Never trust a transcript sent back by the client."
+       ]
+      },
+      {
+       "day": "Days 3–4 · about 3 hours",
+       "steps": [
+        "Build a hard set of 55 questions and write the expected move for each: 10 personal-record (my grades, my dues), 10 not covered by any source, 10 future or rumoured events, 5 requests to rate a named teacher, 5 requests for exam answers or someone else's data, 5 that must ask first, 5 that need a partial answer, and 5 false premises (“guarantee me an A”).",
+        "Add two conflict cases. First, a version question: a program overview says one credit total and the program page lists two curricula with different totals. The right move is to ask the student's intake, then answer for that curriculum. Second, a true conflict: two undated official pages give different numbers for the same rule. The right move is to show both, route to the owning office and file a curation item; never pick one silently or trust the newer-looking page.",
+        "Add a crisis route that runs before retrieval: a high-recall check (keywords in English, Bangla and Banglish, plus a small classifier prompt) that replies only with the counselling service and emergency contacts you have re-verified. Test it with 10 crisis or self-harm messages across the three languages, including indirect wording and one hidden inside a scholarship question. Count misses separately; the target is zero. Crisis messages are never stored in full or sent to the curation queue."
+       ]
+      },
+      {
+       "day": "Day 5 · about 90 min",
+       "steps": [
+        "Run the hard set plus your held-back answerable questions. Record each move: correct answers, clarifications, partial answers, routes and declines, plus false answers and unnecessary refusals. Report counts per language (“36 of 40”), not just percentages. Fix the worst failure and rerun."
+       ]
+      },
+      {
+       "day": "Day 6 · about 90 min",
+       "steps": [
+        "Ask 3 friends or juniors to try to make it invent a rule. Log every attempt. Turn each success into a regression test."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "When should the assistant ask a question instead of answering?",
+       "link": "#answer-ask-or-route",
+       "answer": "When the matching entry's answer depends on a condition the student hasn't stated, such as credit load or program. Ask one specific question, then answer."
+      },
+      {
+       "q": "Two official pages disagree. What should the assistant do?",
+       "link": "#answer-ask-or-route",
+       "answer": "First check whether they apply to different students (curriculum version, intake, program). If so, ask and answer for that case. If not, show what each says, route to the owning office and file a curation item. Never pick one silently."
+      },
+      {
+       "q": "Name two kinds of questions the assistant should never answer itself, and what it does instead.",
+       "link": "#answer-ask-or-route",
+       "answer": "Personal records (route to the portal or office) and ratings of named teachers or exam answers (refuse politely). A crisis message gets counselling and emergency contacts."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "course-planning-helper",
+     "title": "A Course-Planning Helper",
+     "kind": "lesson",
+     "time": "about 9 hours",
+     "hook": "Let code decide what's allowed. Let the model explain it.",
+     "intro": [
+      "“What should I take next semester?” is the question students ask advisors most. A model guessing prerequisites from memory will be wrong; a lookup over the official curriculum will not.",
+      "You'll encode one program's curriculum as reviewed data, write deterministic tools that return **eligible**, **blocked** or **unknown** with a reason, and let the model call them and explain the result. The student types the courses they've done; that is unverified input, never an official record. The assistant never registers courses or approves waivers, and it ends with: confirm with your advisor."
+     ],
+     "unlocks": "give course suggestions that come from rules you can test, not from a model's memory.",
+     "edge": "splitting work between code and a model: the model talks, the code decides.",
+     "overview": [
+      "Turn one program's curriculum and prerequisites into versioned, structured data.",
+      "Write and test tools that return eligible, blocked or unknown, with reasons.",
+      "Let the model call the tools, explain the result and state its limits."
+     ],
+     "checkpoint": "[Tools and the Agent Loop](#tools-and-the-agent-loop) and [Safe Tools](#safe-tools) are complete.",
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "Pick one program and one curriculum version. From the official curriculum, encode its first year in `curriculum.json`: course codes, credits, prerequisites as AND/OR expressions, minimum grades, co-requisites and labs, equivalent courses, elective groups. Cite the document, its version and the cohorts it applies to. Add later years only after the tests pass.",
+        "Keep the catalog separate from a term's offerings. If you have no official offering list, offerings are unknown, not “not offered”."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Without AI-written code, write `check_eligibility(profile, course)` returning `eligible`, `blocked` or `unknown` with a machine-readable reason (“needs CSE 201”, “curriculum version not given”), and `options(profile)` that lists eligible courses."
+       ]
+      },
+      {
+       "day": "Day 3 · about 90 min",
+       "steps": [
+        "Write 30 synthetic student profiles with expected results you've checked by hand: AND/OR prerequisites, failed and repeated courses, minimum grades, labs, equivalents, the wrong curriculum version, and missing offerings. Every one must pass."
+       ]
+      },
+      {
+       "day": "Day 4 · about 90 min",
+       "steps": [
+        "Expose both as read-only tools to your assistant. It may suggest only courses the tools return, must show the reason, must ask for the curriculum version when it's missing, and must say that offerings and seats change each semester."
+       ]
+      },
+      {
+       "day": "Days 5–6 · about 3 hours",
+       "steps": [
+        "Run the assistant on 10 profiles in conversation, including impossible requests (a course that doesn't exist, “guarantee me an A”). Count suggestions from outside the tools: the target is zero. If no plan fits, it should name the conflicting rules, never quietly drop a prerequisite.",
+        "Ask a department member or a senior in that program to review `curriculum.json`. Until someone has, label the helper a preview."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why do eligibility rules live in code and data rather than in the prompt?",
+       "link": "#course-planning-helper",
+       "answer": "Code gives the same answer every time and can be tested; a prompt can be ignored or misread. The model only explains what the tools return."
+      },
+      {
+       "q": "Why does the checker need an “unknown” result, not just yes or no?",
+       "link": "#course-planning-helper",
+       "answer": "Missing facts (curriculum version, offerings, a grade) are common. Forcing yes or no turns a gap into a confident wrong answer; unknown makes the assistant ask or route."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "choose-models-and-budget",
+     "title": "Choose Models and a Budget",
+     "kind": "lesson",
+     "time": "about 6 hours",
+     "hook": "The best model is the cheapest one that passes your tests.",
+     "intro": [
+      "You can run models on your own laptop, use a provider's free tier, or pay per token. Each has a different cost, speed, quality on Bangla, privacy terms and amount of work to keep running.",
+      "You'll run the same eval through three configurations and decide with numbers: quality per language, correct refusals, latency and cost per 1,000 questions at your expected traffic."
+     ],
+     "unlocks": "defend a model choice with an eval, a latency measurement and a monthly cost estimate.",
+     "edge": "cost engineering. Prices and models change every few months; a repeatable bake-off doesn't.",
+     "overview": [
+      "Compare a local model, a low-cost hosted model and a stronger hosted model on the same eval.",
+      "Estimate monthly cost at three traffic levels, including caching.",
+      "Set budget alerts and a per-user limit."
+     ],
+     "checkpoint": "your eval from [Answer, Ask or Route](#answer-ask-or-route) runs with one command and saves results with model and prompt versions.",
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "For the local leg, install [Ollama](https://github.com/ollama/ollama) and pull a small multilingual model that fits your free memory (a 4-billion-parameter model at 4-bit needs about 3 GB of RAM and disk). On a low-memory machine, skip the local leg and say so in your results.",
+        "Run your eval with a local model through Ollama and with two hosted models. Use the same prompt, retrieval and questions. Record quality per language, abstention results, median and slow (p95) latency, and tokens per question."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Read each provider's current pricing page, data-use terms and age terms. Free tiers may use your prompts to improve their products, and some terms forbid apps used by people under 18; some freshers are 17. Compute cost per 1,000 questions and per month at 2,000, 20,000 and 100,000 questions, including reasoning tokens. Show the arithmetic."
+       ]
+      },
+      {
+       "day": "Day 3 · about 90 min",
+       "steps": [
+        "Write `MODEL-DECISION.md`: the winner for serving, the fallback if it fails or gets expensive, and where local models still help (labeling, offline tests, private experiments). Note when you'll rerun this bake-off. Record whether each provider's terms allow users under 18 and how long it keeps your prompts."
+       ]
+      },
+      {
+       "day": "Day 4 · about 90 min",
+       "steps": [
+        "Add guards: a monthly budget alert, a per-user daily question limit and a global off switch. Test that the limit returns a friendly message, not an error.",
+        "Don't cache answers yet. Write down the cache key you would need later: university, knowledge-base version, entry IDs and their approval versions, normalised question and answer language. Note why answers that depended on a student's own details must never be cached, and how an entry changing status would clear the cache."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why can a laptop model be right for development but wrong for serving 30,000 students?",
+       "link": "#choose-models-and-budget",
+       "answer": "Serving needs uptime, many simultaneous users and predictable speed. A laptop gives none of these, though it is free and private for experiments and labeling."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "assistant-service-and-web",
+     "title": "Ship It: Service and Website",
+     "kind": "lesson",
+     "time": "about 2.5 weeks",
+     "hook": "Keep the Python you tested. Put your platform's front door in front of it.",
+     "intro": [
+      "Until now the assistant ran as your own app. Now it moves behind the platform students already use. You don't rewrite it: your tested Python answer service, the protected API from [Make It Sturdy](#project-make-it-sturdy), becomes a private service. The platform's own backend becomes the only door to it.",
+      "That gateway checks who is asking, which university's knowledge base they may search, whether the feature is on and how many questions they have left, before it calls your service. The model never decides access, and the service never trusts a university ID sent by the browser."
+     ],
+     "unlocks": "run a tenant-safe, rate-limited assistant service behind your platform's sign-in, with a chat page in your web app.",
+     "edge": "integrating an AI service into an existing production codebase without weakening its security model.",
+     "overview": [
+      "Put an authenticated gateway in front of a private answer service.",
+      "Check the user's verified tenant, entitlement and budget on the server before any search.",
+      "Ship a chat page behind a feature flag, with logs that leave out personal data."
+     ],
+     "checkpoint": "your [Choose Models and a Budget](#choose-models-and-budget) decision is written, and you can run your platform locally with emulators.",
+     "assignment": [
+      {
+       "day": "Days 1–3 · about 4.5 hours",
+       "steps": [
+        "Update `POLICY.md` for live use before writing code: student messages are personal data. Redact IDs, phone numbers and grades before storing; keep raw text only briefly; curation items carry a redacted paraphrase, not the raw message; crisis-routed messages are never stored in full. Choose a model provider tier that doesn't train on your prompts.",
+        "Write a design note: the request path from client to cited answer, where the service runs, where the index lives, how the gateway proves its identity to the service, what is logged and for how long. Get it reviewed by a friend or a peer, or check it against your own [Make It Sturdy](#project-make-it-sturdy) evidence table.",
+        "Write the contract: question, a client-generated idempotency key, and a conversation ID the server owns (with any pending condition stored server-side). Results are stored by request ID so a client can fetch them again after a timeout.",
+        "Start the pilot approval request now (see [Campus Assistant Pilot](#project-campus-assistant)). Approvals take calendar time."
+       ]
+      },
+      {
+       "day": "Days 4–6 · about 4.5 hours",
+       "steps": [
+        "Deploy the answer service privately, so only the gateway's service identity can call it ([Cloud Run service-to-service authentication](https://docs.cloud.google.com/run/docs/authenticating/service-to-service)). This changes lesson 32's trust boundary: the service now accepts the user and university only from the verified gateway identity, never from fields in the request body.",
+        "Write the tests first: a call without the gateway identity fails; a valid gateway call with a tampered university fails; a `tenant_id` in the body is rejected."
+       ]
+      },
+      {
+       "day": "Days 7–9 · about 4.5 hours",
+       "steps": [
+        "Build the gateway in your platform's backend: signed-in user, verified university from the server's own authority check, feature enabled, per-user and per-university limits, and a budget reserved before the model call and settled after it. Abandoned reservations expire. Test each failure with emulators, including a user from another university.",
+        "Test retries: the same idempotency key returns the stored answer with no second model call and no second charge."
+       ]
+      },
+      {
+       "day": "Days 10–12 · about 4.5 hours",
+       "steps": [
+        "Build the chat page with the answer card: answer, who it applies to, evidence links, what's still needed, next step, last-verified date, and thumbs up/down with an optional comment. Start with a full answer per request; add streaming later only if the wait feels long and both clients support it.",
+        "Feedback becomes a redacted curation item, never an automatic change to an answer. Run your eval suite in CI against the service with a fake model, and nightly with the real one."
+       ]
+      },
+      {
+       "day": "Days 13–15 · about 4.5 hours",
+       "steps": [
+        "Ship behind a feature flag to curators only. Use it yourself for a week of normal questions alongside your next lesson, and record latency, cost per answer and refusals. Fix the top issue.",
+        "No platform of your own? Build the gateway as a small FastAPI app with two demo groups instead of universities, and a simple web chat page. The identity, limit, budget and retry tests are the same."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Which checks must happen on the server before the assistant searches anything?",
+       "link": "#assistant-service-and-web",
+       "answer": "Verified sign-in, the user's tenant from the server's own authority check, feature enabled for that tenant, and usage limits. Never trust a tenant ID sent by the client."
+      },
+      {
+       "q": "Why does a thumbs-down create a curation item instead of editing the answer?",
+       "link": "#assistant-service-and-web",
+       "answer": "Feedback can be wrong or malicious. A curator checks it against the source, so the knowledge base only changes through the verified path."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "assistant-in-the-mobile-app",
+     "title": "Ship It: Mobile App",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "Most students will meet your assistant on a phone, on mobile data, with one thumb.",
+     "intro": [
+      "The same service now powers a chat screen in your Android and iOS app. Phones add their own problems: slow networks, apps sent to the background mid-answer, small screens and keyboards that cover the input."
+     ],
+     "unlocks": "put the assistant in a native app that behaves well on slow networks.",
+     "edge": "AI features on mobile: retries, cancellation and graceful fallbacks on real devices.",
+     "overview": [
+      "Add a chat screen that reuses the web service.",
+      "Handle slow networks, retries and interrupted answers.",
+      "Test on a real phone, not only an emulator."
+     ],
+     "checkpoint": "[Ship It: Service and Website](#assistant-service-and-web) is live for curators.",
+     "assignment": [
+      {
+       "day": "Days 1–2 · about 3 hours",
+       "steps": [
+        "Add the chat screen where your app's navigation rules allow it. Reuse the service, the citation format and the feedback buttons from the web."
+       ]
+      },
+      {
+       "day": "Days 3–4 · about 3 hours",
+       "steps": [
+        "Handle the hard cases: a retry sends the same idempotency key, so it can't create a second request; a timeout message; cancellation; and an answer fetched again by request ID after the app returns from the background. Check that sign-out and account switching clear the chat."
+       ]
+      },
+      {
+       "day": "Days 5–6 · about 3 hours",
+       "steps": [
+        "Test on a real Android phone (and an iPhone if you can) on slow mobile data. Fix what breaks: keyboard covering the input, long Bangla text wrapping, links opening outside the app.",
+        "No native app? Make the web chat page work well on a phone instead, and test it on a real phone on mobile data."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Name two mobile problems a web chat page rarely has.",
+       "link": "#assistant-in-the-mobile-app",
+       "answer": "The app goes to the background mid-answer, and slow or flaky mobile data. The keyboard covering the input is a third."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "project-campus-assistant",
+     "title": "Campus Assistant Pilot",
+     "kind": "project",
+     "time": "about 3 weeks",
+     "hook": "A pilot isn't a launch. It's how you learn what to launch.",
+     "intro": [
+      "Your assistant meets real students: a small group, for a fixed time, with clear rules. You'll watch what they ask, where it fails and what it costs, then write the evidence that decides the next step."
+     ],
+     "unlocks": "run a real AI pilot and decide its future from evidence.",
+     "edge": "owning an AI product end to end: data, quality, safety, cost and the people who use it.",
+     "before": [
+      "Start approvals during [Ship It: Service and Website](#assistant-service-and-web), because they take calendar time: whoever runs your platform, and written sign-off from the registrar or student affairs office. Without that sign-off, every answer card carries an “Unofficial, student-built” label.",
+      "Your model provider's terms must allow every pilot user. If they bar users under 18, invite only students who are 18 or over, and check at invite.",
+      "Give pilot users a short notice: which model provider processes their messages and how long it keeps them, what you log and for how long, and how to ask for deletion.",
+      "Freeze the pilot's prompt, model and knowledge-base version. Changes during the pilot go through your curation queue and get a version number."
+     ],
+     "checkpoint": "the assistant runs for curators on web and mobile, with release gates in CI.",
+     "assignment": [
+      {
+       "day": "Week 1 · about 9 hours",
+       "steps": [
+        "Set release gates and pass them before inviting anyone: held-back answer accuracy and per-language search scores at your chosen thresholds, zero invented rules on the hard set, zero missed crisis messages, zero cross-university leaks, provider terms that allow every pilot user, and cost per answer under budget.",
+        "Write a one-page runbook: how to switch the assistant off, roll back a knowledge-base version, and answer a complaint.",
+        "Invite 20–30 students from different departments, including freshers who meet your provider's age terms."
+       ]
+      },
+      {
+       "day": "Week 2 · about 9 hours",
+       "steps": [
+        "Run the pilot. Every day, review thumbs-down answers and new questions in the curation queue. Approve fixes through the normal path and version them.",
+        "Each day, regrade a random sample of answers yourself. Track how many were correct, correctly refused or wrong."
+       ]
+      },
+      {
+       "day": "Week 3 · about 9 hours",
+       "steps": [
+        "Write `PILOT-REPORT.md`: questions asked by topic and language, correct/clarify/route/refuse rates, failures and fixes, cost per answer and per month, and what students said.",
+        "Finish with a decision and its reasons: widen the pilot, add features, or pause and fix. Present it to the people who approved the pilot.",
+        "No approval yet? Run the same two weeks as a rehearsal with friends or synthetic users, and label the report a rehearsal, not a pilot."
+       ]
+      }
+     ],
+     "done": [
+      "The assistant runs inside your platform on web and mobile, limited to pilot users, with release gates enforced in CI.",
+      "Every served answer traces to an approved knowledge-base entry with a source, tier and verification date.",
+      "Your report shows quality per language, refusal behavior on hard questions, cost per answer, and what you changed during the pilot.",
+      "You can explain the request flow from the phone to the cited answer, the tenant check, and one failure you fixed, without notes."
+     ],
+     "showoff": {
+      "pitch": "A campus assistant that answers students in English, Bangla and Banglish from verified university sources, asks when details matter, and routes to the right office when it can't answer.",
+      "demo": [
+       "Ask the same question in three languages and get the same cited answer.",
+       "Ask a question that depends on credit load and watch it ask first.",
+       "Ask for your own grades and watch it route you to the right place.",
+       "Show the curation queue, the judge agreement number and the pilot report."
+      ],
+      "proves": [
+       "End-to-end ownership of a production AI feature: data, evaluation, safety, cost and users.",
+       "Multilingual retrieval, human-in-the-loop curation and tenant-safe integration in a real platform."
+      ]
+     },
+     "extra_credit": [
+      "Add a second university's knowledge base and prove with tests that neither can see the other's.",
+      "Publish a sanitized, permission-cleared summary of what students ask most, for the student affairs office."
+     ],
+     "recall": [
+      {
+       "q": "What has to be true before you invite pilot users?",
+       "link": "#project-campus-assistant",
+       "answer": "Release gates pass (accuracy, per-language search, zero invented rules, zero cross-tenant leaks, cost under budget), a runbook exists, and users know what is logged."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    }
+   ]
+  },
+  {
    "title": "Conclusion",
-   "weeks": "Weeks 35–36",
-   "description": "Catch up, polish your projects and plan what you'll build next.",
+   "weeks": "Weeks 51–52",
+   "description": "Test your skills on unfamiliar material, polish your projects and choose what to deepen next.",
    "lessons": [
     {
      "slug": "whats-next",
@@ -2501,8 +3182,8 @@ window.COURSE = {
      "time": "about 2 weeks (spare)",
      "hook": "The final test is a new problem, small enough to finish, different enough to make you think.",
      "intro": [
-      "You have reached the end of the guided path. The useful question now is: can you apply the ideas when the dataset and requirements change?",
-      "Use this consolidation time to repair gaps and try one small independent task. Your Campus Assistant can follow afterwards; it is not required to finish this course."
+      "You have reached the end of the guided path. The useful question now is: can you apply the ideas when the dataset and requirements change? The Electives that follow are optional depth, not more required work.",
+      "Use this consolidation time to repair gaps and try one small independent task. Your Campus Assistant pilot is behind you. This check shows whether the skills transfer to material you have never seen."
      ],
      "unlocks": "test whether your skills transfer to a new dataset and choose your next practice task.",
      "edge": "scoping, and saying no to features.",
@@ -2517,7 +3198,7 @@ window.COURSE = {
         "Finish the required project checks. Select one unfamiliar public source, such as a small museum visitor FAQ or an open-source project's installation guide. Keep the dataset to 5–10 pages; record its source and reuse terms. Write a short brief, 6 expected question/answer cases (including 2 unsupported cases), and a cost limit before coding.",
         "Spend 3–6 hours adapting your existing app. First choose the simplest useful design and explain whether retrieval or an agent is needed. Documentation and your own code are allowed; during this exercise, keep AI in explanation/review mode rather than having it design or implement the solution. No new framework required.",
         "Demo 3 unfamiliar questions and one failure. Trace the full request, show your evidence, and make one small requirement change without an AI-produced patch. Ask a friend or peer to choose the change if available; otherwise add a new document format or a restriction you did not build for. If you cannot finish independently, revisit only the relevant lesson and retry. This is a diagnostic, not a speed contest.",
-        "Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Plan the Campus Assistant or another product only after this check; no compulsory launch deadline. Add a portfolio evidence table: requirement → code → test → result → limitation. Ask someone to review one requirement, or record a ten-minute walkthrough yourself. Start applying to applied AI/backend roles; use interview feedback to select the next repair task.",
+        "Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Decide the Campus Assistant's next step from your pilot evidence: widen the pilot, add a second university, or pause and fix one weakness first. Add a portfolio evidence table: requirement → code → test → result → limitation. Ask someone to review one requirement, or record a ten-minute walkthrough yourself. Start applying to applied AI/backend roles; use interview feedback to select the next repair task.",
         "Choose deeper study only for a specific goal: [ML Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp) for broader ML modeling, [LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch) for model internals, or serving/infrastructure work for an AI platform role. This path covers applied LLM applications; it does not claim mastery of every AI specialty or immunity from automation."
        ]
       }
@@ -2533,6 +3214,7 @@ window.COURSE = {
       }
      ],
      "extra": [
+      "[Electives](#elective-local-models): local models, fine-tuning, MCP, voice and images, and model internals, each tied back to your Campus Assistant.",
       "[Provider and university comparison](https://github.com/Faizan2001/ai-engineer-path/blob/main/PROVIDER-UNIVERSITY-REVIEW.md) — why these additions are required and which deeper courses can wait.",
       "[Harvard CS50 AI](https://cs50.harvard.edu/ai/) — optional broader AI foundations: search, uncertainty and learning, with programming projects. Useful for gaps in those ideas; not a required restart.",
       "[MIT 6.S191, 2026](https://introtodeeplearning.com/) — optional model-training direction: neural-network lectures and labs. Review calculus and linear algebra first.",
@@ -2549,9 +3231,194 @@ window.COURSE = {
     "before": "You followed someone else's plan.",
     "after": "A new-domain demonstration, an evidence table and one targeted next practice task."
    },
-   "opener": "You can now follow an answer from input to evidence, inspect a failed tool call and explain the cost of a design choice. These two weeks test those skills on unfamiliar material and leave room to repair one weak spot."
+   "opener": "You shipped an assistant students actually used, and you can follow any of its answers from question to evidence. These two weeks check that the skills work on material you've never seen, and leave room to repair one weak spot."
+  },
+  {
+   "title": "Electives",
+   "weeks": "Optional, any order",
+   "optional": true,
+   "description": "Optional depth, each tied back to your Campus Assistant. Choose by goal, not by fear of missing out.",
+   "shift": {
+    "before": "You know where your skills end, but not how to go further.",
+    "after": "At least one deeper skill practised on your own assistant, with a measured result."
+   },
+   "opener": "The assistant works. Now curiosity takes over: could it run on your own machine, learn Banglish better, talk to other AI tools, listen, or could you build the model itself? Each elective answers one of those with a small, measured experiment.",
+   "lessons": [
+    {
+     "slug": "elective-local-models",
+     "title": "Elective: Run Models Locally",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "Free per token isn't free. Measure what it really costs.",
+     "intro": [
+      "Run open-weight models on your own computer, learn what quantization trades away, and decide where local models belong in your assistant."
+     ],
+     "unlocks": "run, measure and serve an open-weight model on your own hardware.",
+     "edge": "knowing the real cost of self-hosting: hardware, speed, quality and your time.",
+     "overview": [
+      "Run two open-weight models at different sizes and quantization levels.",
+      "Measure speed, memory and quality on your eval.",
+      "Put a local model behind the same interface as your hosted one."
+     ],
+     "assignment": [
+      {
+       "steps": [
+        "Install [Ollama](https://github.com/ollama/ollama) or llama.cpp. Run a small and a medium model; record memory use, how long the first word takes on a long prompt, and tokens per second on your machine.",
+        "Run your Bangla/Banglish eval slice with both, at two quantization levels. Compare with your hosted model from the bake-off.",
+        "Put the best local model behind your assistant's model interface and use it for offline tests and labeling drafts. Write when local serving would make sense for real users, and what it would cost."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "What does quantization trade, and how do you check whether the trade is acceptable?",
+       "link": "#elective-local-models",
+       "answer": "Less memory and more speed for some quality. Run your own eval slices at each level; an average benchmark won't tell you about Banglish."
+      }
+     ],
+     "extra": []
+    },
+    {
+     "slug": "elective-fine-tuning",
+     "title": "Elective: Fine-Tune a Small Model",
+     "kind": "lesson",
+     "time": "about 1.5 weeks",
+     "hook": "Fine-tune last, and only when you can measure the win.",
+     "intro": [
+      "Fine-tune a small open model with LoRA for one narrow job, such as turning Banglish questions into clean English search queries, and compare it fairly with prompting."
+     ],
+     "unlocks": "fine-tune a small model with LoRA and prove whether it beats prompting.",
+     "edge": "deciding when training is worth it, with evidence instead of hype.",
+     "overview": [
+      "Build a train/validation/test set from your approved data.",
+      "Fine-tune with LoRA on a free or cheap GPU.",
+      "Compare against your prompt-based baseline on the same test set."
+     ],
+     "assignment": [
+      {
+       "steps": [
+        "Build 500–1,000 pairs (Banglish question → English search query): your curator-written paraphrases plus a labelled share generated by an LLM. Split by original question, so each question and all its paraphrases sit on one side; every intent still appears in training. The test set uses only real, human-written questions.",
+        "Fine-tune a small open model with LoRA in a free notebook GPU, following the [PEFT documentation](https://huggingface.co/docs/peft/index). Record time, cost and settings.",
+        "Compare with your rewrite prompt on the test set: accuracy, latency, cost. Write whether you'd ship it, and what would change your mind."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why split fine-tuning data by original question rather than randomly?",
+       "link": "#elective-fine-tuning",
+       "answer": "Random splits put paraphrases of the same question in train and test, so the score measures memorization, not generalization."
+      }
+     ],
+     "extra": []
+    },
+    {
+     "slug": "elective-mcp-server",
+     "title": "Elective: Share Your Knowledge Base over MCP",
+     "kind": "lesson",
+     "time": "about 4.5 hours",
+     "hook": "A protocol makes a connection. It never grants permission.",
+     "intro": [
+      "Expose a read-only search over your approved knowledge base as an MCP server, so other AI tools can use it, and keep the same access rules."
+     ],
+     "unlocks": "build a small MCP server with a read-only tool and its own access checks.",
+     "edge": "connecting AI tools across products without widening trust.",
+     "overview": [
+      "Build an MCP server with one read-only `search_campus_faq` tool.",
+      "Enforce the same tenant and approval rules as your service.",
+      "Test it from an MCP client."
+     ],
+     "assignment": [
+      {
+       "steps": [
+        "Read the [MCP introduction](https://modelcontextprotocol.io/docs/getting-started/intro), its [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) and its [security best practices](https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices).",
+        "Build a server with one read-only tool that returns approved entries with citations. No write tools. Use the HTTP transport with token verification, so the server maps each caller's token to one university; a local stdio server is single-user, so a tenant test on it proves nothing.",
+        "Connect it to an MCP client and test: only approved entries, only the caller's university, and prompt-injection text in an entry is returned as data, not followed."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why does adding an MCP server not change who may read the knowledge base?",
+       "link": "#elective-mcp-server",
+       "answer": "MCP defines how tools, resources and prompts are offered, plus an optional authorization flow for HTTP. Your server still verifies the token and decides which university's entries the caller may read."
+      }
+     ],
+     "extra": []
+    },
+    {
+     "slug": "elective-voice-and-images",
+     "title": "Elective: Voice and Images",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "Many notices are photos, and many questions are easier to say than type.",
+     "intro": [
+      "Add two inputs: text extracted from notice images and scanned PDFs for ingestion, and spoken Bangla or English questions transcribed to text."
+     ],
+     "unlocks": "ingest image-only notices and accept spoken questions, each with a measured error rate.",
+     "edge": "multimodal input with honest error measurement.",
+     "overview": [
+      "Extract text from 20 image or scanned notices and measure errors.",
+      "Transcribe 20 spoken questions in Bangla and English and measure errors.",
+      "Decide whether either is good enough to ship."
+     ],
+     "assignment": [
+      {
+       "steps": [
+        "Collect 20 official notices that exist only as images or scans. Extract text with a vision model or OCR; compare with a hand-typed version and count errors that change meaning (dates, amounts).",
+        "Record 20 short spoken questions (with permission). Transcribe them with an open speech model such as [Whisper](https://github.com/openai/whisper); measure word errors and check whether search still finds the right entry.",
+        "Write a decision: ship, ship with human review, or not yet."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Which extraction errors matter most for a campus assistant?",
+       "link": "#elective-voice-and-images",
+       "answer": "Errors that change meaning: dates, amounts, course codes and deadlines. Count them separately from harmless spelling slips."
+      }
+     ],
+     "extra": []
+    },
+    {
+     "slug": "elective-model-internals",
+     "title": "Elective: Build a Tiny Language Model",
+     "kind": "lesson",
+     "time": "about 2 weeks",
+     "hook": "You don't need to build models to use them well. Building a tiny one removes the magic.",
+     "intro": [
+      "Train a tiny character-level language model in PyTorch, then a small transformer, to understand tokens, training loss and why bigger models behave differently."
+     ],
+     "unlocks": "explain how a transformer is trained, from your own working code.",
+     "edge": "model-level understanding, the starting point for ML and model-platform roles.",
+     "overview": [
+      "Train a bigram model, then a small transformer, on a text you choose.",
+      "Read the training curve and explain overfitting.",
+      "Connect what you saw to tokens, context and sampling in the models you use."
+     ],
+     "assignment": [
+      {
+       "steps": [
+        "Follow Andrej Karpathy's [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) through the makemore lectures, typing the code yourself. The GPT lecture is an optional extension; allow 2–3 more weeks for it.",
+        "Train on a small Bangla or English text you have rights to. Plot training and validation loss and explain one sign of overfitting.",
+        "Write one page linking what you built to tokens, context windows and temperature in the models you call."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "What does a gap between training and validation loss tell you?",
+       "link": "#elective-model-internals",
+       "answer": "The model is fitting its training text better than new text: it's starting to memorize rather than generalize."
+      }
+     ],
+     "extra": [
+      "[LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch) by Sebastian Raschka: a book-length build of a GPT-style model."
+     ]
+    }
+   ]
   }
  ],
- "checked": "25 Oct 2026",
+ "checked": "28 Oct 2026",
  "week_starts": "saturday"
 };

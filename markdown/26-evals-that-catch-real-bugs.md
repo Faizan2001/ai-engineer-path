@@ -1,6 +1,6 @@
 # Evals That Catch Real Bugs
 
-*Section 5: Make It Sturdy · Lesson 25 of 32 · about 1 week*
+*Section 5: Make It Sturdy · Lesson 26 of 41 · about 1 week*
 
 **Before you start, check that** `save_note` only runs after approval, and your step, cost and retry limit tests pass.
 
@@ -77,6 +77,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Start Applying](24-start-applying.md) · [Course map](README.md) · [Next lesson: Testing and CI →](26-testing-and-ci.md)
+[← Previous: Start Applying](25-start-applying.md) · [Course map](README.md) · [Next lesson: Testing and CI →](27-testing-and-ci.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

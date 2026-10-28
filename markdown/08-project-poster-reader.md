@@ -1,6 +1,6 @@
 # Project: Poster Reader
 
-*Section 2: Foundations · Lesson 8 of 32 · about 2 weeks*
+*Section 2: Foundations · Lesson 8 of 41 · about 2 weeks*
 
 ## Introduction
 
@@ -79,4 +79,4 @@ What it proves to employers:
 
 [← Previous: Structured Output and Errors](07-structured-output-and-errors.md) · [Course map](README.md) · [Next lesson: Keyword RAG →](09-keyword-rag.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

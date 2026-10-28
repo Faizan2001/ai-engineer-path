@@ -1,6 +1,6 @@
 # Monitoring
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 17 of 32 · about 12 hours*
+*Section 3: RAG with LLM Zoomcamp · Lesson 17 of 41 · about 12 hours*
 
 **Before you start, check that** your log has saved answers for the 20 practice questions and a judge agreement number.
 
@@ -88,4 +88,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Grading Answers](16-grading-answers.md) · [Course map](README.md) · [Next lesson: Deploy It Safely →](18-deploy-it-safely.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

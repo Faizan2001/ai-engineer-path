@@ -1,6 +1,6 @@
 # Measuring Search
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 13 of 32 · about 1 week*
+*Section 3: RAG with LLM Zoomcamp · Lesson 13 of 41 · about 1 week*
 
 **Before you start, check that** Ask MDN v0.3 answers from a sqlitesearch vector index built with the ONNX embedder, and keyword search still works.
 
@@ -10,7 +10,7 @@
 
 Now you'll measure how good Ask MDN's search really is, with numbers instead of guesses.
 
-You'll also create the 50 held-back questions for your final project. Once they're committed, you don't look at them again until then.
+You'll also create the 50 held-back questions for the Ask MDN project. Once they're committed, you don't look at them again until then.
 
 **After this, you can** prove search got better with numbers, not vibes.
 
@@ -104,4 +104,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Embeddings and Vector Search](12-embeddings-and-vector-search.md) · [Course map](README.md) · [Next lesson: Hybrid Search →](14-hybrid-search.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

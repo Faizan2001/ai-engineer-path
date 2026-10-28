@@ -1,6 +1,6 @@
 # Project: Ask MDN
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 19 of 32 · about 3 weeks*
+*Section 3: RAG with LLM Zoomcamp · Lesson 19 of 41 · about 3 weeks*
 
 **Before you start, check that** Ask MDN v0.6 runs online as your private app, with conversations saved in Neon.
 
@@ -88,6 +88,6 @@ What it proves to employers:
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Deploy It Safely](18-deploy-it-safely.md) · [Course map](README.md) · [Next lesson: Agent Fundamentals →](20-agent-fundamentals.md)
+[← Previous: Deploy It Safely](18-deploy-it-safely.md) · [Course map](README.md) · [Next lesson: Campus Knowledge Base →](20-campus-knowledge-base.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

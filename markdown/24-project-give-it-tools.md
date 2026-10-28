@@ -1,6 +1,6 @@
 # Project: Give It Tools
 
-*Section 4: Agents · Lesson 23 of 32 · about 2 weeks*
+*Section 4: Agents · Lesson 24 of 41 · about 2 weeks*
 
 **Before you start, check that** your LangGraph loop pauses with `interrupt()` before a tool runs.
 
@@ -50,7 +50,7 @@ Tip: make the notes useful to you, like revision cards for this course that you 
 ### Memory check · 10 min
 
 9. Close this page. In your log, answer from memory, then check:
-   - Why must an approval match the tool's exact arguments? ([where to check](22-safe-tools.md))
+   - Why must an approval match the tool's exact arguments? ([where to check](23-safe-tools.md))
    - What does MRR measure? ([where to check](13-measuring-search.md))
 10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
@@ -87,6 +87,6 @@ What it proves to employers:
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Safe Tools](22-safe-tools.md) · [Course map](README.md) · [Next lesson: Start Applying →](24-start-applying.md)
+[← Previous: Safe Tools](23-safe-tools.md) · [Course map](README.md) · [Next lesson: Start Applying →](25-start-applying.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

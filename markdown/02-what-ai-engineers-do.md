@@ -1,6 +1,6 @@
 # What AI Engineers Do
 
-*Section 1: Introduction · Lesson 2 of 32 · about 1.5 hours*
+*Section 1: Introduction · Lesson 2 of 41 · about 1.5 hours*
 
 ## Introduction
 
@@ -28,7 +28,7 @@ By the end of this lesson, you should be able to:
 
 1. Read the README of Alexey Grigorev's [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Write down the 5 tasks that show up most in job posts.
 2. In your log, mark which of those tasks you've already done as a web developer and which are new to you.
-3. Choose a goal for after this path. It can be a Campus Assistant for your Events platform, or another small product you care about. The course projects stand on their own; integrating them into your university platform is not required.
+3. Write down your capstone goal. This path ends with a Campus Assistant that answers students' repeated questions from approved sources. This path's author builds it for IUB inside the Events platform, for the website and the Android/iOS app. No platform of your own? Choose any community whose questions repeat, such as a club, a society or a team wiki. The data, search, answer and evaluation lessons work the same. The platform lessons give a smaller fallback: a simple web chat with two demo groups instead of universities, a phone-friendly web page instead of a native app, and a rehearsal pilot.
 4. Take 10 minutes and write in your log: why does this matter to you, and to the people you care about? Be specific. You'll reread it when motivation dips.
 
 ### Memory check · 10 min
@@ -52,4 +52,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: How This Path Will Work](01-how-this-path-works.md) · [Course map](README.md) · [Next lesson: Mindset and Asking for Help →](03-mindset-and-asking-for-help.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

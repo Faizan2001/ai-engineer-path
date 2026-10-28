@@ -1,6 +1,6 @@
 # Agent Fundamentals
 
-*Section 4: Agents · Lesson 20 of 32 · about 1 week*
+*Section 4: Agents · Lesson 21 of 41 · about 1 week*
 
 **Before you start, check that** Ask MDN v1.0 is online, and your README has the held-back results table.
 
@@ -80,6 +80,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Project: Ask MDN](19-project-ask-mdn.md) · [Course map](README.md) · [Next lesson: LangGraph →](21-langgraph.md)
+[← Previous: Campus Knowledge Base](20-campus-knowledge-base.md) · [Course map](README.md) · [Next lesson: LangGraph →](22-langgraph.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

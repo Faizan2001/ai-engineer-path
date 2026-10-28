@@ -1,6 +1,6 @@
 # Postgres Search and Access Rules
 
-*Section 5: Make It Sturdy · Lesson 27 of 32 · about 1.5 weeks*
+*Section 5: Make It Sturdy · Lesson 28 of 41 · about 1.5 weeks*
 
 **Before you start, check that** pytest and the rule-based promptfoo checks run in GitHub Actions, and a broken prompt makes CI fail.
 
@@ -77,7 +77,7 @@ Row-level security adds a hidden WHERE to every query on a table. Your app says 
 
 10. Close this page. In your log, answer from memory, then check:
    - Which database roles can skip row-level security? ([where to check](https://www.postgresql.org/docs/current/ddl-rowsecurity.html))
-   - How does promptfoo call Ask MDN without the web page? ([where to check](26-testing-and-ci.md))
+   - How does promptfoo call Ask MDN without the web page? ([where to check](27-testing-and-ci.md))
 11. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
@@ -110,6 +110,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Testing and CI](26-testing-and-ci.md) · [Course map](README.md) · [Next lesson: Login →](28-login.md)
+[← Previous: Testing and CI](27-testing-and-ci.md) · [Course map](README.md) · [Next lesson: Login →](29-login.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

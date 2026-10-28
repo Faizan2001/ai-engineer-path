@@ -1,6 +1,6 @@
 # Project: Make It Sturdy
 
-*Section 5: Make It Sturdy · Lesson 31 of 32 · about 5 weeks*
+*Section 5: Make It Sturdy · Lesson 32 of 41 · about 5 weeks*
 
 **Before you start, check that** your 30 attack cases and 5 canary documents are committed, with a list of the attacks that worked.
 
@@ -8,11 +8,11 @@
 
 > **Dress rehearsal for the Campus Assistant: two groups, real logins, one tireless attacker. It's you.**
 
-This is the final project of the path. Ask MDN gets logins, separate groups, fresh data, automatic tests and an attack test it must pass.
+This is the last practice project before the capstone. Ask MDN gets logins, separate groups, fresh data, automatic tests and an attack test it must pass.
 
 This brings the pieces together in a small deployed system. Passing these checks demonstrates this project's behavior under the cases you tested; a real institutional rollout still needs its own requirements and operational review.
 
-Finish the existing app first. Then give its read-only answer function a small API, so another application can use it. You will reuse your validation, permissions and tests; this is not a fifth project.
+Finish the existing app first. Then give its read-only answer function a small API, so another application can use it. You will reuse your validation, permissions and tests.
 
 **After this, you can** demonstrate a tested AI app and a portable backend, including what happens when dependencies fail.
 
@@ -22,7 +22,7 @@ Finish the existing app first. Then give its read-only answer function a small A
 
 - Write your own week-by-week plan in your log first, then compare it with the steps below. Do Extra credit only after every “You're done when” line passes.
 - Build against your local Postgres. CI uses a [GitHub Actions Postgres service](https://docs.github.com/en/actions/use-cases-and-examples/using-containerized-services/creating-postgresql-service-containers) with the `pgvector/pgvector:0.8.7-pg17` image (the plain `postgres` image has no pgvector). The online version uses your Neon project.
-- Keep the app role rules from [Postgres Search and Access Rules](27-postgres-search-and-access-rules.md). Your attack cases and canary documents stay the same.
+- Keep the app role rules from [Postgres Search and Access Rules](28-postgres-search-and-access-rules.md). Your attack cases and canary documents stay the same.
 - Don't look at other people's versions of this project until yours works. Then compare and learn.
 - Stuck for more than 20 minutes? Write down what you tried, take a short break, search the course FAQ or docs, then ask with your code and the exact error.
 
@@ -45,7 +45,7 @@ Finish the existing app first. Then give its read-only answer function a small A
 7. Run your attack test (30 cases plus 5 canaries), 3 times for each case. Fix what breaks, then run it again.
 8. Set aside 12 fresh questions after freezing this version: 4 each for CSS and JS with expected answers/supporting passages, plus 4 plausible questions unsupported by that user's permitted documents. Before running them, record an acceptance rule: for this learning project, at least 7 of 8 supported answers correct and supported by citations, all 4 unsupported requests declined, and no unauthorized reads/writes. Grade manually and show counts and all failures. These small-sample targets are practice gates, not production guarantees. If you fix a failure, keep these as regression cases and reserve fresh cases for another independent check.
 9. Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.
-10. Update the README with your results and an architecture diagram. Keep a short list of changes a real team deployment would need. Your university integration can wait until after the course.
+10. Update the README with your results and an architecture diagram. Keep a short list of changes a real team deployment would need. Your university integration is the capstone: [Ship It: Service and Website](38-assistant-service-and-web.md).
 
 ### Days 22–23 · about 3 hours
 
@@ -74,8 +74,8 @@ Finish the existing app first. Then give its read-only answer function a small A
 ### Memory check · 10 min
 
 23. Close this page. In your log, answer from memory, then check:
-   - Why can a working Streamlit demo still need a backend check? ([where to check](31-project-make-it-sturdy.md))
-   - What counts as a breach in your attack test? ([where to check](30-red-team-your-app.md))
+   - Why can a working Streamlit demo still need a backend check? ([where to check](32-project-make-it-sturdy.md))
+   - What counts as a breach in your attack test? ([where to check](31-red-team-your-app.md))
 24. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
@@ -132,6 +132,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Red-Team Your App](30-red-team-your-app.md) · [Course map](README.md) · [Next lesson: What's Next →](32-whats-next.md)
+[← Previous: Red-Team Your App](31-red-team-your-app.md) · [Course map](README.md) · [Next lesson: Curation and Verification →](33-curation-and-verification.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026

@@ -1,6 +1,6 @@
 # Login
 
-*Section 5: Make It Sturdy · Lesson 28 of 32 · about 1 week*
+*Section 5: Make It Sturdy · Lesson 29 of 41 · about 1 week*
 
 **Before you start, check that** search runs in Postgres with row-level security, and your CSS-group tests return zero JS chunks.
 
@@ -67,7 +67,7 @@ Login only answers “who is this?”. Google proves the email, and Streamlit ke
 
 6. Close this page. In your log, answer from memory, then check:
    - Why isn't login enough to keep the groups apart? ([where to check](https://docs.streamlit.io/develop/concepts/connections/authentication))
-   - How does your app tell Postgres which group is asking? ([where to check](27-postgres-search-and-access-rules.md))
+   - How does your app tell Postgres which group is asking? ([where to check](28-postgres-search-and-access-rules.md))
 7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
@@ -99,6 +99,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Postgres Search and Access Rules](27-postgres-search-and-access-rules.md) · [Course map](README.md) · [Next lesson: Fresh Data →](29-fresh-data.md)
+[← Previous: Postgres Search and Access Rules](28-postgres-search-and-access-rules.md) · [Course map](README.md) · [Next lesson: Fresh Data →](30-fresh-data.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
