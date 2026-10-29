@@ -16,7 +16,7 @@
   // ---------- course model
   var LESSONS = [], BY = {}, SECTIONS = [], TOTAL_WEEKS = 1;
   C.sections.forEach(function (s, si) {
-    var sec = { n: si + 1, title: s.title, weeks: s.weeks, description: s.description || "", shift: s.shift || null, slugs: [], weight: span(s.weeks) };
+    var sec = { n: si + 1, title: s.title, weeks: s.weeks, description: s.description || "", shift: s.shift || null, slugs: [], weight: span(s.weeks), optional: !!s.optional };
     (String(s.weeks).match(/\d+/g) || []).forEach(function (w) { TOTAL_WEEKS = Math.max(TOTAL_WEEKS, +w); });
     s.lessons.forEach(function (l) {
       var x = {};
@@ -27,6 +27,10 @@
     });
     SECTIONS.push(sec);
   });
+  // Optional sections (electives) don't count toward the top progress bar or the finish date.
+  var CORE = LESSONS.filter(function (l) { return !l.section.optional; });
+  function coreNo(l) { return l.section.optional ? l.section.slugs.indexOf(l.slug) + 1 : CORE.indexOf(l) + 1; }
+  function lessonOf(l) { return l.section.optional ? "Elective " + coreNo(l) + " of " + l.section.slugs.length : "Lesson " + coreNo(l) + " of " + CORE.length; }
   function span(w) { var m = String(w).match(/\d+/g) || []; return m.length >= 2 ? (+m[m.length - 1]) - (+m[0]) + 1 : 1; }
   function fullTitle(l) { return (l.kind === "project" ? "Project: " : "") + l.title; }
 
@@ -50,8 +54,11 @@
   }
 
   // ---------- progress storage (synced when signed in to Claude)
-  var KEY = "ai-engineer-path:progress:v1";
-  var state = { done: new Set(), ticks: {}, sessions: [], target: 6 };
+  // From 8.2, progress lives under a new key and account document. A page still open on an older version keeps writing
+  // the old ones; it can't show inserted lessons or Days 2+ of a split block, so its saves would drop that progress.
+  // The old save is only read while no new one exists.
+  var KEY = "ai-engineer-path:progress:v2", OLD_KEY = "ai-engineer-path:progress:v1";
+  var state = { done: new Set(), ticks: {}, sessions: [], target: 6, since: "", keep: { done: [], ticks: {} } };
   var mode = "local", localOk = true, account = null, saving = false, pending = false, migrated = false;
   function record() {
     var ticks = {}, days = {};
@@ -60,28 +67,55 @@
       ticks[k] = state.ticks[k].slice().sort();
       var full = daysOf(k); if (full.length) days[k] = full;
     });
-    return { v: 1, done: Array.from(state.done).filter(function (s) { return BY[s]; }), last: "", ticks: ticks, days: days, sessions: state.sessions.slice(-500), target: state.target };
+    Object.keys(state.keep.ticks).forEach(function (k) { ticks[k] = (ticks[k] || []).concat(state.keep.ticks[k]).sort(); });
+    return { v: 1, split: 1, done: Array.from(state.done).filter(function (s) { return BY[s]; }).concat(state.keep.done), last: "", ticks: ticks, days: days, sessions: state.sessions.slice(-500), target: state.target, since: state.since };
+  }
+  // Blocks marked "split" were one-tick "Week" blocks before 8.1. In a save written before then (no split marker),
+  // that single tick meant the whole week was done, so it becomes every Day of the block.
+  function expandSplit(d) {
+    if (d.split) return;
+    Object.keys(state.ticks).forEach(function (k) {
+      (BY[k].assignment || []).forEach(function (g, gi) {
+        if (!g.split || state.ticks[k].indexOf(gi + ".0") < 0) return;
+        for (var j = 1; j < ticksIn(g); j++) if (state.ticks[k].indexOf(gi + "." + j) < 0) state.ticks[k].push(gi + "." + j);
+      });
+    });
   }
   function apply(d) {
     if (!d || d.v !== 1) return;
-    state.done = new Set((Array.isArray(d.done) ? d.done : []).filter(function (s) { return BY[s]; }));
+    // Unknown completion slugs and numeric ticks are kept and written back unchanged.
+    var doneIn = (Array.isArray(d.done) ? d.done : []).filter(function (s) { return typeof s === "string"; });
+    state.done = new Set(doneIn.filter(function (s) { return BY[s]; }));
+    state.keep = { done: doneIn.filter(function (s) { return !BY[s]; }), ticks: {} };
     state.ticks = {};
     function ok(slug, id) {
       var m = /^(\d+)\.(\d+)$/.exec(id), g = m && (BY[slug].assignment || [])[+m[1]];
       return !!g && +m[2] < ticksIn(g);
     }
     if (d.ticks && typeof d.ticks === "object") Object.keys(d.ticks).forEach(function (k) {
-      if (BY[k] && Array.isArray(d.ticks[k])) state.ticks[k] = d.ticks[k].filter(function (id) { return typeof id === "string" && ok(k, id); });
+      if (!Array.isArray(d.ticks[k])) return;
+      var ids = d.ticks[k].filter(function (id) { return typeof id === "string" && /^\d+\.\d+$/.test(id); });
+      if (BY[k]) state.ticks[k] = ids.filter(function (id) { return ok(k, id); });
+      var other = BY[k] ? ids.filter(function (id) { return !ok(k, id); }) : ids;
+      if (other.length) state.keep.ticks[k] = other;
     });
     else if (d.days && typeof d.days === "object") Object.keys(d.days).forEach(function (k) {   // older saves stored whole Day blocks
       if (!BY[k] || !Array.isArray(d.days[k])) return;
       state.ticks[k] = [];
       d.days[k].forEach(function (gi) { var g = (BY[k].assignment || [])[gi]; if (g) for (var j = 0; j < ticksIn(g); j++) state.ticks[k].push(gi + "." + j); });
     });
+    expandSplit(d);
     state.sessions = Array.isArray(d.sessions) ? d.sessions.filter(function (x) { return /^\d{4}-\d{2}-\d{2}$/.test(x); }) : [];
     state.target = d.target >= 3 && d.target <= 6 ? Math.round(d.target) : 6;
+    state.since = typeof d.since === "string" && /^\d{4}-\d{2}-\d{2}$/.test(d.since) ? d.since : "";
   }
-  function loadLocal() { try { var raw = localStorage.getItem(KEY); if (raw) apply(JSON.parse(raw)); } catch (e) { localOk = false; } }
+  // "since" marks a learner who started on 8.2 or later: lessons and Days added before that date are ordinary path for them.
+  function loadLocal() {
+    try {
+      var raw = localStorage.getItem(KEY) || localStorage.getItem(OLD_KEY);
+      if (raw) apply(JSON.parse(raw)); else state.since = isoDay(new Date());
+    } catch (e) { localOk = false; }
+  }
   function saveLocal() { try { localStorage.setItem(KEY, JSON.stringify(record())); localOk = true; } catch (e) { localOk = false; } }
   function save() {
     saveLocal();
@@ -106,19 +140,28 @@
       if (!user || !db) return null;
       return user.id().then(function (uid) {
         if (!uid) return;
-        account = { ref: db.doc("data/users/" + uid + "/progress") };
-        account.ref.onSnapshot(function (snap) {
-          mode = "account";
+        var ref = db.doc("data/users/" + uid + "/progress-v2");
+        // Saves go to the account only after the server has answered, so a new device can't overwrite it.
+        // A snapshot from the local cache can say "missing" before the server does; a definitive one follows.
+        function ready() { if (!account) { account = { ref: ref }; mode = "account"; } chip(); }
+        ref.onSnapshot(function (snap) {
+          if (snap.metadata.fromCache) return;
           if (snap.exists) {
+            ready();
             if (!snap.metadata.hasPendingWrites) {
               var before = JSON.stringify(record());
               apply(snap.data()); saveLocal();
               if (JSON.stringify(record()) !== before) render(false);
             }
-          } else if (!migrated && (state.done.size || state.sessions.length)) {
-            migrated = true; save();
-          }
-          chip();
+          } else if (!migrated) {
+            migrated = true;   // first visit on 8.2 or later: carry the older account progress over once
+            db.doc("data/users/" + uid + "/progress").get().then(function (old) {
+              if (old.metadata.fromCache) { migrated = false; mode = "local"; chip(); return; }   // try again on the next visit
+              if (old.exists) { apply(old.data()); saveLocal(); render(false); }
+              ready();
+              if (old.exists || state.done.size || state.sessions.length) save();
+            }, function () { account = null; mode = "local"; chip(); });
+          } else ready();
         }, function () { account = null; mode = "local"; chip(); });
       });
     }).catch(function () { account = null; mode = "local"; chip(); });
@@ -180,18 +223,51 @@
     return '<svg class="icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + ICON_PATHS[name] + "</svg>";
   }
   function updateTopProgress() {
-    var n = state.done.size, pct = Math.round(100 * n / LESSONS.length);
-    document.getElementById("prog-text").textContent = n + " of " + LESSONS.length + " done";
+    var n = CORE.filter(function (l) { return state.done.has(l.slug); }).length, pct = Math.round(100 * n / CORE.length);
+    document.getElementById("prog-text").textContent = n + " of " + CORE.length + " done";
     document.getElementById("prog-fill").style.width = pct + "%";
     return pct;
   }
+  // An added lesson behind an original lesson with saved completion or valid Day ticks is catch-up work.
+  // Continue keeps them on their current lesson; the "New since you passed this point" card lists it instead.
+  function isOld(x) { return !!state.since && x.added <= state.since; }
+  function isBehind(l) {
+    if (!l.added || state.done.has(l.slug) || isOld(l)) return false;
+    for (var j = CORE.indexOf(l) + 1; j < CORE.length; j++) {
+      var later = CORE[j];
+      if (!later.added && (state.done.has(later.slug) || ticksOf(later.slug).length > 0)) return true;
+    }
+    return false;
+  }
   function resumeTarget() {
-    for (var i = 0; i < LESSONS.length; i++) if (!state.done.has(LESSONS[i].slug)) return LESSONS[i];
-    return null;
+    var first = null;
+    for (var i = 0; i < CORE.length; i++) {
+      if (state.done.has(CORE[i].slug)) continue;
+      if (!isBehind(CORE[i])) return CORE[i];
+      if (!first) first = CORE[i];
+    }
+    return first;
   }
   function lastFinished() {
-    for (var i = LESSONS.length - 1; i >= 0; i--) if (state.done.has(LESSONS[i].slug)) return LESSONS[i];
+    for (var i = CORE.length - 1; i >= 0; i--) if (state.done.has(CORE[i].slug)) return CORE[i];
+    for (var j = LESSONS.length - 1; j >= 0; j--) if (state.done.has(LESSONS[j].slug)) return LESSONS[j];
     return null;
+  }
+  // Day groups marked "added" in a lesson the learner had already finished.
+  function newDays(l) {
+    if (!state.done.has(l.slug)) return [];
+    return (l.assignment || []).map(function (g, gi) { return gi; }).filter(function (gi) { return l.assignment[gi].added && !isOld(l.assignment[gi]) && !groupDone(l, gi); });
+  }
+  function addedCard() {
+    var items = [];
+    CORE.forEach(function (l) {
+      if (isBehind(l)) items.push('<a href="#' + l.slug + '">' + esc(fullTitle(l)) + "</a> (new lesson, " + esc(l.time) + ")");
+      newDays(l).forEach(function (gi) {
+        items.push('<a href="#' + l.slug + '" data-resume-day="' + gi + '">' + esc(l.title) + ": " + esc(l.assignment[gi].day) + "</a>");
+      });
+    });
+    if (!items.length) return "";
+    return '<section class="card welcome"><h2>New since you passed this point</h2><p>These were added to the path after the point you had already reached. Your saved progress is unchanged. Fit them in alongside your current lesson.</p>' + ul(items) + "</section>";
   }
   function pad(n) { return (n < 10 ? "0" : "") + n; }
   function isoDay(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
@@ -228,8 +304,8 @@
   function daysOf(slug) { var l = BY[slug]; return l ? (l.assignment || []).map(function (g, i) { return i; }).filter(function (i) { return groupDone(l, i); }) : []; }
   function remainingSessions() {
     var n = 0;
-    LESSONS.forEach(function (l) {
-      if (state.done.has(l.slug)) return;
+    CORE.forEach(function (l) {
+      if (state.done.has(l.slug)) { newDays(l).forEach(function (gi) { n += units(l.assignment[gi]); }); return; }
       var groups = l.assignment || [];
       if (!groups.length || !groups[0].day) { n += fromTime(l.time); return; }
       groups.forEach(function (g, i) { var per = units(g) / ticksIn(g); for (var k = 0; k < ticksIn(g); k++) if (!isTicked(l.slug, i, k)) n += per; });
@@ -237,7 +313,7 @@
     return n;
   }
   function finishDate() {
-    var weeks = Math.ceil(remainingSessions() / state.target) + 2;  // 2 weeks of breathing room, as in the course plan
+    var weeks = Math.max(1, Math.round(remainingSessions() * 1.1 / state.target));  // one session in ten for debugging and catch-up, as in the course plan
     var d = new Date(); d.setDate(d.getDate() + weeks * 7);
     return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
   }
@@ -276,7 +352,7 @@
     if (spaced.recall.length) steps.push("Try these from memory, then use the check links. If one is fuzzy, review just that part and explain it again in your own words. 5 minutes." + recallList(spaced));
     if (t && t.checkpoint) steps.push("Check your starting point: " + fmt(t.checkpoint));
     if (t) steps.push('Open <a href="#' + t.slug + '">' + esc(fullTitle(t)) + '</a> and do one 10-minute action. If a prerequisite is missing, repair that piece first. Keep the progress you have.');
-    else steps.push("All lessons are marked complete. Re-run one project demo or try the transfer challenge in the final lesson to see what still needs practice.");
+    else steps.push('All core lessons are marked complete. Re-run one project demo or try the transfer challenge in <a href="#whats-next">What\'s Next</a> to see what still needs practice.');
     return '<section id="welcome-back" class="card welcome' + (compact ? " compact" : "") + '" aria-label="Restart guide"><div class="welcome-head"><h2 id="restart-title" tabindex="-1">' +
       (awayDays >= 3 ? "Welcome back. It's been " + awayDays + " days." : "Pick up where you left off.") + '</h2><button type="button" class="btn small" data-action="dismiss-welcome">Got it</button></div>' +
       (compact ? '<p><a href="#home">Open your restart guide on the course page</a>. Review only what you need.</p>'
@@ -285,7 +361,7 @@
 
   // ---------- "what you can do now" (only lessons with an unlocks line count)
   function powersCard() {
-    var withU = LESSONS.filter(function (l) { return l.unlocks; });
+    var withU = LESSONS.filter(function (l) { return l.unlocks && (!l.section.optional || state.done.has(l.slug)); });
     if (!withU.length) return "";
     var got = withU.filter(function (l) { return state.done.has(l.slug); });
     var next = withU.filter(function (l) { return !state.done.has(l.slug); })[0];
@@ -310,7 +386,7 @@
     return '<section class="card week-card"><div class="section-top"><h2>This week</h2><span class="count">' + n + " of " + T + " sessions</span></div>" +
       '<div class="dots" role="img" aria-label="' + n + " of " + T + ' sessions this week">' + dots + "</div>" +
       "<p>" + (n >= T ? "Target reached. Anything more is a bonus." : "Every session counts, even a short one.") +
-      (state.done.size === LESSONS.length ? " All lessons are marked complete. Your project checks show what you can do." : " If your " + T + " study days each include about 90 minutes of course work, the rough finish date is <strong>" + finishDate() + "</strong>. Short sessions help you return; the date is a guide, not a deadline.") + "</p>" +
+      (!resumeTarget() ? " All core lessons are marked complete. Your project checks show what you can do." : " If your " + T + " study days each include about 90 minutes of course work, the rough finish date is <strong>" + finishDate() + "</strong>. Short sessions help you return; the date is a guide, not a deadline.") + "</p>" +
       '<div class="week-controls"><label for="target-select">Weekly target</label><select id="target-select">' + opts + "</select>" +
       '<button type="button" class="btn small" data-action="quick" aria-expanded="' + quickOpen + '">Low on energy? Do 15 minutes</button><button type="button" class="btn small" data-action="restart">Help me restart</button></div>' +
       '<div class="quick"' + (quickOpen ? "" : " hidden") + "><ol><li>Reread your last log entry.</li>" +
@@ -323,9 +399,10 @@
         (importMsg ? '<p class="import-msg" role="status">' + esc(importMsg) + "</p>" : "") + "</div>") + "</section>";
   }
 
-  // ---------- the route: 6 sections sized by weeks, filled as you go, with a "You" marker
+  // ---------- the route: sections sized by weeks, filled as you go, with a "You" marker
   function routeStrip(t, pct) {
-    var total = SECTIONS.reduce(function (a, s) { return a + s.weight; }, 0), pos = 1;
+    var total = SECTIONS.reduce(function (a, s) { return a + s.weight; }, 0);
+    var pos = SECTIONS.reduce(function (a, s) { return a + (s.optional ? 0 : s.weight); }, 0) / total;  // core done: stop before the electives
     if (t) {
       var before = 0;
       for (var i = 0; i < t.section.n - 1; i++) before += SECTIONS[i].weight;
@@ -337,8 +414,8 @@
         '<a href="#section-' + s.n + '" data-scroll-section="' + s.n + '" title="' + esc("Section " + s.n + ": " + s.title + ", " + s.weeks) + '">' +
         '<span class="seg-bar" style="--fill:' + Math.round(100 * d / s.slugs.length) + '%"></span><span class="seg-num">' + s.n + '</span><span class="sr-only">Section ' + s.n + ": " + esc(s.title) + ", " + d + " of " + s.slugs.length + " done</span></a></li>";
     }).join("");
-    var where = t ? "Section " + t.section.n + " of " + SECTIONS.length + ": " + esc(t.section.title) + ". Lesson " + t.n + " of " + LESSONS.length + ", " + pct + "% done."
-      : "All " + LESSONS.length + " lessons done.";
+    var where = t ? "Section " + t.section.n + " of " + SECTIONS.length + ": " + esc(t.section.title) + ". " + lessonOf(t) + ", " + pct + "% done."
+      : "All " + CORE.length + " core lessons done.";
     return '<div class="route"><ol class="segs">' + segs + '</ol><span class="you" style="left:clamp(22px, ' + (pos * 100).toFixed(1) + '%, calc(100% - 22px))" aria-hidden="true"><span class="you-tag">You</span></span>' +
       '<p class="route-caption">' + where + "</p></div>";
   }
@@ -353,7 +430,7 @@
     var cta = t
       ? '<a class="btn gold" href="#' + t.slug + '"' + (od ? ' data-resume-day="' + od.gi + '"' : "") + ">" + (started ? "Continue: " : "Start the path: ") + esc(fullTitle(t)) +
         (od ? ", " + esc(tickLabel(t.assignment[od.gi], od.k)) : "") + "</a>"
-      : '<span class="btn is-done">Path complete. Plan your Campus Assistant next.</span>';
+      : '<span class="btn is-done">Path complete. Electives are optional depth.</span>';
     var sections = SECTIONS.map(function (s) {
       var doneN = s.slugs.filter(function (x) { return state.done.has(x); }).length;
       var rows = s.slugs.map(function (slug) {
@@ -375,7 +452,7 @@
       '<div class="hero-actions">' + cta +
       '<button type="button" class="btn" data-action="how">How it works</button></div>' +
       "</div>" + routeStrip(t, pct) + "</div></div>" +
-      '<div class="wrap page">' + welcomeCard(false) + weekCard() + powersCard() +
+      '<div class="wrap page">' + welcomeCard(false) + addedCard() + weekCard() + powersCard() +
       '<section class="card" id="how"><h2>How this path works</h2>' + C.intro.map(function (p) { return "<p>" + fmt(p) + "</p>"; }).join("") +
       '<ul class="how">' + C.how.map(function (p) { return "<li>" + fmt(p) + "</li>"; }).join("") + "</ul></section>" +
       sections + "</div>";
@@ -385,7 +462,7 @@
   function lessonLinks(l) {
     if (!REPO) return "";
     var page = SITE ? SITE + "#" + l.slug : "";
-    var where = "Lesson " + l.n + ": " + fullTitle(l) + (page ? " (" + page + ")" : "");
+    var where = lessonOf(l) + ": " + fullTitle(l) + (page ? " (" + page + ")" : "");
     var broken = REPO + "/issues/new?title=" + encodeURIComponent("Broken link: " + fullTitle(l)) +
       "&body=" + encodeURIComponent(where + "\n\nWhich link is broken, and where does it go now?\n");
     var other = REPO + "/issues/new?title=" + encodeURIComponent("Suggestion: " + fullTitle(l)) +
@@ -489,7 +566,7 @@
       '<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Course</a> › <span class="sec-name">Section ' + l.section.n + ": " + esc(l.section.title) + "</span></nav>" +
       welcomeCard(true) +
       '<div class="lesson-head"><h1 tabindex="-1">' + (isP ? '<span class="badge">Project</span>' : "") + esc(l.title) + "</h1>" +
-      '<p class="lesson-meta">Lesson ' + l.n + " of " + LESSONS.length + ", " + esc(l.time) + dayDots(l) + "</p>" + pickUp(l) +
+      '<p class="lesson-meta">' + lessonOf(l) + ", " + esc(l.time) + dayDots(l) + "</p>" + pickUp(l) +
       (l.checkpoint && !on && !ticksOf(l.slug).length ? '<p class="checkpoint"><strong>Before you start, check that</strong> ' + fmt(l.checkpoint) + "</p>" : "") + "</div>" +
       '<div class="lesson-layout"><div class="content">' +
       '<details class="toc-mobile"><summary>Lesson contents</summary><ul>' + tocButtons + "</ul></details>" +
@@ -522,6 +599,9 @@
     return groups.length > 0 && !!groups[0].day && daysOf(l.slug).length === groups.length;
   }
   function pickUp(l) {
+    var nd = newDays(l);
+    if (nd.length) return '<p class="pick-up">New since you finished this lesson: ' + nd.map(function (gi) {
+      return '<button type="button" class="linkish" data-scroll="day-' + gi + '">' + esc(dayLabel(l.assignment[gi])) + "</button>"; }).join(", ") + "</p>";
     var o = firstOpenDay(l);
     if (!o || state.done.has(l.slug)) return "";
     return '<p class="pick-up">Pick up at <button type="button" class="linkish" data-scroll="day-' + o.gi + '">' + esc(tickLabel(l.assignment[o.gi], o.k)) + "</button></p>";

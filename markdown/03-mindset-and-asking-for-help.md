@@ -1,6 +1,6 @@
 # Mindset and Asking for Help
 
-*Section 1: Introduction · Lesson 3 of 32 · about 1 hour*
+*Section 1: Introduction · Lesson 3 of 42 · about 1 hour*
 
 ## Introduction
 
@@ -50,4 +50,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: What AI Engineers Do](02-what-ai-engineers-do.md) · [Course map](README.md) · [Next lesson: Setting Up Your Tools →](04-setting-up-your-tools.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

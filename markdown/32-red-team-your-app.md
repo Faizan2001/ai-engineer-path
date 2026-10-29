@@ -1,6 +1,6 @@
 # Red-Team Your App
 
-*Section 5: Make It Sturdy · Lesson 30 of 32 · about 6 hours*
+*Section 5: Make It Sturdy · Lesson 32 of 42 · about 6 hours*
 
 **Before you start, check that** your sync removes deleted pages and their chunks, and the deleted-page test passes.
 
@@ -63,7 +63,7 @@ Attacks come two ways: the user types something sneaky, or a page the app finds 
 
 5. Close this page. In your log, answer from memory, then check:
    - What does the rbac plugin test? ([where to check](https://www.promptfoo.dev/docs/red-team/plugins/rbac/))
-   - What must happen to a deleted page's chunks? ([where to check](29-fresh-data.md))
+   - What must happen to a deleted page's chunks? ([where to check](31-fresh-data.md))
 6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
@@ -78,6 +78,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Fresh Data](29-fresh-data.md) · [Course map](README.md) · [Next lesson: Project: Make It Sturdy →](31-project-make-it-sturdy.md)
+[← Previous: Fresh Data](31-fresh-data.md) · [Course map](README.md) · [Next lesson: Project: Make It Sturdy →](33-project-make-it-sturdy.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

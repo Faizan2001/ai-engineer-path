@@ -1,6 +1,6 @@
 # ML Basics: Measuring Quality
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 10 of 32 · about 1 week*
+*Section 3: RAG with LLM Zoomcamp · Lesson 10 of 42 · about 1.5 weeks*
 
 **Before you start, check that** Ask MDN v0.1 loads your two MDN folders into minsearch and finds a sensible page for “What does flex-wrap do?”.
 
@@ -49,14 +49,29 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 3. Write 20 practice questions for Ask MDN. For each one, list the page IDs (file paths) that answer it. These are for tuning, so use them as often as you like.
 4. Write 10 questions your selected docs cannot answer: mix clearly unrelated questions with plausible CSS/JavaScript questions whose answer is absent from your frozen subset. Record why each is unsupported. Use these to develop and test abstention; they are practice data, not an unseen test.
-5. Commit both files. In Measuring Search you'll create 50 more questions that stay hidden until the final project.
+5. Commit both files. In Measuring Search you'll create 50 more questions that stay hidden until the Ask MDN project.
+
+### Day 6 · campus track, about 45 min
+
+6. Start your capstone question bank in a new **private** repository, `campus-assistant-data`. Write 20 questions students at your university really repeat: fees, add/drop, withdrawal, scholarships, exams, services. Write them in your own words, and write some the way students type: English, Bangla and Banglish (romanized Bangla, such as “withdraw korle ki scholarship thakbe?”).
+7. For each question add an intent label (for example `withdraw-scholarship`), the office you think owns the answer, and whether you believe an official page answers it. Never store names, usernames, profile links or screenshots of real people. That rule holds for the whole capstone.
+8. Split the bank the way you split Ask MDN's questions: 14 for practice, 6 held back. It grows in [Campus Knowledge Base](20-campus-knowledge-base.md).
+9. Send a short, friendly email to your student affairs or registrar office: what you're building, that it's an unofficial student project, and a request for a named contact for policy questions and the counselling centre's contact details. Replies take weeks, so ask now.
+
+### Days 7–10 · under the hood, about 6 hours
+
+10. Across these four Days, follow Andrej Karpathy's [building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0) (2.5 h), typing every line yourself. Pause before each new function and predict what it must do. Need PyTorch for the checks? Get the CPU-only build: add the PyTorch CPU index to `pyproject.toml` as in uv's [PyTorch guide](https://docs.astral.sh/uv/guides/integration/pytorch/), then `uv add torch`. Or use a free [Colab](https://colab.research.google.com/) notebook.
+11. **Day 7 (video up to 51:10):** a `Value` class that adds and multiplies, with gradients you fill in by hand. Stop when they match the ones you work out on paper for one tiny expression.
+12. **Day 8 (52:52 to 1:43:55):** `tanh`, a `_backward` for each operation, and one `backward()` that uses a topological sort. Stop when your gradients match PyTorch's on the same expression to 4 decimal places.
+13. **Day 9 (1:43:55 to 2:14:03):** a neuron, a layer and a tiny MLP. Train it on four hand-made examples. Stop when the loss falls steadily.
+14. **Day 10:** connect it to this lesson. Make data where overfitting is easy to see: two overlapping clusters of 2-D points, 20 for training with 10% of their labels flipped, and 200 held out. Train a 2-16-16-1 MLP for 500 steps, log both losses every 10 steps, and plot them (`uv add matplotlib`). Find where training loss keeps falling but held-out loss stops: that is overfitting, measured by you. If held-out loss never flattens, halve the training set. Stop when the plot and a three-line explanation are committed.
 
 ### Memory check · 10 min
 
-6. Close this page. In your log, answer from memory, then check:
+15. Close this page. In your log, answer from memory, then check:
    - Why must test questions stay hidden while you tune? ([where to check](https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets))
    - Why did you freeze one exact version of the MDN docs? ([where to check](09-keyword-rag.md))
-7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+16. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 
@@ -71,4 +86,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Keyword RAG](09-keyword-rag.md) · [Course map](README.md) · [Next lesson: Tools and the Agent Loop →](11-tools-and-the-agent-loop.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

@@ -1,6 +1,6 @@
 # Project: Poster Reader
 
-*Section 2: Foundations · Lesson 8 of 32 · about 2 weeks*
+*Section 2: Foundations · Lesson 8 of 42 · about 2 weeks*
 
 ## Introduction
 
@@ -24,18 +24,18 @@ A person always checks and approves the form before anything is saved. This is t
 
 ## Assignment
 
-### Week 1 · about 9 hours
+### Days 1–6 · about 9 hours
 
-1. Collect 15 test posters, in 2 hours at most: 10 to practise on and 5 to hold back. On purpose, include some with missing, unclear and hard-to-read details.
-2. Write `expected.json` with the correct details for all 15 posters. Then write `SCORING.md`: how you'll compare dates, times and venue names, and how you'll score missing or unclear details.
-3. Build the reader: an image goes in and a strict `Event` comes out. Add plain-code checks (the date is real, the end is after the start), a timeout, at most 2 retries and refusal handling.
-4. Checkpoint: the reader works on 3 practice posters from the command line.
+1. **Day 1:** Collect 15 test posters, in 2 hours at most: 10 to practise on and 5 to hold back. On purpose, include some with missing, unclear and hard-to-read details. Stop when all 15 are in two folders.
+2. **Days 2–3:** Write `expected.json` with the correct details for all 15 posters. Then write `SCORING.md`: how you'll compare dates, times and venue names, and how you'll score missing or unclear details. Stop when someone could score a poster from your rules alone.
+3. **Days 4–6:** Build the reader: an image goes in and a strict `Event` comes out. Add plain-code checks (the date is real, the end is after the start), a timeout, at most 2 retries and refusal handling. One piece a Day: the call, then the checks, then the failure handling.
+4. **Stop here on Day 6:** the reader works on 3 practice posters from the command line.
 
-### Week 2 · about 9 hours
+### Days 7–12 · about 9 hours
 
-5. Build the approval screen in Streamlit: show the draft, let a person fix it, and save only when they approve.
-6. Improve your prompt using only the 10 practice posters. When you're happy, run the 5 held-back posters once.
-7. Write a README: what it does, how to run it, your score on the held-back posters, the cost per poster and one note for every mistake. Add a 60-second recording or GIF: photo in, draft out, a human fix, then approval.
+5. **Days 7–8:** Build the approval screen in Streamlit: show the draft, let a person fix it, and save only when they approve. Stop when one approved poster is saved and one rejected one isn't.
+6. **Days 9–10:** Improve your prompt using only the 10 practice posters. When you're happy, run the 5 held-back posters once. Stop when the held-back score is written down, good or bad.
+7. **Days 11–12:** Write a README: what it does, how to run it, your score on the held-back posters, the cost per poster and one note for every mistake. Add a 60-second recording or GIF: photo in, draft out, a human fix, then approval.
 
 ### Memory check · 10 min
 
@@ -79,4 +79,4 @@ What it proves to employers:
 
 [← Previous: Structured Output and Errors](07-structured-output-and-errors.md) · [Course map](README.md) · [Next lesson: Keyword RAG →](09-keyword-rag.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

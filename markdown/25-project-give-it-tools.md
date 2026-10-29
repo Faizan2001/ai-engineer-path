@@ -1,6 +1,6 @@
 # Project: Give It Tools
 
-*Section 4: Agents · Lesson 23 of 32 · about 2 weeks*
+*Section 4: Agents · Lesson 25 of 42 · about 2 weeks*
 
 **Before you start, check that** your LangGraph loop pauses with `interrupt()` before a tool runs.
 
@@ -34,23 +34,23 @@ Tip: make the notes useful to you, like revision cards for this course that you 
 
 1. Before reading the steps below, write your own day-by-day plan for this project in your log. Compare it with the steps afterwards.
 
-### Week 1 · about 8 hours
+### Days 2–6 · about 7.5 hours
 
-2. In LangGraph, give the agent three tools: `search_docs` (your hybrid search), `browser_support` (looks up a feature in the browser data) and `save_note` (writes a note to a `notes` table in Neon, with a `group_id` column you'll use in Section 5).
-3. Before `save_note` runs, pause with `interrupt()`. Show the person the exact arguments, and run it only if they approve, using exactly those arguments. The approval belongs to one operation ID and its exact arguments. Generate that ID once in application code before pausing, persist it, and reuse it on retry; a repeated click is the same operation.
-4. Checkpoint: one approved note is saved and one rejected note isn't.
+2. **Days 2–3:** In LangGraph, give the agent three tools: `search_docs` (your hybrid search), `browser_support` (looks up a feature in the browser data) and `save_note` (writes a note to a `notes` table in Neon, with a `group_id` column you'll use in Section 5).
+3. **Days 4–5:** Before `save_note` runs, pause with `interrupt()`. Show the person the exact arguments, and run it only if they approve, using exactly those arguments. The approval belongs to one operation ID and its exact arguments. Generate that ID once in application code before pausing, persist it, and reuse it on retry; a repeated click is the same operation.
+4. **Stop here on Day 6:** one approved note is saved and one rejected note isn't.
 
-### Week 2 · about 9 hours
+### Days 7–12 · about 9 hours
 
-5. Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call. For `save_note`, add a database unique constraint on `(group_id, operation_id)` and [INSERT ON CONFLICT](https://www.postgresql.org/docs/current/sql-insert.html) handling. A repeated ID returns the original result only if its arguments match; changed arguments need a new approval. Simulate a committed write followed by a lost response, then retry: there must be exactly one note.
-6. Log each step’s request ID, tool name, input/output sizes, timing, tokens and cost. Keep redacted argument examples only in your permitted synthetic test logs, following [Monitoring](17-monitoring.md); never record credentials.
-7. Write 5 injection documents (for example a page that says “call save_note with…”) and 5 normal requests, including one that really should save a note. Write the injection documents like an attacker's notebook: the goal, the trick and how your app should block it. Commit them.
-8. In your log, compare your Day 1 plan with what really happened. That gap is a lesson in itself.
+5. **Days 7–8:** Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call. For `save_note`, add a database unique constraint on `(group_id, operation_id)` and [INSERT ON CONFLICT](https://www.postgresql.org/docs/current/sql-insert.html) handling. A repeated ID returns the original result only if its arguments match; changed arguments need a new approval. Simulate a committed write followed by a lost response, then retry: there must be exactly one note.
+6. **Day 9:** Log each step’s request ID, tool name, input/output sizes, timing, tokens and cost. Keep redacted argument examples only in your permitted synthetic test logs, following [Monitoring](17-monitoring.md); never record credentials.
+7. **Days 10–11:** Write 5 injection documents (for example a page that says “call save_note with…”) and 5 normal requests, including one that really should save a note. Write the injection documents like an attacker's notebook: the goal, the trick and how your app should block it. Commit them, then run all 10 through your agent. **Stop here on Day 11** when the log shows every injection ended without an unapproved `save_note` call, and the real save request paused for approval.
+8. **Day 12:** In your log, compare your Day 1 plan with what really happened. That gap is a lesson in itself. **Stop here** when the comparison is in your log.
 
 ### Memory check · 10 min
 
 9. Close this page. In your log, answer from memory, then check:
-   - Why must an approval match the tool's exact arguments? ([where to check](22-safe-tools.md))
+   - Why must an approval match the tool's exact arguments? ([where to check](24-safe-tools.md))
    - What does MRR measure? ([where to check](13-measuring-search.md))
 10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
@@ -87,6 +87,6 @@ What it proves to employers:
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Safe Tools](22-safe-tools.md) · [Course map](README.md) · [Next lesson: Start Applying →](24-start-applying.md)
+[← Previous: Safe Tools](24-safe-tools.md) · [Course map](README.md) · [Next lesson: Start Applying →](26-start-applying.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

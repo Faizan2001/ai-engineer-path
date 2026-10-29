@@ -1,6 +1,6 @@
 # Start Applying
 
-*Section 4: Agents · Lesson 24 of 32 · about 3 hours, then 1 hour a week*
+*Section 4: Agents · Lesson 26 of 42 · about 3 hours, then 1 hour a week*
 
 ## Introduction
 
@@ -37,7 +37,7 @@ By the end of this lesson, you should be able to:
 
 7. Close this page. In your log, answer from memory, then check:
    - Which project numbers belong on your resume? ([where to check](https://www.techinterviewhandbook.org/resume/))
-   - How does `interrupt()` keep `save_note` safe? ([where to check](23-project-give-it-tools.md))
+   - How does `interrupt()` keep `save_note` safe? ([where to check](25-project-give-it-tools.md))
 8. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
@@ -51,6 +51,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Project: Give It Tools](23-project-give-it-tools.md) · [Course map](README.md) · [Next lesson: Evals That Catch Real Bugs →](25-evals-that-catch-real-bugs.md)
+[← Previous: Project: Give It Tools](25-project-give-it-tools.md) · [Course map](README.md) · [Next lesson: Evals That Catch Real Bugs →](27-evals-that-catch-real-bugs.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

@@ -1,6 +1,6 @@
 # Hybrid Search
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 14 of 32 · about 4.5 hours*
+*Section 3: RAG with LLM Zoomcamp · Lesson 14 of 42 · about 4.5 hours*
 
 **Before you start, check that** your README has Hit Rate@5 and MRR@5 for keyword and vector search, and the 50 held-back questions are committed.
 
@@ -100,4 +100,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Measuring Search](13-measuring-search.md) · [Course map](README.md) · [Next lesson: Data Ingestion →](15-data-ingestion.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

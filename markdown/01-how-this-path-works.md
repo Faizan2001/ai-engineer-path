@@ -1,6 +1,6 @@
 # How This Path Will Work
 
-*Section 1: Introduction · Lesson 1 of 32 · about 45 min*
+*Section 1: Introduction · Lesson 1 of 42 · about 45 min*
 
 ## Introduction
 
@@ -26,7 +26,7 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
-1. Look over the [course page](README.md). There are 6 sections and 4 projects. The whole path takes about 36 weeks.
+1. Look over the [course page](README.md). There are 7 sections and 5 projects, plus optional Electives. The core path takes about 54 weeks and ends with your Campus Assistant capstone.
 2. Pick your study days and a fixed time, and put them in your calendar. Aim for about 9 hours a week: 6 sessions of 90 minutes, or fewer, longer ones. Set the same number as your weekly target on the [course page](README.md). It counts sessions per week, never a daily streak.
 3. Create a private GitHub repository called `ai-learning-log` and add `log.md`. Keep your personal notes there; this public course already uses the name `ai-engineer-path`. Each project gets its own public repo later.
 4. Use a 90-minute session as a flexible guide: about 30 minutes learning, 45 building and 15 checking your work and making a short log entry. Take breaks when needed. End with two lines: one result you checked, and the exact file or next 10-minute action to resume.
@@ -71,4 +71,4 @@ These are optional. Use them if you want to go further.
 
 [← Course map](README.md) · [Course map](README.md) · [Next lesson: What AI Engineers Do →](02-what-ai-engineers-do.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

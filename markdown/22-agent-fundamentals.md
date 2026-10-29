@@ -1,6 +1,6 @@
 # Agent Fundamentals
 
-*Section 4: Agents · Lesson 20 of 32 · about 1 week*
+*Section 4: Agents · Lesson 22 of 42 · about 4 hours*
 
 **Before you start, check that** Ask MDN v1.0 is online, and your README has the held-back results table.
 
@@ -43,21 +43,21 @@ The Hugging Face course shows what the API hides. Your message list becomes one 
 
 ## Assignment
 
-### Day 1 · about 90 min
+### Day 1 · light day, about 45 min
 
 1. Hugging Face Agents Course, Unit 1: [What are agents?](https://huggingface.co/learn/agents-course/en/unit1/what-are-agents) and [Messages and special tokens](https://huggingface.co/learn/agents-course/en/unit1/messages-and-special-tokens).
 
-### Day 2 · about 90 min
+### Day 2 · light day, about 45 min
 
 2. [Tools](https://huggingface.co/learn/agents-course/en/unit1/tools) and [Agent steps and structure](https://huggingface.co/learn/agents-course/en/unit1/agent-steps-and-structure).
 
-### Day 3 · about 90 min
+### Day 3 · light day, about 45 min
 
 3. [Thoughts](https://huggingface.co/learn/agents-course/en/unit1/thoughts), [Actions](https://huggingface.co/learn/agents-course/en/unit1/actions) and [Observations](https://huggingface.co/learn/agents-course/en/unit1/observations). Stuck? Ask in the Hugging Face Discord's `#agents-course-questions` channel.
 
 ### Day 4 · about 90 min
 
-4. **No AI for this one:** take the agent loop you wrote in Tools and the Agent Loop and add two things: a step limit (stop after 5 steps) and a second tool that returns a page's title. Log every step.
+4. **No AI for this one:** take the agent loop you wrote in Tools and the Agent Loop and add two things: a tool error that goes back to the model as an observation instead of crashing, and a second tool that returns a page's title. Log every step.
 
 ### Memory check · 10 min
 
@@ -80,6 +80,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Project: Ask MDN](19-project-ask-mdn.md) · [Course map](README.md) · [Next lesson: LangGraph →](21-langgraph.md)
+[← Previous: Under the Hood: A Tiny GPT](21-under-the-hood-tiny-gpt.md) · [Course map](README.md) · [Next lesson: LangGraph →](23-langgraph.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

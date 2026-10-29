@@ -22,12 +22,13 @@ def load_course(path):
 course = load_course(SRC)
 lessons = []
 for si, sec in enumerate(course["sections"], 1):
-    for l in sec["lessons"]:
-        lessons.append(dict(l, section_n=si, section_title=sec["title"]))
+    for k, l in enumerate(sec["lessons"], 1):
+        lessons.append(dict(l, section_n=si, section_title=sec["title"], optional=bool(sec.get("optional")), k=k, of=len(sec["lessons"])))
 for i, l in enumerate(lessons, 1):
     l["n"], l["file"] = i, f"{i:02d}-{l['slug']}.md"
 files = {l["slug"]: l["file"] for l in lessons}
 TOTAL = len(lessons)
+CORE_TOTAL = sum(1 for l in lessons if not l["optional"])  # optional sections (electives) are numbered on their own
 LINK = re.compile(r"\[([^\]]+)\]\((#[^)\s]+)\)")
 
 
@@ -53,7 +54,7 @@ os.makedirs(OUT, exist_ok=True)
 for idx, l in enumerate(lessons):
     prev = lessons[idx - 1] if idx else None
     nxt = lessons[idx + 1] if idx + 1 < TOTAL else None
-    out = [f"# {full_title(l)}", "", f"*Section {l['section_n']}: {l['section_title']} · Lesson {l['n']} of {TOTAL} · {l['time']}*", ""]
+    out = [f"# {full_title(l)}", "", f"*Section {l['section_n']}: {l['section_title']} · " + (f"Elective {l['k']} of {l['of']}" if l["optional"] else f"Lesson {l['n']} of {CORE_TOTAL}") + f" · {l['time']}*", ""]
     if l.get("checkpoint"):
         out += [f"**Before you start, check that** {md(l['checkpoint'])}", ""]
     out += ["## Introduction", ""]
@@ -138,7 +139,7 @@ for si, sec in enumerate(course["sections"], 1):
     if sec.get("shift"):
         readme += [f"- **Before:** {md(sec['shift']['before'])}", f"- **After:** {md(sec['shift']['after'])}", ""]
     for l in [x for x in lessons if x["section_n"] == si]:
-        readme.append(f"{l['n']}. " + ("**Project:** " if l["kind"] == "project" else "") + f"[{l['title']}]({l['file']}) · {l['time']}")
+        readme.append(f"{l['k'] if l['optional'] else l['n']}. " + ("**Project:** " if l["kind"] == "project" else "") + f"[{l['title']}]({l['file']}) · {l['time']}")
     readme.append("")
 readme += ["---", "", f"**Start here →** [{lessons[0]['title']}]({lessons[0]['file']})", "", md(course["disclaimer"]), ""]
 with open(os.path.join(OUT, "README.md"), "w", encoding="utf-8") as f:

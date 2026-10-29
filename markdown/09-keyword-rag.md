@@ -1,10 +1,10 @@
 # Keyword RAG
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 9 of 32 · about 1 week*
+*Section 3: RAG with LLM Zoomcamp · Lesson 9 of 42 · about 1 week*
 
 ## Introduction
 
-*Ask a model about a CSS property and it answers like a confident senior, even when it's wrong. These fourteen weeks hand it an open book: MDN. Ask MDN learns to find the right page, show it, say “I don't know” when the page isn't there, and earn a report card it can't charm.*
+*Ask a model about a CSS property and it answers like a confident senior, even when it's wrong. These eighteen weeks hand it an open book: MDN. Ask MDN learns to find the right page, show it, say “I don't know” when the page isn't there, and earn a report card it can't charm.*
 
 > **An open-book exam is easy if you find the right page. RAG is mostly finding.**
 
@@ -89,4 +89,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Project: Poster Reader](08-project-poster-reader.md) · [Course map](README.md) · [Next lesson: ML Basics: Measuring Quality →](10-ml-basics-measuring-quality.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 25 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

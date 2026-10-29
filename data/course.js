@@ -6,26 +6,28 @@
 // "repo", "site" and "community" feed the GitHub and Community buttons. Change them if you fork this.
 window.COURSE = {
  "title": "AI Engineer Path",
- "duration": "about 36 weeks",
+ "duration": "about 54 weeks",
  "tagline": "A step-by-step path from your first AI model call to a deployed app with evaluations, access controls and tests.",
  "repo": "https://github.com/Faizan2001/ai-engineer-path",
  "site": "https://faizan2001.github.io/ai-engineer-path/",
  "community": "https://datatalks.club/slack.html",
  "intro": [
-  "This path is for a software developer learning to build with existing AI models. You will practise reliable model calls, RAG, agents, evaluation and deployment in four projects; the last three grow into one app. The finish line is an independently tested small AI application. Model training, research and large-scale platform engineering need further study.",
+  "This path is for a software developer learning to build with existing AI models. You will practise reliable model calls, RAG, agents, evaluation and deployment in five projects. The first four teach each skill on clean, public material. The fifth, the capstone, puts them together as a **Campus Assistant**: it answers students' repeated questions from approved sources, asks when details matter, and says who to contact when it can't answer. The finish line is a small pilot with evidence that it is correct, honest about gaps and affordable. Model training, research and large-scale platform work need further study; the optional Electives section shows where to start.",
   "It works like The Odin Project. Each lesson points you to the best free material for one topic, then asks you to build something with it. You learn by building, breaking things and fixing them.",
   "Every lesson tells you what it unlocks and which engineering judgment it practises. Some begin with a 2-minute experiment: make a prediction, check it, then explain what changed your mind. You do not have to memorise API syntax."
  ],
  "how": [
   "Study about 9 hours a week, in sessions of about 90 minutes: roughly 30 minutes learning, 45 building and 15 writing in your log. Set a weekly target on this page. It counts sessions, never a daily streak.",
-  "Plan about 36 weeks at 9 hours a week, with spare time for breaks and consolidation. Allow 2–4 more weeks if prerequisite repair, deployment or debugging needs it. Follow the checks, not a deadline; the project work matters more than the calendar.",
-  "Long lessons are split into **Day** steps. Tick each Day as you finish it, and stop at the end of a Day. Missed a few days? Reread your last log entry, then do the smallest next step. Low on energy? A 15-minute session still counts.",
+  "Plan about 54 weeks at 9 hours a week (about 41 at 12 hours), with spare time for breaks and consolidation. Allow 2–4 more weeks if prerequisite repair, deployment or debugging needs it. Follow the checks, not a deadline; the project work matters more than the calendar.",
+  "From [Campus Knowledge Base](#campus-knowledge-base) onward, one hour of each study week goes to your capstone's data: permission, official sources and approved answers. Data takes calendar time, so it grows while you learn the rest. The [Campus Assistant review](https://github.com/Faizan2001/ai-engineer-path/blob/main/CAMPUS-ASSISTANT-REVIEW.md) explains this change and what stayed the same. Steps that wait on other people, such as permission, staff replies and pilot approval, take calendar time: start them early and keep studying while you wait. Only questions you wrote or paraphrased yourself, with nothing that identifies a person, may go to a model API, including in practice exercises.",
+  "Every lesson is split into **Day** steps of about 90 minutes. Stop when the Day's **Stop here** line is true or, on Days without one, when its last step is done. Tick the Day, write tomorrow's first step in your log, and stop, even if you have energy left. Never do two Days to catch up. About one session in ten goes to debugging, curation or catching up; the week estimates already include it. Missed a few days? Reread your last log entry, then do the smallest next step. Low on energy? A 15-minute session still counts.",
   "Finish each lesson's **Memory check** before marking it complete. Explain the idea without looking, compare with the feedback or source, and correct missing pieces. Retry a missed question at the next session. For projects, show the working evidence in “You're done when”; a tick alone is not a skill test.",
   "Your coding assistant is welcome, but every project raises the bar on work you do by hand: one change, then one function, then one test, then one bug fixed without AI. [Mindset and Asking for Help](#mindset-and-asking-for-help) explains why.",
+  "Some Days are marked **Under the hood**: you build a small version of something you use, such as a gradient engine, a search index or a tiny GPT, and check it against the real thing. They are short on purpose. Building the mechanism once is how the rest of the path stops feeling like magic.",
   "Cost: the learning materials are free; model calls and some hosting options can cost money. Set your own API budget, price each experiment before running it, and use fake responses for routine tests. You do not need accounts with three model providers. [Setting Up Your Tools](#setting-up-your-tools) includes a free-tier fallback. There is no course certificate; your projects and independent checks provide the evidence.",
   "On mobile data, or expecting a power cut? Open the next lesson's links on Wi-Fi first. Videos are always optional and show their length.",
   "Assignments are the required path. Videos can help an idea click; Additional resources and Extra credit are optional. Use the materials named for the current step, then build. If two sessions end in the same confusion, pause new material and repair that prerequisite with a smaller example.",
-  "Already started? The [provider and university comparison](https://github.com/Faizan2001/ai-engineer-path/blob/main/PROVIDER-UNIVERSITY-REVIEW.md) lists the added practice by lesson. Keep your saved progress; revisit only additions to lessons you have finished."
+  "Already started? Keep your saved progress. Anything added behind you (a new lesson, or a new Day in a lesson you finished) appears on the course page under “New since you passed this point”. The [Campus Assistant review](https://github.com/Faizan2001/ai-engineer-path/blob/main/CAMPUS-ASSISTANT-REVIEW.md) and the [provider and university comparison](https://github.com/Faizan2001/ai-engineer-path/blob/main/PROVIDER-UNIVERSITY-REVIEW.md) explain what was added and why."
  ],
  "disclaimer": "Format inspired by The Odin Project; not affiliated. Lessons link to outside material owned by its authors.",
  "sections": [
@@ -54,7 +56,7 @@ window.COURSE = {
      "assignment": [
       {
        "steps": [
-        "Look over the [course page](#home). There are 6 sections and 4 projects. The whole path takes about 36 weeks.",
+        "Look over the [course page](#home). There are 7 sections and 5 projects, plus optional Electives. The core path takes about 54 weeks and ends with your Campus Assistant capstone.",
         "Pick your study days and a fixed time, and put them in your calendar. Aim for about 9 hours a week: 6 sessions of 90 minutes, or fewer, longer ones. Set the same number as your weekly target on the [course page](#home). It counts sessions per week, never a daily streak.",
         "Create a private GitHub repository called `ai-learning-log` and add `log.md`. Keep your personal notes there; this public course already uses the name `ai-engineer-path`. Each project gets its own public repo later.",
         "Use a 90-minute session as a flexible guide: about 30 minutes learning, 45 building and 15 checking your work and making a short log entry. Take breaks when needed. End with two lines: one result you checked, and the exact file or next 10-minute action to resume.",
@@ -103,7 +105,7 @@ window.COURSE = {
        "steps": [
         "Read the README of Alexey Grigorev's [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Write down the 5 tasks that show up most in job posts.",
         "In your log, mark which of those tasks you've already done as a web developer and which are new to you.",
-        "Choose a goal for after this path. It can be a Campus Assistant for your Events platform, or another small product you care about. The course projects stand on their own; integrating them into your university platform is not required.",
+        "Write down your capstone goal. This path ends with a Campus Assistant that answers students' repeated questions from approved sources. This path's author builds it for IUB inside the Events platform, for the website and the Android/iOS app. No platform of your own? Choose any community whose questions repeat, such as a club, a society or a team wiki. The data, search, answer and evaluation lessons work the same. The platform lessons give a smaller fallback: a simple web chat with two demo groups instead of universities, a phone-friendly web page instead of a native app, and a rehearsal pilot.",
         "Take 10 minutes and write in your log: why does this matter to you, and to the people you care about? Be specific. You'll reread it when motivation dips."
        ]
       }
@@ -183,7 +185,7 @@ window.COURSE = {
      "slug": "setting-up-your-tools",
      "title": "Setting Up Your Tools",
      "kind": "lesson",
-     "time": "about 3 hours",
+     "time": "about 4.5 hours",
      "hook": "Your API key is a password that spends money. Make leaking it hard, and cheap if it happens.",
      "intro": [
       "Let's get your computer ready. You'll use this setup for the whole path, so take your time.",
@@ -221,6 +223,16 @@ window.COURSE = {
         "**No AI for this one:** write a script that reads a CSV file, counts the rows for each value in one column and prints the top 3. Stuck for more than 20 minutes? Review the [Python tutorial](https://docs.python.org/3/tutorial/). Check it with six rows whose counts you already know. If files, dictionaries or functions feel unfamiliar, spend up to two extra sessions on those Python tutorial sections and retry with a different CSV. Ask for a hint after 20 stuck minutes. Pass this small check before the model-call assignments; needing the bridge is normal.",
         "Add an `AGENTS.md` file ([the format](https://agents.md/)) to your repo. It's a note for your AI coding assistant. Tell it to explain, review and ask you questions, not to write your lesson solutions."
        ]
+      },
+      {
+       "day": "Day 3 · first win, about 90 min",
+       "added": "2026-10-30",
+       "steps": [
+        "Already past [Keyword RAG](#keyword-rag)? Tick this Day: you've built more than this. Otherwise, before any AI: write five short help pages for an imaginary student office as plain text files. Give each an ID, a date and a source label, for example `fees-01 · 2026-09-01 · Accounts office`. Make one of them out of date on purpose.",
+        "Without AI-written code, write `search.py`: lowercase the question, split it into words, drop a short list of common words (the, a, an, is, are, what, when, how, do, i, my, to, of, for), score each page by how many remaining question words it contains, and print the top 2 page IDs, or `no matching page` when the best score is 0. About 30 lines.",
+        "Write three tests as plain `assert` lines in `test_search.py` and run them with `python test_search.py` (pytest comes in [Structured Output and Errors](#structured-output-and-errors)): a question with an obvious answer, a question no page answers (your search must print `no matching page`, not guess), and one that hits the out-of-date page. Assert that it returns that page, with a comment saying why that's a problem: your search has no idea about dates yet. You'll fix that kind of problem in the capstone.",
+        "Stop here when the tests pass and you've recorded a one-minute screen capture: a question goes in, page IDs come out. That's your first search engine. [Keyword RAG](#keyword-rag) rebuilds it properly."
+       ]
       }
      ],
      "recall": [
@@ -243,7 +255,7 @@ window.COURSE = {
      "slug": "how-llms-work",
      "title": "How LLMs Work",
      "kind": "lesson",
-     "time": "about 2 hours",
+     "time": "about 3 hours",
      "hook": "ChatGPT is autocomplete that read a library. That explains its genius, and why it can invent a court case with a straight face.",
      "intro": [
       "An LLM (large language model) is the kind of AI behind ChatGPT. You don't need the math to build with one, but you do need a simple picture of how it works.",
@@ -285,6 +297,17 @@ window.COURSE = {
         "Watch 3Blue1Brown's [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs) (7 min). Watch for the idea of predicting one token at a time.",
         "Watch [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) (27 min). Pause often and write one sentence for each new idea. On mobile data, watch at 480p or download it on Wi-Fi first.",
         "In your log, before you rewatch anything, explain in 5 sentences how a chat model answers a question. Only use words you could explain to a friend."
+       ],
+       "day": "Day 1 · about 90 min"
+      },
+      {
+       "day": "Day 2 · under the hood, about 90 min",
+       "added": "2026-10-30",
+       "steps": [
+        "Predict first: will the same question cost more tokens in English, in Bangla script or in Banglish? Write your guess.",
+        "Write one campus question yourself (never copy a real post) in all three forms, three or four sentences long. Send each once to your model with no instructions and read the input token count from the response's `usage` field: that is the count you are billed for. Every request also carries a few fixed formatting tokens, so also send a one-word message and subtract its count from each before computing the ratio to English. Record the model, the three counts and the ratios. You'll reuse them in [Choose Models and a Budget](#choose-models-and-budget).",
+        "Without AI-written code, write `sample.py`: a made-up table of five possible next tokens with scores, a softmax that turns scores into probabilities, and a sampler. Sample 20 times at temperature 0.2, 1.0 and 1.5 and compare. You've just written the last step of every chat model.",
+        "Stop here when your log has the token table, your guess next to the real ratio, and one sentence on what temperature does."
        ]
       }
      ],
@@ -304,7 +327,8 @@ window.COURSE = {
       "[Karpathy, Deep Dive into LLMs like ChatGPT (3 h 31 min; watch it in 30-minute pieces alongside the next lessons)](https://www.youtube.com/watch?v=7xTGNNLPyMI)",
       "[Chip Huyen, AI Engineering, chapter 2, “Sampling” and “Structured Outputs” (book)](https://github.com/chiphuyen/aie-book)",
       "[Transformer Explainer](https://poloclub.github.io/transformer-explainer/) by Georgia Tech Polo Club: play with a real small model in your browser and watch each step.",
-      "[Why language models hallucinate](https://openai.com/index/why-language-models-hallucinate/) by OpenAI: why models make things up, from the people who build them."
+      "[Why language models hallucinate](https://openai.com/index/why-language-models-hallucinate/) by OpenAI: why models make things up, from the people who build them.",
+      "[Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE) by Andrej Karpathy (2 h): why token counts differ between languages, built from scratch. Optional."
      ]
     },
     {
@@ -450,21 +474,23 @@ window.COURSE = {
      ],
      "assignment": [
       {
-       "day": "Week 1 · about 9 hours",
+       "day": "Days 1–6 · about 9 hours",
        "steps": [
-        "Collect 15 test posters, in 2 hours at most: 10 to practise on and 5 to hold back. On purpose, include some with missing, unclear and hard-to-read details.",
-        "Write `expected.json` with the correct details for all 15 posters. Then write `SCORING.md`: how you'll compare dates, times and venue names, and how you'll score missing or unclear details.",
-        "Build the reader: an image goes in and a strict `Event` comes out. Add plain-code checks (the date is real, the end is after the start), a timeout, at most 2 retries and refusal handling.",
-        "Checkpoint: the reader works on 3 practice posters from the command line."
-       ]
+        "**Day 1:** Collect 15 test posters, in 2 hours at most: 10 to practise on and 5 to hold back. On purpose, include some with missing, unclear and hard-to-read details. Stop when all 15 are in two folders.",
+        "**Days 2–3:** Write `expected.json` with the correct details for all 15 posters. Then write `SCORING.md`: how you'll compare dates, times and venue names, and how you'll score missing or unclear details. Stop when someone could score a poster from your rules alone.",
+        "**Days 4–6:** Build the reader: an image goes in and a strict `Event` comes out. Add plain-code checks (the date is real, the end is after the start), a timeout, at most 2 retries and refusal handling. One piece a Day: the call, then the checks, then the failure handling.",
+        "**Stop here on Day 6:** the reader works on 3 practice posters from the command line."
+       ],
+       "split": true
       },
       {
-       "day": "Week 2 · about 9 hours",
+       "day": "Days 7–12 · about 9 hours",
        "steps": [
-        "Build the approval screen in Streamlit: show the draft, let a person fix it, and save only when they approve.",
-        "Improve your prompt using only the 10 practice posters. When you're happy, run the 5 held-back posters once.",
-        "Write a README: what it does, how to run it, your score on the held-back posters, the cost per poster and one note for every mistake. Add a 60-second recording or GIF: photo in, draft out, a human fix, then approval."
-       ]
+        "**Days 7–8:** Build the approval screen in Streamlit: show the draft, let a person fix it, and save only when they approve. Stop when one approved poster is saved and one rejected one isn't.",
+        "**Days 9–10:** Improve your prompt using only the 10 practice posters. When you're happy, run the 5 held-back posters once. Stop when the held-back score is written down, good or bad.",
+        "**Days 11–12:** Write a README: what it does, how to run it, your score on the held-back posters, the cost per poster and one note for every mistake. Add a 60-second recording or GIF: photo in, draft out, a human fix, then approval."
+       ],
+       "split": true
       }
      ],
      "done": [
@@ -512,8 +538,8 @@ window.COURSE = {
   },
   {
    "title": "RAG with LLM Zoomcamp",
-   "weeks": "Weeks 5–19",
-   "description": "Learn RAG: finding the right information and letting a model answer from it. You'll follow the free LLM Zoomcamp course and build Ask MDN, an assistant for web docs.",
+   "weeks": "Weeks 5–22",
+   "description": "Learn RAG: finding the right information and letting a model answer from it. You'll follow the free LLM Zoomcamp course, build Ask MDN, an assistant for web docs, then start the knowledge base for your Campus Assistant.",
    "lessons": [
     {
      "slug": "keyword-rag",
@@ -615,7 +641,7 @@ window.COURSE = {
      "slug": "ml-basics-measuring-quality",
      "title": "ML Basics: Measuring Quality",
      "kind": "lesson",
-     "time": "about 1 week",
+     "time": "about 1.5 weeks",
      "hook": "Write the exam, mark it yourself, score 100%. Machine learning calls that a bug.",
      "intro": [
       "Before you improve Ask MDN, you need a fair way to measure it. Every test depends on two basic ideas.",
@@ -658,7 +684,28 @@ window.COURSE = {
        "steps": [
         "Write 20 practice questions for Ask MDN. For each one, list the page IDs (file paths) that answer it. These are for tuning, so use them as often as you like.",
         "Write 10 questions your selected docs cannot answer: mix clearly unrelated questions with plausible CSS/JavaScript questions whose answer is absent from your frozen subset. Record why each is unsupported. Use these to develop and test abstention; they are practice data, not an unseen test.",
-        "Commit both files. In Measuring Search you'll create 50 more questions that stay hidden until the final project."
+        "Commit both files. In Measuring Search you'll create 50 more questions that stay hidden until the Ask MDN project."
+       ]
+      },
+      {
+       "day": "Day 6 · campus track, about 45 min",
+       "steps": [
+        "Start your capstone question bank in a new **private** repository, `campus-assistant-data`. Write 20 questions students at your university really repeat: fees, add/drop, withdrawal, scholarships, exams, services. Write them in your own words, and write some the way students type: English, Bangla and Banglish (romanized Bangla, such as “withdraw korle ki scholarship thakbe?”).",
+        "For each question add an intent label (for example `withdraw-scholarship`), the office you think owns the answer, and whether you believe an official page answers it. Never store names, usernames, profile links or screenshots of real people. That rule holds for the whole capstone.",
+        "Split the bank the way you split Ask MDN's questions: 14 for practice, 6 held back. It grows in [Campus Knowledge Base](#campus-knowledge-base).",
+        "Send a short, friendly email to your student affairs or registrar office: what you're building, that it's an unofficial student project, and a request for a named contact for policy questions and the counselling centre's contact details. Replies take weeks, so ask now."
+       ],
+       "added": "2026-10-28"
+      },
+      {
+       "day": "Days 7–10 · under the hood, about 6 hours",
+       "added": "2026-10-30",
+       "steps": [
+        "Across these four Days, follow Andrej Karpathy's [building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0) (2.5 h), typing every line yourself. Pause before each new function and predict what it must do. Need PyTorch for the checks? Get the CPU-only build: add the PyTorch CPU index to `pyproject.toml` as in uv's [PyTorch guide](https://docs.astral.sh/uv/guides/integration/pytorch/), then `uv add torch`. Or use a free [Colab](https://colab.research.google.com/) notebook.",
+        "**Day 7 (video up to 51:10):** a `Value` class that adds and multiplies, with gradients you fill in by hand. Stop when they match the ones you work out on paper for one tiny expression.",
+        "**Day 8 (52:52 to 1:43:55):** `tanh`, a `_backward` for each operation, and one `backward()` that uses a topological sort. Stop when your gradients match PyTorch's on the same expression to 4 decimal places.",
+        "**Day 9 (1:43:55 to 2:14:03):** a neuron, a layer and a tiny MLP. Train it on four hand-made examples. Stop when the loss falls steadily.",
+        "**Day 10:** connect it to this lesson. Make data where overfitting is easy to see: two overlapping clusters of 2-D points, 20 for training with 10% of their labels flipped, and 200 held out. Train a 2-16-16-1 MLP for 500 steps, log both losses every 10 steps, and plot them (`uv add matplotlib`). Find where training loss keeps falling but held-out loss stops: that is overfitting, measured by you. If held-out loss never flattens, halve the training set. Stop when the plot and a three-line explanation are committed."
        ]
       }
      ],
@@ -778,7 +825,7 @@ window.COURSE = {
      "slug": "embeddings-and-vector-search",
      "title": "Embeddings and Vector Search",
      "kind": "lesson",
-     "time": "about 2 weeks",
+     "time": "about 2 weeks, plus 2 hours",
      "hook": "Keyword search reads spelling. Today you hire a librarian who reads meaning.",
      "intro": [
       "Keyword search only finds exact words. If someone asks about “centering” but the page says “alignment”, it can miss. Embeddings fix this.",
@@ -823,7 +870,7 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Read Google's [Embeddings](https://developers.google.com/machine-learning/crash-course/embeddings) module for the big idea. Then Module 2: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/01-intro.md).",
-        "Before Day 2: lesson 02 installs sentence-transformers, which pulls in PyTorch (hundreds of MB). On a slow connection or a small laptop, install the CPU-only build with `uv pip install torch --index-url https://download.pytorch.org/whl/cpu`, or work in a Codespace."
+        "Before Day 2: lesson 02 installs sentence-transformers, which pulls in PyTorch; from PyPI on Linux that includes several GB of GPU libraries. On a slow connection or a small laptop, add the PyTorch CPU index to `pyproject.toml` as in uv's [PyTorch guide](https://docs.astral.sh/uv/guides/integration/pytorch/), then `uv add torch` before adding sentence-transformers, or work in a Codespace."
        ]
       },
       {
@@ -868,6 +915,23 @@ window.COURSE = {
        "steps": [
         "Add to Ask MDN: build a sqlitesearch vector index of your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning."
        ]
+      },
+      {
+       "day": "Day 12 · campus track, about 45 min",
+       "steps": [
+        "Take 8 intents from your question bank and write each three ways: English, Bangla and Banglish. Embed all 24 sentences with today's embedder, then with one embedder whose model card lists Bengali among its training languages.",
+        "For each sentence and each other language, search only that language's sentences; a hit means the nearest one has the same intent. Record a hit rate per language pair and model in your log. Expect Banglish to be the hardest; your numbers here are the evidence. With 8 sentences per pair, one miss moves a score by 12.5 points, so treat this as a first signal and confirm it in [Multilingual Search](#multilingual-search)."
+       ],
+       "added": "2026-10-28"
+      },
+      {
+       "day": "Day 13 · under the hood, about 90 min",
+       "added": "2026-10-30",
+       "steps": [
+        "Without AI-written code, rebuild the vector search you've been using: in numpy, normalise your MDN chunk vectors, compute cosine similarity for a question as one matrix product, and take the top 5.",
+        "Compare it with sqlitesearch on 5 practice questions. Yours is exact; sqlitesearch's vector search is approximate by default: an index picks candidates, then only those are reranked exactly. So where the top 5 differ, check that your extra result really scores higher, and record how many of the 25 results match. Then time yours on 1,000 and 100,000 random unit vectors, and write one sentence on why sqlitesearch, like large systems, trades a little recall for speed.",
+        "Stop here when both checks are in your log."
+       ]
       }
      ],
      "recall": [
@@ -892,11 +956,11 @@ window.COURSE = {
      "slug": "measuring-search",
      "title": "Measuring Search",
      "kind": "lesson",
-     "time": "about 1 week",
+     "time": "about 1 week, plus 1 hour",
      "hook": "“It feels better” isn't a metric. Ask MDN gets a report card it can't charm.",
      "intro": [
       "Now you'll measure how good Ask MDN's search really is, with numbers instead of guesses.",
-      "You'll also create the 50 held-back questions for your final project. Once they're committed, you don't look at them again until then."
+      "You'll also create the 50 held-back questions for the Ask MDN project. Once they're committed, you don't look at them again until then."
      ],
      "unlocks": "prove search got better with numbers, not vibes.",
      "edge": "turning “better” into something you can measure.",
@@ -961,6 +1025,14 @@ window.COURSE = {
        "day": "Days 6–7 · about 3 hours",
        "steps": [
         "Add to Ask MDN: measure Hit Rate@5 and MRR@5 (the @5 means only the top 5 results count) for keyword and vector search on your 20 practice questions. Write the numbers in your README. Score the first 5 distinct `page_id` values, not 5 chunks. Fetch more chunk candidates if needed, deduplicate in rank order, and report fewer results honestly if fewer remain. Add a tiny test where repeated chunks from page A cannot crowd page B out of the five-page metric."
+       ]
+      },
+      {
+       "day": "Day 8 · about 60 min",
+       "added": "2026-10-30",
+       "steps": [
+        "Your Hit Rate on 20 practice questions is an estimate, not a fact. Without AI-written code, write a paired bootstrap: 1,000 times, draw 20 of your practice questions at random *with replacement* (some appear twice, some not at all), compute Hit Rate for keyword search and for vector search on that same draw, and save the difference. Report the middle 95% of the 1,000 differences (the 2.5th to 97.5th percentile). If that range includes 0, you can't yet say which search is better. Expect a wide range with 20 questions; that is the point.",
+        "Add the rule of three to your log: if you see 0 failures in n tries, the true failure rate could still be as high as about 3/n. Stop here when your results table shows every metric with its n and its range."
        ]
       }
      ],
@@ -1221,7 +1293,7 @@ window.COURSE = {
      "slug": "monitoring",
      "title": "Monitoring",
      "kind": "lesson",
-     "time": "about 12 hours",
+     "time": "about 11 hours",
      "hook": "Sooner or later someone will ask Ask MDN for a biryani recipe. Logs show you the question, and what it said back.",
      "intro": [
       "Once people use your app, you need to see where answers fail, how much they cost and how long they take. Record metadata for each request. Keep diagnostic conversation content only for permitted public or synthetic examples, with a short retention period."
@@ -1262,13 +1334,13 @@ window.COURSE = {
        ]
       },
       {
-       "day": "Day 3 · about 90 min",
+       "day": "Day 3 · about 60 min",
        "steps": [
         "Skim [06 Querying](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/06-querying.md) and [07 Streamlit dashboard](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/07-streamlit-dashboard.md); you won't build these. Then do [08 User feedback](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/08-user-feedback.md) properly: you'll add the same thumbs up or down to Ask MDN."
        ]
       },
       {
-       "day": "Day 4 · about 90 min",
+       "day": "Day 4 · about 60 min",
        "steps": [
         "Skim [09 Built-in judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/09-built-in-judge.md) and [10 Feedback dashboard](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/10-feedback-dashboard.md). Then do [11 Synthetic data](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md) properly. You'll use this generator in Section 5 to create realistic logs."
        ]
@@ -1302,7 +1374,8 @@ window.COURSE = {
      "extra": [
       "[Grafana dashboards (optional)](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/12-grafana.md)",
       "[Docker Compose for the whole app (optional; earns Zoomcamp project points)](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/13-docker-compose.md)",
-      "[A field guide to rapidly improving AI products](https://hamel.dev/blog/posts/field-guide/) by Hamel Husain: why looking at real conversations beats any dashboard."
+      "[A field guide to rapidly improving AI products](https://hamel.dev/blog/posts/field-guide/) by Hamel Husain: why looking at real conversations beats any dashboard.",
+      "[OpenTelemetry GenAI conventions](https://github.com/open-telemetry/semantic-conventions-genai): standard names (such as `gen_ai.provider.name`) for the fields you already log. Still in development; read only if you adopt a tracing tool."
      ]
     },
     {
@@ -1391,29 +1464,32 @@ window.COURSE = {
      "checkpoint": "Ask MDN v0.6 runs online as your private app, with conversations saved in Neon.",
      "assignment": [
       {
-       "day": "Week 1 · about 9 hours",
+       "day": "Days 1–6 · about 9 hours",
        "steps": [
-        "Bring together everything from this section: ingestion, hybrid search, the prompt, the chat app and logging.",
-        "Make every answer show links to the MDN pages it used.",
-        "Checkpoint: 5 practice questions get correct, cited answers."
-       ]
+        "**Days 1–3:** Bring together everything from this section: ingestion, hybrid search, the prompt, the chat app and logging. One piece a Day, each one running before you add the next.",
+        "**Days 4–5:** Make every answer show links to the MDN pages it used.",
+        "**Stop here on Day 6:** 5 practice questions get correct, cited answers."
+       ],
+       "split": true
       },
       {
-       "day": "Week 2 · about 9 hours",
+       "day": "Days 7–12 · about 9 hours",
        "steps": [
-        "Check the “I don't know” path on your 10 unanswerable questions.",
-        "Run your tests on the 50 held-back questions, once, and record the results. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.",
-        "Checkpoint: your README has the results table."
-       ]
+        "**Days 7–8:** Check the “I don't know” path on your 10 unanswerable questions.",
+        "**Days 9–11:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](#measuring-search) on them and report the range next to each metric. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.",
+        "**Stop here on Day 12:** your README has the results table."
+       ],
+       "split": true
       },
       {
-       "day": "Week 3 · about 9 hours",
+       "day": "Days 13–18 · about 9 hours",
        "steps": [
-        "Put the final version online as a private app (see [Deploy It Safely](#deploy-it-safely)). This is **Ask MDN v1.0**.",
-        "If a friend can help, ask them for 5 CSS or JavaScript questions they really got stuck on this month, and run them on the live app. No one free? Ask in the Zoomcamp Slack, or use 5 old bugs of your own.",
-        "Finish the README. Open it with a real bug you once lost hours to, and Ask MDN's cited answer. Then: how it works, how to run it, your results, a GIF and what you'd improve.",
-        "If a Zoomcamp cohort is open, submit your project for peer review. If not, share your repo in `#course-llm-zoomcamp` and ask for feedback."
-       ]
+        "**Days 13–14:** Put the final version online as a private app (see [Deploy It Safely](#deploy-it-safely)). This is **Ask MDN v1.0**.",
+        "**Day 15:** If a friend can help, ask them for 5 CSS or JavaScript questions they really got stuck on this month, and run them on the live app. No one free? Ask in the Zoomcamp Slack, or use 5 old bugs of your own.",
+        "**Days 16–17:** Finish the README. Open it with a real bug you once lost hours to, and Ask MDN's cited answer. Then: how it works, how to run it, your results, a GIF and what you'd improve.",
+        "**Day 18:** If a Zoomcamp cohort is open, submit your project for peer review. If not, share your repo in `#course-llm-zoomcamp` and ask for feedback."
+       ],
+       "split": true
       }
      ],
      "done": [
@@ -1453,24 +1529,212 @@ window.COURSE = {
       }
      ],
      "extra": []
+    },
+    {
+     "slug": "campus-knowledge-base",
+     "title": "Campus Knowledge Base",
+     "kind": "lesson",
+     "time": "about 10.5 hours, then 1 hour a week",
+     "hook": "The hard part of a campus assistant isn't the model. It's knowing which answer is true this semester.",
+     "intro": [
+      "Your capstone is a Campus Assistant: students ask about rules, fees, courses and services, and get a short answer that cites an approved source, or an honest “I don't know, ask this office”. You already know how to search and answer. What you don't have yet is trustworthy data, and data takes calendar time: permissions, official documents and checked answers. So you start now and spend one hour a week on it.",
+      "Student groups are full of these questions, often asked again every semester. They are excellent for learning **what** students ask and how they phrase it. They are poor as an answer store: replies conflict, rules change, and the posts belong to other people. Use the group for questions; take answers from official sources or from a staff member who confirms them."
+     ],
+     "unlocks": "start a real knowledge base with permission, provenance and a weekly curation habit.",
+     "edge": "turning messy community knowledge into data you can defend. Data curation is one of the least automated parts of AI work.",
+     "overview": [
+      "Set data rules and ask for permission before collecting anything.",
+      "List the official sources that can answer students' questions, with dates and owners.",
+      "Turn repeated questions into intents, then write your first approved answers with citations."
+     ],
+     "checkpoint": "Ask MDN v1.0 is online and your question bank from [ML Basics](#ml-basics-measuring-quality) has 20 questions.",
+     "bridge": {
+      "text": "Every answer your assistant gives will point back to one entry in this knowledge base. An entry is a promise: this answer was true, for these students, on this date, according to this source.",
+      "terms": [
+       [
+        "Intent",
+        "What the student wants, independent of wording or language. “Withdraw dile scholarship thakbe?” and “Will a withdrawal affect my scholarship?” share one intent."
+       ],
+       [
+        "Source tier",
+        "How much to trust an answer: A = official document, B = confirmed by staff, C = student know-how a curator approved. Raw posts are never served."
+       ],
+       [
+        "Provenance",
+        "Where a fact came from and when: URL or office, retrieval date, semester it applies to."
+       ],
+       [
+        "Review-by date",
+        "When an entry must be rechecked. Fees, deadlines and calendars expire every semester."
+       ]
+      ]
+     },
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "Write a one-page data policy as `POLICY.md` in your private `campus-assistant-data` repository (create it now if you skipped lesson 10's campus Day): what you collect (question wording, rewritten in your own words), what you never collect (names, usernames, profile links, photos, private messages, ratings of named teachers), where it is stored, and when you delete it. Add the rule for model calls: only questions you wrote or paraphrased, with nothing that identifies a person, ever go to a model API. Never raw posts, exports or anything you couldn't show the person who wrote it.",
+        "Read Meta's [Automated Data Collection Terms](https://www.facebook.com/legal/automated_data_collection_terms). They cover any automated collection, naming bots, crawlers and similar tools, and require Meta's written permission. An AI agent driving your logged-in browser fits that description, so don't use one. Read the group yourself and write down only the question, in your own words.",
+        "Start with consent: make a short form where students submit questions they wish someone had answered, with no names, IDs or personal cases. If you post it in a Facebook group, Meta's [Pages, Groups and Events policies](https://www.facebook.com/policies_center/pages_groups_events) require notice and explicit consent, and must make clear that you, not Meta, are collecting. Put that at the top of the form.",
+        "Ask for help, not just permission. Message the group's admins: explain what you will and won't collect and ask them to pin the form. Email the student affairs or registrar office: ask for the official rule documents and whether someone could confirm answers once a month."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Build `sources.csv` with at least 25 official sources: academic rules, scholarships and waivers, fees and deadlines, the academic calendar, degree curricula and prerequisites, registration and advising steps, student services, and an office contact list. For each, record the URL, owning office, format, the semester it applies to and the date you retrieved it.",
+        "Check the site's `robots.txt` and terms before downloading. Save a dated copy of each document, because pages change without notice, and note which ones are scanned images that will need OCR.",
+        "Mark the gaps: questions in your bank that no public source answers. Those need a staff answer or stay unanswerable."
+       ]
+      },
+      {
+       "day": "Days 3–4 · about 3 hours",
+       "steps": [
+        "Grow the question bank to 100: form submissions first, then questions friends and juniors ask, then patterns you notice reading the group yourself. Rewrite each in your own words, keep the student's language (English, Bangla or Banglish) and record the month. Note a conflicting community answer only as a hint to check, never as the answer.",
+        "Before grouping anything, split by case: keep paraphrases and translations of the same question together. Put practice cases in `development.jsonl` and reserve every third new case in `held_back.jsonl`, initially at least 5 per language. Reserve this file for the final release check; do not use its wording in entries, prompts or model selection. Start `regression.jsonl` for failures you discover while building. If you already inspected held-back results to make a change, move those cases to regression and replace them with fresh cases before release.",
+        "Group the remaining questions into intents by hand, using the labels you started in lesson 10. If you automate it, embed with the Bengali-capable model from your lesson 12 check and confirm every group yourself, because English, Bangla and Banglish versions of one question often land in different groups ([clustering overview](https://scikit-learn.org/stable/modules/clustering.html)). Count each intent; the top 20 are your first FAQ entries."
+       ]
+      },
+      {
+       "day": "Days 5–6 · about 3 hours",
+       "steps": [
+        "Write 20 entries in `faq.jsonl`. Each has: `intent`, `question`, `paraphrases` (including Bangla and Banglish, written by you, never copied from `held_back.jsonl`), `answer`, `conditions` (for example credit load or intake year), `applies_to`, `sources` with quoted text, `tier`, `effective_semester`, `review_by` and `status`.",
+        "Answer only from the quoted source. If the source doesn't settle a case, write the condition the student must check and the office to ask. Mark entries without an official source `needs-staff`.",
+        "From now until the capstone, block **1 hour a week** inside your 9 hours: add or review 5 entries, add 3 new questions (form submissions first), reserve every third new case in `held_back.jsonl`, recheck one changed page, and log gaps. Keep related phrasings in the same split. Target: 150 questions, including at least 15 per language reserved for release. Record each set's version, case IDs, language counts and any exposure in `EVAL-SETS.md`. Separately, from [Evals That Catch Real Bugs](#evals-that-catch-real-bugs) until [Answer, Ask or Route](#answer-ask-or-route), block **30 minutes a week** for the crisis set: write 2 crisis messages and 2 harmless look-alikes per language, and have a native speaker review them. That gives about 30 of each per language when you need them. A friend can keep release answers sealed; working alone, avoid inspecting them during development and disclose that limitation."
+       ]
+      },
+      {
+       "day": "Day 7 · first campus slice, about 90 min",
+       "steps": [
+        "Point your Ask MDN v1.0 code at your first 20 entries with an official source (skip `needs-staff` ones): private, on your laptop, English first, no users. Predict first: on 10 development questions, which wins, keyword search over questions and paraphrases, or your hybrid search?",
+        "Then try the safest answer mode there is: the model may only return the ID of an approved entry, or `none`. Your code shows that entry's approved text, or a route card when the reply is `none`, empty or invalid. The model never writes a rule.",
+        "Stop here when you've asked 5 questions, including one that must get an honest “I don't know, ask this office”, and logged which mode answered more questions correctly without inventing anything. That's your first campus assistant. Re-run these 10 questions in the first data hour of each month: it's your campus scoreboard."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why are student-group replies used as questions and hints, but not as answers?",
+       "link": "#campus-knowledge-base",
+       "answer": "Replies conflict, go out of date and belong to other people. Questions show real demand and wording; answers must trace to an official source or a staff confirmation with a date."
+      },
+      {
+       "q": "Which fields stop an FAQ entry from going stale or being applied to the wrong student?",
+       "link": "#campus-knowledge-base",
+       "answer": "Conditions and applies_to (who it is for), effective_semester and review_by (when it is true), and sources with quoted text (why it is true)."
+      },
+      {
+       "q": "What do you do with a question no public source answers?",
+       "link": "#campus-knowledge-base",
+       "answer": "Record it as a gap, mark the entry needs-staff, and ask the owning office. Until then the assistant should say it doesn't know and name the office."
+      }
+     ],
+     "extra": [
+      "[Meta Automated Data Collection Terms](https://www.facebook.com/legal/automated_data_collection_terms): the rules for collecting data from Facebook by automated means."
+     ],
+     "added": "2026-10-28",
+     "before": [
+      "Marked [ML Basics](#ml-basics-measuring-quality) or [Embeddings and Vector Search](#embeddings-and-vector-search) complete before 28 Oct 2026? Do ML Basics Day 6 (45 min) before this lesson, and Embeddings Day 12 before [Multilingual Search](#multilingual-search). The course page lists both under “New since you passed this point”.",
+      "Reading a Facebook group yourself is fine for spotting questions. Copying it with a script, a bot or an AI agent is automated collection, which needs Meta's written permission. Group admins can't give that permission for Meta or for each author."
+     ]
+    },
+    {
+     "slug": "under-the-hood-tiny-gpt",
+     "title": "Under the Hood: A Tiny GPT",
+     "kind": "lesson",
+     "added": "2026-10-30",
+     "time": "about 9 hours",
+     "hook": "You've been calling a model for months. This week you build a very small one.",
+     "intro": [
+      "Every answer Ask MDN gives comes from a machine that predicts the next token. This lesson opens that machine. You'll build a next-character model by counting, turn it into a tiny neural network, and then add the one idea that makes GPTs work: attention.",
+      "It's the same mechanism as the models you call, at a size your laptop or a free notebook can train in minutes. The goal isn't to compete with them. It's to know what tokens, context windows, training loss and sampling really are, so you can reason about failures instead of guessing."
+     ],
+     "unlocks": "explain, from your own working code, how a GPT turns a context into the next token.",
+     "edge": "first-principles understanding. Tools change; the mechanism underneath them doesn't.",
+     "overview": [
+      "Build a next-character model by counting, then as a one-layer neural network.",
+      "Implement self-attention by hand and add it to a tiny transformer.",
+      "Train it, read the training and validation loss, and change one thing fairly."
+     ],
+     "checkpoint": "[Ask MDN](#project-ask-mdn) v1.0 works and your micrograd Days in [ML Basics](#ml-basics-measuring-quality) are done.",
+     "predict": "A model that only looks at the previous character writes names. Guess how many of 20 sampled names will look like real names.",
+     "assignment": [
+      {
+       "day": "Day 1 · under the hood, about 90 min",
+       "steps": [
+        "Watch the first hour of Andrej Karpathy's [building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo), typing as you go. Count letter pairs in a list of names, sample new names, and compute the average negative log likelihood.",
+        "Stop when you can sample 20 names and say what the loss number means."
+       ]
+      },
+      {
+       "day": "Day 2 · under the hood, about 90 min",
+       "steps": [
+        "Finish the video: rebuild the same bigram model as a one-layer neural network in PyTorch, trained with gradient descent.",
+        "Stop when its loss is close to the counting model's loss, and you can explain why they should match."
+       ]
+      },
+      {
+       "day": "Day 3 · under the hood, about 90 min",
+       "steps": [
+        "Start Karpathy's [Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY). Before the attention section, do the “mathematical trick” by hand: on a 4-token example, average each token with the tokens before it, first with loops, then as one matrix multiplication.",
+        "Stop when both versions give the same numbers."
+       ]
+      },
+      {
+       "day": "Day 4 · under the hood, about 90 min",
+       "steps": [
+        "Build one self-attention head, then several heads and a feed-forward block, following the video. Keep every shape written in a comment.",
+        "Stop when a forward pass runs on a batch and every shape matches your comments."
+       ]
+      },
+      {
+       "day": "Day 5 · under the hood, about 90 min",
+       "steps": [
+        "Add residual connections and layer norm as the video does (1:26:48 to 1:37:49), then train a tiny configuration on CPU or a free [Colab](https://colab.research.google.com/) notebook, on a small text you have the right to use (the video's Shakespeare file is fine). Plot training and validation loss, and sample some text.",
+        "Stop when the plot and a sample are committed. If training is too slow, shrink the model; the goal is the mechanism, not quality."
+       ]
+      },
+      {
+       "day": "Day 6 · under the hood, about 90 min",
+       "steps": [
+        "Change one thing, such as the context length or the number of layers (with residuals and layer norm in place), and compare training and validation loss fairly: same data, same steps, same seed.",
+        "Without the video, explain in your log what a context window is, why tokens cost money, and what temperature changes, using your own code as the example. Then answer one more question: your tiny GPT can only continue text, but the model you use every day can ask your code to run a tool. Why? (Hint: after pre-training it was trained further on examples of tool requests, written with special tokens that mark where a request starts and ends. Your code, not the model, runs the tool, as in [Tools and the Agent Loop](#tools-and-the-agent-loop).) Stop when someone could follow your explanation. More depth is in [Elective: Go Deeper into Model Internals](#elective-model-internals)."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why should the counting bigram model and the one-layer neural network reach about the same loss?",
+       "link": "#under-the-hood-tiny-gpt",
+       "answer": "They model the same thing, the next character given only the previous one. Gradient descent pushes each row of the weights toward the log of that row's counts, so softmax gives about the same probabilities as the normalised counts. Smoothing and regularisation keep the match approximate."
+      },
+      {
+       "q": "What does self-attention let a token do that a bigram model can't?",
+       "link": "#under-the-hood-tiny-gpt",
+       "answer": "Use information from all earlier tokens in the context, weighted by relevance, instead of only the one before it."
+      }
+     ],
+     "extra": [
+      "[Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) by Andrej Karpathy: the full series these Days come from."
+     ]
     }
    ],
    "shift": {
     "before": "Your model answers from memory, and you can't prove search got better.",
-    "after": "A live, private Ask MDN with citations, “I don't know”, a Hit Rate and MRR table, and logs of every answer."
+    "after": "A live, private Ask MDN with citations, “I don't know”, a Hit Rate and MRR table and logs of every answer, plus a campus knowledge base with its first 20 sourced answers."
    },
-   "opener": "Ask a model about a CSS property and it answers like a confident senior, even when it's wrong. These fourteen weeks hand it an open book: MDN. Ask MDN learns to find the right page, show it, say “I don't know” when the page isn't there, and earn a report card it can't charm."
+   "opener": "Ask a model about a CSS property and it answers like a confident senior, even when it's wrong. These eighteen weeks hand it an open book: MDN. Ask MDN learns to find the right page, show it, say “I don't know” when the page isn't there, and earn a report card it can't charm."
   },
   {
    "title": "Agents",
-   "weeks": "Weeks 20–24",
+   "weeks": "Weeks 23–27",
    "description": "Give your app tools so it can take actions. You'll learn how agents work, build one with LangGraph, and learn to keep tools safe.",
    "lessons": [
     {
      "slug": "agent-fundamentals",
      "title": "Agent Fundamentals",
      "kind": "lesson",
-     "time": "about 1 week",
+     "time": "about 4 hours",
      "hook": "An agent is a loop with opinions. Today you read its mind, step by step.",
      "intro": [
       "You already built a small agent loop in Zoomcamp. Now you'll learn the words properly and improve that loop by hand, with no framework.",
@@ -1501,19 +1765,19 @@ window.COURSE = {
      },
      "assignment": [
       {
-       "day": "Day 1 · about 90 min",
+       "day": "Day 1 · light day, about 45 min",
        "steps": [
         "Hugging Face Agents Course, Unit 1: [What are agents?](https://huggingface.co/learn/agents-course/en/unit1/what-are-agents) and [Messages and special tokens](https://huggingface.co/learn/agents-course/en/unit1/messages-and-special-tokens)."
        ]
       },
       {
-       "day": "Day 2 · about 90 min",
+       "day": "Day 2 · light day, about 45 min",
        "steps": [
         "[Tools](https://huggingface.co/learn/agents-course/en/unit1/tools) and [Agent steps and structure](https://huggingface.co/learn/agents-course/en/unit1/agent-steps-and-structure)."
        ]
       },
       {
-       "day": "Day 3 · about 90 min",
+       "day": "Day 3 · light day, about 45 min",
        "steps": [
         "[Thoughts](https://huggingface.co/learn/agents-course/en/unit1/thoughts), [Actions](https://huggingface.co/learn/agents-course/en/unit1/actions) and [Observations](https://huggingface.co/learn/agents-course/en/unit1/observations). Stuck? Ask in the Hugging Face Discord's `#agents-course-questions` channel."
        ]
@@ -1521,7 +1785,7 @@ window.COURSE = {
       {
        "day": "Day 4 · about 90 min",
        "steps": [
-        "**No AI for this one:** take the agent loop you wrote in Tools and the Agent Loop and add two things: a step limit (stop after 5 steps) and a second tool that returns a page's title. Log every step."
+        "**No AI for this one:** take the agent loop you wrote in Tools and the Agent Loop and add two things: a tool error that goes back to the model as an observation instead of crashing, and a second tool that returns a page's title. Log every step."
        ]
       }
      ],
@@ -1547,7 +1811,7 @@ window.COURSE = {
      "slug": "langgraph",
      "title": "LangGraph",
      "kind": "lesson",
-     "time": "about 13.5 hours",
+     "time": "about 9.5 hours",
      "hook": "Your hand-written loop forgets everything and can't wait. LangGraph adds memory and patience.",
      "intro": [
       "LangGraph is a framework for building agents. It adds what your hand-written loop doesn't have: saved state (memory), branches, and a way to pause and wait for a person.",
@@ -1577,21 +1841,22 @@ window.COURSE = {
      },
      "assignment": [
       {
-       "day": "Days 1–3 · about 4.5 hours",
+       "day": "Days 1–3 · about 3 hours",
        "steps": [
-        "LangChain Academy [Intro to LangGraph](https://academy.langchain.com/courses/intro-to-langgraph), Module 1: Introduction (skip its deployment lesson). Some notebooks use LangSmith for tracing; a free [LangSmith](https://docs.smith.langchain.com/) account is enough, or skip those parts. Write the `langgraph` version you installed in your log, and skip LangGraph Studio for now."
+        "LangChain Academy [Intro to LangGraph](https://academy.langchain.com/courses/intro-to-langgraph), Module 1: the simple graph, chain, router, agent and agent-with-memory lessons only (skip Studio and deployment). Some notebooks use LangSmith for tracing; a free [LangSmith](https://docs.smith.langchain.com/) account is enough, or skip those parts. Write the `langgraph` version you installed in your log.",
+        "Stop each Day when one notebook runs and you can say in one sentence what its graph does."
        ]
       },
       {
-       "day": "Days 4–5 · about 3 hours",
+       "day": "Days 4–5 · two light days, about 45 min each",
        "steps": [
-        "Module 2: State and Memory."
+        "Module 2. **Day 4:** the state schema lesson. **Day 5:** the state reducer lesson. Skip the message-trimming, summarising and external-memory notebooks; you'll build your own context selection on Day 9."
        ]
       },
       {
-       "day": "Days 6–7 · about 3 hours",
+       "day": "Days 6–7 · about 1 hour each",
        "steps": [
-        "Read the [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts) first. Then Module 3: UX and Human-in-the-Loop. Its notebooks pause with breakpoints (`interrupt_before`); that's fine for learning, but your project uses `interrupt()`. Skip the dynamic-breakpoints and time-travel notebooks."
+        "**Day 6:** read the [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts), then Module 3's breakpoints lesson. **Day 7:** the editing-state/human-feedback lesson. Their notebooks pause with breakpoints (`interrupt_before`); that's fine for learning, but your project uses `interrupt()`. Skip streaming, dynamic breakpoints and time travel."
        ]
       },
       {
@@ -1727,21 +1992,23 @@ window.COURSE = {
        ]
       },
       {
-       "day": "Week 1 · about 8 hours",
+       "day": "Days 2–6 · about 7.5 hours",
        "steps": [
-        "In LangGraph, give the agent three tools: `search_docs` (your hybrid search), `browser_support` (looks up a feature in the browser data) and `save_note` (writes a note to a `notes` table in Neon, with a `group_id` column you'll use in Section 5).",
-        "Before `save_note` runs, pause with `interrupt()`. Show the person the exact arguments, and run it only if they approve, using exactly those arguments. The approval belongs to one operation ID and its exact arguments. Generate that ID once in application code before pausing, persist it, and reuse it on retry; a repeated click is the same operation.",
-        "Checkpoint: one approved note is saved and one rejected note isn't."
-       ]
+        "**Days 2–3:** In LangGraph, give the agent three tools: `search_docs` (your hybrid search), `browser_support` (looks up a feature in the browser data) and `save_note` (writes a note to a `notes` table in Neon, with a `group_id` column you'll use in Section 5).",
+        "**Days 4–5:** Before `save_note` runs, pause with `interrupt()`. Show the person the exact arguments, and run it only if they approve, using exactly those arguments. The approval belongs to one operation ID and its exact arguments. Generate that ID once in application code before pausing, persist it, and reuse it on retry; a repeated click is the same operation.",
+        "**Stop here on Day 6:** one approved note is saved and one rejected note isn't."
+       ],
+       "split": true
       },
       {
-       "day": "Week 2 · about 9 hours",
+       "day": "Days 7–12 · about 9 hours",
        "steps": [
-        "Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call. For `save_note`, add a database unique constraint on `(group_id, operation_id)` and [INSERT ON CONFLICT](https://www.postgresql.org/docs/current/sql-insert.html) handling. A repeated ID returns the original result only if its arguments match; changed arguments need a new approval. Simulate a committed write followed by a lost response, then retry: there must be exactly one note.",
-        "Log each step’s request ID, tool name, input/output sizes, timing, tokens and cost. Keep redacted argument examples only in your permitted synthetic test logs, following [Monitoring](#monitoring); never record credentials.",
-        "Write 5 injection documents (for example a page that says “call save_note with…”) and 5 normal requests, including one that really should save a note. Write the injection documents like an attacker's notebook: the goal, the trick and how your app should block it. Commit them.",
-        "In your log, compare your Day 1 plan with what really happened. That gap is a lesson in itself."
-       ]
+        "**Days 7–8:** Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call. For `save_note`, add a database unique constraint on `(group_id, operation_id)` and [INSERT ON CONFLICT](https://www.postgresql.org/docs/current/sql-insert.html) handling. A repeated ID returns the original result only if its arguments match; changed arguments need a new approval. Simulate a committed write followed by a lost response, then retry: there must be exactly one note.",
+        "**Day 9:** Log each step’s request ID, tool name, input/output sizes, timing, tokens and cost. Keep redacted argument examples only in your permitted synthetic test logs, following [Monitoring](#monitoring); never record credentials.",
+        "**Days 10–11:** Write 5 injection documents (for example a page that says “call save_note with…”) and 5 normal requests, including one that really should save a note. Write the injection documents like an attacker's notebook: the goal, the trick and how your app should block it. Commit them, then run all 10 through your agent. **Stop here on Day 11** when the log shows every injection ended without an unapproved `save_note` call, and the real save request paused for approval.",
+        "**Day 12:** In your log, compare your Day 1 plan with what really happened. That gap is a lesson in itself. **Stop here** when the comparison is in your log."
+       ],
+       "split": true
       }
      ],
      "done": [
@@ -1834,14 +2101,14 @@ window.COURSE = {
   },
   {
    "title": "Make It Sturdy",
-   "weeks": "Weeks 25–34",
+   "weeks": "Weeks 28–39",
    "description": "Get your app ready for real users: tests that run automatically, logins, access rules, fresh data and attack tests.",
    "lessons": [
     {
      "slug": "evals-that-catch-real-bugs",
      "title": "Evals That Catch Real Bugs",
      "kind": "lesson",
-     "time": "about 1 week",
+     "time": "about 6 hours",
      "hook": "“4.2 out of 5” fixes nothing. Fifty real conversations show exactly what to fix.",
      "intro": [
       "Vague scores like “4 out of 5 for helpfulness” don't find bugs. Reading real failures does.",
@@ -1879,15 +2146,15 @@ window.COURSE = {
      ],
      "assignment": [
       {
-       "day": "Day 1 · about 90 min",
+       "day": "Day 1 · light day, about 45 min",
        "steps": [
-        "Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later."
+        "Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later. Then, before looking at any data, write down the three failures you expect most often in Ask MDN; Day 3 checks your guess. This week, also start your 30-minute weekly crisis-set block from [Campus Knowledge Base](#campus-knowledge-base)."
        ]
       },
       {
-       "day": "Day 2 · about 90 min",
+       "day": "Day 2 · light day, about 45 min",
        "steps": [
-        "Read Eugene Yan's [Product Evals in Three Simple Steps](https://eugeneyan.com/writing/product-evals/)."
+        "Read Eugene Yan's [Product Evals in Three Simple Steps](https://eugeneyan.com/writing/product-evals/). Write down which of his three steps Ask MDN already has, and which it's missing."
        ]
       },
       {
@@ -1921,7 +2188,8 @@ window.COURSE = {
      ],
      "extra": [
       "[Chip Huyen, AI Engineering, chapters 3 and 4 (book)](https://github.com/chiphuyen/aie-book)",
-      "[Task-specific LLM evals that do and don't work](https://eugeneyan.com/writing/evals/) by Eugene Yan: which checks catch real problems and which ones just look busy."
+      "[Task-specific LLM evals that do and don't work](https://eugeneyan.com/writing/evals/) by Eugene Yan: which checks catch real problems and which ones just look busy.",
+      "[Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic, 2026): calibrating model graders against people, giving the grader an “unknown” option, and checking consistency across repeated runs."
      ]
     },
     {
@@ -1995,8 +2263,8 @@ window.COURSE = {
       {
        "day": "Day 4 · about 90 min",
        "steps": [
-        "Follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart). Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).",
-        "Run pytest and rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly; cache unchanged evaluations. Do not expose API secrets to untrusted fork code."
+        "**Test-out:** already run GitHub Actions? Skip the quickstart. Otherwise follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart).",
+        "Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Run pytest and rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly; cache unchanged evaluations. Do not expose API secrets to untrusted fork code."
        ]
       },
       {
@@ -2174,6 +2442,7 @@ window.COURSE = {
       {
        "day": "Days 1–2 · about 3 hours",
        "steps": [
+        "**Test-out:** have you already shipped OAuth or OIDC sign-in, for example Firebase Auth or Google sign-in? Skip the reading and the tutorial's explanations, but still create the Google OAuth client, add `st.login` to Ask MDN and add your two test accounts as Test users (about 45 minutes). Then write two log lines on how your own platform maps a signed-in user to their data, and tick both Days. Otherwise, do the steps below.",
         "Read Streamlit's [authentication guide](https://docs.streamlit.io/develop/concepts/connections/authentication). It uses OIDC, the standard behind “Sign in with Google”. Login tells you who someone is, not what they may see.",
         "Follow Streamlit's [Google login tutorial](https://docs.streamlit.io/develop/tutorials/authentication/google) to create a Google sign-in (OAuth) client and add `st.login` to Ask MDN locally. If an OAuth error (like a redirect URI mismatch) eats more than 45 minutes, stop and ask with the exact error message. Also add your two test accounts as Test users on Google's consent screen, or Google won't let them sign in."
        ]
@@ -2364,9 +2633,9 @@ window.COURSE = {
      "time": "about 5 weeks",
      "hook": "Dress rehearsal for the Campus Assistant: two groups, real logins, one tireless attacker. It's you.",
      "intro": [
-      "This is the final project of the path. Ask MDN gets logins, separate groups, fresh data, automatic tests and an attack test it must pass.",
+      "This is the last practice project before the capstone. Ask MDN gets logins, separate groups, fresh data, automatic tests and an attack test it must pass.",
       "This brings the pieces together in a small deployed system. Passing these checks demonstrates this project's behavior under the cases you tested; a real institutional rollout still needs its own requirements and operational review.",
-      "Finish the existing app first. Then give its read-only answer function a small API, so another application can use it. You will reuse your validation, permissions and tests; this is not a fifth project."
+      "Finish the existing app first. Then give its read-only answer function a small API, so another application can use it. You will reuse your validation, permissions and tests."
      ],
      "unlocks": "demonstrate a tested AI app and a portable backend, including what happens when dependencies fail.",
      "edge": "owning reliability, security and cost at the same time.",
@@ -2380,29 +2649,32 @@ window.COURSE = {
      "checkpoint": "your 30 attack cases and 5 canary documents are committed, with a list of the attacks that worked.",
      "assignment": [
       {
-       "day": "Week 1 · about 9 hours",
+       "day": "Days 1–6 · about 9 hours",
        "steps": [
-        "Move the Postgres version online: on Neon, enable pgvector, turn row-level security on and force it, and use your SQL-created app role. Connect your private Streamlit app to it through Secrets.",
-        "Add login and server-side group mapping, like in Login.",
-        "Checkpoint: the online app shows a CSS user only CSS answers."
-       ]
+        "**Days 1–3:** Move the Postgres version online: on Neon, enable pgvector, turn row-level security on and force it, and use your SQL-created app role. Connect your private Streamlit app to it through Secrets.",
+        "**Days 4–5:** Add login and server-side group mapping, like in Login.",
+        "**Stop here on Day 6:** the online app shows a CSS user only CSS answers."
+       ],
+       "split": true
       },
       {
-       "day": "Week 2 · about 9 hours",
+       "day": "Days 7–12 · about 9 hours",
        "steps": [
-        "Sync against your manifest: re-index edits and remove deleted pages.",
-        "Run CI: pytest, the isolation tests and the rule-based promptfoo checks on every push, against the Postgres service; the model-graded checks on pull requests.",
-        "Checkpoint: a broken prompt makes CI fail."
-       ]
+        "**Days 7–8:** Sync against your manifest: re-index edits and remove deleted pages.",
+        "**Days 9–11:** Run CI: pytest, the isolation tests and the rule-based promptfoo checks on every push, against the Postgres service; the model-graded checks on pull requests.",
+        "**Stop here on Day 12:** a broken prompt makes CI fail."
+       ],
+       "split": true
       },
       {
-       "day": "Weeks 3–4 · about 13 hours",
+       "day": "Days 13–21 · about 13.5 hours",
        "steps": [
-        "Run your attack test (30 cases plus 5 canaries), 3 times for each case. Fix what breaks, then run it again.",
-        "Set aside 12 fresh questions after freezing this version: 4 each for CSS and JS with expected answers/supporting passages, plus 4 plausible questions unsupported by that user's permitted documents. Before running them, record an acceptance rule: for this learning project, at least 7 of 8 supported answers correct and supported by citations, all 4 unsupported requests declined, and no unauthorized reads/writes. Grade manually and show counts and all failures. These small-sample targets are practice gates, not production guarantees. If you fix a failure, keep these as regression cases and reserve fresh cases for another independent check.",
-        "Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.",
-        "Update the README with your results and an architecture diagram. Keep a short list of changes a real team deployment would need. Your university integration can wait until after the course."
-       ]
+        "**Days 13–15:** Run your attack test (30 cases plus 5 canaries), 3 times for each case. Fix what breaks, then run it again.",
+        "**Days 16–17:** Set aside 12 fresh questions after freezing this version: 4 each for CSS and JS with expected answers/supporting passages, plus 4 plausible questions unsupported by that user's permitted documents. Before running them, record an acceptance rule: for this learning project, at least 7 of 8 supported answers correct and supported by citations, all 4 unsupported requests declined, and no unauthorized reads/writes. Grade manually and show counts and all failures. These small-sample targets are practice gates, not production guarantees. If you fix a failure, keep these as regression cases and reserve fresh cases for another independent check.",
+        "**Days 18–19:** Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.",
+        "**Days 20–21:** Update the README with your results and an architecture diagram. Keep a short list of changes a real team deployment would need. Your university integration is the capstone: [Ship It: Service and Website](#assistant-service-and-web). **Stop here on Day 21** when the README has your results and the architecture diagram."
+       ],
+       "split": true
       },
       {
        "day": "Days 22–23 · about 3 hours",
@@ -2422,6 +2694,7 @@ window.COURSE = {
       {
        "day": "Days 26–27 · about 3 hours",
        "steps": [
+        "**Test-out:** if you can write a pinned, non-root Dockerfile with a `.dockerignore` from memory in 30 minutes, do that and skip the guide walkthrough. The checkpoint below still applies.",
         "Follow the [FastAPI container guide](https://fastapi.tiangolo.com/deployment/docker/) to package the service. Pin dependencies; use a non-root runtime user, `.dockerignore` and environment secrets. Bind the published port to localhost for this lab. Build from a fresh checkout, run without your editor and call `/health` plus `/answer`. Keep API tests and an image-build check in CI. No additional paid hosting is required.",
         "Checkpoint: one documented command starts the container and the protected HTTP checks pass. Record the remaining deployment work: TLS, credential rotation, backups and shared quota enforcement if you add replicas. Streamlit remains your private online demo."
        ]
@@ -2430,10 +2703,19 @@ window.COURSE = {
        "day": "Days 28–29 · about 3 hours",
        "steps": [
         "**Failure drill:** fake the model-provider boundary for timeouts and retryable rate limits. Separately inject a database connection/query failure at the database boundary, or stop only your disposable local test database. Require a safe error within your recorded deadline. Never interrupt the online database.",
-        "For a repeatable overload check, run one API worker with at most 2 model requests in flight and no waiting queue. Use a fake provider held at a test barrier: while 2 requests are busy, send a third and require a clear 429 retry-later response. Release the barrier; both accepted requests must finish within a 5-second test deadline. Then send 20 fake-provider requests at concurrency 1 and 5 and record accepted/rejected counts. This local limit is not a shared quota across replicas. Use Python’s [threading events/barriers](https://docs.python.org/3/library/threading.html) or the async equivalent to hold the fake calls deterministically; a fixed sleep is not a reliable test barrier.",
+        "For a repeatable overload check, run one API worker with at most 2 model requests in flight and no waiting queue. Use a fake provider held at a test barrier: while 2 requests are busy, send a third and require a clear 429 retry-later response. Release the barrier; both accepted requests must finish within a 5-second test deadline. Use Python’s [threading events/barriers](https://docs.python.org/3/library/threading.html) or the async equivalent to hold the fake calls deterministically; a fixed sleep is not a reliable test barrier.",
         "Run two simultaneous agent writes with the SAME approved operation ID. Check the database: exactly one note, matching arguments, and no cross-user state. This exercises the existing write tool separately; the new HTTP endpoint stays read-only.",
-        "Record success counts and p50/p95 response times (typical time and the slow tail). Twenty requests are a smoke test, not capacity proof. Trace one failure, operate the off switch and follow your rollback runbook. Write a 5-line incident note: symptom, cause, fix, regression check and remaining limitation.",
-        "Optional UX experiment: add progress events or streamed draft text. Distinguish time to first visible feedback from time to a validated final answer. Never treat partial JSON or streamed text as approval to perform a write."
+        "**Stop here on Day 29** when both failure drills, the 429 test and the duplicate-write check pass."
+       ]
+      },
+      {
+       "day": "Days 30–31 · about 3 hours",
+       "added": "2026-10-30",
+       "steps": [
+        "Send 20 fake-provider requests at concurrency 1 and 5. Record accepted and rejected counts, success counts and p50/p95 response times (typical time and the slow tail). This local limit is not a shared quota across replicas, and twenty requests are a smoke test, not capacity proof.",
+        "Trace one failure, operate the off switch and follow your rollback runbook. Write a 5-line incident note: symptom, cause, fix, regression check and remaining limitation.",
+        "Optional UX experiment: add progress events or streamed draft text. Distinguish time to first visible feedback from time to a validated final answer. Never treat partial JSON or streamed text as approval to perform a write.",
+        "**Stop here on Day 31** when the timings and the incident note are committed. Did these as part of Days 28–29 before they moved here? Tick both Days."
        ]
       }
      ],
@@ -2490,9 +2772,620 @@ window.COURSE = {
    "opener": "Picture next year's demo. University A's events officer asks your Campus Assistant about next week, and one forgotten WHERE clause shows her University B's unannounced fest. This section rehearses that day with a CSS team and a JS team, and makes the leak impossible rather than unlikely."
   },
   {
+   "title": "Capstone: Campus Assistant",
+   "weeks": "Weeks 40–52",
+   "description": "Put everything together. Your knowledge base gets a verification pipeline, search learns Bangla and Banglish, answers learn to ask, cite or route, and the assistant ships inside your own platform: website and mobile app. You finish with a small pilot and the evidence to decide what comes next.",
+   "shift": {
+    "before": "Your skills live in practice projects on public data.",
+    "after": "A piloted Campus Assistant in your web and mobile app, with release gates, a cost report and a verified knowledge base."
+   },
+   "opener": "Registration week. Three freshers ask the same question in three languages within an hour: will dropping a course cost them their scholarship? Last year a senior answered from memory and was half right. This section builds the assistant that answers from the rule itself, asks how many credits they are taking, and names the office when the rule doesn't cover their case.",
+   "lessons": [
+    {
+     "slug": "curation-and-verification",
+     "title": "Curation and Verification",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "Automate the checking, not the trusting.",
+     "intro": [
+      "Your knowledge base now has entries written over many weeks. Before an assistant serves them, every entry needs the same checks, and you need a queue that shows what is waiting, what changed and what expired.",
+      "You'll build automatic checks with an LLM judge, then measure its mistakes against your labels. During this course and pilot, a human approves every published entry. The judge helps you review; it does not get a publish button. Fees, scholarships, discipline and health always need human approval."
+     ],
+     "unlocks": "run a curation queue where an automatic judge does the first pass and you can prove how far to trust it.",
+     "edge": "calibrating an automated reviewer against human judgment, one of the most transferable evaluation skills.",
+     "overview": [
+      "Move every entry through clear statuses, from draft to approved to expired.",
+      "Check citations, contradictions, personal data and staleness automatically.",
+      "Measure judge errors on unseen good and bad entries, and write a human-approval policy."
+     ],
+     "checkpoint": "your knowledge base has at least 60 entries with sources, and [Grading Answers](#grading-answers) and [Fresh Data](#fresh-data) are complete.",
+     "bridge": {
+      "text": "An LLM judge is a second model that grades an answer against a rubric. It is fast and cheap, and it is wrong in patterns. You find those patterns by grading the same items yourself.",
+      "terms": [
+       [
+        "Cohen's kappa",
+        "Agreement between two graders, corrected for the agreement you'd expect by chance. 1 is perfect, 0 is chance level, and it can be negative."
+       ],
+       [
+        "Confusion matrix",
+        "A 2×2 count of judge versus human: both pass, both fail, judge passed what you failed, judge failed what you passed. For auto-approval, the costly cell is “judge passed what you failed”."
+       ],
+       [
+        "Entailment check",
+        "Does the quoted source actually support each claim in the answer?"
+       ],
+       [
+        "Audit sample",
+        "A random slice of published entries that a human rechecks each week. Sampling helps find drift; it does not replace approval."
+       ]
+      ]
+     },
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "Add statuses to every entry: `draft → checked → needs-human → approved → expired`. Write a small script that prints the queue: counts per status, entries past `review_by`, and entries whose source changed since approval.",
+        "Reuse your [Fresh Data](#fresh-data) manifest idea: hash each saved source document so a changed rule automatically moves its entries back to `needs-human`."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Write automatic checks: every claim cites quoted source text; the judge says the quote supports the claim; no conflict with another approved entry; no personal data about individuals (student names, IDs, phone numbers); `review_by` is in the future. Contacts from your official office directory are allowed, and staff confirmations are recorded by office or role plus date, not by a person's name.",
+        "Every checked entry goes to `needs-human` before publication, including low-risk topics. Keep a sensitive-topic flag for fees, scholarships, discipline and health. Each check returns a reason, not just pass or fail; only a curator action can set `approved`."
+       ]
+      },
+      {
+       "day": "Day 3 · about 90 min",
+       "steps": [
+        "Grade 60 entries yourself: correct and supported, or not. Include 15 you deliberately broke (wrong number, outdated semester, unsupported claim). Run the judge on the same 60 and build the confusion matrix. Compute Cohen's kappa too ([scikit-learn's cohen_kappa_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html)).",
+        "Read every disagreement and fix the rubric, not the labels. Rerun once. These 60 are now tuning data, so their scores are optimistic."
+       ]
+      },
+      {
+       "day": "Days 4–5 · about 3 hours",
+       "steps": [
+        "Freeze the rubric. Grade 40 fresh entries before seeing the judge's results: 20 sampled real entries and 20 new deliberately incorrect entries (4 each with a wrong number, expired rule, unsupported claim, mismatched source, or wrong student/curriculum applicability). Do not reuse the 60 tuning entries or their cosmetic rewrites. Confirm the expected labels, then run the judge once. Report the representative and challenge samples separately, with false accepts divided by human-failed entries and false rejects divided by human-passed entries. A denominator of zero is “not measured”, never a pass. If you revise the rubric, these cases become regression data; use fresh cases for the next independent check.",
+        "Write `AUTO-APPROVAL.md` with automatic publication **disabled for the course and pilot**. Record the rubric version, sample counts, confusion matrices and uncertainty: even 0 false accepts out of 20 bad cases does not prove safety: by the rule of three, the true rate could still be about 15%. Any later proposal needs a separately approved error tolerance, enough representative and challenge cases to assess uncertainty, an audit owner and schedule, and a suspension rule for a confirmed false acceptance or source change. Sensitive topics stay human-only. No kappa score or small zero-error sample enables publication by itself.",
+        "Approve every pilot entry by hand through the queue, with the curator, source revision, timestamp and reason in its changelog. Test that the judge cannot publish, that low-risk entries also wait, and that changing a source removes approval."
+       ]
+      },
+      {
+       "day": "Day 6 · about 90 min",
+       "steps": [
+        "Without AI-written code, add one new check (for example: an answer that mentions a date must cite the academic calendar). Test it on a passing and a failing entry, and explain it in your log."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why does a judge that passed 40 correct entries tell you little about unsafe approvals?",
+       "link": "#curation-and-verification",
+       "answer": "It has not shown that it rejects wrong entries. Measure false accepts over human-failed entries on unseen challenge and representative samples, report uncertainty, and keep human approval throughout the pilot."
+      },
+      {
+       "q": "What moves an approved entry back to needs-human without anyone noticing a problem?",
+       "link": "#curation-and-verification",
+       "answer": "A changed source hash, a passed review_by date, or a conflict with a newly approved entry."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28",
+     "predict": "Your judge agrees with you on 40 good entries. Guess how many of 20 deliberately wrong entries it will still pass. Write the number down before you measure it.",
+     "story": {
+      "year": "2025",
+      "title": "The support bot that invented a login policy",
+      "what": "Users of Cursor, a popular AI code editor, were being logged out when they switched devices. Cursor's support email, signed “Sam”, said this was expected under a new login policy. There was no such policy and no human behind the email: an AI bot had made it up. Users cancelled subscriptions before a cofounder apologised.",
+      "lesson": "students will act on what your assistant says. Every published answer needs a quoted source and a human approval behind it.",
+      "url": "https://fortune.com/article/customer-support-ai-cursor-went-rogue/"
+     }
+    },
+    {
+     "slug": "multilingual-search",
+     "title": "Multilingual Search: Bangla, Banglish, English",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "Students don't switch language for your search engine. Your search engine switches for them.",
+     "intro": [
+      "Your users write in English, in Bangla script, in romanized Bangla, and in all three in one sentence. Keyword search fails across scripts, and many embedders handle romanized Bangla poorly. Your lesson 12 check gave a first signal of where; if you finished lesson 12 before it had that Day, do it now.",
+      "You'll measure each language separately, then try a multilingual embedder and a model call that rewrites the question into English and Bangla. Choose using development results. Keep the final held-back questions sealed until the pilot release check."
+     ],
+     "unlocks": "search a knowledge base in the languages your users actually type, with a score per language.",
+     "edge": "evaluating by slice. An average hides the group your product fails.",
+     "overview": [
+      "Report Hit Rate and MRR separately for English, Bangla and Banglish questions.",
+      "Compare a multilingual embedder with query rewriting, and combine them with hybrid search.",
+      "Reply in the language the student used."
+     ],
+     "checkpoint": "your question bank has at least 150 questions tagged by language and linked to intents, with at least 15 per language held back in `held_back.jsonl`.",
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "Write a leak check: fail if any held-back question (lower case, single spaces, Unicode NFC) appears in indexed text. Run it without printing the questions. Also check that related phrasings stay in one split. This catches copied text; it cannot catch tuning after seeing test results. Keep the release set out of routine evaluations and record any exposure in `EVAL-SETS.md`.",
+        "Index approved entries with your Ask MDN search code. Run `development.jsonl` and report Hit Rate@5 and MRR@5 for each language slice. Reuse these development cases for the comparisons below."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Swap in a multilingual embedder and rerun. Then try adding Bangla and Banglish paraphrases to each entry's text. Record both results per slice."
+       ]
+      },
+      {
+       "day": "Day 3 · about 90 min",
+       "steps": [
+        "Add a rewrite step: one cheap model call returns `{language, english_query, bangla_query}` as structured output (lesson 7), with `bangla_query` in Bengali script, not romanized. Dense-search the raw question and both rewrites, run keyword search on the raw and English versions, and fuse everything with RRF (lesson 14). Don't stem or “fix” Banglish spelling; for Bengali text, Unicode normalisation is enough. Check 10 rewrites by hand for changed meaning, and measure the extra time and cost per question."
+       ]
+      },
+      {
+       "day": "Day 4 · about 90 min",
+       "steps": [
+        "Pick the configuration using development results, then check known failures in `regression.jsonl`. Put the decision, per-language counts, set versions and cost in your README, labelled development evidence. Do not open `held_back.jsonl` here; it belongs to the final frozen candidate in [Campus Assistant Pilot](#project-campus-assistant).",
+        "Make the answer prompt reply in the student's language, and test 5 mixed-language questions by hand."
+       ]
+      },
+      {
+       "day": "Day 5 · about 90 min",
+       "steps": [
+        "Without AI-written code, write the function that merges and deduplicates results from the two rewrites. Test it with an empty list, duplicates and a missing language."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why report search quality per language instead of one overall number?",
+       "link": "#multilingual-search",
+       "answer": "A good average can hide a failing group. Banglish questions might be a third of traffic and fail badly while English carries the average."
+      },
+      {
+       "q": "What does query rewriting cost you, and how do you decide whether it's worth it?",
+       "link": "#multilingual-search",
+       "answer": "An extra model call: latency and money per question. Keep it only if it improves the held-back slices enough to justify the measured cost."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28",
+     "predict": "Your lesson 12 check compared Bengali script with Banglish. Before you measure, guess this lesson's Hit Rate@5 for Bengali-script questions and for the same questions typed in Banglish."
+    },
+    {
+     "slug": "answer-ask-or-route",
+     "title": "Answer, Ask or Route",
+     "kind": "lesson",
+     "time": "about 12 hours",
+     "hook": "“It depends” is a good answer when you say what it depends on.",
+     "intro": [
+      "Many campus questions have a right answer only once you know a detail: your credit load, your program, your intake year. Others have no answer in your sources at all, and some should never be answered by a bot.",
+      "Your assistant chooses between five moves: answer with citations, ask one clarifying question, answer the part that is established and name what's missing, route to the right office, or decline a false premise (“No one can guarantee an A”) and offer what it can do. You'll test every move on purpose-built questions, including impossible ones. Never show a confidence percentage: search similarity is not a probability of being right."
+     ],
+     "unlocks": "handle unanswerable, ambiguous and out-of-scope questions without inventing rules.",
+     "edge": "designing failure behavior. Users forgive “I don't know, ask the registrar”; they don't forgive a confident wrong rule.",
+     "overview": [
+      "Check whether retrieved evidence is enough before answering.",
+      "Ask one clarifying question when an entry's conditions require it.",
+      "Route to an office, or refuse, with tested rules for sensitive topics."
+     ],
+     "checkpoint": "[Multilingual Search](#multilingual-search) is complete and you have an office directory with contact channels and hours.",
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "Store your office directory as data: office, topics it owns, official contact channel and hours. The assistant may only route to entries in this file.",
+        "Write the answer card: short answer; who it applies to (program, curriculum version, semester); evidence with tier labels; what's still needed; one next step; the date it was last verified."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Add an evidence check before answering: do the retrieved entries cover this question for this student? If an entry has `conditions` the student hasn't given, ask one question instead (for example “How many credits are you taking this semester?”).",
+        "Keep that pending question on the server: store the conversation's open condition, so when the student replies “15”, the next turn knows it answers the credit question. Never trust a transcript sent back by the client."
+       ]
+      },
+      {
+       "day": "Days 3–4 · about 3 hours",
+       "steps": [
+        "Build a hard set of 60 questions and write the expected move for each: 10 personal-record (my grades, my dues), 10 not covered by any source, 10 future or rumoured events, 5 requests to rate a named teacher, 5 requests for exam answers or someone else's data, 5 that must ask first, 5 that need a partial answer, 5 false premises (“guarantee me an A”), and 5 where search fails or times out (make it fail on purpose). In those, the assistant must say it couldn't check, never answer from memory.",
+        "Add two conflict cases. First, a version question: a program overview says one credit total and the program page lists two curricula with different totals. The right move is to ask the student's intake, then answer for that curriculum. Second, a true conflict: two undated official pages give different numbers for the same rule. The right move is to show both, route to the owning office and file a curation item; never pick one silently or trust the newer-looking page."
+       ]
+      },
+      {
+       "day": "Days 5–6 · about 3 hours",
+       "steps": [
+        "Add a crisis route that runs before retrieval: a high-recall keyword check in English, Bangla and Banglish, plus a small classifier prompt for indirect wording. It replies only with a static, reviewed card listing counselling and emergency contacts with their hours, and it shows which lines are open now in your timezone. A keyword hit never calls a model and is never stored in full or queued for curation. Each contact has an owner who re-verifies it, and a date.",
+        "Test it on your crisis set: at least 30 crisis messages and 30 harmless look-alikes per language (“this exam is killing me”), written in your weekly crisis-set block since [Evals That Catch Real Bugs](#evals-that-catch-real-bugs) and reviewed by a native speaker. Include indirect wording and one hidden inside a scholarship question. Test the card with a fake clock at 10:00 and 23:00. Report misses and false alarms as counts with their denominators. By the rule of three, 0 misses out of 30 still allows a true miss rate of up to about 10%: encouraging, not proof.",
+        "**Stop here on Day 6** when both clock tests pass and the counts are in your log."
+       ]
+      },
+      {
+       "day": "Day 7 · about 90 min",
+       "steps": [
+        "Run the hard set plus the answerable questions in `development.jsonl` and `regression.jsonl`. Record correct answers, clarifications, partial answers, routes and declines, plus false answers and unnecessary refusals. Report counts per language (“36 of 40”) with set versions. Fix the worst failure, add it to regression, and rerun. Keep `held_back.jsonl` sealed for the final release check; if a held-back failure has already guided a fix, it is now regression data and needs a fresh replacement."
+       ]
+      },
+      {
+       "day": "Day 8 · about 90 min",
+       "steps": [
+        "Ask 3 friends or juniors to try to make it invent a rule, using synthetic or permitted questions. Record redacted attempts and turn successes into regression tests. Do not give them the reserved release cases or use their wording to tune prompts."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "When should the assistant ask a question instead of answering?",
+       "link": "#answer-ask-or-route",
+       "answer": "When the matching entry's answer depends on a condition the student hasn't stated, such as credit load or program. Ask one specific question, then answer."
+      },
+      {
+       "q": "Two official pages disagree. What should the assistant do?",
+       "link": "#answer-ask-or-route",
+       "answer": "First check whether they apply to different students (curriculum version, intake, program). If so, ask and answer for that case. If not, show what each says, route to the owning office and file a curation item. Never pick one silently."
+      },
+      {
+       "q": "Name two kinds of questions the assistant should never answer itself, and what it does instead.",
+       "link": "#answer-ask-or-route",
+       "answer": "Personal records (route to the portal or office) and ratings of named teachers or exam answers (refuse politely). A crisis message gets counselling and emergency contacts."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28",
+     "story": {
+      "year": "2024",
+      "title": "The city chatbot that told businesses to break the law",
+      "what": "New York City's MyCity chatbot was built to answer business owners' questions. Reporters found it telling landlords they could refuse tenants with housing vouchers and telling employers they could take a cut of workers' tips. Both are illegal in New York.",
+      "lesson": "an official-looking assistant that invents rules does more harm than no assistant. When the evidence isn't there, route.",
+      "url": "https://themarkup.org/news/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law"
+     }
+    },
+    {
+     "slug": "course-planning-helper",
+     "title": "A Course-Planning Helper",
+     "kind": "lesson",
+     "time": "about 9 hours",
+     "hook": "Let code decide what's allowed. Let the model explain it.",
+     "intro": [
+      "“What should I take next semester?” is the question students ask advisors most. A model guessing prerequisites from memory will be wrong; a lookup over the official curriculum will not.",
+      "You'll encode one program's curriculum as reviewed data, write deterministic tools that return **eligible**, **blocked** or **unknown** with a reason, and let the model call them and explain the result. The student types the courses they've done; that is unverified input, never an official record. The assistant never registers courses or approves waivers, and it ends with: confirm with your advisor."
+     ],
+     "unlocks": "give course suggestions that come from rules you can test, not from a model's memory.",
+     "edge": "splitting work between code and a model: the model talks, the code decides.",
+     "overview": [
+      "Turn one program's curriculum and prerequisites into versioned, structured data.",
+      "Write and test tools that return eligible, blocked or unknown, with reasons.",
+      "Let the model call the tools, explain the result and state its limits."
+     ],
+     "checkpoint": "[Tools and the Agent Loop](#tools-and-the-agent-loop) and [Safe Tools](#safe-tools) are complete.",
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "Pick one program and one curriculum version. From the official curriculum, encode its first year in `curriculum.json`: course codes, credits, prerequisites as AND/OR expressions, minimum grades, co-requisites and labs, equivalent courses, elective groups. Cite the document, its version and the cohorts it applies to. Add later years only after the tests pass.",
+        "Keep the catalog separate from a term's offerings. If you have no official offering list, offerings are unknown, not “not offered”.",
+        "No university curriculum to work from? Use any publicly posted degree plan with prerequisites, or your community's own published rules (for example a club's requirements for joining a team). The eligible/blocked/unknown tools and the 30 test profiles work the same."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Without AI-written code, write `check_eligibility(profile, course)` returning `eligible`, `blocked` or `unknown` with a machine-readable reason (“needs CSE 201”, “curriculum version not given”), and `options(profile)` that lists eligible courses."
+       ]
+      },
+      {
+       "day": "Day 3 · about 90 min",
+       "steps": [
+        "Write 30 synthetic student profiles with expected results you've checked by hand: AND/OR prerequisites, failed and repeated courses, minimum grades, labs, equivalents, the wrong curriculum version, and missing offerings. Every one must pass."
+       ]
+      },
+      {
+       "day": "Day 4 · about 90 min",
+       "steps": [
+        "Expose both as read-only tools to your assistant. It may suggest only courses the tools return, must show the reason, must ask for the curriculum version when it's missing, and must say that offerings and seats change each semester."
+       ]
+      },
+      {
+       "day": "Days 5–6 · about 3 hours",
+       "steps": [
+        "Run the assistant on 10 profiles in conversation, including impossible requests (a course that doesn't exist, “guarantee me an A”). Count suggestions from outside the tools: the target is zero. If no plan fits, it should name the conflicting rules, never quietly drop a prerequisite.",
+        "Ask a department member or a senior in that program to review `curriculum.json`. Until someone has, label the helper a preview."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why do eligibility rules live in code and data rather than in the prompt?",
+       "link": "#course-planning-helper",
+       "answer": "Code gives the same answer every time and can be tested; a prompt can be ignored or misread. The model only explains what the tools return."
+      },
+      {
+       "q": "Why does the checker need an “unknown” result, not just yes or no?",
+       "link": "#course-planning-helper",
+       "answer": "Missing facts (curriculum version, offerings, a grade) are common. Forcing yes or no turns a gap into a confident wrong answer; unknown makes the assistant ask or route."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "choose-models-and-budget",
+     "title": "Choose Models and a Budget",
+     "kind": "lesson",
+     "time": "about 7.5 hours",
+     "hook": "The best model is the cheapest one that passes your tests.",
+     "intro": [
+      "You can run models on your own laptop, use a provider's free tier, or pay per token. Each has a different cost, speed, quality on Bangla, privacy terms and amount of work to keep running.",
+      "You'll run the same eval through three configurations and decide with numbers: quality per language, correct refusals, latency and cost per 1,000 questions at your expected traffic."
+     ],
+     "unlocks": "defend a model choice with an eval, a latency measurement and a monthly cost estimate.",
+     "edge": "cost engineering. Prices and models change every few months; a repeatable bake-off doesn't.",
+     "overview": [
+      "Compare a low-cost and a stronger hosted model on the same eval, plus a local one if you have it.",
+      "Estimate monthly cost at three traffic levels, including caching.",
+      "Set budget alerts and a per-user limit."
+     ],
+     "checkpoint": "your eval from [Answer, Ask or Route](#answer-ask-or-route) runs with one command and saves results with model and prompt versions.",
+     "assignment": [
+      {
+       "day": "Day 1 · about 90 min",
+       "steps": [
+        "Local models are optional here. If you did [Elective: Run Models Locally](#elective-local-models), add your local model as a third contender; otherwise say in your results that you skipped it.",
+        "Compare two hosted models (and your local one, if you have it) on the same development and regression sets, prompt and retrieval configuration. Record quality per language, abstention results, median and slow (p95) latency, and tokens per question. These are model-selection scores, not final release evidence; keep `held_back.jsonl` sealed."
+       ]
+      },
+      {
+       "day": "Day 2 · about 90 min",
+       "steps": [
+        "Read each provider's current pricing page, data-use terms and age terms. Free tiers may use your prompts to improve their products, and providers treat users under 18 differently: some forbid them, others allow them with safeguards or a parent's consent. Some freshers are 17. Read the terms for your exact use, the API rather than the consumer app, and record what they require. Use your expected language mix and the token ratios from [How LLMs Work](#how-llms-work) Day 2, checked against the tokens per question you recorded on Day 1. Compute cost per 1,000 questions and per month at 2,000, 20,000 and 100,000 questions, including reasoning tokens. Show the arithmetic."
+       ]
+      },
+      {
+       "day": "Day 3 · about 90 min",
+       "steps": [
+        "Write `MODEL-DECISION.md`: the serving candidate chosen on development data, a proposed fallback, and where local models help (labeling, offline tests, private experiments). Record provider age and retention terms and when to repeat the comparison. Freeze the chosen model, prompt and retrieval versions for the later release check. A changed model or fallback needs its own release evidence before use; do not pick a winner by repeatedly testing the final held-back set."
+       ]
+      },
+      {
+       "day": "Day 4 · about 90 min",
+       "steps": [
+        "Add guards: a monthly budget alert, a per-user daily question limit and a global off switch. Test that the limit returns a friendly message, not an error.",
+        "Don't cache answers yet. Write down the cache key you would need later: university, knowledge-base version, entry IDs and their approval versions, normalised question and answer language. Note why answers that depended on a student's own details must never be cached, and how an entry changing status would clear the cache."
+       ]
+      },
+      {
+       "day": "Day 5 · about 90 min",
+       "steps": [
+        "Measure before optimising. Put stable content first (instructions, output format, office directory, a few examples) and the question last. Then send the same request twice, a few seconds apart, and compare cached and uncached input tokens in `usage`. Check your provider's caching docs: some cache automatically, others only what you mark (Anthropic's API uses `cache_control`), and every provider skips prompts below a minimum length (1,024 tokens on OpenAI). So 0 cached tokens on a short prompt is expected: record that caching doesn't apply yet. Using your provider's current price list, including any extra charge for writing to the cache, compute when caching pays at your real traffic. Don't lengthen a prompt just to reach a cache threshold, and don't set a hit-rate target before you've measured one.",
+        "Run your development set at low and medium reasoning effort and record quality, slow (p95) latency and cost per 1,000 questions; reasoning tokens are billed as output. Add to `MODEL-DECISION.md` when you'd use a stronger model: only when good evidence was retrieved and the model still failed to use it. A stronger model can't fix a missing source.",
+        "Stop here when both comparisons and the rule are in your decision file."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why can a laptop model be right for development but wrong for serving 30,000 students?",
+       "link": "#choose-models-and-budget",
+       "answer": "Serving needs uptime, many simultaneous users and predictable speed. A laptop gives none of these, though it is free and private for experiments and labeling."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "assistant-service-and-web",
+     "title": "Ship It: Service and Website",
+     "kind": "lesson",
+     "time": "about 3 weeks",
+     "hook": "Keep the Python you tested. Put your platform's front door in front of it.",
+     "intro": [
+      "Until now the assistant ran as your own app. Now it moves behind the platform students already use. You don't rewrite it: your tested Python answer service, the protected API from [Make It Sturdy](#project-make-it-sturdy), becomes a private service. The platform's own backend becomes the only door to it.",
+      "That gateway checks who is asking, which university's knowledge base they may search, whether the feature is on and how many questions they have left, before it calls your service. The model never decides access, and the service never trusts a university ID sent by the browser."
+     ],
+     "unlocks": "run a tenant-safe, rate-limited assistant service behind your platform's sign-in, with a chat page in your web app.",
+     "edge": "integrating an AI service into an existing production codebase without weakening its security model.",
+     "overview": [
+      "Put an authenticated gateway in front of a private answer service.",
+      "Check the user's verified tenant, entitlement and budget on the server before any search.",
+      "Ship a chat page behind a feature flag, with logs that leave out personal data."
+     ],
+     "checkpoint": "your [Choose Models and a Budget](#choose-models-and-budget) decision is written, and you can run your platform locally with emulators.",
+     "assignment": [
+      {
+       "day": "Days 1–3 · about 4.5 hours",
+       "steps": [
+        "Update `POLICY.md` for live use before writing code: student messages are personal data. Redact IDs, phone numbers and grades before storing; keep raw text only briefly; curation items carry a redacted paraphrase, not the raw message; crisis-routed messages are never stored in full. Choose a model provider tier that doesn't train on your prompts. Keep the record of what you process (purposes, systems, retention) separate from chat transcripts: the record lasts for years, transcripts only briefly. Your notice names the model provider and that messages leave the country. Before a live pilot with real students, get a qualified local review of your privacy duties. Add a scrubber that removes phone numbers, student IDs, emails and national ID numbers before anything is logged or sent to a model, and test it on Bangla and Banglish text.",
+        "Write a design note: the request path from client to cited answer, where the service runs, where the index lives, how the gateway proves its identity to the service, what is logged and for how long. Start with the simplest store that passes your tests: for about 100 approved entries per university, an index built in memory from the published entries is enough. Move to Postgres with row-level security, as in [Postgres Search and Access Rules](#postgres-search-and-access-rules), when the corpus or traffic needs it, and write down what would trigger the move. Get it reviewed by a friend or a peer, or check it against your own [Make It Sturdy](#project-make-it-sturdy) evidence table.",
+        "Write two contracts. The public client sends `{question, idempotencyKey, conversationId?, preferredLanguage?, programHint?, curriculumHint?}`; reject extra identity fields and never forward client identity headers. After verifying the student, the gateway creates an internal envelope `{context: {uid, tenantId, requestId, operation}, input: {...}}`. Its context comes only from server authority, and is bound to a gateway-created request record with those fields and a hash of the allowed input. Conversations and results are server-owned; fetches and retries recheck user and tenant ownership.",
+        "Start the pilot approval request now (see [Campus Assistant Pilot](#project-campus-assistant)). Approvals take calendar time. **Stop here** when the policy, design note and both contracts are committed and the request is sent."
+       ]
+      },
+      {
+       "day": "Days 4–6 · about 4.5 hours",
+       "steps": [
+        "Deploy the answer service privately, callable only by the gateway's service identity ([Cloud Run service-to-service authentication](https://docs.cloud.google.com/run/docs/authenticating/service-to-service)). That identity proves **which service called**, not which student. Give the gateway its own runtime service account, grant it permission to invoke only the answer service, and on the service verify the token's audience and that its `email` claim is the gateway's service account. Other accounts can hold invoke permission too, for example through project-wide roles, so the audience alone doesn't say who called. Only after authenticating the gateway may Python accept the internal envelope, validate its schema, and match its context and input hash to the gateway-created request record. Load conversations and citations only within that verified user/tenant scope. The public contract still rejects identity fields; the internal contract deliberately carries them.",
+        "Write tests for both doors: direct or wrong-service calls fail; public `uid`/`tenantId`/`tenant_id` or forged identity headers cannot choose a user or university; missing context, changed context/input versus the request record, and another user's conversation or result fail before retrieval. Prove two universities work through the same gateway service account, and that a second student in the same university cannot read the first student's private chat. **Stop here** when direct and forged-identity calls fail in your tests."
+       ]
+      },
+      {
+       "day": "Days 7–9 · about 4.5 hours",
+       "steps": [
+        "Build the gateway: authenticate, resolve strict tenant authority for that same user, require `resolved`, then enforce access state and assistant entitlement. Use your platform's strict authority check, the one that fails closed, never a fallback resolver. Derive `tenantId` only from its result, never from a profile field such as a student's institutional ID. Test missing claims, missing bootstrap/profile, conflicting records, stale sessions and suspended membership with emulators. Every failure stops before the model call. Write the gateway on a currently supported runtime and function generation: check your provider's runtime-support table, because a runtime retired before your pilot would block every fix.",
+        "**Stop here** when every failure case in your emulator tests stops before the model call."
+       ]
+      },
+      {
+       "day": "Days 10–12 · about 4.5 hours",
+       "steps": [
+        "Add per-user limits and a budget reservation before the model call. Settle the actual cost after success and expire abandoned reservations.",
+        "Scope idempotency to the verified tenant and user. Claim the key atomically before the model call (a create-only write or a transaction on the request record). If a request with that key is still running, return `pending` and let the client retry shortly; never start a second model call. The same key and input returns the stored answer with no second model call or charge; a changed input with that key is rejected. Test result fetches and retries after suspension, and requests from another student, including one in the same university. Neither a request ID nor a conversation ID grants access.",
+        "**Stop here** when two simultaneous requests with one key produce one model call and one charge."
+       ]
+      },
+      {
+       "day": "Days 13–15 · about 4.5 hours",
+       "steps": [
+        "Build the chat page with the answer card: answer, who it applies to, evidence links, what's still needed, next step, last-verified date, and thumbs up/down with an optional comment. Start with a full answer per request; add streaming later only if the wait feels long and both clients support it.",
+        "Feedback becomes a redacted curation item, never an automatic change to an answer. Run your eval suite in CI against the service with a fake model, and nightly with the real one. **Stop here** when a thumbs-down in the chat page creates a redacted curation item."
+       ]
+      },
+      {
+       "day": "Days 16–18 · about 4.5 hours",
+       "steps": [
+        "Ship behind a feature flag to curators only. Use it yourself for a week of normal questions alongside your next lesson, and record latency, cost per answer and refusals. Fix the top issue.",
+        "No platform of your own? Build the gateway as a small FastAPI app with two demo groups instead of universities, and a simple web chat page. The identity, limit, budget and retry tests are the same. **Stop here** when a week of your own questions is logged and the top issue is fixed."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Which checks must happen on the server before the assistant searches anything?",
+       "link": "#assistant-service-and-web",
+       "answer": "Verified sign-in, strict resolved authority for the same user, permitted tenant access state, assistant entitlement and budget. The gateway then sends verified student context over the authenticated service connection; a shared service account alone does not identify the student."
+      },
+      {
+       "q": "Why does a thumbs-down create a curation item instead of editing the answer?",
+       "link": "#assistant-service-and-web",
+       "answer": "Feedback can be wrong or malicious. A curator checks it against the source, so the knowledge base only changes through the verified path."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "assistant-in-the-mobile-app",
+     "title": "Ship It: Mobile App",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "Most students will meet your assistant on a phone, on mobile data, with one thumb.",
+     "intro": [
+      "The same service now powers a chat screen in your Android and iOS app. Phones add their own problems: slow networks, apps sent to the background mid-answer, small screens and keyboards that cover the input."
+     ],
+     "unlocks": "put the assistant in a native app that behaves well on slow networks.",
+     "edge": "AI features on mobile: retries, cancellation and graceful fallbacks on real devices.",
+     "overview": [
+      "Add a chat screen that reuses the web service.",
+      "Handle slow networks, retries and interrupted answers.",
+      "Test on a real phone, not only an emulator."
+     ],
+     "checkpoint": "[Ship It: Service and Website](#assistant-service-and-web) is live for curators.",
+     "assignment": [
+      {
+       "day": "Days 1–2 · about 3 hours",
+       "steps": [
+        "Add the chat screen where your app's navigation rules allow it. Reuse the service, the citation format and the feedback buttons from the web."
+       ]
+      },
+      {
+       "day": "Days 3–4 · about 3 hours",
+       "steps": [
+        "Handle the hard cases. Generate the idempotency key on the phone and save it with [AsyncStorage](https://docs.expo.dev/versions/latest/sdk/async-storage/) before sending. When the app returns to the foreground, or after it was closed, re-send the same key through the gateway to fetch the stored answer; never read the assistant's server-only records directly. Add a timeout message and cancellation, and check that sign-out and account switching clear the chat and the saved keys.",
+        "Acceptance test: force-close the app in the middle of a request and reopen it at once, while the first request may still be running. Confirm the student sees a waiting state, then the answer, with exactly one completed request record, one model call and one charge.",
+        "Measure the slow path: the first request after the service and database have been idle. Record the p95 time and what the student sees while waiting."
+       ]
+      },
+      {
+       "day": "Days 5–6 · about 3 hours",
+       "steps": [
+        "Test on a real Android phone (and an iPhone if you can) on slow mobile data. Fix what breaks: keyboard covering the input, long Bangla text wrapping, links opening outside the app.",
+        "No native app? Make the web chat page work well on a phone instead, and test it on a real phone on mobile data."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Name two mobile problems a web chat page rarely has.",
+       "link": "#assistant-in-the-mobile-app",
+       "answer": "The app goes to the background mid-answer, and slow or flaky mobile data. The keyboard covering the input is a third."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    },
+    {
+     "slug": "project-campus-assistant",
+     "title": "Campus Assistant Pilot",
+     "kind": "project",
+     "time": "about 3 weeks",
+     "hook": "A pilot isn't a launch. It's how you learn what to launch.",
+     "intro": [
+      "Your assistant is ready for a small, time-limited trial. If the required permissions are in place, invite real students. Otherwise use an isolated rehearsal with synthetic users and permitted data. Both routes let you demonstrate what works; label the evidence honestly."
+     ],
+     "unlocks": "run an approved pilot or a clearly labelled rehearsal, and decide the next step from evidence.",
+     "edge": "owning an AI product end to end: data, quality, safety, cost and the people who use it.",
+     "before": [
+      "Start `PILOT-AUTHORIZATION.md` during [Ship It: Service and Website](#assistant-service-and-web). For a real campus pilot, record platform-owner authorization, written registrar/student-affairs permission for its scope, data-use rights and participant consent. For a community project, use its responsible operator instead. Record institutional endorsement separately: “Unofficial, student-built” describes endorsement, never replaces permission. If any required authorization is missing, use the isolated rehearsal below; do not invite campus users through the platform.",
+      "Invite only students who are 18 or over, checked at invite, unless you have documented guardian consent that your provider's terms and your privacy law accept. A box the student ticks for their guardian is not consent. Record the check in `PILOT-AUTHORIZATION.md`.",
+      "Give pilot users a short notice: which model provider processes their messages and how long it keeps them, what you log and for how long, and how to ask for deletion.",
+      "Before release evaluation, freeze prompt, model, retrieval, code and knowledge-base versions, plus thresholds and set IDs in `RELEASE-EVAL.md`. Use an untouched `held_back.jsonl` with at least 15 answerable cases per supported language. If earlier results guided a change, move those cases to regression and obtain fresh, uninspected replacements. Report small-sample limits. Subsequent changes need regression checks and fresh release evidence when they respond to release failures.",
+      "Prepare a one-page readiness note for the university: what it answers and refuses, a live demo of two real rules in three languages, measured error and crisis-check counts with their sample sizes (never “proves 0%”), the privacy notice, and how to switch it off."
+     ],
+     "checkpoint": "the assistant runs for curators on web and mobile, with release gates in CI.",
+     "assignment": [
+      {
+       "day": "Days 1–6 · about 9 hours",
+       "steps": [
+        "**Days 1–3:** Run the frozen candidate once on the reserved release set; record per-language search and answer counts, thresholds, set IDs and all versions. Separately pass the known hard, crisis and cross-university regression suites, provider eligibility and cost limits. These are observed results, not a guarantee for all questions. If release failures guide fixes, preserve the failed run, move exposed cases to regression, and test the revised candidate on a fresh release sample. Keep unsupported languages or topics unavailable. Do not invite students until the quality gates and `PILOT-AUTHORIZATION.md` both pass; all published knowledge-base entries still need human approval.",
+        "**Day 4:** Write a one-page runbook: how to switch the assistant off, roll back a knowledge-base version, and answer a complaint.",
+        "**Days 5–6:** Choose the route before starting: with all required permissions and gates passed, invite 20–30 consenting students across departments who meet provider terms. Otherwise keep the service in an isolated development environment, use synthetic users and synthetic or otherwise permitted data, and label it a rehearsal. Willing friends may exercise scripted synthetic cases with notice and consent; do not use real student records or imply university permission."
+       ],
+       "split": true
+      },
+      {
+       "day": "Days 7–12 · about 9 hours",
+       "steps": [
+        "**Days 7–12, one session a Day while the pilot runs:** Run the approved pilot or isolated rehearsal for two weeks. Review redacted feedback and new questions daily; approve every published fix by hand and version it. Add failures to regression. Changes prompted by final-evaluation failures require a fresh release sample before that topic or configuration is re-enabled.",
+        "Each Day, regrade a random sample of answers. Track correct answers, appropriate clarifications/routes/declines and errors. For a rehearsal, state that questions and users were synthetic or scripted; do not count them as evidence of real student adoption."
+       ],
+       "split": true
+      },
+      {
+       "day": "Days 13–18 · about 9 hours",
+       "steps": [
+        "**Days 13–15:** Write `PILOT-REPORT.md`, headed **Approved pilot** or **Rehearsal**, with the authorization status, data used, quality counts by language, failure modes, fixes, cost and user feedback. Separate development, regression and fresh release results, including failed runs and set versions. A rehearsal cannot establish real-world demand or adoption.",
+        "**Days 16–17:** Finish with a decision and its evidence: widen an approved pilot, seek authorization after a rehearsal, or pause and fix. Share the report with the responsible reviewers; never describe a rehearsal as a completed campus deployment.",
+        "**Day 18:** No permission yet? Completing the isolated rehearsal meets this project's learning requirements. List the missing approvals and real-device or live-user checks as pending before any campus pilot.",
+        "Add to the list of changes a real team would need: client attestation (Firebase App Check) on the assistant endpoint, which on Expo needs a native module in a development or release build (not Expo Go). On Android, Play Integrity needs the app linked in Play Console, and by default App Check accepts only builds that match a version published on Google Play, so an app distributed outside Play needs that setting changed. Add an iOS build, sign-in and background test before claiming iOS works. Attestation adds a layer; it doesn't replace sign-in, limits or idempotency.",
+        "**Stop here on Day 18** when `PILOT-REPORT.md` and the decision are committed."
+       ],
+       "split": true
+      }
+     ],
+     "done": [
+      "The assistant works on web and mobile for authorized pilot users, or in an isolated rehearsal using synthetic users and permitted data. The report names which route you completed and any pending live checks.",
+      "Every served answer traces to an approved knowledge-base entry with a source, tier and verification date.",
+      "Your report separates development/regression results from the fresh release check, reports counts by language and cost, and labels pilot versus rehearsal feedback accurately.",
+      "You can explain the request flow from the phone to the cited answer, the tenant check, and one failure you fixed, without notes."
+     ],
+     "showoff": {
+      "pitch": "A campus assistant that answers students in English, Bangla and Banglish from verified university sources, asks when details matter, and routes to the right office when it can't answer.",
+      "demo": [
+       "Ask the same question in three languages and get the same cited answer.",
+       "Ask a question that depends on credit load and watch it ask first.",
+       "Ask for your own grades and watch it route you to the right place.",
+       "Show the human-approval queue, the judge's error counts and the labelled pilot or rehearsal report."
+      ],
+      "proves": [
+       "End-to-end engineering of an AI feature, with evidence labelled as an approved pilot or a rehearsal rather than an unproven production claim.",
+       "Multilingual retrieval, human-in-the-loop curation and tenant-safe integration in a real platform."
+      ]
+     },
+     "extra_credit": [
+      "Add a second university's knowledge base and prove with tests that neither can see the other's.",
+      "Publish a sanitized, permission-cleared summary of what students ask most, for the student affairs office."
+     ],
+     "recall": [
+      {
+       "q": "What has to be true before you invite pilot users?",
+       "link": "#project-campus-assistant",
+       "answer": "Release gates pass (accuracy, per-language search, zero invented rules, zero cross-tenant leaks, cost under budget), a runbook exists, and users know what is logged."
+      }
+     ],
+     "extra": [],
+     "added": "2026-10-28"
+    }
+   ]
+  },
+  {
    "title": "Conclusion",
-   "weeks": "Weeks 35–36",
-   "description": "Catch up, polish your projects and plan what you'll build next.",
+   "weeks": "Weeks 53–54",
+   "description": "Test your skills on unfamiliar material, polish your projects and choose what to deepen next.",
    "lessons": [
     {
      "slug": "whats-next",
@@ -2501,8 +3394,8 @@ window.COURSE = {
      "time": "about 2 weeks (spare)",
      "hook": "The final test is a new problem, small enough to finish, different enough to make you think.",
      "intro": [
-      "You have reached the end of the guided path. The useful question now is: can you apply the ideas when the dataset and requirements change?",
-      "Use this consolidation time to repair gaps and try one small independent task. Your Campus Assistant can follow afterwards; it is not required to finish this course."
+      "You have reached the end of the guided path. The useful question now is: can you apply the ideas when the dataset and requirements change? The Electives that follow are optional depth, not more required work.",
+      "Use this consolidation time to repair gaps and try one small independent task. Your Campus Assistant pilot is behind you. This check shows whether the skills transfer to material you have never seen."
      ],
      "unlocks": "test whether your skills transfer to a new dataset and choose your next practice task.",
      "edge": "scoping, and saying no to features.",
@@ -2514,10 +3407,10 @@ window.COURSE = {
      "assignment": [
       {
        "steps": [
-        "Finish the required project checks. Select one unfamiliar public source, such as a small museum visitor FAQ or an open-source project's installation guide. Keep the dataset to 5–10 pages; record its source and reuse terms. Write a short brief, 6 expected question/answer cases (including 2 unsupported cases), and a cost limit before coding.",
-        "Spend 3–6 hours adapting your existing app. First choose the simplest useful design and explain whether retrieval or an agent is needed. Documentation and your own code are allowed; during this exercise, keep AI in explanation/review mode rather than having it design or implement the solution. No new framework required.",
-        "Demo 3 unfamiliar questions and one failure. Trace the full request, show your evidence, and make one small requirement change without an AI-produced patch. Ask a friend or peer to choose the change if available; otherwise add a new document format or a restriction you did not build for. If you cannot finish independently, revisit only the relevant lesson and retry. This is a diagnostic, not a speed contest.",
-        "Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Plan the Campus Assistant or another product only after this check; no compulsory launch deadline. Add a portfolio evidence table: requirement → code → test → result → limitation. Ask someone to review one requirement, or record a ten-minute walkthrough yourself. Start applying to applied AI/backend roles; use interview feedback to select the next repair task.",
+        "**Days 1–2:** Finish the required project checks. Select one unfamiliar public source, such as a small museum visitor FAQ or an open-source project's installation guide. Keep the dataset to 5–10 pages; record its source and reuse terms. Write a short brief, 6 expected question/answer cases (including 2 unsupported cases), and a cost limit before coding. Stop when the brief and cases are committed.",
+        "**Days 3–6:** Spend 3–6 hours adapting your existing app. First choose the simplest useful design and explain whether retrieval or an agent is needed. Documentation and your own code are allowed; during this exercise, keep AI in explanation/review mode rather than having it design or implement the solution. No new framework required. Stop when your 6 cases run.",
+        "**Days 7–9:** Demo 3 unfamiliar questions and one failure. Then ask a friend to plant one bug in your copy (or plant one yourself a week earlier and forget the details) and find it from the symptoms. Trace the full request, show your evidence, and make one small requirement change without an AI-produced patch. Ask a friend or peer to choose the change if available; otherwise add a new document format or a restriction you did not build for. If you cannot finish independently, revisit only the relevant lesson and retry. This is a diagnostic, not a speed contest. Stop when the bug is found and the change is committed.",
+        "**Days 10–12:** Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Decide the Campus Assistant's next step from your pilot evidence: widen the pilot, add a second university, or pause and fix one weakness first. Add a portfolio evidence table: requirement → code → test → result → limitation. Ask someone to review one requirement, or record a ten-minute walkthrough yourself. Start applying to applied AI/backend roles; use interview feedback to select the next repair task.",
         "Choose deeper study only for a specific goal: [ML Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp) for broader ML modeling, [LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch) for model internals, or serving/infrastructure work for an AI platform role. This path covers applied LLM applications; it does not claim mastery of every AI specialty or immunity from automation."
        ]
       }
@@ -2533,6 +3426,7 @@ window.COURSE = {
       }
      ],
      "extra": [
+      "[Electives](#elective-local-models): local models, fine-tuning, MCP, voice and images, and model internals, each tied back to your Campus Assistant.",
       "[Provider and university comparison](https://github.com/Faizan2001/ai-engineer-path/blob/main/PROVIDER-UNIVERSITY-REVIEW.md) — why these additions are required and which deeper courses can wait.",
       "[Harvard CS50 AI](https://cs50.harvard.edu/ai/) — optional broader AI foundations: search, uncertainty and learning, with programming projects. Useful for gaps in those ideas; not a required restart.",
       "[MIT 6.S191, 2026](https://introtodeeplearning.com/) — optional model-training direction: neural-network lectures and labs. Review calculus and linear algebra first.",
@@ -2549,9 +3443,195 @@ window.COURSE = {
     "before": "You followed someone else's plan.",
     "after": "A new-domain demonstration, an evidence table and one targeted next practice task."
    },
-   "opener": "You can now follow an answer from input to evidence, inspect a failed tool call and explain the cost of a design choice. These two weeks test those skills on unfamiliar material and leave room to repair one weak spot."
+   "opener": "You shipped an assistant and tested it with real students or in a clearly labelled rehearsal, and you can follow any of its answers from question to evidence. These two weeks check that the skills work on material you've never seen, and leave room to repair one weak spot."
+  },
+  {
+   "title": "Electives",
+   "weeks": "Optional, any order",
+   "optional": true,
+   "description": "Optional depth, each tied back to your Campus Assistant. Choose by goal, not by fear of missing out.",
+   "shift": {
+    "before": "You know where your skills end, but not how to go further.",
+    "after": "At least one deeper skill practised on your own assistant, with a measured result."
+   },
+   "opener": "The assistant works. Now curiosity takes over: could it run on your own machine, learn Banglish better, talk to other AI tools, listen, or could you build the model itself? Each elective answers one of those with a small, measured experiment.",
+   "lessons": [
+    {
+     "slug": "elective-local-models",
+     "title": "Elective: Run Models Locally",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "Free per token isn't free. Measure what it really costs.",
+     "intro": [
+      "Run open-weight models on your own computer, learn what quantization trades away, and decide where local models belong in your assistant."
+     ],
+     "unlocks": "run, measure and serve an open-weight model on your own hardware.",
+     "edge": "knowing the real cost of self-hosting: hardware, speed, quality and your time.",
+     "overview": [
+      "Run two open-weight models at different sizes and quantization levels.",
+      "Measure speed, memory and quality on your eval.",
+      "Put a local model behind the same interface as your hosted one."
+     ],
+     "assignment": [
+      {
+       "steps": [
+        "Install [Ollama](https://github.com/ollama/ollama) or llama.cpp. Run a small and a medium model; record memory use, how long the first word takes on a long prompt, and tokens per second on your machine.",
+        "Run your Bangla/Banglish eval slice with both, at two quantization levels. Compare with your hosted model from the bake-off.",
+        "Put the best local model behind your assistant's model interface and use it for offline tests and labeling drafts. Write when local serving would make sense for real users, and what it would cost."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "What does quantization trade, and how do you check whether the trade is acceptable?",
+       "link": "#elective-local-models",
+       "answer": "Less memory and more speed for some quality. Run your own eval slices at each level; an average benchmark won't tell you about Banglish."
+      }
+     ],
+     "extra": []
+    },
+    {
+     "slug": "elective-fine-tuning",
+     "title": "Elective: Fine-Tune a Small Model",
+     "kind": "lesson",
+     "time": "about 1.5 weeks",
+     "hook": "Fine-tune last, and only when you can measure the win.",
+     "intro": [
+      "Fine-tune a small open model with LoRA for one narrow job, such as turning Banglish questions into clean English search queries, and compare it fairly with prompting."
+     ],
+     "unlocks": "fine-tune a small model with LoRA and prove whether it beats prompting.",
+     "edge": "deciding when training is worth it, with evidence instead of hype.",
+     "overview": [
+      "Build a train/validation/test set from your approved data.",
+      "Fine-tune with LoRA on a free or cheap GPU.",
+      "Compare against your prompt-based baseline on the same test set."
+     ],
+     "assignment": [
+      {
+       "steps": [
+        "Build 500–1,000 pairs (Banglish question → English search query): your curator-written paraphrases plus a labelled share generated by an LLM. Split by original question, so each question and all its paraphrases sit on one side; every intent still appears in training. The test set uses only real, human-written questions.",
+        "Fine-tune a small open model with LoRA in a free notebook GPU, following the [PEFT documentation](https://huggingface.co/docs/peft/index). Record time, cost and settings.",
+        "Compare with your rewrite prompt on the test set: accuracy, latency, cost. Write whether you'd ship it, and what would change your mind."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why split fine-tuning data by original question rather than randomly?",
+       "link": "#elective-fine-tuning",
+       "answer": "Random splits put paraphrases of the same question in train and test, so the score measures memorization, not generalization."
+      }
+     ],
+     "extra": []
+    },
+    {
+     "slug": "elective-mcp-server",
+     "title": "Elective: Share Your Knowledge Base over MCP",
+     "kind": "lesson",
+     "time": "about 4.5 hours",
+     "hook": "A protocol makes a connection. It never grants permission.",
+     "intro": [
+      "Expose a read-only search over your approved knowledge base as an MCP server, so other AI tools can use it, and keep the same access rules."
+     ],
+     "unlocks": "build a small MCP server with a read-only tool and its own access checks.",
+     "edge": "connecting AI tools across products without widening trust.",
+     "overview": [
+      "Build an MCP server with one read-only `search_campus_faq` tool.",
+      "Enforce the same tenant and approval rules as your service.",
+      "Test it from an MCP client."
+     ],
+     "assignment": [
+      {
+       "steps": [
+        "Read the [MCP introduction](https://modelcontextprotocol.io/docs/getting-started/intro), its [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) and its [security best practices](https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices).",
+        "Build a server with one read-only tool that returns approved entries with citations. No write tools. Use the HTTP transport with token verification, so the server maps each caller's token to one university; a local stdio server is single-user, so a tenant test on it proves nothing.",
+        "Connect it to an MCP client and test: only approved entries, only the caller's university, and prompt-injection text in an entry is returned as data, not followed."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why does adding an MCP server not change who may read the knowledge base?",
+       "link": "#elective-mcp-server",
+       "answer": "MCP defines how tools, resources and prompts are offered, plus an optional authorization flow for HTTP. Your server still verifies the token and decides which university's entries the caller may read."
+      }
+     ],
+     "extra": []
+    },
+    {
+     "slug": "elective-voice-and-images",
+     "title": "Elective: Voice and Images",
+     "kind": "lesson",
+     "time": "about 1 week",
+     "hook": "Many notices are photos, and many questions are easier to say than type.",
+     "intro": [
+      "Add two inputs: text extracted from notice images and scanned PDFs for ingestion, and spoken Bangla or English questions transcribed to text."
+     ],
+     "unlocks": "ingest image-only notices and accept spoken questions, each with a measured error rate.",
+     "edge": "multimodal input with honest error measurement.",
+     "overview": [
+      "Extract text from 20 image or scanned notices and measure errors.",
+      "Transcribe 20 spoken questions in Bangla and English and measure errors.",
+      "Decide whether either is good enough to ship."
+     ],
+     "assignment": [
+      {
+       "steps": [
+        "Collect 20 official notices that exist only as images or scans. Extract text with a vision model or OCR; compare with a hand-typed version and count errors that change meaning (dates, amounts).",
+        "Record 20 short spoken questions (with permission). Transcribe them with an open speech model such as [Whisper](https://github.com/openai/whisper); measure word errors and check whether search still finds the right entry.",
+        "Write a decision: ship, ship with human review, or not yet."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Which extraction errors matter most for a campus assistant?",
+       "link": "#elective-voice-and-images",
+       "answer": "Errors that change meaning: dates, amounts, course codes and deadlines. Count them separately from harmless spelling slips."
+      }
+     ],
+     "extra": []
+    },
+    {
+     "slug": "elective-model-internals",
+     "title": "Elective: Go Deeper into Model Internals",
+     "kind": "lesson",
+     "time": "about 3 weeks",
+     "hook": "You don't need to build models to use them well. Building a tiny one removes the magic.",
+     "intro": [
+      "Continue where [Under the Hood: A Tiny GPT](#under-the-hood-tiny-gpt) stopped: better models, the training tricks that make them work, and finally a GPT-2-sized reproduction. Choose this when you want model-building or ML roles."
+     ],
+     "unlocks": "explain how tokenization shapes cost and quality for Bangla, and read model-building papers and code with confidence.",
+     "edge": "model-level understanding, the starting point for ML and model-platform roles.",
+     "overview": [
+      "Build a byte-pair tokenizer and train it on Bangla text.",
+      "Measure the token gap between English, Bangla and Banglish, and explain it.",
+      "Retrain your tiny GPT with your tokenizer; then, if you want, makemore 2–5 and GPT-2."
+     ],
+     "assignment": [
+      {
+       "steps": [
+        "Watch Karpathy's [Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE) and build a byte-pair encoder, using [minbpe](https://github.com/karpathy/minbpe) as the reference. Train it on a slice of [Bangla Wikipedia](https://dumps.wikimedia.org/bnwiki/) (openly licensed under CC BY-SA; credit it). Never train on group posts, form answers or anything personal.",
+        "Measure tokens per word for English, Bangla and Banglish with your tokenizer and with your provider's counts from lesson 5. Explain the gap.",
+        "Retrain your tiny GPT from [Under the Hood](#under-the-hood-tiny-gpt) on the same Bangla text twice: once with your tokenizer and once character by character. Compare loss per character on the same validation text (the sum of per-token losses divided by the number of characters), not the raw per-token loss, and compare samples.",
+        "Optional, for model-building roles: makemore lectures 2–5 from [Zero to Hero](https://karpathy.ai/zero-to-hero.html), then [Let's reproduce GPT-2 (124M)](https://www.youtube.com/watch?v=l8pRSuU81PU) on a rented GPU."
+       ]
+      }
+     ],
+     "recall": [
+      {
+       "q": "Why does the same question usually cost more tokens in Bangla than in English?",
+       "link": "#elective-model-internals",
+       "answer": "A tokenizer learns its merges from its training text. When that text is mostly English, common English words become single tokens while Bangla words split into several pieces, so the same meaning takes more tokens."
+      }
+     ],
+     "extra": [
+      "[LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch) by Sebastian Raschka: a book-length build of a GPT-style model."
+     ]
+    }
+   ]
   }
  ],
- "checked": "25 Oct 2026",
+ "checked": "30 Oct 2026",
  "week_starts": "saturday"
 };
