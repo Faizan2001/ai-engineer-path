@@ -2872,7 +2872,8 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Pick one program and one curriculum version. From the official curriculum, encode its first year in `curriculum.json`: course codes, credits, prerequisites as AND/OR expressions, minimum grades, co-requisites and labs, equivalent courses, elective groups. Cite the document, its version and the cohorts it applies to. Add later years only after the tests pass.",
-        "Keep the catalog separate from a term's offerings. If you have no official offering list, offerings are unknown, not “not offered”."
+        "Keep the catalog separate from a term's offerings. If you have no official offering list, offerings are unknown, not “not offered”.",
+        "No university curriculum to work from? Use any publicly posted degree plan with prerequisites, or your community's own published rules (for example a club's requirements for joining a team). The eligible/blocked/unknown tools and the 30 test profiles work the same."
        ]
       },
       {

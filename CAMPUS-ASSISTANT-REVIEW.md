@@ -88,7 +88,7 @@ Smaller fixes:
 - consistent core numbering;
 - "last finished" preferring core lessons.
 
-**Teaching review.** No blockers; 11 major and 9 minor findings. Fixes include:
+**Teaching review.** No blockers; 12 major and 9 minor findings, all fixed. Fixes include:
 
 - leakage of held-back questions into the index (now a frozen set and a leak check);
 - the 150-question set that no step built;
@@ -101,7 +101,8 @@ Smaller fixes:
 - the kappa-only gate;
 - conversation state and idempotency;
 - under-estimated times (now 52 weeks);
-- three wrong elective details (MCP, LoRA split, Meta wording).
+- three wrong elective details (MCP, LoRA split, Meta wording);
+- a no-curriculum fallback for the course-planning helper.
 
 **A second, independent plan** proposed re-theming all four practice projects to the campus, in about 44 weeks. Many of its ideas were adopted:
 
