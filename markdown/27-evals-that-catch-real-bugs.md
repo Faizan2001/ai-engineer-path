@@ -41,7 +41,7 @@ Don't invent metrics first. Read 50 real conversations, note each failure in one
 
 ### Day 1 · light day, about 45 min
 
-1. Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later. Then, before looking at any data, write down the three failures you expect most often in Ask MDN; Day 3 checks your guess.
+1. Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later. Then, before looking at any data, write down the three failures you expect most often in Ask MDN; Day 3 checks your guess. This week, also start your 30-minute weekly crisis-set block from [Campus Knowledge Base](20-campus-knowledge-base.md).
 
 ### Day 2 · light day, about 45 min
 

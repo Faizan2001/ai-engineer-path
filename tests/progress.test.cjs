@@ -195,13 +195,17 @@ function fakeAccount(docs) {
   const listeners = {}, writes = [];
   const doc = path => ({
     onSnapshot(fn) { listeners[path] = fn; return () => {}; },
-    get: async () => ({exists: path in docs, data: () => docs[path]}),
+    get: async () => ({exists: path in docs, data: () => docs[path], metadata: {fromCache: false, hasPendingWrites: false}}),
     set: async v => { writes.push(path); docs[path] = JSON.parse(JSON.stringify(v)); }
   });
   const api = {user: {id: async () => 'u1'}, db: {doc}};
   const tick = () => new Promise(r => setImmediate(r));
   return {docs, writes, tick, claude: {use: async name => api[name] || null},
-    async deliver(path) { await tick(); listeners[path]({exists: path in docs, data: () => docs[path], metadata: {hasPendingWrites: false}}); for (let i = 0; i < 5; i++) await tick(); }};
+    async deliver(path, fromCache = false) {
+      await tick();
+      listeners[path]({exists: !fromCache && path in docs, data: () => docs[path], metadata: {fromCache, hasPendingWrites: false}});
+      for (let i = 0; i < 5; i++) await tick();
+    }};
 }
 const NEW_DOC = 'data/users/u1/progress-v2', OLD_DOC = 'data/users/u1/progress';
 
@@ -209,6 +213,8 @@ test('a save before the account loads never overwrites the account', async () =>
   const acct = fakeAccount({[NEW_DOC]: {v: 1, split: 1, done: before('keyword-rag')}});
   const page = boot(null, '', {claude: acct.claude});
   await acct.tick(); await acct.tick();
+  page.save();
+  await acct.deliver(NEW_DOC, true);  // the local cache doesn't have it yet
   page.save();
   assert.deepEqual(acct.writes, []);
   await acct.deliver(NEW_DOC);

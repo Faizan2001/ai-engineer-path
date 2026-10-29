@@ -2148,7 +2148,7 @@ window.COURSE = {
       {
        "day": "Day 1 · light day, about 45 min",
        "steps": [
-        "Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later. Then, before looking at any data, write down the three failures you expect most often in Ask MDN; Day 3 checks your guess."
+        "Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later. Then, before looking at any data, write down the three failures you expect most often in Ask MDN; Day 3 checks your guess. This week, also start your 30-minute weekly crisis-set block from [Campus Knowledge Base](#campus-knowledge-base)."
        ]
       },
       {
@@ -3341,7 +3341,7 @@ window.COURSE = {
         "**Days 13–15:** Write `PILOT-REPORT.md`, headed **Approved pilot** or **Rehearsal**, with the authorization status, data used, quality counts by language, failure modes, fixes, cost and user feedback. Separate development, regression and fresh release results, including failed runs and set versions. A rehearsal cannot establish real-world demand or adoption.",
         "**Days 16–17:** Finish with a decision and its evidence: widen an approved pilot, seek authorization after a rehearsal, or pause and fix. Share the report with the responsible reviewers; never describe a rehearsal as a completed campus deployment.",
         "**Day 18:** No permission yet? Completing the isolated rehearsal meets this project's learning requirements. List the missing approvals and real-device or live-user checks as pending before any campus pilot.",
-        "Add to the list of changes a real team would need: client attestation (Firebase App Check) on the assistant endpoint, which on Expo needs a native module in a development or release build (not Expo Go). On Android, Play Integrity needs the app linked in Play Console, and its default verdict accepts only Play-installed builds, so sideloaded APKs need relaxed settings. Add an iOS build, sign-in and background test before claiming iOS works. Attestation adds a layer; it doesn't replace sign-in, limits or idempotency.",
+        "Add to the list of changes a real team would need: client attestation (Firebase App Check) on the assistant endpoint, which on Expo needs a native module in a development or release build (not Expo Go). On Android, Play Integrity needs the app linked in Play Console, and by default App Check accepts only builds that match a version published on Google Play, so an app distributed outside Play needs that setting changed. Add an iOS build, sign-in and background test before claiming iOS works. Attestation adds a layer; it doesn't replace sign-in, limits or idempotency.",
         "**Stop here on Day 18** when `PILOT-REPORT.md` and the decision are committed."
        ],
        "split": true

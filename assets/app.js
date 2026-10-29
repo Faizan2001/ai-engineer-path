@@ -141,9 +141,11 @@
       return user.id().then(function (uid) {
         if (!uid) return;
         var ref = db.doc("data/users/" + uid + "/progress-v2");
-        // Saves go to the account only after its progress has arrived, so a new device can't overwrite it.
+        // Saves go to the account only after the server has answered, so a new device can't overwrite it.
+        // A snapshot from the local cache can say "missing" before the server does; a definitive one follows.
         function ready() { if (!account) { account = { ref: ref }; mode = "account"; } chip(); }
         ref.onSnapshot(function (snap) {
+          if (snap.metadata.fromCache) return;
           if (snap.exists) {
             ready();
             if (!snap.metadata.hasPendingWrites) {
@@ -154,6 +156,7 @@
           } else if (!migrated) {
             migrated = true;   // first visit on 8.2 or later: carry the older account progress over once
             db.doc("data/users/" + uid + "/progress").get().then(function (old) {
+              if (old.metadata.fromCache) { migrated = false; mode = "local"; chip(); return; }   // try again on the next visit
               if (old.exists) { apply(old.data()); saveLocal(); render(false); }
               ready();
               if (old.exists || state.done.size || state.sessions.length) save();
