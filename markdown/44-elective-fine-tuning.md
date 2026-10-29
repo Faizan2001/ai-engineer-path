@@ -29,7 +29,7 @@ By the end of this lesson, you should be able to:
 ### Memory check · 10 min
 
 4. Close this page. In your log, answer from memory, then check:
-   - Why split fine-tuning data by original question rather than randomly? ([where to check](43-elective-fine-tuning.md))
+   - Why split fine-tuning data by original question rather than randomly? ([where to check](44-elective-fine-tuning.md))
 5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
@@ -45,6 +45,6 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Elective: Run Models Locally](42-elective-local-models.md) · [Course map](README.md) · [Next lesson: Elective: Share Your Knowledge Base over MCP →](44-elective-mcp-server.md)
+[← Previous: Elective: Run Models Locally](43-elective-local-models.md) · [Course map](README.md) · [Next lesson: Elective: Share Your Knowledge Base over MCP →](45-elective-mcp-server.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

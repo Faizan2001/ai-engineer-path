@@ -1,6 +1,6 @@
 # Grading Answers
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 16 of 41 · about 9 hours*
+*Section 3: RAG with LLM Zoomcamp · Lesson 16 of 42 · about 9 hours*
 
 **Before you start, check that** running your ingestion script twice changes nothing, and the manifest is committed.
 
@@ -106,4 +106,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Data Ingestion](15-data-ingestion.md) · [Course map](README.md) · [Next lesson: Monitoring →](17-monitoring.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

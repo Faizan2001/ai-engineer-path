@@ -1,8 +1,8 @@
 # A Course-Planning Helper
 
-*Section 6: Capstone: Campus Assistant · Lesson 36 of 41 · about 9 hours*
+*Section 6: Capstone: Campus Assistant · Lesson 37 of 42 · about 9 hours*
 
-**Before you start, check that** [Tools and the Agent Loop](11-tools-and-the-agent-loop.md) and [Safe Tools](23-safe-tools.md) are complete.
+**Before you start, check that** [Tools and the Agent Loop](11-tools-and-the-agent-loop.md) and [Safe Tools](24-safe-tools.md) are complete.
 
 ## Introduction
 
@@ -52,8 +52,8 @@ By the end of this lesson, you should be able to:
 ### Memory check · 10 min
 
 9. Close this page. In your log, answer from memory, then check:
-   - Why do eligibility rules live in code and data rather than in the prompt? ([where to check](36-course-planning-helper.md))
-   - Why does the checker need an “unknown” result, not just yes or no? ([where to check](36-course-planning-helper.md))
+   - Why do eligibility rules live in code and data rather than in the prompt? ([where to check](37-course-planning-helper.md))
+   - Why does the checker need an “unknown” result, not just yes or no? ([where to check](37-course-planning-helper.md))
 10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
@@ -78,6 +78,6 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Answer, Ask or Route](35-answer-ask-or-route.md) · [Course map](README.md) · [Next lesson: Choose Models and a Budget →](37-choose-models-and-budget.md)
+[← Previous: Answer, Ask or Route](36-answer-ask-or-route.md) · [Course map](README.md) · [Next lesson: Choose Models and a Budget →](38-choose-models-and-budget.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

@@ -54,8 +54,11 @@
   }
 
   // ---------- progress storage (synced when signed in to Claude)
-  var KEY = "ai-engineer-path:progress:v1";
-  var state = { done: new Set(), ticks: {}, sessions: [], target: 6, keep: { done: [], ticks: {} } };
+  // From 8.2, progress lives under a new key and account document. A page still open on an older version keeps writing
+  // the old ones; it can't show inserted lessons or Days 2+ of a split block, so its saves would drop that progress.
+  // The old save is only read while no new one exists.
+  var KEY = "ai-engineer-path:progress:v2", OLD_KEY = "ai-engineer-path:progress:v1";
+  var state = { done: new Set(), ticks: {}, sessions: [], target: 6, since: "", keep: { done: [], ticks: {} } };
   var mode = "local", localOk = true, account = null, saving = false, pending = false, migrated = false;
   function record() {
     var ticks = {}, days = {};
@@ -65,11 +68,22 @@
       var full = daysOf(k); if (full.length) days[k] = full;
     });
     Object.keys(state.keep.ticks).forEach(function (k) { ticks[k] = (ticks[k] || []).concat(state.keep.ticks[k]).sort(); });
-    return { v: 1, done: Array.from(state.done).filter(function (s) { return BY[s]; }).concat(state.keep.done), last: "", ticks: ticks, days: days, sessions: state.sessions.slice(-500), target: state.target };
+    return { v: 1, split: 1, done: Array.from(state.done).filter(function (s) { return BY[s]; }).concat(state.keep.done), last: "", ticks: ticks, days: days, sessions: state.sessions.slice(-500), target: state.target, since: state.since };
+  }
+  // Blocks marked "split" were one-tick "Week" blocks before 8.1. In a save written before then (no split marker),
+  // that single tick meant the whole week was done, so it becomes every Day of the block.
+  function expandSplit(d) {
+    if (d.split) return;
+    Object.keys(state.ticks).forEach(function (k) {
+      (BY[k].assignment || []).forEach(function (g, gi) {
+        if (!g.split || state.ticks[k].indexOf(gi + ".0") < 0) return;
+        for (var j = 1; j < ticksIn(g); j++) if (state.ticks[k].indexOf(gi + "." + j) < 0) state.ticks[k].push(gi + "." + j);
+      });
+    });
   }
   function apply(d) {
     if (!d || d.v !== 1) return;
-    // Progress this version doesn't know (from a newer version of the course) is kept and written back unchanged.
+    // Unknown completion slugs and numeric ticks are kept and written back unchanged.
     var doneIn = (Array.isArray(d.done) ? d.done : []).filter(function (s) { return typeof s === "string"; });
     state.done = new Set(doneIn.filter(function (s) { return BY[s]; }));
     state.keep = { done: doneIn.filter(function (s) { return !BY[s]; }), ticks: {} };
@@ -90,10 +104,18 @@
       state.ticks[k] = [];
       d.days[k].forEach(function (gi) { var g = (BY[k].assignment || [])[gi]; if (g) for (var j = 0; j < ticksIn(g); j++) state.ticks[k].push(gi + "." + j); });
     });
+    expandSplit(d);
     state.sessions = Array.isArray(d.sessions) ? d.sessions.filter(function (x) { return /^\d{4}-\d{2}-\d{2}$/.test(x); }) : [];
     state.target = d.target >= 3 && d.target <= 6 ? Math.round(d.target) : 6;
+    state.since = typeof d.since === "string" && /^\d{4}-\d{2}-\d{2}$/.test(d.since) ? d.since : "";
   }
-  function loadLocal() { try { var raw = localStorage.getItem(KEY); if (raw) apply(JSON.parse(raw)); } catch (e) { localOk = false; } }
+  // "since" marks a learner who started on 8.2 or later: lessons and Days added before that date are ordinary path for them.
+  function loadLocal() {
+    try {
+      var raw = localStorage.getItem(KEY) || localStorage.getItem(OLD_KEY);
+      if (raw) apply(JSON.parse(raw)); else state.since = isoDay(new Date());
+    } catch (e) { localOk = false; }
+  }
   function saveLocal() { try { localStorage.setItem(KEY, JSON.stringify(record())); localOk = true; } catch (e) { localOk = false; } }
   function save() {
     saveLocal();
@@ -118,19 +140,25 @@
       if (!user || !db) return null;
       return user.id().then(function (uid) {
         if (!uid) return;
-        account = { ref: db.doc("data/users/" + uid + "/progress") };
-        account.ref.onSnapshot(function (snap) {
-          mode = "account";
+        var ref = db.doc("data/users/" + uid + "/progress-v2");
+        // Saves go to the account only after its progress has arrived, so a new device can't overwrite it.
+        function ready() { if (!account) { account = { ref: ref }; mode = "account"; } chip(); }
+        ref.onSnapshot(function (snap) {
           if (snap.exists) {
+            ready();
             if (!snap.metadata.hasPendingWrites) {
               var before = JSON.stringify(record());
               apply(snap.data()); saveLocal();
               if (JSON.stringify(record()) !== before) render(false);
             }
-          } else if (!migrated && (state.done.size || state.sessions.length)) {
-            migrated = true; save();
-          }
-          chip();
+          } else if (!migrated) {
+            migrated = true;   // first visit on 8.2 or later: carry the older account progress over once
+            db.doc("data/users/" + uid + "/progress").get().then(function (old) {
+              if (old.exists) { apply(old.data()); saveLocal(); render(false); }
+              ready();
+              if (old.exists || state.done.size || state.sessions.length) save();
+            }, function () { account = null; mode = "local"; chip(); });
+          } else ready();
         }, function () { account = null; mode = "local"; chip(); });
       });
     }).catch(function () { account = null; mode = "local"; chip(); });
@@ -197,11 +225,15 @@
     document.getElementById("prog-fill").style.width = pct + "%";
     return pct;
   }
-  // A lesson marked "added" that sits before an original lesson the learner has already finished was added behind them.
+  // An added lesson behind an original lesson with saved completion or valid Day ticks is catch-up work.
   // Continue keeps them on their current lesson; the "New since you passed this point" card lists it instead.
+  function isOld(x) { return !!state.since && x.added <= state.since; }
   function isBehind(l) {
-    if (!l.added || state.done.has(l.slug)) return false;
-    for (var j = CORE.indexOf(l) + 1; j < CORE.length; j++) if (!CORE[j].added && state.done.has(CORE[j].slug)) return true;
+    if (!l.added || state.done.has(l.slug) || isOld(l)) return false;
+    for (var j = CORE.indexOf(l) + 1; j < CORE.length; j++) {
+      var later = CORE[j];
+      if (!later.added && (state.done.has(later.slug) || ticksOf(later.slug).length > 0)) return true;
+    }
     return false;
   }
   function resumeTarget() {
@@ -221,7 +253,7 @@
   // Day groups marked "added" in a lesson the learner had already finished.
   function newDays(l) {
     if (!state.done.has(l.slug)) return [];
-    return (l.assignment || []).map(function (g, gi) { return gi; }).filter(function (gi) { return l.assignment[gi].added && !groupDone(l, gi); });
+    return (l.assignment || []).map(function (g, gi) { return gi; }).filter(function (gi) { return l.assignment[gi].added && !isOld(l.assignment[gi]) && !groupDone(l, gi); });
   }
   function addedCard() {
     var items = [];
@@ -232,7 +264,7 @@
       });
     });
     if (!items.length) return "";
-    return '<section class="card welcome"><h2>New since you passed this point</h2><p>These were added to the path after you finished the lessons around them. Your saved progress is unchanged. Fit them in alongside your current lesson.</p>' + ul(items) + "</section>";
+    return '<section class="card welcome"><h2>New since you passed this point</h2><p>These were added to the path after the point you had already reached. Your saved progress is unchanged. Fit them in alongside your current lesson.</p>' + ul(items) + "</section>";
   }
   function pad(n) { return (n < 10 ? "0" : "") + n; }
   function isoDay(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
@@ -278,7 +310,7 @@
     return n;
   }
   function finishDate() {
-    var weeks = Math.ceil(remainingSessions() / state.target) + 2;  // 2 weeks of breathing room, as in the course plan
+    var weeks = Math.max(1, Math.round(remainingSessions() * 1.1 / state.target));  // one session in ten for debugging and catch-up, as in the course plan
     var d = new Date(); d.setDate(d.getDate() + weeks * 7);
     return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
   }
@@ -427,7 +459,7 @@
   function lessonLinks(l) {
     if (!REPO) return "";
     var page = SITE ? SITE + "#" + l.slug : "";
-    var where = "Lesson " + l.n + ": " + fullTitle(l) + (page ? " (" + page + ")" : "");
+    var where = lessonOf(l) + ": " + fullTitle(l) + (page ? " (" + page + ")" : "");
     var broken = REPO + "/issues/new?title=" + encodeURIComponent("Broken link: " + fullTitle(l)) +
       "&body=" + encodeURIComponent(where + "\n\nWhich link is broken, and where does it go now?\n");
     var other = REPO + "/issues/new?title=" + encodeURIComponent("Suggestion: " + fullTitle(l)) +

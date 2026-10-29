@@ -1,6 +1,6 @@
 # Testing and CI
 
-*Section 5: Make It Sturdy · Lesson 27 of 41 · about 1 week*
+*Section 5: Make It Sturdy · Lesson 28 of 42 · about 1 week*
 
 **Before you start, check that** you have 3 to 6 failure groups from 50 conversations, each with a pass-or-fail check.
 
@@ -58,8 +58,8 @@ promptfoo runs tests against your app. A YAML file lists the questions and the c
 
 ### Day 4 · about 90 min
 
-5. Follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart). Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).
-6. Run pytest and rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly; cache unchanged evaluations. Do not expose API secrets to untrusted fork code.
+5. **Test-out:** already run GitHub Actions? Skip the quickstart. Otherwise follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart).
+6. Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Run pytest and rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly; cache unchanged evaluations. Do not expose API secrets to untrusted fork code.
 
 ### Day 5 · about 90 min
 
@@ -69,7 +69,7 @@ promptfoo runs tests against your app. A YAML file lists the questions and the c
 
 8. Close this page. In your log, answer from memory, then check:
    - What does context-faithfulness check? ([where to check](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/))
-   - Why does each failure group get its own pass-or-fail check? ([where to check](26-evals-that-catch-real-bugs.md))
+   - Why does each failure group get its own pass-or-fail check? ([where to check](27-evals-that-catch-real-bugs.md))
 9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
@@ -83,6 +83,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Evals That Catch Real Bugs](26-evals-that-catch-real-bugs.md) · [Course map](README.md) · [Next lesson: Postgres Search and Access Rules →](28-postgres-search-and-access-rules.md)
+[← Previous: Evals That Catch Real Bugs](27-evals-that-catch-real-bugs.md) · [Course map](README.md) · [Next lesson: Postgres Search and Access Rules →](29-postgres-search-and-access-rules.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

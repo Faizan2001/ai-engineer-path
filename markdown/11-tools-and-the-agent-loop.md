@@ -1,6 +1,6 @@
 # Tools and the Agent Loop
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 11 of 41 · about 1 week*
+*Section 3: RAG with LLM Zoomcamp · Lesson 11 of 42 · about 1 week*
 
 **Before you start, check that** your practice questions and unanswerable questions are committed in `ask-mdn`.
 
@@ -109,4 +109,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: ML Basics: Measuring Quality](10-ml-basics-measuring-quality.md) · [Course map](README.md) · [Next lesson: Embeddings and Vector Search →](12-embeddings-and-vector-search.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

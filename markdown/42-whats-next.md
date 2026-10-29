@@ -1,10 +1,10 @@
 # What's Next
 
-*Section 7: Conclusion · Lesson 41 of 41 · about 2 weeks (spare)*
+*Section 7: Conclusion · Lesson 42 of 42 · about 2 weeks (spare)*
 
 ## Introduction
 
-*You shipped an assistant students actually used, and you can follow any of its answers from question to evidence. These two weeks check that the skills work on material you've never seen, and leave room to repair one weak spot.*
+*You shipped an assistant and tested it with real students or in a clearly labelled rehearsal, and you can follow any of its answers from question to evidence. These two weeks check that the skills work on material you've never seen, and leave room to repair one weak spot.*
 
 > **The final test is a new problem, small enough to finish, different enough to make you think.**
 
@@ -26,17 +26,17 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
-1. Finish the required project checks. Select one unfamiliar public source, such as a small museum visitor FAQ or an open-source project's installation guide. Keep the dataset to 5–10 pages; record its source and reuse terms. Write a short brief, 6 expected question/answer cases (including 2 unsupported cases), and a cost limit before coding.
-2. Spend 3–6 hours adapting your existing app. First choose the simplest useful design and explain whether retrieval or an agent is needed. Documentation and your own code are allowed; during this exercise, keep AI in explanation/review mode rather than having it design or implement the solution. No new framework required.
-3. Demo 3 unfamiliar questions and one failure. Trace the full request, show your evidence, and make one small requirement change without an AI-produced patch. Ask a friend or peer to choose the change if available; otherwise add a new document format or a restriction you did not build for. If you cannot finish independently, revisit only the relevant lesson and retry. This is a diagnostic, not a speed contest.
-4. Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Decide the Campus Assistant's next step from your pilot evidence: widen the pilot, add a second university, or pause and fix one weakness first. Add a portfolio evidence table: requirement → code → test → result → limitation. Ask someone to review one requirement, or record a ten-minute walkthrough yourself. Start applying to applied AI/backend roles; use interview feedback to select the next repair task.
+1. **Days 1–2:** Finish the required project checks. Select one unfamiliar public source, such as a small museum visitor FAQ or an open-source project's installation guide. Keep the dataset to 5–10 pages; record its source and reuse terms. Write a short brief, 6 expected question/answer cases (including 2 unsupported cases), and a cost limit before coding. Stop when the brief and cases are committed.
+2. **Days 3–6:** Spend 3–6 hours adapting your existing app. First choose the simplest useful design and explain whether retrieval or an agent is needed. Documentation and your own code are allowed; during this exercise, keep AI in explanation/review mode rather than having it design or implement the solution. No new framework required. Stop when your 6 cases run.
+3. **Days 7–9:** Demo 3 unfamiliar questions and one failure. Then ask a friend to plant one bug in your copy (or plant one yourself a week earlier and forget the details) and find it from the symptoms. Trace the full request, show your evidence, and make one small requirement change without an AI-produced patch. Ask a friend or peer to choose the change if available; otherwise add a new document format or a restriction you did not build for. If you cannot finish independently, revisit only the relevant lesson and retry. This is a diagnostic, not a speed contest. Stop when the bug is found and the change is committed.
+4. **Days 10–12:** Write a one-page evidence review: what you built, where it failed, which skill still needs practice, and what you would change. Keep your weekly application routine. Decide the Campus Assistant's next step from your pilot evidence: widen the pilot, add a second university, or pause and fix one weakness first. Add a portfolio evidence table: requirement → code → test → result → limitation. Ask someone to review one requirement, or record a ten-minute walkthrough yourself. Start applying to applied AI/backend roles; use interview feedback to select the next repair task.
 5. Choose deeper study only for a specific goal: [ML Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp) for broader ML modeling, [LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch) for model internals, or serving/infrastructure work for an AI platform role. This path covers applied LLM applications; it does not claim mastery of every AI specialty or immunity from automation.
 
 ### Memory check · 10 min
 
 6. Close this page. In your log, answer from memory, then check:
    - Which three projects make up Ask MDN, and what did each add? ([where to check](README.md))
-   - What are the three parts of the lethal trifecta? ([where to check](23-safe-tools.md))
+   - What are the three parts of the lethal trifecta? ([where to check](24-safe-tools.md))
 7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## You're done when
@@ -49,7 +49,7 @@ By the end of this lesson, you should be able to:
 
 These are optional. Use them if you want to go further.
 
-- [Electives](42-elective-local-models.md): local models, fine-tuning, MCP, voice and images, and model internals, each tied back to your Campus Assistant.
+- [Electives](43-elective-local-models.md): local models, fine-tuning, MCP, voice and images, and model internals, each tied back to your Campus Assistant.
 - [Provider and university comparison](https://github.com/Faizan2001/ai-engineer-path/blob/main/PROVIDER-UNIVERSITY-REVIEW.md) — why these additions are required and which deeper courses can wait.
 - [Harvard CS50 AI](https://cs50.harvard.edu/ai/) — optional broader AI foundations: search, uncertainty and learning, with programming projects. Useful for gaps in those ideas; not a required restart.
 - [MIT 6.S191, 2026](https://introtodeeplearning.com/) — optional model-training direction: neural-network lectures and labs. Review calculus and linear algebra first.
@@ -59,6 +59,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Project: Campus Assistant Pilot](40-project-campus-assistant.md) · [Course map](README.md) · [Next lesson: Elective: Run Models Locally →](42-elective-local-models.md)
+[← Previous: Project: Campus Assistant Pilot](41-project-campus-assistant.md) · [Course map](README.md) · [Next lesson: Elective: Run Models Locally →](43-elective-local-models.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

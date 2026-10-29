@@ -1,6 +1,6 @@
 # Evals That Catch Real Bugs
 
-*Section 5: Make It Sturdy · Lesson 26 of 41 · about 1 week*
+*Section 5: Make It Sturdy · Lesson 27 of 42 · about 6 hours*
 
 **Before you start, check that** `save_note` only runs after approval, and your step, cost and retry limit tests pass.
 
@@ -39,13 +39,13 @@ Don't invent metrics first. Read 50 real conversations, note each failure in one
 
 - ▶ [Error Analysis: The Highest ROI Technique In AI Engineering](https://www.youtube.com/watch?v=e2i6JbU2R-s) (Hamel Husain, 12 min): The Day 1 reading's author, showing it on real data.
 
-### Day 1 · about 90 min
+### Day 1 · light day, about 45 min
 
-1. Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later.
+1. Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later. Then, before looking at any data, write down the three failures you expect most often in Ask MDN; Day 3 checks your guess.
 
-### Day 2 · about 90 min
+### Day 2 · light day, about 45 min
 
-2. Read Eugene Yan's [Product Evals in Three Simple Steps](https://eugeneyan.com/writing/product-evals/).
+2. Read Eugene Yan's [Product Evals in Three Simple Steps](https://eugeneyan.com/writing/product-evals/). Write down which of his three steps Ask MDN already has, and which it's missing.
 
 ### Day 3 · about 90 min
 
@@ -72,11 +72,12 @@ These are optional. Use them if you want to go further.
 
 - [Chip Huyen, AI Engineering, chapters 3 and 4 (book)](https://github.com/chiphuyen/aie-book)
 - [Task-specific LLM evals that do and don't work](https://eugeneyan.com/writing/evals/) by Eugene Yan: which checks catch real problems and which ones just look busy.
+- [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic, 2026): calibrating model graders against people, giving the grader an “unknown” option, and checking consistency across repeated runs.
 
 ---
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Start Applying](25-start-applying.md) · [Course map](README.md) · [Next lesson: Testing and CI →](27-testing-and-ci.md)
+[← Previous: Start Applying](26-start-applying.md) · [Course map](README.md) · [Next lesson: Testing and CI →](28-testing-and-ci.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

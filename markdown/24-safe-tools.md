@@ -1,6 +1,6 @@
 # Safe Tools
 
-*Section 4: Agents · Lesson 23 of 41 · about 3 hours*
+*Section 4: Agents · Lesson 24 of 42 · about 3 hours*
 
 ## Introduction
 
@@ -49,7 +49,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 5. Close this page. In your log, answer from memory, then check:
    - What are the three parts of the lethal trifecta? ([where to check](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/))
-   - Which LangGraph feature pauses for a person's approval? ([where to check](22-langgraph.md))
+   - Which LangGraph feature pauses for a person's approval? ([where to check](23-langgraph.md))
 6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
@@ -82,6 +82,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: LangGraph](22-langgraph.md) · [Course map](README.md) · [Next lesson: Project: Give It Tools →](24-project-give-it-tools.md)
+[← Previous: LangGraph](23-langgraph.md) · [Course map](README.md) · [Next lesson: Project: Give It Tools →](25-project-give-it-tools.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

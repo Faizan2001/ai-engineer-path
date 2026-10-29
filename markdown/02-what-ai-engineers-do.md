@@ -1,6 +1,6 @@
 # What AI Engineers Do
 
-*Section 1: Introduction · Lesson 2 of 41 · about 1.5 hours*
+*Section 1: Introduction · Lesson 2 of 42 · about 1.5 hours*
 
 ## Introduction
 
@@ -52,4 +52,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: How This Path Will Work](01-how-this-path-works.md) · [Course map](README.md) · [Next lesson: Mindset and Asking for Help →](03-mindset-and-asking-for-help.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

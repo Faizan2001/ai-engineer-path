@@ -1,6 +1,6 @@
 # Project: Make It Sturdy
 
-*Section 5: Make It Sturdy · Lesson 32 of 41 · about 5 weeks*
+*Section 5: Make It Sturdy · Lesson 33 of 42 · about 5 weeks*
 
 **Before you start, check that** your 30 attack cases and 5 canary documents are committed, with a list of the attacks that worked.
 
@@ -22,30 +22,30 @@ Finish the existing app first. Then give its read-only answer function a small A
 
 - Write your own week-by-week plan in your log first, then compare it with the steps below. Do Extra credit only after every “You're done when” line passes.
 - Build against your local Postgres. CI uses a [GitHub Actions Postgres service](https://docs.github.com/en/actions/use-cases-and-examples/using-containerized-services/creating-postgresql-service-containers) with the `pgvector/pgvector:0.8.7-pg17` image (the plain `postgres` image has no pgvector). The online version uses your Neon project.
-- Keep the app role rules from [Postgres Search and Access Rules](28-postgres-search-and-access-rules.md). Your attack cases and canary documents stay the same.
+- Keep the app role rules from [Postgres Search and Access Rules](29-postgres-search-and-access-rules.md). Your attack cases and canary documents stay the same.
 - Don't look at other people's versions of this project until yours works. Then compare and learn.
 - Stuck for more than 20 minutes? Write down what you tried, take a short break, search the course FAQ or docs, then ask with your code and the exact error.
 
 ## Assignment
 
-### Week 1 · about 9 hours
+### Days 1–6 · about 9 hours
 
-1. Move the Postgres version online: on Neon, enable pgvector, turn row-level security on and force it, and use your SQL-created app role. Connect your private Streamlit app to it through Secrets.
-2. Add login and server-side group mapping, like in Login.
-3. Checkpoint: the online app shows a CSS user only CSS answers.
+1. **Days 1–3:** Move the Postgres version online: on Neon, enable pgvector, turn row-level security on and force it, and use your SQL-created app role. Connect your private Streamlit app to it through Secrets.
+2. **Days 4–5:** Add login and server-side group mapping, like in Login.
+3. **Stop here on Day 6:** the online app shows a CSS user only CSS answers.
 
-### Week 2 · about 9 hours
+### Days 7–12 · about 9 hours
 
-4. Sync against your manifest: re-index edits and remove deleted pages.
-5. Run CI: pytest, the isolation tests and the rule-based promptfoo checks on every push, against the Postgres service; the model-graded checks on pull requests.
-6. Checkpoint: a broken prompt makes CI fail.
+4. **Days 7–8:** Sync against your manifest: re-index edits and remove deleted pages.
+5. **Days 9–11:** Run CI: pytest, the isolation tests and the rule-based promptfoo checks on every push, against the Postgres service; the model-graded checks on pull requests.
+6. **Stop here on Day 12:** a broken prompt makes CI fail.
 
-### Weeks 3–4 · about 13 hours
+### Days 13–21 · about 13.5 hours
 
-7. Run your attack test (30 cases plus 5 canaries), 3 times for each case. Fix what breaks, then run it again.
-8. Set aside 12 fresh questions after freezing this version: 4 each for CSS and JS with expected answers/supporting passages, plus 4 plausible questions unsupported by that user's permitted documents. Before running them, record an acceptance rule: for this learning project, at least 7 of 8 supported answers correct and supported by citations, all 4 unsupported requests declined, and no unauthorized reads/writes. Grade manually and show counts and all failures. These small-sample targets are practice gates, not production guarantees. If you fix a failure, keep these as regression cases and reserve fresh cases for another independent check.
-9. Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.
-10. Update the README with your results and an architecture diagram. Keep a short list of changes a real team deployment would need. Your university integration is the capstone: [Ship It: Service and Website](38-assistant-service-and-web.md).
+7. **Days 13–15:** Run your attack test (30 cases plus 5 canaries), 3 times for each case. Fix what breaks, then run it again.
+8. **Days 16–17:** Set aside 12 fresh questions after freezing this version: 4 each for CSS and JS with expected answers/supporting passages, plus 4 plausible questions unsupported by that user's permitted documents. Before running them, record an acceptance rule: for this learning project, at least 7 of 8 supported answers correct and supported by citations, all 4 unsupported requests declined, and no unauthorized reads/writes. Grade manually and show counts and all failures. These small-sample targets are practice gates, not production guarantees. If you fix a failure, keep these as regression cases and reserve fresh cases for another independent check.
+9. **Days 18–19:** Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.
+10. **Days 20–21:** Update the README with your results and an architecture diagram. Keep a short list of changes a real team deployment would need. Your university integration is the capstone: [Ship It: Service and Website](39-assistant-service-and-web.md). **Stop here on Day 21** when the README has your results and the architecture diagram.
 
 ### Days 22–23 · about 3 hours
 
@@ -60,23 +60,30 @@ Finish the existing app first. Then give its read-only answer function a small A
 
 ### Days 26–27 · about 3 hours
 
-16. Follow the [FastAPI container guide](https://fastapi.tiangolo.com/deployment/docker/) to package the service. Pin dependencies; use a non-root runtime user, `.dockerignore` and environment secrets. Bind the published port to localhost for this lab. Build from a fresh checkout, run without your editor and call `/health` plus `/answer`. Keep API tests and an image-build check in CI. No additional paid hosting is required.
-17. Checkpoint: one documented command starts the container and the protected HTTP checks pass. Record the remaining deployment work: TLS, credential rotation, backups and shared quota enforcement if you add replicas. Streamlit remains your private online demo.
+16. **Test-out:** if you can write a pinned, non-root Dockerfile with a `.dockerignore` from memory in 30 minutes, do that and skip the guide walkthrough. The checkpoint below still applies.
+17. Follow the [FastAPI container guide](https://fastapi.tiangolo.com/deployment/docker/) to package the service. Pin dependencies; use a non-root runtime user, `.dockerignore` and environment secrets. Bind the published port to localhost for this lab. Build from a fresh checkout, run without your editor and call `/health` plus `/answer`. Keep API tests and an image-build check in CI. No additional paid hosting is required.
+18. Checkpoint: one documented command starts the container and the protected HTTP checks pass. Record the remaining deployment work: TLS, credential rotation, backups and shared quota enforcement if you add replicas. Streamlit remains your private online demo.
 
 ### Days 28–29 · about 3 hours
 
-18. **Failure drill:** fake the model-provider boundary for timeouts and retryable rate limits. Separately inject a database connection/query failure at the database boundary, or stop only your disposable local test database. Require a safe error within your recorded deadline. Never interrupt the online database.
-19. For a repeatable overload check, run one API worker with at most 2 model requests in flight and no waiting queue. Use a fake provider held at a test barrier: while 2 requests are busy, send a third and require a clear 429 retry-later response. Release the barrier; both accepted requests must finish within a 5-second test deadline. Then send 20 fake-provider requests at concurrency 1 and 5 and record accepted/rejected counts. This local limit is not a shared quota across replicas. Use Python’s [threading events/barriers](https://docs.python.org/3/library/threading.html) or the async equivalent to hold the fake calls deterministically; a fixed sleep is not a reliable test barrier.
-20. Run two simultaneous agent writes with the SAME approved operation ID. Check the database: exactly one note, matching arguments, and no cross-user state. This exercises the existing write tool separately; the new HTTP endpoint stays read-only.
-21. Record success counts and p50/p95 response times (typical time and the slow tail). Twenty requests are a smoke test, not capacity proof. Trace one failure, operate the off switch and follow your rollback runbook. Write a 5-line incident note: symptom, cause, fix, regression check and remaining limitation.
-22. Optional UX experiment: add progress events or streamed draft text. Distinguish time to first visible feedback from time to a validated final answer. Never treat partial JSON or streamed text as approval to perform a write.
+19. **Failure drill:** fake the model-provider boundary for timeouts and retryable rate limits. Separately inject a database connection/query failure at the database boundary, or stop only your disposable local test database. Require a safe error within your recorded deadline. Never interrupt the online database.
+20. For a repeatable overload check, run one API worker with at most 2 model requests in flight and no waiting queue. Use a fake provider held at a test barrier: while 2 requests are busy, send a third and require a clear 429 retry-later response. Release the barrier; both accepted requests must finish within a 5-second test deadline. Use Python’s [threading events/barriers](https://docs.python.org/3/library/threading.html) or the async equivalent to hold the fake calls deterministically; a fixed sleep is not a reliable test barrier.
+21. Run two simultaneous agent writes with the SAME approved operation ID. Check the database: exactly one note, matching arguments, and no cross-user state. This exercises the existing write tool separately; the new HTTP endpoint stays read-only.
+22. **Stop here on Day 29** when both failure drills, the 429 test and the duplicate-write check pass.
+
+### Days 30–31 · about 3 hours
+
+23. Send 20 fake-provider requests at concurrency 1 and 5. Record accepted and rejected counts, success counts and p50/p95 response times (typical time and the slow tail). This local limit is not a shared quota across replicas, and twenty requests are a smoke test, not capacity proof.
+24. Trace one failure, operate the off switch and follow your rollback runbook. Write a 5-line incident note: symptom, cause, fix, regression check and remaining limitation.
+25. Optional UX experiment: add progress events or streamed draft text. Distinguish time to first visible feedback from time to a validated final answer. Never treat partial JSON or streamed text as approval to perform a write.
+26. **Stop here on Day 31** when the timings and the incident note are committed. Did these as part of Days 28–29 before they moved here? Tick both Days.
 
 ### Memory check · 10 min
 
-23. Close this page. In your log, answer from memory, then check:
-   - Why can a working Streamlit demo still need a backend check? ([where to check](32-project-make-it-sturdy.md))
-   - What counts as a breach in your attack test? ([where to check](31-red-team-your-app.md))
-24. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+27. Close this page. In your log, answer from memory, then check:
+   - Why can a working Streamlit demo still need a backend check? ([where to check](33-project-make-it-sturdy.md))
+   - What counts as a breach in your attack test? ([where to check](32-red-team-your-app.md))
+28. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: Why can a working Streamlit demo still need a backend check?</summary>
@@ -132,6 +139,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Red-Team Your App](31-red-team-your-app.md) · [Course map](README.md) · [Next lesson: Curation and Verification →](33-curation-and-verification.md)
+[← Previous: Red-Team Your App](32-red-team-your-app.md) · [Course map](README.md) · [Next lesson: Curation and Verification →](34-curation-and-verification.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

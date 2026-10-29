@@ -1,6 +1,6 @@
 # Setting Up Your Tools
 
-*Section 2: Foundations · Lesson 4 of 41 · about 3 hours*
+*Section 2: Foundations · Lesson 4 of 42 · about 4.5 hours*
 
 ## Introduction
 
@@ -44,12 +44,19 @@ By the end of this lesson, you should be able to:
 6. **No AI for this one:** write a script that reads a CSV file, counts the rows for each value in one column and prints the top 3. Stuck for more than 20 minutes? Review the [Python tutorial](https://docs.python.org/3/tutorial/). Check it with six rows whose counts you already know. If files, dictionaries or functions feel unfamiliar, spend up to two extra sessions on those Python tutorial sections and retry with a different CSV. Ask for a hint after 20 stuck minutes. Pass this small check before the model-call assignments; needing the bridge is normal.
 7. Add an `AGENTS.md` file ([the format](https://agents.md/)) to your repo. It's a note for your AI coding assistant. Tell it to explain, review and ask you questions, not to write your lesson solutions.
 
+### Day 3 · first win, about 90 min
+
+8. Already past [Keyword RAG](09-keyword-rag.md)? Tick this Day: you've built more than this. Otherwise, before any AI: write five short help pages for an imaginary student office as plain text files. Give each an ID, a date and a source label, for example `fees-01 · 2026-09-01 · Accounts office`. Make one of them out of date on purpose.
+9. Without AI-written code, write `search.py`: lowercase the question, split it into words, drop a short list of common words (the, a, an, is, are, what, when, how, do, i, my, to, of, for), score each page by how many remaining question words it contains, and print the top 2 page IDs, or `no matching page` when the best score is 0. About 30 lines.
+10. Write three tests as plain `assert` lines in `test_search.py` and run them with `python test_search.py` (pytest comes in [Structured Output and Errors](07-structured-output-and-errors.md)): a question with an obvious answer, a question no page answers (your search must print `no matching page`, not guess), and one that hits the out-of-date page. Assert that it returns that page, with a comment saying why that's a problem: your search has no idea about dates yet. You'll fix that kind of problem in the capstone.
+11. Stop here when the tests pass and you've recorded a one-minute screen capture: a question goes in, page IDs come out. That's your first search engine. [Keyword RAG](09-keyword-rag.md) rebuilds it properly.
+
 ### Memory check · 10 min
 
-8. Close this page. In your log, answer from memory, then check:
+12. Close this page. In your log, answer from memory, then check:
    - Why must your API key never be in your code or Git history? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md))
    - What are your two log rules for being stuck and for coming back after a break? ([where to check](01-how-this-path-works.md))
-9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 
@@ -65,4 +72,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Mindset and Asking for Help](03-mindset-and-asking-for-help.md) · [Course map](README.md) · [Next lesson: How LLMs Work →](05-how-llms-work.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

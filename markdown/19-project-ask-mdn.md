@@ -1,6 +1,6 @@
 # Project: Ask MDN
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 19 of 41 · about 3 weeks*
+*Section 3: RAG with LLM Zoomcamp · Lesson 19 of 42 · about 3 weeks*
 
 **Before you start, check that** Ask MDN v0.6 runs online as your private app, with conversations saved in Neon.
 
@@ -27,24 +27,24 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 
 ## Assignment
 
-### Week 1 · about 9 hours
+### Days 1–6 · about 9 hours
 
-1. Bring together everything from this section: ingestion, hybrid search, the prompt, the chat app and logging.
-2. Make every answer show links to the MDN pages it used.
-3. Checkpoint: 5 practice questions get correct, cited answers.
+1. **Days 1–3:** Bring together everything from this section: ingestion, hybrid search, the prompt, the chat app and logging. One piece a Day, each one running before you add the next.
+2. **Days 4–5:** Make every answer show links to the MDN pages it used.
+3. **Stop here on Day 6:** 5 practice questions get correct, cited answers.
 
-### Week 2 · about 9 hours
+### Days 7–12 · about 9 hours
 
-4. Check the “I don't know” path on your 10 unanswerable questions.
-5. Run your tests on the 50 held-back questions, once, and record the results. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.
-6. Checkpoint: your README has the results table.
+4. **Days 7–8:** Check the “I don't know” path on your 10 unanswerable questions.
+5. **Days 9–11:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](13-measuring-search.md) on them and report the range next to each metric. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.
+6. **Stop here on Day 12:** your README has the results table.
 
-### Week 3 · about 9 hours
+### Days 13–18 · about 9 hours
 
-7. Put the final version online as a private app (see [Deploy It Safely](18-deploy-it-safely.md)). This is **Ask MDN v1.0**.
-8. If a friend can help, ask them for 5 CSS or JavaScript questions they really got stuck on this month, and run them on the live app. No one free? Ask in the Zoomcamp Slack, or use 5 old bugs of your own.
-9. Finish the README. Open it with a real bug you once lost hours to, and Ask MDN's cited answer. Then: how it works, how to run it, your results, a GIF and what you'd improve.
-10. If a Zoomcamp cohort is open, submit your project for peer review. If not, share your repo in `#course-llm-zoomcamp` and ask for feedback.
+7. **Days 13–14:** Put the final version online as a private app (see [Deploy It Safely](18-deploy-it-safely.md)). This is **Ask MDN v1.0**.
+8. **Day 15:** If a friend can help, ask them for 5 CSS or JavaScript questions they really got stuck on this month, and run them on the live app. No one free? Ask in the Zoomcamp Slack, or use 5 old bugs of your own.
+9. **Days 16–17:** Finish the README. Open it with a real bug you once lost hours to, and Ask MDN's cited answer. Then: how it works, how to run it, your results, a GIF and what you'd improve.
+10. **Day 18:** If a Zoomcamp cohort is open, submit your project for peer review. If not, share your repo in `#course-llm-zoomcamp` and ask for feedback.
 
 ### Memory check · 10 min
 
@@ -90,4 +90,4 @@ What it proves to employers:
 
 [← Previous: Deploy It Safely](18-deploy-it-safely.md) · [Course map](README.md) · [Next lesson: Campus Knowledge Base →](20-campus-knowledge-base.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

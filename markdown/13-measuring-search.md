@@ -1,6 +1,6 @@
 # Measuring Search
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 13 of 41 · about 1 week*
+*Section 3: RAG with LLM Zoomcamp · Lesson 13 of 42 · about 1 week, plus 1 hour*
 
 **Before you start, check that** Ask MDN v0.3 answers from a sqlitesearch vector index built with the ONNX embedder, and keyword search still works.
 
@@ -67,12 +67,17 @@ To grade search you need an answer key: questions whose correct page you already
 
 7. Add to Ask MDN: measure Hit Rate@5 and MRR@5 (the @5 means only the top 5 results count) for keyword and vector search on your 20 practice questions. Write the numbers in your README. Score the first 5 distinct `page_id` values, not 5 chunks. Fetch more chunk candidates if needed, deduplicate in rank order, and report fewer results honestly if fewer remain. Add a tiny test where repeated chunks from page A cannot crowd page B out of the five-page metric.
 
+### Day 8 · about 60 min
+
+8. Your Hit Rate on 20 practice questions is an estimate, not a fact. Without AI-written code, write a paired bootstrap: 1,000 times, draw 20 of your practice questions at random *with replacement* (some appear twice, some not at all), compute Hit Rate for keyword search and for vector search on that same draw, and save the difference. Report the middle 95% of the 1,000 differences (the 2.5th to 97.5th percentile). If that range includes 0, you can't yet say which search is better. Expect a wide range with 20 questions; that is the point.
+9. Add the rule of three to your log: if you see 0 failures in n tries, the true failure rate could still be as high as about 3/n. Stop here when your results table shows every metric with its n and its range.
+
 ### Memory check · 10 min
 
-8. Close this page. In your log, answer from memory, then check:
+10. Close this page. In your log, answer from memory, then check:
    - What does MRR reward that Hit Rate doesn't? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md))
    - Why did you split long MDN pages into chunks? ([where to check](12-embeddings-and-vector-search.md))
-9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+11. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What does MRR reward that Hit Rate doesn't?</summary>
@@ -104,4 +109,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Embeddings and Vector Search](12-embeddings-and-vector-search.md) · [Course map](README.md) · [Next lesson: Hybrid Search →](14-hybrid-search.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

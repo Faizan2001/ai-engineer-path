@@ -1,6 +1,6 @@
 # How LLMs Work
 
-*Section 2: Foundations · Lesson 5 of 41 · about 2 hours*
+*Section 2: Foundations · Lesson 5 of 42 · about 3 hours*
 
 ## Introduction
 
@@ -45,16 +45,25 @@ A model call predicts tokens from its input and learned patterns. It does not au
 
 ## Assignment
 
+### Day 1 · about 90 min
+
 1. Watch 3Blue1Brown's [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs) (7 min). Watch for the idea of predicting one token at a time.
 2. Watch [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) (27 min). Pause often and write one sentence for each new idea. On mobile data, watch at 480p or download it on Wi-Fi first.
 3. In your log, before you rewatch anything, explain in 5 sentences how a chat model answers a question. Only use words you could explain to a friend.
 
+### Day 2 · under the hood, about 90 min
+
+4. Predict first: will the same question cost more tokens in English, in Bangla script or in Banglish? Write your guess.
+5. Write one campus question yourself (never copy a real post) in all three forms, three or four sentences long. Send each once to your model with no instructions and read the input token count from the response's `usage` field: that is the count you are billed for. Every request also carries a few fixed formatting tokens, so also send a one-word message and subtract its count from each before computing the ratio to English. Record the model, the three counts and the ratios. You'll reuse them in [Choose Models and a Budget](38-choose-models-and-budget.md).
+6. Without AI-written code, write `sample.py`: a made-up table of five possible next tokens with scores, a softmax that turns scores into probabilities, and a sampler. Sample 20 times at temperature 0.2, 1.0 and 1.5 and compare. You've just written the last step of every chat model.
+7. Stop here when your log has the token table, your guess next to the real ratio, and one sentence on what temperature does.
+
 ### Memory check · 10 min
 
-4. Close this page. In your log, answer from memory, then check:
+8. Close this page. In your log, answer from memory, then check:
    - What is a token, and what does the model predict? ([where to check](https://www.youtube.com/watch?v=LPZh9BOjkQs))
    - Why should you never put an API key in Git? ([where to check](04-setting-up-your-tools.md))
-5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What is a token, and what does the model predict?</summary>
@@ -82,6 +91,7 @@ These are optional. Use them if you want to go further.
 - [Chip Huyen, AI Engineering, chapter 2, “Sampling” and “Structured Outputs” (book)](https://github.com/chiphuyen/aie-book)
 - [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) by Georgia Tech Polo Club: play with a real small model in your browser and watch each step.
 - [Why language models hallucinate](https://openai.com/index/why-language-models-hallucinate/) by OpenAI: why models make things up, from the people who build them.
+- [Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE) by Andrej Karpathy (2 h): why token counts differ between languages, built from scratch. Optional.
 
 ---
 
@@ -89,4 +99,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Setting Up Your Tools](04-setting-up-your-tools.md) · [Course map](README.md) · [Next lesson: The AI Staircase →](06-the-ai-staircase.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

@@ -1,6 +1,6 @@
 # Deploy It Safely
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 18 of 41 · about 6 hours*
+*Section 3: RAG with LLM Zoomcamp · Lesson 18 of 42 · about 6 hours*
 
 **Before you start, check that** Ask MDN v0.5 saves request metadata, permitted diagnostic examples, costs and feedback.
 
@@ -66,4 +66,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Monitoring](17-monitoring.md) · [Course map](README.md) · [Next lesson: Project: Ask MDN →](19-project-ask-mdn.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 28 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026

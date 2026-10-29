@@ -139,7 +139,7 @@ for si, sec in enumerate(course["sections"], 1):
     if sec.get("shift"):
         readme += [f"- **Before:** {md(sec['shift']['before'])}", f"- **After:** {md(sec['shift']['after'])}", ""]
     for l in [x for x in lessons if x["section_n"] == si]:
-        readme.append(f"{l['n']}. " + ("**Project:** " if l["kind"] == "project" else "") + f"[{l['title']}]({l['file']}) · {l['time']}")
+        readme.append(f"{l['k'] if l['optional'] else l['n']}. " + ("**Project:** " if l["kind"] == "project" else "") + f"[{l['title']}]({l['file']}) · {l['time']}")
     readme.append("")
 readme += ["---", "", f"**Start here →** [{lessons[0]['title']}]({lessons[0]['file']})", "", md(course["disclaimer"]), ""]
 with open(os.path.join(OUT, "README.md"), "w", encoding="utf-8") as f:
