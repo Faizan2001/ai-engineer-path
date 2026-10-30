@@ -36,7 +36,7 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 ### Days 7–12 · about 9 hours
 
 4. **Days 7–8:** Check the “I don't know” path on your 10 unanswerable questions.
-5. **Days 9–11:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](13-measuring-search.md) on them and report the range next to each metric. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.
+5. **Days 9–11:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](13-measuring-search.md) on them and report the range next to each metric. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Answer the same 10 questions with the same model and output limit but no retrieved pages, prompted to answer from its own knowledge and say when it's unsure, and grade both the same way: that baseline shows what retrieval actually adds. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.
 6. **Stop here on Day 12:** your README has the results table.
 
 ### Days 13–18 · about 9 hours
@@ -56,7 +56,7 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 ## You're done when
 
 - [ ] Your README reports Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions. If hybrid doesn't win, you explain why. Include your model/configuration comparison and its decision, with prompt and corpus versions.
-- [ ] Every factual answer identifies its source passages. Your README includes manual correctness and citation-support grades for a 10-answer sample, with failures explained.
+- [ ] Every factual answer identifies its source passages. Your README includes manual correctness and citation-support grades for a 10-answer sample beside the same model answering without retrieval, with failures explained.
 - [ ] Report abstention results on the 10 known unanswerable questions and incorrect refusals on answerable questions. Call this a regression result, not proof of performance on new questions.
 - [ ] It runs online as your private Streamlit app, with the API key stored in Secrets and conversations saved in Neon.
 - [ ] Explain the request flow, two design decisions and one failure. Write a core retrieval function without AI-generated code (such as page deduplication or rank fusion), test duplicate/missing results, and explain its behavior on a new input. Documentation is allowed; note the commit.

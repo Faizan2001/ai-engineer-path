@@ -702,10 +702,10 @@ window.COURSE = {
        "added": "2026-10-30",
        "steps": [
         "Across these four Days, follow Andrej Karpathy's [building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0) (2.5 h), typing every line yourself. Pause before each new function and predict what it must do. Need PyTorch for the checks? Get the CPU-only build: add the PyTorch CPU index to `pyproject.toml` as in uv's [PyTorch guide](https://docs.astral.sh/uv/guides/integration/pytorch/), then `uv add torch`. Or use a free [Colab](https://colab.research.google.com/) notebook.",
-        "**Day 7 (video up to 51:10):** a `Value` class that adds and multiplies, with gradients you fill in by hand. Stop when they match the ones you work out on paper for one tiny expression.",
-        "**Day 8 (52:52 to 1:43:55):** `tanh`, a `_backward` for each operation, and one `backward()` that uses a topological sort. Stop when your gradients match PyTorch's on the same expression to 4 decimal places.",
-        "**Day 9 (1:43:55 to 2:14:03):** a neuron, a layer and a tiny MLP. Train it on four hand-made examples. Stop when the loss falls steadily.",
-        "**Day 10:** connect it to this lesson. Make data where overfitting is easy to see: two overlapping clusters of 2-D points, 20 for training with 10% of their labels flipped, and 200 held out. Train a 2-16-16-1 MLP for 500 steps, log both losses every 10 steps, and plot them (`uv add matplotlib`). Find where training loss keeps falling but held-out loss stops: that is overfitting, measured by you. If held-out loss never flattens, halve the training set. Stop when the plot and a three-line explanation are committed."
+        "**Day 7 (up to 32:10):** derivatives by nudging an input, then a `Value` class that adds and multiplies and draws its expression graph. Stop when it draws one small expression with the right values.",
+        "**Day 8 (32:10 to 1:09:02):** fill in gradients by hand, first for a small expression, then for a neuron with `tanh`. Stop when they match the ones you work out on paper.",
+        "**Day 9 (1:09:02 to 1:51:04):** a `_backward` for each operation and one `backward()` that uses a topological sort; check it against PyTorch, then write a neuron, a layer and a tiny MLP. Stop when your gradients match PyTorch's to 4 decimal places and the MLP runs a forward pass.",
+        "**Day 10 (1:51:04 to 2:14:03):** train the MLP on the video's four examples until the loss falls steadily. Then connect it to this lesson: make data where overfitting is easy to see: two overlapping clusters of 2-D points, 20 for training with 10% of their labels flipped, and 200 held out. Train a 2-16-16-1 MLP for 500 steps, log both losses every 10 steps, and plot them (`uv add matplotlib`). Find where training loss keeps falling but held-out loss stops: that is overfitting, measured by you. If held-out loss never flattens, halve the training set. Stop when the plot and a three-line explanation are committed."
        ]
       }
      ],
@@ -1476,7 +1476,7 @@ window.COURSE = {
        "day": "Days 7–12 · about 9 hours",
        "steps": [
         "**Days 7–8:** Check the “I don't know” path on your 10 unanswerable questions.",
-        "**Days 9–11:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](#measuring-search) on them and report the range next to each metric. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.",
+        "**Days 9–11:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](#measuring-search) on them and report the range next to each metric. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Answer the same 10 questions with the same model and output limit but no retrieved pages, prompted to answer from its own knowledge and say when it's unsure, and grade both the same way: that baseline shows what retrieval actually adds. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.",
         "**Stop here on Day 12:** your README has the results table."
        ],
        "split": true
@@ -1494,7 +1494,7 @@ window.COURSE = {
      ],
      "done": [
       "Your README reports Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions. If hybrid doesn't win, you explain why. Include your model/configuration comparison and its decision, with prompt and corpus versions.",
-      "Every factual answer identifies its source passages. Your README includes manual correctness and citation-support grades for a 10-answer sample, with failures explained.",
+      "Every factual answer identifies its source passages. Your README includes manual correctness and citation-support grades for a 10-answer sample beside the same model answering without retrieval, with failures explained.",
       "Report abstention results on the 10 known unanswerable questions and incorrect refusals on answerable questions. Call this a regression result, not proof of performance on new questions.",
       "It runs online as your private Streamlit app, with the API key stored in Secrets and conversations saved in Neon.",
       "Explain the request flow, two design decisions and one failure. Write a core retrieval function without AI-generated code (such as page deduplication or rank fusion), test duplicate/missing results, and explain its behavior on a new input. Documentation is allowed; note the commit."
@@ -1662,21 +1662,21 @@ window.COURSE = {
       {
        "day": "Day 1 · under the hood, about 90 min",
        "steps": [
-        "Watch the first hour of Andrej Karpathy's [building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo), typing as you go. Count letter pairs in a list of names, sample new names, and compute the average negative log likelihood.",
+        "Watch Andrej Karpathy's [building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo) up to 1:02:57, typing as you go, except the broadcasting section (36:17 to 50:14): watch it, then type only the final normalisation line. Count letter pairs in a list of names, sample new names, and compute the average negative log likelihood.",
         "Stop when you can sample 20 names and say what the loss number means."
        ]
       },
       {
        "day": "Day 2 · under the hood, about 90 min",
        "steps": [
-        "Finish the video: rebuild the same bigram model as a one-layer neural network in PyTorch, trained with gradient descent.",
+        "Finish the video from 1:02:57, watching the summary (1:26:17 to 1:35:49) and the two notes (1:47:49 to 1:54:31) without typing: rebuild the same bigram model as a one-layer neural network in PyTorch, trained with gradient descent.",
         "Stop when its loss is close to the counting model's loss, and you can explain why they should match."
        ]
       },
       {
        "day": "Day 3 · under the hood, about 90 min",
        "steps": [
-        "Start Karpathy's [Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY). Before the attention section, do the “mathematical trick” by hand: on a 4-token example, average each token with the tokens before it, first with loops, then as one matrix multiplication.",
+        "Start Karpathy's [Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY). Watch up to 42:13 without typing: you built the data split, batches and a bigram model in makemore, so copy `bigram.py` from the [lecture's code](https://github.com/karpathy/ng-video-lecture) instead. Then type along from 42:13, and before the attention section do the “mathematical trick” by hand: on a 4-token example, average each token with the tokens before it, first with loops, then as one matrix multiplication.",
         "Stop when both versions give the same numbers."
        ]
       },
@@ -2072,7 +2072,7 @@ window.COURSE = {
         "Add Poster Reader and Ask MDN to your resume ([resume guide](https://www.techinterviewhandbook.org/resume/)). Link the public repos and lead with the numbers from your READMEs.",
         "Prepare three short stories from your log: a hard bug, a design choice and a mistake you fixed ([behavioral interview guide](https://www.techinterviewhandbook.org/behavioral-interview/)).",
         "Practise explaining how Ask MDN works, out loud, in 3 minutes.",
-        "Put a separate 1-hour block in your calendar each week to apply to 2 or 3 jobs, until you finish Make It Sturdy. After that, give it more time.",
+        "Put a separate 1-hour block in your calendar each week to apply to 2 or 3 jobs, until you finish Make It Sturdy. After that, give it more time. Every other week, spend 20 minutes of that block on one timed practice without AI: a small Python coding task, or designing an AI feature out loud (what it calls, where it can fail, how you'd measure it).",
         "If you have JavaScript or TypeScript web work, list it next to your AI repos. Many AI teams build web products too."
        ]
       }
@@ -2798,7 +2798,7 @@ window.COURSE = {
       "Check citations, contradictions, personal data and staleness automatically.",
       "Measure judge errors on unseen good and bad entries, and write a human-approval policy."
      ],
-     "checkpoint": "your knowledge base has at least 60 entries with sources, and [Grading Answers](#grading-answers) and [Fresh Data](#fresh-data) are complete.",
+     "checkpoint": "your knowledge base has at least 65 entries with sources, and [Grading Answers](#grading-answers) and [Fresh Data](#fresh-data) are complete.",
      "bridge": {
       "text": "An LLM judge is a second model that grades an answer against a rubric. It is fast and cheap, and it is wrong in patterns. You find those patterns by grading the same items yourself.",
       "terms": [
@@ -2941,7 +2941,7 @@ window.COURSE = {
       {
        "q": "What does query rewriting cost you, and how do you decide whether it's worth it?",
        "link": "#multilingual-search",
-       "answer": "An extra model call: latency and money per question. Keep it only if it improves the held-back slices enough to justify the measured cost."
+       "answer": "An extra model call: latency and money per question. Keep it only if it improves the development slices enough to justify the measured cost."
       }
      ],
      "extra": [],
@@ -2991,7 +2991,7 @@ window.COURSE = {
       {
        "day": "Days 5–6 · about 3 hours",
        "steps": [
-        "Add a crisis route that runs before retrieval: a high-recall keyword check in English, Bangla and Banglish, plus a small classifier prompt for indirect wording. It replies only with a static, reviewed card listing counselling and emergency contacts with their hours, and it shows which lines are open now in your timezone. A keyword hit never calls a model and is never stored in full or queued for curation. Each contact has an owner who re-verifies it, and a date.",
+        "Add a crisis route that runs before retrieval: a high-recall keyword check in English, Bangla and Banglish, plus a small classifier prompt for indirect wording. It replies only with a static card listing counselling and emergency contacts with their hours, and it shows which lines are open now in your timezone. The counselling centre must approve the card's wording and contacts in writing before any real student sees it; you'll send it with your pilot request in [Ship It: Service and Website](#assistant-service-and-web), so nothing waits on the reply. A keyword hit never calls a model and is never stored in full or queued for curation. Each contact has an owner who re-verifies it, and a date.",
         "Test it on your crisis set: at least 30 crisis messages and 30 harmless look-alikes per language (“this exam is killing me”), written in your weekly crisis-set block since [Evals That Catch Real Bugs](#evals-that-catch-real-bugs) and reviewed by a native speaker. Include indirect wording and one hidden inside a scholarship question. Test the card with a fake clock at 10:00 and 23:00. Report misses and false alarms as counts with their denominators. By the rule of three, 0 misses out of 30 still allows a true miss rate of up to about 10%: encouraging, not proof.",
         "**Stop here on Day 6** when both clock tests pass and the counts are in your log."
        ]
@@ -3078,7 +3078,7 @@ window.COURSE = {
       {
        "day": "Day 4 · about 90 min",
        "steps": [
-        "Expose both as read-only tools to your assistant. It may suggest only courses the tools return, must show the reason, must ask for the curriculum version when it's missing, and must say that offerings and seats change each semester."
+        "Expose both as read-only tools to your assistant. It may suggest only courses the tools return, must show the reason, must ask for the curriculum version when it's missing, and must say that offerings and seats change each semester. Keep these tools out of the student pilot: every pilot answer must trace to an approved knowledge-base entry. They can join a later pilot once their curriculum pack is approved the same way."
        ]
       },
       {
@@ -3193,7 +3193,7 @@ window.COURSE = {
         "Update `POLICY.md` for live use before writing code: student messages are personal data. Redact IDs, phone numbers and grades before storing; keep raw text only briefly; curation items carry a redacted paraphrase, not the raw message; crisis-routed messages are never stored in full. Choose a model provider tier that doesn't train on your prompts. Keep the record of what you process (purposes, systems, retention) separate from chat transcripts: the record lasts for years, transcripts only briefly. Your notice names the model provider and that messages leave the country. Before a live pilot with real students, get a qualified local review of your privacy duties. Add a scrubber that removes phone numbers, student IDs, emails and national ID numbers before anything is logged or sent to a model, and test it on Bangla and Banglish text.",
         "Write a design note: the request path from client to cited answer, where the service runs, where the index lives, how the gateway proves its identity to the service, what is logged and for how long. Start with the simplest store that passes your tests: for about 100 approved entries per university, an index built in memory from the published entries is enough. Move to Postgres with row-level security, as in [Postgres Search and Access Rules](#postgres-search-and-access-rules), when the corpus or traffic needs it, and write down what would trigger the move. Get it reviewed by a friend or a peer, or check it against your own [Make It Sturdy](#project-make-it-sturdy) evidence table.",
         "Write two contracts. The public client sends `{question, idempotencyKey, conversationId?, preferredLanguage?, programHint?, curriculumHint?}`; reject extra identity fields and never forward client identity headers. After verifying the student, the gateway creates an internal envelope `{context: {uid, tenantId, requestId, operation}, input: {...}}`. Its context comes only from server authority, and is bound to a gateway-created request record with those fields and a hash of the allowed input. Conversations and results are server-owned; fetches and retries recheck user and tenant ownership.",
-        "Start the pilot approval request now (see [Campus Assistant Pilot](#project-campus-assistant)). Approvals take calendar time. **Stop here** when the policy, design note and both contracts are committed and the request is sent."
+        "Start the pilot approval request now (see [Campus Assistant Pilot](#project-campus-assistant)), and send the crisis card to the counselling centre for written approval with it. Approvals take calendar time. **Stop here** when the policy, design note and both contracts are committed and the request is sent."
        ]
       },
       {
@@ -3221,7 +3221,7 @@ window.COURSE = {
       {
        "day": "Days 13–15 · about 4.5 hours",
        "steps": [
-        "Build the chat page with the answer card: answer, who it applies to, evidence links, what's still needed, next step, last-verified date, and thumbs up/down with an optional comment. Start with a full answer per request; add streaming later only if the wait feels long and both clients support it.",
+        "Build the chat page with the answer card: answer, who it applies to, evidence links, what's still needed, next step, last-verified date, and thumbs up/down with an optional comment. Start with a full answer per request; add streaming later only if the wait feels long and both clients support it. Add an always-visible “Need help now?” link that opens the static crisis card without calling the gateway, so it still works when a student is over the limit, the feature is switched off or the service fails.",
         "Feedback becomes a redacted curation item, never an automatic change to an answer. Run your eval suite in CI against the service with a fake model, and nightly with the real one. **Stop here** when a thumbs-down in the chat page creates a redacted curation item."
        ]
       },
@@ -3269,7 +3269,7 @@ window.COURSE = {
       {
        "day": "Days 1–2 · about 3 hours",
        "steps": [
-        "Add the chat screen where your app's navigation rules allow it. Reuse the service, the citation format and the feedback buttons from the web."
+        "Add the chat screen where your app's navigation rules allow it. Reuse the service, the citation format, the feedback buttons and the “Need help now?” link from the web."
        ]
       },
       {
@@ -3321,7 +3321,7 @@ window.COURSE = {
       {
        "day": "Days 1–6 · about 9 hours",
        "steps": [
-        "**Days 1–3:** Run the frozen candidate once on the reserved release set; record per-language search and answer counts, thresholds, set IDs and all versions. Separately pass the known hard, crisis and cross-university regression suites, provider eligibility and cost limits. These are observed results, not a guarantee for all questions. If release failures guide fixes, preserve the failed run, move exposed cases to regression, and test the revised candidate on a fresh release sample. Keep unsupported languages or topics unavailable. Do not invite students until the quality gates and `PILOT-AUTHORIZATION.md` both pass; all published knowledge-base entries still need human approval.",
+        "**Days 1–3:** Run the frozen candidate once on the reserved release set; record per-language search and answer counts, thresholds, set IDs and all versions. Separately pass the known hard, crisis and cross-university regression suites, provider eligibility and cost limits. For crisis, that means zero misses in every language on your crisis set (or a stricter bar the counselling centre sets), the help link working in every state, and the centre's written approval of the card recorded in `PILOT-AUTHORIZATION.md`; without that approval, run the rehearsal only. These are observed results, not a guarantee for all questions. If release failures guide fixes, preserve the failed run, move exposed cases to regression, and test the revised candidate on a fresh release sample. Keep unsupported languages or topics unavailable. Do not invite students until the quality gates and `PILOT-AUTHORIZATION.md` both pass; all published knowledge-base entries still need human approval.",
         "**Day 4:** Write a one-page runbook: how to switch the assistant off, roll back a knowledge-base version, and answer a complaint.",
         "**Days 5–6:** Choose the route before starting: with all required permissions and gates passed, invite 20–30 consenting students across departments who meet provider terms. Otherwise keep the service in an isolated development environment, use synthetic users and synthetic or otherwise permitted data, and label it a rehearsal. Willing friends may exercise scripted synthetic cases with notice and consent; do not use real student records or imply university permission."
        ],
@@ -3374,7 +3374,7 @@ window.COURSE = {
       {
        "q": "What has to be true before you invite pilot users?",
        "link": "#project-campus-assistant",
-       "answer": "Release gates pass (accuracy, per-language search, zero invented rules, zero cross-tenant leaks, cost under budget), a runbook exists, and users know what is logged."
+       "answer": "Release gates pass (accuracy, per-language search, zero invented rules, zero cross-tenant leaks, zero missed crisis messages, cost under budget); `PILOT-AUTHORIZATION.md` records written permission, consent, the age check and the counselling centre's approval of the crisis card; a runbook exists; and users know what is logged."
       }
      ],
      "extra": [],
@@ -3543,7 +3543,7 @@ window.COURSE = {
      "assignment": [
       {
        "steps": [
-        "Read the [MCP introduction](https://modelcontextprotocol.io/docs/getting-started/intro), its [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) and its [security best practices](https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices).",
+        "Read the [MCP introduction](https://modelcontextprotocol.io/docs/getting-started/intro), its [authorization specification](https://modelcontextprotocol.io/specification/latest/basic/authorization) and its [security best practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices).",
         "Build a server with one read-only tool that returns approved entries with citations. No write tools. Use the HTTP transport with token verification, so the server maps each caller's token to one university; a local stdio server is single-user, so a tenant test on it proves nothing.",
         "Connect it to an MCP client and test: only approved entries, only the caller's university, and prompt-injection text in an entry is returned as data, not followed."
        ]

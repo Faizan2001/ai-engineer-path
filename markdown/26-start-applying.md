@@ -30,7 +30,7 @@ By the end of this lesson, you should be able to:
 2. Add Poster Reader and Ask MDN to your resume ([resume guide](https://www.techinterviewhandbook.org/resume/)). Link the public repos and lead with the numbers from your READMEs.
 3. Prepare three short stories from your log: a hard bug, a design choice and a mistake you fixed ([behavioral interview guide](https://www.techinterviewhandbook.org/behavioral-interview/)).
 4. Practise explaining how Ask MDN works, out loud, in 3 minutes.
-5. Put a separate 1-hour block in your calendar each week to apply to 2 or 3 jobs, until you finish Make It Sturdy. After that, give it more time.
+5. Put a separate 1-hour block in your calendar each week to apply to 2 or 3 jobs, until you finish Make It Sturdy. After that, give it more time. Every other week, spend 20 minutes of that block on one timed practice without AI: a small Python coding task, or designing an AI feature out loud (what it calls, where it can fail, how you'd measure it).
 6. If you have JavaScript or TypeScript web work, list it next to your AI repos. Many AI teams build web products too.
 
 ### Memory check · 10 min

@@ -26,7 +26,7 @@ Your assistant is ready for a small, time-limited trial. If the required permiss
 
 ### Days 1–6 · about 9 hours
 
-1. **Days 1–3:** Run the frozen candidate once on the reserved release set; record per-language search and answer counts, thresholds, set IDs and all versions. Separately pass the known hard, crisis and cross-university regression suites, provider eligibility and cost limits. These are observed results, not a guarantee for all questions. If release failures guide fixes, preserve the failed run, move exposed cases to regression, and test the revised candidate on a fresh release sample. Keep unsupported languages or topics unavailable. Do not invite students until the quality gates and `PILOT-AUTHORIZATION.md` both pass; all published knowledge-base entries still need human approval.
+1. **Days 1–3:** Run the frozen candidate once on the reserved release set; record per-language search and answer counts, thresholds, set IDs and all versions. Separately pass the known hard, crisis and cross-university regression suites, provider eligibility and cost limits. For crisis, that means zero misses in every language on your crisis set (or a stricter bar the counselling centre sets), the help link working in every state, and the centre's written approval of the card recorded in `PILOT-AUTHORIZATION.md`; without that approval, run the rehearsal only. These are observed results, not a guarantee for all questions. If release failures guide fixes, preserve the failed run, move exposed cases to regression, and test the revised candidate on a fresh release sample. Keep unsupported languages or topics unavailable. Do not invite students until the quality gates and `PILOT-AUTHORIZATION.md` both pass; all published knowledge-base entries still need human approval.
 2. **Day 4:** Write a one-page runbook: how to switch the assistant off, roll back a knowledge-base version, and answer a complaint.
 3. **Days 5–6:** Choose the route before starting: with all required permissions and gates passed, invite 20–30 consenting students across departments who meet provider terms. Otherwise keep the service in an isolated development environment, use synthetic users and synthetic or otherwise permitted data, and label it a rehearsal. Willing friends may exercise scripted synthetic cases with notice and consent; do not use real student records or imply university permission.
 
@@ -52,7 +52,7 @@ Your assistant is ready for a small, time-limited trial. If the required permiss
 <details>
 <summary>Check your answer: What has to be true before you invite pilot users?</summary>
 
-Release gates pass (accuracy, per-language search, zero invented rules, zero cross-tenant leaks, cost under budget), a runbook exists, and users know what is logged.
+Release gates pass (accuracy, per-language search, zero invented rules, zero cross-tenant leaks, zero missed crisis messages, cost under budget); `PILOT-AUTHORIZATION.md` records written permission, consent, the age check and the counselling centre's approval of the crisis card; a runbook exists; and users know what is logged.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 

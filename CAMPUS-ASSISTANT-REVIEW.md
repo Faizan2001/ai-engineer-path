@@ -228,3 +228,31 @@ Three reviewers (site mechanics, learning philosophy, factual accuracy) checked 
 
 **Validation:** `node --test tests/` passes 26 cases. The new progress cases fail against the reverted fixes (old save key, early account assignment, no `since` check), and the course invariants fail when a live Day group changes its number of boxes or the duration drifts. All 47 Markdown lessons regenerated. Not tested: a real Claude account, mobile browsers beyond the 375 px check, and learner implementations.
 
+### Round 3: only what was necessary (30 October 2026)
+
+Four outside reviews came in after 8.2 went live:
+- an independent max-effort review of the whole course;
+- Kagi Assistant, which read 7 lessons;
+- two Reddit Answers searches.
+
+Two agents then judged every recommendation, one as a necessity skeptic and one as a learner-outcome advocate. The owner's rule was to make no change that isn't necessary. A change went in only if it fixed a factual error or a safety gap, or if at least two sources pointed to a gap the course really has and both checked it against the course text.
+
+| Change | Why |
+|---|---|
+| Crisis card approved in writing by the counselling centre; an always-visible "Need help now?" link that works without the gateway (over the limit, switched off, or erroring) on web and mobile; the pilot gate is now zero crisis misses per language, with the approval recorded in `PILOT-AUTHORIZATION.md` | No qualified reviewer was named, the gateway's limits could hide the card, and the pilot named no miss bar. |
+| Ask MDN answers its 10-question sample a second time with no retrieval | Without that baseline, "retrieval helps" was unmeasured. |
+| micrograd and tiny-GPT Days re-cut at the videos' chapter marks; recap sections marked watch-only | Some 90-minute Days held about 50–60 minutes of type-along video. Same boxes and the same total time. |
+| Course planner kept out of the student pilot | Its answers don't trace to approved entries, which the pilot requires. |
+| 20 minutes of timed practice every other week, inside the existing job-hunting hour | The course had no coding-screen or design practice. |
+| Fixes: Multilingual Search memory check ("development", not "held-back"); Curation checkpoint (65 entries, not 60); Pilot memory check (`PILOT-AUTHORIZATION.md`); MCP links now point to the current spec | Factual errors. |
+
+**Rejected, with reasons:**
+- **Kagi's evals at week 2 and RAG cut to 9 weeks.** It read 7 lessons. Evals start in lessons 10–16, and the section it counted as RAG also holds ML basics, the agent loop, monitoring, deployment and the depth builds.
+- **Shrinking or splitting the capstone.** The minimum version already exists in Campus Knowledge Base Day 7, and the pilot has a rehearsal route.
+- **Trimming Make It Sturdy.** Days 22–27 become the capstone service. Days 28–31 are the failure-handling evidence that Reddit advice says interviewers look for, and those groups are live.
+- **Merging thin Days.** They are live groups.
+- **Moving micrograd, rewriting the prose, a public Ask MDN demo, tracing vendors, an earlier TypeScript feature.** These are already covered, are a matter of preference, or would add cost risk.
+- **ADHD-specific changes.** The owner clarified there is no diagnosis, and the course never mentions ADHD.
+
+**Result:** text edits only, inside existing Day groups. Tick boxes, Day labels, the duration (about 54 weeks) and saved progress are unchanged. `node --test tests/` passes 26 cases, and assets are at 8.3.
+
