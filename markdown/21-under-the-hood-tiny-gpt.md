@@ -34,17 +34,17 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 ### Day 1 · under the hood, about 90 min
 
-1. Watch the first hour of Andrej Karpathy's [building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo), typing as you go. Count letter pairs in a list of names, sample new names, and compute the average negative log likelihood.
+1. Watch Andrej Karpathy's [building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo) up to 1:02:57, typing as you go, except the broadcasting section (36:17 to 50:14): watch it, then type only the final normalisation line. Count letter pairs in a list of names, sample new names, and compute the average negative log likelihood.
 2. Stop when you can sample 20 names and say what the loss number means.
 
 ### Day 2 · under the hood, about 90 min
 
-3. Finish the video: rebuild the same bigram model as a one-layer neural network in PyTorch, trained with gradient descent.
+3. Finish the video from 1:02:57, watching the summary (1:26:17 to 1:35:49) and the two notes (1:47:49 to 1:54:31) without typing: rebuild the same bigram model as a one-layer neural network in PyTorch, trained with gradient descent.
 4. Stop when its loss is close to the counting model's loss, and you can explain why they should match.
 
 ### Day 3 · under the hood, about 90 min
 
-5. Start Karpathy's [Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY). Before the attention section, do the “mathematical trick” by hand: on a 4-token example, average each token with the tokens before it, first with loops, then as one matrix multiplication.
+5. Start Karpathy's [Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY). Watch up to 42:13 without typing: you built the data split, batches and a bigram model in makemore, so copy `bigram.py` from the [lecture's code](https://github.com/karpathy/ng-video-lecture) instead. Then type along from 42:13, and before the attention section do the “mathematical trick” by hand: on a 4-token example, average each token with the tokens before it, first with loops, then as one matrix multiplication.
 6. Stop when both versions give the same numbers.
 
 ### Day 4 · under the hood, about 90 min

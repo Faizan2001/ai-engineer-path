@@ -22,7 +22,7 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
-1. Read the [MCP introduction](https://modelcontextprotocol.io/docs/getting-started/intro), its [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) and its [security best practices](https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices).
+1. Read the [MCP introduction](https://modelcontextprotocol.io/docs/getting-started/intro), its [authorization specification](https://modelcontextprotocol.io/specification/latest/basic/authorization) and its [security best practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices).
 2. Build a server with one read-only tool that returns approved entries with citations. No write tools. Use the HTTP transport with token verification, so the server maps each caller's token to one university; a local stdio server is single-user, so a tenant test on it proves nothing.
 3. Connect it to an MCP client and test: only approved entries, only the caller's university, and prompt-injection text in an entry is returned as data, not followed.
 

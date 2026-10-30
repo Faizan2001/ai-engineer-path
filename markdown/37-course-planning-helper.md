@@ -42,7 +42,7 @@ By the end of this lesson, you should be able to:
 
 ### Day 4 · about 90 min
 
-6. Expose both as read-only tools to your assistant. It may suggest only courses the tools return, must show the reason, must ask for the curriculum version when it's missing, and must say that offerings and seats change each semester.
+6. Expose both as read-only tools to your assistant. It may suggest only courses the tools return, must show the reason, must ask for the curriculum version when it's missing, and must say that offerings and seats change each semester. Keep these tools out of the student pilot: every pilot answer must trace to an approved knowledge-base entry. They can join a later pilot once their curriculum pack is approved the same way.
 
 ### Days 5–6 · about 3 hours
 

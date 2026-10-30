@@ -26,7 +26,7 @@ By the end of this lesson, you should be able to:
 
 ### Days 1–2 · about 3 hours
 
-1. Add the chat screen where your app's navigation rules allow it. Reuse the service, the citation format and the feedback buttons from the web.
+1. Add the chat screen where your app's navigation rules allow it. Reuse the service, the citation format, the feedback buttons and the “Need help now?” link from the web.
 
 ### Days 3–4 · about 3 hours
 

@@ -73,7 +73,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: What does query rewriting cost you, and how do you decide whether it's worth it?</summary>
 
-An extra model call: latency and money per question. Keep it only if it improves the held-back slices enough to justify the measured cost.
+An extra model call: latency and money per question. Keep it only if it improves the development slices enough to justify the measured cost.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 

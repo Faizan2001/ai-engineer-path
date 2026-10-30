@@ -2,7 +2,7 @@
 
 *Section 6: Capstone: Campus Assistant · Lesson 34 of 42 · about 1 week*
 
-**Before you start, check that** your knowledge base has at least 60 entries with sources, and [Grading Answers](16-grading-answers.md) and [Fresh Data](31-fresh-data.md) are complete.
+**Before you start, check that** your knowledge base has at least 65 entries with sources, and [Grading Answers](16-grading-answers.md) and [Fresh Data](31-fresh-data.md) are complete.
 
 ## Introduction
 
