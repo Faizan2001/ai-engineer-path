@@ -6,7 +6,7 @@
 
 ## Introduction
 
-> **“It feels better” isn't a metric. Ask MDN gets a report card it can't charm.**
+> **“It feels better” isn't a measurement. Now Ask MDN gets real scores.**
 
 Now you'll measure how good Ask MDN's search really is, with numbers instead of guesses.
 
@@ -34,7 +34,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ## Before you read
 
-To grade search you need an answer key: questions whose correct page you already know. Run search and see where that page lands. Hit Rate asks “was it in the top 5?”. MRR asks how near the top: 1st scores 1, 2nd ½, 3rd ⅓, missing 0, then you take the average. Careful, three different things share a name: recall (the ML metric), Recall@k (Zoomcamp's other name for Hit Rate) and this site's Memory check.
+To grade search you need an answer key: questions whose correct page you already know. Run search and see where that page lands. Hit Rate asks “was it in the top 5?”. MRR asks how near the top: 1st scores 1, 2nd ½, 3rd ⅓, missing 0, then you take the average. Careful: “recall” can mean two things. In ML it is the share of the right items you found. Zoomcamp's Recall@k is just another name for Hit Rate.
 
 - **ground truth**: questions paired with the page that answers them
 - **held-back set**: questions you never use for tuning
@@ -65,24 +65,28 @@ To grade search you need an answer key: questions whose correct page you already
 
 ### Days 6–7 · about 3 hours
 
-7. Add to Ask MDN: measure Hit Rate@5 and MRR@5 (the @5 means only the top 5 results count) for keyword and vector search on your 20 practice questions. Write the numbers in your README. Score the first 5 distinct `page_id` values, not 5 chunks. Fetch more chunk candidates if needed, deduplicate in rank order, and report fewer results honestly if fewer remain. Add a tiny test where repeated chunks from page A cannot crowd page B out of the five-page metric.
+7. Add to Ask MDN: measure Hit Rate@5 and MRR@5 for keyword search and for vector search on your 20 practice questions. The @5 means only the top 5 results count. Write the numbers in your README.
+8. Score the first 5 different pages, not 5 chunks. Fetch more chunks if you need to, then remove repeated pages in rank order with your `unique_pages` function. If fewer than 5 pages remain, score what you have.
+9. Add a small test: repeated chunks from page A must not push page B out of the top five pages.
 
 ### Day 8 · about 60 min
 
-8. Your Hit Rate on 20 practice questions is an estimate, not a fact. Without AI-written code, write a paired bootstrap: 1,000 times, draw 20 of your practice questions at random *with replacement* (some appear twice, some not at all), compute Hit Rate for keyword search and for vector search on that same draw, and save the difference. Report the middle 95% of the 1,000 differences (the 2.5th to 97.5th percentile). If that range includes 0, you can't yet say which search is better. Expect a wide range with 20 questions; that is the point.
-9. Add the rule of three to your log: if you see 0 failures in n tries, the true failure rate could still be as high as about 3/n. Stop here when your results table shows every metric with its n and its range.
+10. Your Hit Rate on 20 practice questions is an estimate, not a fact. To see how uncertain it is, write a paired bootstrap, without AI-written code.
+11. Repeat 1,000 times: pick 20 of your practice questions at random, with replacement (some appear twice, some not at all). On that same pick, compute Hit Rate for keyword search and for vector search, and save the difference.
+12. Report the middle 95% of the 1,000 differences (the 2.5th to the 97.5th percentile). If the range includes 0, you can't yet say which search is better. With 20 questions the range will be wide. That is the point.
+13. Add the rule of three to your log: if you see 0 failures in n tries, the true failure rate could still be as high as about 3/n. Stop here when your results table shows every metric with its n and its range.
 
 ### Memory check · 10 min
 
-10. Close this page. In your log, answer from memory, then check:
+14. Close this page. In your log, answer from memory, then check:
    - What does MRR reward that Hit Rate doesn't? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md))
    - Why did you split long MDN pages into chunks? ([where to check](12-embeddings-and-vector-search.md))
-11. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+15. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What does MRR reward that Hit Rate doesn't?</summary>
 
-MRR rewards placing the first relevant result nearer the top, while Hit Rate only checks whether a relevant result was found within the cutoff. At @5, the reciprocal rank is zero if no relevant result appears in the first five positions.
+MRR gives more credit the nearer the top the first right page is. Hit Rate only checks whether a right page showed up in the top 5. At @5, a question scores 0 in MRR if no right page is in the top 5.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -91,7 +95,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: Why did you split long MDN pages into chunks?</summary>
 
-Chunks let search match a focused passage instead of representing many topics with one whole-page embedding. Keeping the parent page ID connects each chunk to its source for citations and evaluation.
+A chunk is about one thing, so search can match a focused passage. A whole page covers many topics in one embedding. The page ID on each chunk connects it back to its source for citations and scoring.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 

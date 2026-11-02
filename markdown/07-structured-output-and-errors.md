@@ -4,7 +4,7 @@
 
 ## Introduction
 
-> **Essays are lovely to read and miserable to parse. Today the model fills in forms.**
+> **Apps can't use essays. They need the model to fill in a form.**
 
 Real apps need the model to fill in a form, not write an essay. That's called structured output.
 
@@ -37,17 +37,17 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 ### Day 1 · about 90 min
 
 1. Read OpenAI's [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). Focus on Pydantic models, strict schemas and the `refusal` field.
-2. Write a script that turns a sentence like “Hackathon, Friday 3pm, Room 402” into an `Event` Pydantic model. Before each run, write down what you expect back, then compare. It keeps you in charge while the tools are new.
+2. Write a script that turns a sentence like “Hackathon, Friday 3pm, Room 402” into an `Event` Pydantic model. Give `Event` a title, date, start time, end time and venue. Make the fields that can be missing optional. Before each run, write down what you expect back, then compare.
 
 ### Day 2 · about 90 min
 
-3. Read the [images and vision guide](https://developers.openai.com/api/docs/guides/images-vision). Send one poster image and get your `Event` back.
-4. Work out the cost of that call: read the token counts in the response's `usage` field and multiply by the prices on the [pricing page](https://developers.openai.com/api/docs/pricing). Print it after every call.
+3. Read the [images and vision guide](https://developers.openai.com/api/docs/guides/images-vision). Send one poster image (a photo or a screenshot of any event poster) and get your `Event` back.
+4. Work out the cost of that call. Read the token counts in the response's `usage` field and multiply them by the prices on the [pricing page](https://developers.openai.com/api/docs/pricing). Print the cost after every call.
 
 ### Day 3 · about 90 min
 
-5. Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a request timeout and at most 2 retries for retryable rate-limit/server errors. Respect Retry-After when supplied; otherwise use increasing waits with a little randomness. Keep an overall deadline too. Do not retry invalid credentials or bad requests unchanged.
-6. Handle refusals: log them and return “needs a human” instead of crashing.
+5. Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a request timeout and at most 2 retries, only for rate-limit and server errors. If the response has a `Retry-After` time, wait that long. Otherwise wait a little longer each time, with some randomness. Also set an overall deadline. Never retry bad credentials, or a bad request without changing it.
+6. Handle refusals: log them and return “needs a human” instead of crashing. Using Gemini? It has no documented `refusal` field, so make a fake refusal in your test.
 
 ### Day 4 · about 90 min
 
@@ -56,21 +56,22 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ### Day 5 · about 90 min
 
-9. Spend 15 minutes on Anthropic’s [Providing examples](https://academy.claude.com/courses/building-with-the-claude-api/providing-examples). Use the explanation or video; the exercise works with your existing provider. Few-shot prompting means showing a small number of input/output examples.
-10. Make 6 practice inputs, including an ambiguous date and a missing venue. Save prompt v1. Change only one thing: clearer instructions OR two examples. Run both versions on the same inputs with the same model and settings. Keep the raw outputs and mark each field correct, wrong or appropriately unknown. Better formatting is not evidence of better facts.
-11. Keep the better version only if the results support it. Write the model ID, prompt version, settings and cost beside the scores. If the six cases are tied, say so. These are practice cases; they do not replace Poster Reader’s held-back posters.
+9. Spend 15 minutes on Anthropic's [Providing examples](https://academy.claude.com/courses/building-with-the-claude-api/providing-examples). Few-shot prompting means showing the model a few examples of input and output. Read the explanation or watch the video, and do the exercise with your own provider.
+10. Make 6 practice inputs, including one with an ambiguous date and one with a missing venue. Save your current prompt as v1. Make v2 by changing one thing only: clearer instructions, or two examples.
+11. Run both on the same inputs, with the same model and settings. Keep the raw outputs. Mark each field correct, wrong or “unknown” (right when the input doesn't say). Neater formatting doesn't mean the facts are better.
+12. Keep v2 only if the scores say it is better. Write the model ID, prompt version, settings and cost next to the scores. If the results are tied, say so. Six practice cases are too few to prove much.
 
 ### Memory check · 10 min
 
-12. Close this page. In your log, answer from memory, then check:
+13. Close this page. In your log, answer from memory, then check:
    - How do you tell whether a prompt change helped? ([where to check](07-structured-output-and-errors.md))
    - When is a workflow a better choice than an agent? ([where to check](06-the-ai-staircase.md))
-13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+14. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: How do you tell whether a prompt change helped?</summary>
 
-Change one factor, use the same practice cases and scoring rule, keep both outputs, and compare failures as well as successes. Then use untouched cases for the later final check. A schema checks shape, not factual truth.
+Change one thing, use the same practice cases and scoring rule, keep both sets of outputs, and compare the failures as well as the successes. Then test on cases you never tuned on. A schema checks the shape of the answer, not whether it's true.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -79,7 +80,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: When is a workflow a better choice than an agent?</summary>
 
-Choose a workflow when the steps are predictable and predefined branches can handle the task. An agent is useful only when choosing the next action dynamically adds enough value to justify its extra complexity and cost.
+Use a workflow when the steps are predictable and your code can handle each branch. Use an agent only when letting the model choose the next step is worth the extra complexity and cost.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 

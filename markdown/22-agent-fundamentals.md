@@ -6,11 +6,11 @@
 
 ## Introduction
 
-*Until now Ask MDN could only talk. Here it gets hands: three tools, and one of them, saving a note, changes things for real. Hands raise the stakes, because any page it reads can whisper instructions. By the end you can read its loop step by step, and nothing changes until a person says yes.*
+*Until now Ask MDN could only talk. Now it gets tools, and one of them, saving a note, changes things for real. That raises the stakes, because any page it reads can hide instructions. By the end you can read its loop step by step, and nothing changes until a person says yes.*
 
-> **An agent is a loop with opinions. Today you read its mind, step by step.**
+> **An agent is a loop: think, act, look at the result, repeat. Today you learn to read it step by step.**
 
-You already built a small agent loop in Zoomcamp. Now you'll learn the words properly and improve that loop by hand, with no framework.
+You already built a small agent loop in Tools and the Agent Loop. Now you learn the proper words and improve that loop by hand, with no framework.
 
 An agent works in a cycle: it thinks about what to do, takes an action (like calling a tool), looks at the result, and repeats. Knowing this cycle makes frameworks much easier to understand and debug.
 
@@ -57,7 +57,7 @@ The Hugging Face course shows what the API hides. Your message list becomes one 
 
 ### Day 4 · about 90 min
 
-4. **No AI for this one:** take the agent loop you wrote in Tools and the Agent Loop and add two things: a tool error that goes back to the model as an observation instead of crashing, and a second tool that returns a page's title. Log every step.
+4. **No AI for this one:** take the agent loop you wrote in [Tools and the Agent Loop](11-tools-and-the-agent-loop.md) and add two things. First, make a tool error go back to the model as an observation instead of crashing. Second, add a tool that returns a page's title. Log every step.
 
 ### Memory check · 10 min
 
@@ -71,7 +71,6 @@ The Hugging Face course shows what the API hides. Your message list becomes one 
 These are optional. Use them if you want to go further.
 
 - [Hugging Face Agents Course, the rest of Unit 1](https://huggingface.co/learn/agents-course/en/unit1/introduction)
-- [Andrew Ng, Agentic AI (the videos are free to watch)](https://www.deeplearning.ai/courses/agentic-ai)
 - [What's next for AI agentic workflows](https://www.youtube.com/watch?v=sal78ACtGTc) by Andrew Ng (Sequoia Capital, 14 min): four agent design patterns in plain words.
 - [How to build an agent](https://ampcode.com/notes/how-to-build-an-agent) by Thorsten Ball, Amp: a working coding agent in a few hundred lines; the loop really is that simple.
 - [Designing agentic loops](https://simonwillison.net/2025/Sep/30/designing-agentic-loops/) by Simon Willison: how to give an agent a clear goal, good tools and safe limits.

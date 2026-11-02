@@ -22,7 +22,7 @@ By the end of this lesson, you should be able to:
 
 - Know when each kind of search does better.
 - Combine two result lists with Reciprocal Rank Fusion (RRF).
-- Distinguish result ranking from evidence that a question can be answered.
+- Tell a high ranking apart from real evidence that the question can be answered.
 
 ## Try it first
 
@@ -49,28 +49,33 @@ Each search gives a ranked list, and their scores can't be compared. RRF ignores
 
 ### Day 1 · about 90 min
 
-1. Read Module 6 lessons [02 Hybrid search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md) and [03 Reranking (RRF)](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/03-reranking.md). They were recorded in 2024, so some code is old. Take the ideas, not the code. Skip the Elasticsearch part of 03: its built-in RRF needs a paid licence. Lesson 02 uses k = 1 and 03 uses 60; Ask MDN uses 60.
+1. Read Module 6 lessons [02 Hybrid search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md) and [03 Reranking (RRF)](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/03-reranking.md). They were recorded in 2024, so some code is old. Take the ideas, not the code. Skip the Elasticsearch part of 03, because its built-in RRF needs a paid licence. Lesson 02 uses k = 1 and lesson 03 uses k = 60. Use 60 in Ask MDN.
 
 ### Day 2 · about 90 min
 
-2. **No AI for this one:** write your own RRF function, about 15 lines. A page gets more points the higher it ranks in each list, and its points are added up. Then add a `hybrid_search()` that runs both searches and combines them. Fuse unique page lists using the convention from Embeddings, with ranks starting at 1. Test repeated chunks and a page present in only one list.
+2. **No AI for this one:** write your own RRF function, about 15 lines. A page gets 1/(60 + rank) points from each list it appears in, and its points are added up. Ranks start at 1.
+3. Add a `hybrid_search()` that runs keyword search and vector search, turns each chunk list into a list of different pages with `unique_pages`, and combines the two with your RRF function.
+4. Test two cases: repeated chunks from one page, and a page that appears in only one list.
 
 ### Day 3 · about 90 min
 
-3. Measure Hit Rate@5 and MRR@5 for hybrid search on your practice questions and compare with keyword and vector search.
-4. Do not use the RRF score as an “answer exists” cutoff. Put the top passages in a structured prompt asking for `supported`, an answer only if supported, and the supporting chunk IDs and short quotes. Reject missing or unknown IDs and quotes that are not in those chunks. Say “I don't know from these sources” when evidence is missing. This check can still misjudge meaning: inspect its decisions on the 20 practice and 10 unanswerable questions, including plausible in-topic questions with absent answers. Record unsupported answers and unnecessary refusals separately. You will assess this more carefully in Grading Answers. This is **Ask MDN v0.4**.
+5. Measure Hit Rate@5 and MRR@5 for hybrid search on your practice questions and compare with keyword and vector search.
+6. A high RRF score doesn't mean the answer exists, so don't use it as a cutoff. Ask the model instead. Put the top passages in a structured prompt. It must return `supported` (true or false), an answer only if supported, and the IDs and short quotes of the chunks that support it.
+7. Check the reply in code: reject unknown chunk IDs and quotes that are not in those chunks. If the evidence is missing, answer “I don't know from these sources.”
+8. This check can still be wrong. Look at its decisions on your 20 practice questions and 10 unanswerable ones, including believable questions whose answer isn't in the docs. Count unsupported answers and unnecessary refusals separately.
+9. This is **Ask MDN v0.4**: it combines both searches and says “I don't know” when it can't support an answer.
 
 ### Memory check · 10 min
 
-5. Close this page. In your log, answer from memory, then check:
+10. Close this page. In your log, answer from memory, then check:
    - What does RRF use from each result list? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md))
    - What does Hit Rate@5 measure? ([where to check](13-measuring-search.md))
-6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+11. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What does RRF use from each result list?</summary>
 
-RRF uses each item's rank position, rather than the search engines' raw scores, and adds 1/(k + rank) across lists containing that item. This produces a combined ranking, not a probability that the retrieved evidence can answer the question.
+It uses each page's position in each list, not the raw scores. A page gets 1/(k + position) points from every list it appears in, and the points are added. The result is a combined ranking, not the chance that the answer exists.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -79,7 +84,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: What does Hit Rate@5 measure?</summary>
 
-Hit Rate@5 is the fraction of evaluated questions for which at least one known relevant page appears in the top five results. It does not measure the final answer's correctness or distinguish first place from fifth.
+The share of questions where at least one right page appears in the top 5 results. It doesn't tell you whether the final answer is correct, or whether the right page was 1st or 5th.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -92,7 +97,7 @@ These are optional. Use them if you want to go further.
 - [RAG Techniques: reranking and fusion notebooks](https://github.com/NirDiamant/RAG_Techniques)
 - [Better RAG results with reciprocal rank fusion and hybrid search](https://www.assembled.com/blog/better-rag-results-with-reciprocal-rank-fusion-and-hybrid-search) by Assembled: a real team's results with the exact method you just built.
 - [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) by Anthropic: how adding a little context to each chunk cut failed searches.
-- [How RRF scoring works](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking): the formula uses ranks, so matching high ranks cannot prove a passage answers the question. Read the explanation; no Azure account is needed.
+- [How RRF scoring works](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking): it explains the formula. Matching high ranks can't prove that a passage answers the question. You don't need an Azure account.
 
 ---
 

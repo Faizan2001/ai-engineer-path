@@ -6,7 +6,7 @@ This folder has every lesson as a Markdown file. For the full clickable course w
 
 ## Section 1: Introduction (Week 1)
 
-*A club secretary asks whether your Events platform could just answer students' questions. You say yes, open a browser and drown in forty buzzwords. This week shrinks them to one job description, one study routine and one promise: after any break, you only owe the next small step.*
+*A club secretary asks if your Events platform could answer students' questions. You say yes, then find forty buzzwords online. This week cuts them down to one job description, one study routine and one promise: after any break, you only owe the next small step.*
 
 Start here. You'll see how the path works, what AI engineers actually do, and where to get help when you're stuck.
 
@@ -19,7 +19,7 @@ Start here. You'll see how the path works, what AI engineers actually do, and wh
 
 ## Section 2: Foundations (Weeks 1–4)
 
-*You paste a blurry concert poster into ChatGPT and it reads it perfectly. Then your code tries a hundred posters and gets back ninety-seven forms, an essay, a refusal and a rate-limit error. This section closes the gap between that demo and a real feature: tokens, typed output, retries, cost per call and a person who presses Approve.*
+*Pasting one poster into ChatGPT works. Your code has to handle a hundred, and some will fail. In this section you learn how language models work, how to get checked answers from them, and how to handle errors and cost. You finish by building a poster reader.*
 
 Set up your tools and learn how language models work. You'll finish by building your first real AI feature: a poster reader.
 
@@ -34,7 +34,7 @@ Set up your tools and learn how language models work. You'll finish by building 
 
 ## Section 3: RAG with LLM Zoomcamp (Weeks 5–22)
 
-*Ask a model about a CSS property and it answers like a confident senior, even when it's wrong. These eighteen weeks hand it an open book: MDN. Ask MDN learns to find the right page, show it, say “I don't know” when the page isn't there, and earn a report card it can't charm.*
+*Ask a model about a CSS property and it answers like a confident senior, even when it's wrong. In this section you give it an open book: MDN. Ask MDN learns to find the right page, show it, and say “I don't know” when the page isn't there. Then you test it and score it.*
 
 Learn RAG: finding the right information and letting a model answer from it. You'll follow the free LLM Zoomcamp course, build Ask MDN, an assistant for web docs, then start the knowledge base for your Campus Assistant.
 
@@ -57,7 +57,7 @@ Learn RAG: finding the right information and letting a model answer from it. You
 
 ## Section 4: Agents (Weeks 23–27)
 
-*Until now Ask MDN could only talk. Here it gets hands: three tools, and one of them, saving a note, changes things for real. Hands raise the stakes, because any page it reads can whisper instructions. By the end you can read its loop step by step, and nothing changes until a person says yes.*
+*Until now Ask MDN could only talk. Now it gets tools, and one of them, saving a note, changes things for real. That raises the stakes, because any page it reads can hide instructions. By the end you can read its loop step by step, and nothing changes until a person says yes.*
 
 Give your app tools so it can take actions. You'll learn how agents work, build one with LangGraph, and learn to keep tools safe.
 
@@ -72,7 +72,7 @@ Give your app tools so it can take actions. You'll learn how agents work, build 
 
 ## Section 5: Make It Sturdy (Weeks 28–39)
 
-*Picture next year's demo. University A's events officer asks your Campus Assistant about next week, and one forgotten WHERE clause shows her University B's unannounced fest. This section rehearses that day with a CSS team and a JS team, and makes the leak impossible rather than unlikely.*
+*Picture next year's demo. University A's events officer asks your Campus Assistant about next week, and one forgotten WHERE clause shows her University B's unannounced fest. In this section you rehearse that day with a CSS team and a JS team, and make the leak impossible rather than unlikely.*
 
 Get your app ready for real users: tests that run automatically, logins, access rules, fresh data and attack tests.
 
@@ -89,9 +89,9 @@ Get your app ready for real users: tests that run automatically, logins, access 
 
 ## Section 6: Capstone: Campus Assistant (Weeks 40–52)
 
-*Registration week. Three freshers ask the same question in three languages within an hour: will dropping a course cost them their scholarship? Last year a senior answered from memory and was half right. This section builds the assistant that answers from the rule itself, asks how many credits they are taking, and names the office when the rule doesn't cover their case.*
+*Registration week. Three freshers ask the same question in three languages within an hour: will dropping a course cost them their scholarship? Last year a senior answered from memory and was half right. In this section you build an assistant that answers from the rule itself, asks how many credits they are taking, and names the office when the rule doesn't cover their case.*
 
-Put everything together. Your knowledge base gets a verification pipeline, search learns Bangla and Banglish, answers learn to ask, cite or route, and the assistant ships inside your own platform: website and mobile app. You finish with a small pilot and the evidence to decide what comes next.
+Put everything together. You add a checking pipeline to your knowledge base, make search work in Bangla and Banglish, teach the assistant to ask, cite or route, and ship it inside your own platform, on the web and in the mobile app. You finish with a small pilot and the evidence to decide what comes next.
 
 - **Before:** Your skills live in practice projects on public data.
 - **After:** A piloted Campus Assistant in your web and mobile app, with release gates, a cost report and a verified knowledge base.
@@ -107,7 +107,7 @@ Put everything together. Your knowledge base gets a verification pipeline, searc
 
 ## Section 7: Conclusion (Weeks 53–54)
 
-*You shipped an assistant and tested it with real students or in a clearly labelled rehearsal, and you can follow any of its answers from question to evidence. These two weeks check that the skills work on material you've never seen, and leave room to repair one weak spot.*
+*You built an assistant and tested it with real students, or in a clearly labelled rehearsal. These two weeks check that your skills work on material you've never seen, and leave room to repair one weak spot.*
 
 Test your skills on unfamiliar material, polish your projects and choose what to deepen next.
 
@@ -118,7 +118,7 @@ Test your skills on unfamiliar material, polish your projects and choose what to
 
 ## Section 8: Electives (Optional, any order)
 
-*The assistant works. Now curiosity takes over: could it run on your own machine, learn Banglish better, talk to other AI tools, listen, or could you build the model itself? Each elective answers one of those with a small, measured experiment.*
+*The assistant works. Now you can follow your curiosity: run it on your own machine, improve its Banglish, connect it to other AI tools, add voice, or build a model yourself. Each elective is one small, measured experiment.*
 
 Optional depth, each tied back to your Campus Assistant. Choose by goal, not by fear of missing out.
 

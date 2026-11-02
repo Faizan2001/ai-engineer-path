@@ -6,7 +6,7 @@
 
 ## Introduction
 
-> **Your student ID gets you through the campus gate. It doesn't open the exam-paper cupboard. Login is the gate; the lock is yours.**
+> **Your student ID gets you through the campus gate. It doesn't open the exam-paper cupboard. Login only tells you who the person is. You decide what they can open.**
 
 Now Ask MDN needs to know who each user is (authentication) so the database can decide what they may see (authorization).
 
@@ -51,30 +51,35 @@ Login only answers “who is this?”. Google proves the email, and Streamlit ke
 
 ### Days 1–2 · about 3 hours
 
-1. **Test-out:** have you already shipped OAuth or OIDC sign-in, for example Firebase Auth or Google sign-in? Skip the reading and the tutorial's explanations, but still create the Google OAuth client, add `st.login` to Ask MDN and add your two test accounts as Test users (about 45 minutes). Then write two log lines on how your own platform maps a signed-in user to their data, and tick both Days. Otherwise, do the steps below.
-2. Read Streamlit's [authentication guide](https://docs.streamlit.io/develop/concepts/connections/authentication). It uses OIDC, the standard behind “Sign in with Google”. Login tells you who someone is, not what they may see.
-3. Follow Streamlit's [Google login tutorial](https://docs.streamlit.io/develop/tutorials/authentication/google) to create a Google sign-in (OAuth) client and add `st.login` to Ask MDN locally. If an OAuth error (like a redirect URI mismatch) eats more than 45 minutes, stop and ask with the exact error message. Also add your two test accounts as Test users on Google's consent screen, or Google won't let them sign in.
+1. **Test-out:** have you already shipped OAuth or OIDC sign-in, for example Firebase Auth or Google sign-in? Then skip the reading and the tutorial's explanations.
+2. Still create the Google OAuth client, add `st.login` to Ask MDN and add your two test accounts as Test users (about 45 minutes). Then write two lines in your log on how your own platform maps a signed-in user to their data, and tick both Days. If you haven't shipped one before, do the steps below.
+3. Read Streamlit's [authentication guide](https://docs.streamlit.io/develop/concepts/connections/authentication). It uses OIDC, the standard behind “Sign in with Google”. Login tells you who someone is, not what they may see.
+4. Follow Streamlit's [Google login tutorial](https://docs.streamlit.io/develop/tutorials/authentication/google) to create a Google sign-in (OAuth) client and add `st.login` to Ask MDN locally. Also add your two test accounts as Test users on Google's consent screen, or Google won't let them sign in. If an OAuth error (like a redirect URI mismatch) takes more than 45 minutes, stop and ask, with the exact error message.
 
 ### Days 3–4 · about 3 hours
 
-4. Make a `user_groups` table on the server that maps each email to a group. For every request, look up the signed-in user's group and set it in the database transaction. Never trust a group sent from the browser.
-5. Give each conversation a server-recorded `owner_id`, `group_id` and random thread ID. Before loading history, loading a checkpoint, or resuming a pending approval, verify that the signed-in user owns the conversation and still has its group. A thread ID locates state; it grants no permission. Clear the browser session's chat state on logout or user change. Use private-by-default history for this course.
+5. Make a `user_groups` table on the server that maps each email to a group. For every request, look up the signed-in user's group and set it in the database transaction. Never trust a group sent from the browser.
+6. Give each conversation a server-recorded `owner_id`, `group_id` and random thread ID.
+7. Before you load history, load a checkpoint or resume a pending approval, check that the signed-in user owns the conversation and still has its group. A thread ID only locates state; it grants no permission.
+8. Clear the browser session's chat state when the user logs out or changes. Make history private by default.
 
 ### Days 5–6 · about 3 hours
 
-6. Use two fake test accounts, never real students. Write tests: a CSS user gets zero JavaScript chunks through search, through the agent's tools, and when guessing a document ID. A user with no group gets nothing. Also try a known JS conversation/thread ID as the CSS user, and as a second user in the same group: neither may read or resume the owner's private chat or approval. Test switching users in the same browser. Do not send any loaded state to a model before these checks pass.
+9. Use two fake test accounts, never real students. Write tests: a CSS user gets zero JavaScript chunks through search, through the agent's tools, and when guessing a document ID. A user with no group gets nothing.
+10. Also try a known JS conversation or thread ID as the CSS user, and as a second user in the same group. Neither may read or resume the owner's private chat or approval. Test switching users in the same browser.
+11. Don't send any loaded state to a model until these checks pass.
 
 ### Memory check · 10 min
 
-7. Close this page. In your log, answer from memory, then check:
+12. Close this page. In your log, answer from memory, then check:
    - Why isn't login enough to keep the groups apart? ([where to check](https://docs.streamlit.io/develop/concepts/connections/authentication))
    - How does your app tell Postgres which group is asking? ([where to check](29-postgres-search-and-access-rules.md))
-8. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: Why isn't login enough to keep the groups apart?</summary>
 
-Login establishes who the user is, not which data they may access. The server must map that identity to an allowed group and enforce authorization for each request, denying access when no group is assigned.
+Login only shows who the user is, not which data they may see. The server has to map that person to an allowed group on every request, and deny access when there is no group.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -83,7 +88,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: How does your app tell Postgres which group is asking?</summary>
 
-For each request, the server looks up the signed-in user's group and sets it for the database transaction with set_config. Row-level policies read that setting with current_setting; the group must not come from an untrusted browser value.
+On every request, the server looks up the signed-in user's group and sets it for the database transaction with `set_config`. The row-level policies read it with `current_setting`. The group must never come from a value the browser sends.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 

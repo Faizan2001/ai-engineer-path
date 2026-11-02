@@ -4,13 +4,11 @@
 
 ## Introduction
 
-*You paste a blurry concert poster into ChatGPT and it reads it perfectly. Then your code tries a hundred posters and gets back ninety-seven forms, an essay, a refusal and a rate-limit error. This section closes the gap between that demo and a real feature: tokens, typed output, retries, cost per call and a person who presses Approve.*
+*Pasting one poster into ChatGPT works. Your code has to handle a hundred, and some will fail. In this section you learn how language models work, how to get checked answers from them, and how to handle errors and cost. You finish by building a poster reader.*
 
 > **Your API key is a password that spends money. Make leaking it hard, and cheap if it happens.**
 
-Let's get your computer ready. You'll use this setup for the whole path, so take your time.
-
-You'll also protect your API key. An API key is like a password that lets your code use a paid AI service, so it must stay secret.
+In this lesson you set up your computer and get an API key. You'll use this setup for the whole path, so take your time.
 
 **True story (2023): secret code pasted into a chatbot.** Samsung engineers pasted internal source code into ChatGPT. The company then restricted AI chat tools on work devices. [Source](https://www.forbes.com.au/news/innovation/samsung-bans-chatgpt-among-employees-after-sensitive-code-leak/)
 
@@ -33,30 +31,37 @@ By the end of this lesson, you should be able to:
 
 ### Day 1 · about 90 min
 
-1. Follow the Zoomcamp [environment lesson](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md): install uv, create a project, put your OpenAI key in a `.env` file and run the test call. Record the package version, model ID and API endpoint that worked. The pinned course examples may use a different API from current docs: check tool, image and structured-output support before changing models. An SDK having a familiar method name does not guarantee provider compatibility.
-2. Make a separate OpenAI project and key just for this path. Keep only a small amount of credit on the account, and turn auto-recharge off if your account uses prepaid credit. Set budget alerts too, and check whether they stop spending or only send a warning.
-3. **Paying from Bangladesh:** OpenAI needs a card that works for international online payments (many banks offer a dual-currency card; ask yours). Add credit $5 at a time. **No such card yet?** Don't stop. Use Google's Gemini free tier through its [OpenAI-compatible endpoint](https://ai.google.dev/gemini-api/docs/openai): change the `base_url`, key and model name. Send only public data, because Google may use free-tier content to improve its products ([pricing page](https://ai.google.dev/gemini-api/docs/pricing)). Expect small differences: its examples use Chat Completions, there's no documented `refusal` field (fake one in your tests), and you'll set promptfoo's grading model yourself. Switch to OpenAI when you can.
-4. Add `.env` to your `.gitignore` file before your first commit, so the key never reaches GitHub.
+1. Create an OpenAI account. Then make a new project just for this path and create an API key inside it. A separate project shows you exactly what this path costs.
+2. Add only a small amount of credit. $5 is enough to start. If your account has auto-recharge, turn it off. Set a budget alert, and check whether it stops spending or only sends a warning.
+3. **Paying from Bangladesh:** OpenAI needs a card that works for international online payments. Many banks offer a dual-currency card; ask yours. Add credit $5 at a time.
+4. **No such card yet?** Don't stop. Use Google's Gemini free tier through its [OpenAI-compatible endpoint](https://ai.google.dev/gemini-api/docs/openai): change the `base_url`, the key and the model name. Send only public data, because Google may use free-tier content to improve its products ([pricing page](https://ai.google.dev/gemini-api/docs/pricing)).
+5. **If you use Gemini:** expect small differences from OpenAI, such as no documented `refusal` field. Lessons where it matters will say so. Switch to OpenAI when you can.
+6. Follow the Zoomcamp [environment lesson](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md). It installs uv (a fast Python package manager), creates your project folder (the page calls it `llm-zoomcamp-2026-code`), adds the packages, puts your key in a `.env` file and runs a test call. Stop when the test call prints an answer.
+7. In the project folder, run `git status`. The file `.env` must not appear in the list. If it does, add `.env` to `.gitignore` and check again before your first commit. Your key must never reach GitHub.
+8. In your log, write down the package version, model ID and API endpoint that worked. The Zoomcamp examples can be older than today's docs. Before you change the model or provider, check that the new one supports images, structured output and tools.
 
 ### Day 2 · about 90 min
 
-5. Install Docker ([get started](https://docs.docker.com/get-started/)) and run `docker run hello-world`. Docker runs programs in their own little boxes called containers. Low on memory or disk space? Use a free [GitHub Codespace](https://docs.github.com/en/codespaces/getting-started/quickstart) instead; it runs in the browser and has Docker built in.
-6. **No AI for this one:** write a script that reads a CSV file, counts the rows for each value in one column and prints the top 3. Stuck for more than 20 minutes? Review the [Python tutorial](https://docs.python.org/3/tutorial/). Check it with six rows whose counts you already know. If files, dictionaries or functions feel unfamiliar, spend up to two extra sessions on those Python tutorial sections and retry with a different CSV. Ask for a hint after 20 stuck minutes. Pass this small check before the model-call assignments; needing the bridge is normal.
-7. Add an `AGENTS.md` file ([the format](https://agents.md/)) to your repo. It's a note for your AI coding assistant. Tell it to explain, review and ask you questions, not to write your lesson solutions.
+9. **No AI for this one:** in your project folder, write `top3.py`. It reads a CSV file, counts the rows for each value in one column and prints the top 3. Check it with a CSV of six rows whose counts you already know. Stuck for 20 minutes? Read the matching part of the [Python tutorial](https://docs.python.org/3/tutorial/), then try again.
+10. If files, dictionaries or functions still feel new, spend up to two extra sessions on those parts of the Python tutorial, then retry with a different CSV. Pass this check before the model-call lessons. Needing the extra practice is normal.
+11. Create a file called `AGENTS.md` in your project folder ([the format](https://agents.md/)). It's a note that AI coding assistants read before they work. Write four rules in it: explain code to me, review my code, ask me questions, and never write my lesson solutions. Add one more: no keys, secrets or private code in a prompt.
+12. Commit `top3.py` and `AGENTS.md`. Run `git status` again: `.env` must still not appear.
 
 ### Day 3 · first win, about 90 min
 
-8. Already past [Keyword RAG](09-keyword-rag.md)? Tick this Day: you've built more than this. Otherwise, before any AI: write five short help pages for an imaginary student office as plain text files. Give each an ID, a date and a source label, for example `fees-01 · 2026-09-01 · Accounts office`. Make one of them out of date on purpose.
-9. Without AI-written code, write `search.py`: lowercase the question, split it into words, drop a short list of common words (the, a, an, is, are, what, when, how, do, i, my, to, of, for), score each page by how many remaining question words it contains, and print the top 2 page IDs, or `no matching page` when the best score is 0. About 30 lines.
-10. Write three tests as plain `assert` lines in `test_search.py` and run them with `python test_search.py` (pytest comes in [Structured Output and Errors](07-structured-output-and-errors.md)): a question with an obvious answer, a question no page answers (your search must print `no matching page`, not guess), and one that hits the out-of-date page. Assert that it returns that page, with a comment saying why that's a problem: your search has no idea about dates yet. You'll fix that kind of problem in the capstone.
-11. Stop here when the tests pass and you've recorded a one-minute screen capture: a question goes in, page IDs come out. That's your first search engine. [Keyword RAG](09-keyword-rag.md) rebuilds it properly.
+13. Before any AI, write five short help pages for an imaginary student office, as plain text files in a folder called `pages` in your project folder. Start each file with an ID, a date and a source, like this: `fees-01 · 2026-09-01 · Accounts office`. Make one page out of date on purpose.
+14. Without AI-written code, write `search.py`. Given a question, it prints the top 2 page IDs, or `no matching page` when nothing matches. It should be about 30 lines.
+15. Build it in four parts. First, lowercase the question and split it into words. Second, remove common words (the, a, an, is, are, what, when, how, do, i, my, to, of, for). Third, give each page one point for every remaining word it contains. Fourth, print the two highest-scoring pages, or `no matching page` if the best score is 0.
+16. Write three tests in `test_search.py` as plain `assert` lines. Run them with `python test_search.py`.
+17. Test 1: a question with an obvious answer. Test 2: a question no page answers; your search must print `no matching page`, not guess. Test 3: a question that matches the out-of-date page. Assert that it returns that page, and add a comment: this is wrong, because search can't tell the page is old.
+18. Stop here when all three tests pass and you've recorded a one-minute screen capture: a question goes in, page IDs come out. That's your first search engine.
 
 ### Memory check · 10 min
 
-12. Close this page. In your log, answer from memory, then check:
+19. Close this page. In your log, answer from memory, then check:
    - Why must your API key never be in your code or Git history? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md))
    - What are your two log rules for being stuck and for coming back after a break? ([where to check](01-how-this-path-works.md))
-13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+20. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

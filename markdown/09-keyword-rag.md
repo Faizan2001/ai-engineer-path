@@ -4,7 +4,7 @@
 
 ## Introduction
 
-*Ask a model about a CSS property and it answers like a confident senior, even when it's wrong. These eighteen weeks hand it an open book: MDN. Ask MDN learns to find the right page, show it, say “I don't know” when the page isn't there, and earn a report card it can't charm.*
+*Ask a model about a CSS property and it answers like a confident senior, even when it's wrong. In this section you give it an open book: MDN. Ask MDN learns to find the right page, show it, and say “I don't know” when the page isn't there. Then you test it and score it.*
 
 > **An open-book exam is easy if you find the right page. RAG is mostly finding.**
 
@@ -14,7 +14,7 @@ You'll start with plain keyword search because it's fast, cheap and easy to debu
 
 **True story (2024): an airline chatbot invents a refund rule.** Air Canada's website chatbot told a grieving passenger he could claim a bereavement discount after booking. The airline's own policy said he couldn't, and a tribunal ordered it to pay. [Source](https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know)
 
-**What you'll do differently:** Retrieve sources, show them and check whether they support the answer. A citation makes verification possible; it does not guarantee the claim is correct.
+**What you'll do differently:** Retrieve sources, show them, and check that they support the answer. A citation lets you verify a claim, but it doesn't make the claim true.
 
 **After this, you can** make a model answer from your documents, not from memory.
 
@@ -49,7 +49,7 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 
 ### Day 1 · about 90 min
 
-1. Zoomcamp Module 1: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/01-intro.md), [03 RAG](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md) (notice why plain models don't know your data) and [04 Dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/04-dataset.md). You already did 02 during setup.
+1. Zoomcamp Module 1: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/01-intro.md), [03 RAG](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md) (notice why plain models don't know your data) and [04 Dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/04-dataset.md). You did 02 in Setting Up Your Tools.
 
 ### Day 2 · about 90 min
 
@@ -62,19 +62,22 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 ### Day 4 · about 90 min
 
 4. [09 Data ingestion](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/09-data-ingestion.md) and, only if you have time, [10 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/10-rag-next-steps.md).
-5. Start Ask MDN: create a **public** repo called `ask-mdn`. Download only the two folders you need from [mdn/content](https://github.com/mdn/content) (the whole repo is about 500 MB): `git clone --depth 1 --filter=blob:none --sparse https://github.com/mdn/content.git`, then inside it run `git sparse-checkout set files/en-us/web/css/reference/properties files/en-us/web/javascript/reference/global_objects`.
-6. Write the commit ID (`git rev-parse HEAD`) in your README. That exact version is your data from now on, so your tests stay fair.
+5. Start Ask MDN: create a new **public** GitHub repo called `ask-mdn` and clone it.
+6. Next to it, not inside it, download only the two folders you need from [mdn/content](https://github.com/mdn/content). The whole repo is about 500 MB, so run `git clone --depth 1 --filter=blob:none --sparse https://github.com/mdn/content.git`. Then go into the new `content` folder and run `git sparse-checkout set files/en-us/web/css/reference/properties files/en-us/web/javascript/reference/global_objects`.
+7. In the `content` folder, run `git rev-parse HEAD` and write the commit ID in the README of `ask-mdn`. That exact version is your data from now on, so your tests stay fair.
 
 ### Day 5 · about 90 min
 
-7. Load the two folders into minsearch: CSS properties and JavaScript global objects. Each MDN page is a Markdown file that starts with front matter between `---` lines and contains `{{macro}}` lines. Read the title and slug from the front matter, drop the macro lines and keep the text. Ask it three questions and look at what it finds. This is **Ask MDN v0.1**: it finds the right pages for a question. Commit early and often, with messages that say what changed.
+8. Load the two folders into minsearch: CSS properties and JavaScript global objects.
+9. Each MDN page is a Markdown file. It starts with front matter between `---` lines and contains `{{macro}}` lines. Read the title and slug from the front matter, drop the macro lines and keep the text.
+10. Ask it three questions and look at what it finds. This is **Ask MDN v0.1**: it finds the right pages for a question. Commit early and often, with messages that say what changed.
 
 ### Memory check · 10 min
 
-8. Close this page. In your log, answer from memory, then check:
+11. Close this page. In your log, answer from memory, then check:
    - What are the steps of RAG, from question to answer? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md))
    - What makes structured output better than free text for an app? ([where to check](07-structured-output-and-errors.md))
-9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+12. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

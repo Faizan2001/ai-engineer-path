@@ -49,7 +49,7 @@ Attacks come two ways: the user types something sneaky, or a page the app finds 
 
 ### Day 2 · about 90 min
 
-2. Set up three plugins: [rbac](https://www.promptfoo.dev/docs/red-team/plugins/rbac/) (access control), [hijacking](https://www.promptfoo.dev/docs/red-team/plugins/hijacking/) and [indirect prompt injection](https://www.promptfoo.dev/docs/red-team/plugins/indirect-prompt-injection/). Generate 30 attack cases and commit them, so the test stays the same each time. Generating can use promptfoo's online service, which may have usage limits, so generate once. If it's unavailable, write the cases by hand.
+2. Set up three plugins: [rbac](https://www.promptfoo.dev/docs/red-team/plugins/rbac/) (access control), [hijacking](https://www.promptfoo.dev/docs/red-team/plugins/hijacking/) and [indirect prompt injection](https://www.promptfoo.dev/docs/red-team/plugins/indirect-prompt-injection/). Generate 30 attack cases and commit them, so the test stays the same each time. Generating may use promptfoo's online service, which can have usage limits, so generate once. If it's unavailable, write the cases by hand.
 
 ### Day 3 · about 90 min
 
@@ -57,7 +57,7 @@ Attacks come two ways: the user types something sneaky, or a page the app finds 
 
 ### Day 4 · about 90 min
 
-4. Run the attacks and write down every one that worked. A passing rbac test is a model's opinion, not proof; a canary phrase shown to the wrong user is proof, so check the canaries and your database yourself. You'll fix the failures in the project.
+4. Run the attacks and write down every one that worked. A passing rbac test is a model's opinion, not proof. A canary phrase shown to the wrong user is proof, so check the canaries and your database yourself. Fix the failures in the project that follows this lesson.
 
 ### Memory check · 10 min
 

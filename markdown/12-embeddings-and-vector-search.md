@@ -6,11 +6,11 @@
 
 ## Introduction
 
-> **Keyword search reads spelling. Today you hire a librarian who reads meaning.**
+> **Keyword search reads spelling. Vector search reads meaning.**
 
 Keyword search only finds exact words. If someone asks about “centering” but the page says “alignment”, it can miss. Embeddings fix this.
 
-An embedding turns text into a list of numbers, so texts with similar meaning end up close together. Searching by meaning is called vector search. Give this lesson two weeks; the course says it takes longer than most.
+An embedding turns text into a list of numbers, so texts with similar meaning end up close together. Searching by meaning is called vector search.
 
 **After this, you can** search by meaning, for free, on your own laptop.
 
@@ -21,7 +21,7 @@ An embedding turns text into a list of numbers, so texts with similar meaning en
 By the end of this lesson, you should be able to:
 
 - Explain what an embedding is.
-- Run vector search with three different tools.
+- Run vector search with minsearch and with sqlitesearch.
 - Split long pages into chunks.
 - Build the search file Ask MDN will use online.
 
@@ -51,7 +51,7 @@ An embedding turns a text into a few hundred numbers: a point on a map of meanin
 ### Day 1 · about 90 min
 
 1. Read Google's [Embeddings](https://developers.google.com/machine-learning/crash-course/embeddings) module for the big idea. Then Module 2: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/01-intro.md).
-2. Before Day 2: lesson 02 installs sentence-transformers, which pulls in PyTorch; from PyPI on Linux that includes several GB of GPU libraries. On a slow connection or a small laptop, add the PyTorch CPU index to `pyproject.toml` as in uv's [PyTorch guide](https://docs.astral.sh/uv/guides/integration/pytorch/), then `uv add torch` before adding sentence-transformers, or work in a Codespace.
+2. Before Day 2: Zoomcamp lesson 02 installs sentence-transformers, which also installs PyTorch. On Linux that can mean several GB of GPU libraries. On a slow connection or a small laptop, first add the PyTorch CPU index to `pyproject.toml` as in uv's [PyTorch guide](https://docs.astral.sh/uv/guides/integration/pytorch/) and run `uv add torch`, then add sentence-transformers. Or work in a Codespace.
 
 ### Day 2 · about 90 min
 
@@ -67,7 +67,7 @@ An embedding turns a text into a few hundred numbers: a point on a map of meanin
 
 ### Day 5 · about 90 min
 
-6. [07 sqlitesearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/07-sqlitesearch-vector.md). This keeps your search index in one file, which is what Ask MDN will use online. Skip lesson 08 (pgvector) for now: you'll do it in [Postgres Search and Access Rules](29-postgres-search-and-access-rules.md), right when you need it.
+6. [07 sqlitesearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/07-sqlitesearch-vector.md). This keeps your search index in one file, which is what Ask MDN will use online. Skip lesson 08 (pgvector) for now. You don't need it yet.
 
 ### Day 6 · about 90 min
 
@@ -76,34 +76,41 @@ An embedding turns a text into a few hundred numbers: a point on a map of meanin
 ### Day 7 · about 90 min
 
 8. Read [Chunking for longer texts](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/07-project-example/07-chunking.md). MDN pages can be long, so split each page into chunks of a few paragraphs, and keep the page ID on every chunk.
-9. Keep two IDs: `page_id` identifies the source page; `chunk_id` identifies one piece. Store each piece's text and source URL. For evaluation and RRF, convert each ranked chunk list into a list of unique pages, keeping the first occurrence: `[A:1, A:2, B:1, C:1]` becomes `[A, B, C]`. B is now rank 2. Keep the matching chunks separately for the answer prompt. This is our course convention, not the only possible design.
+9. Give every chunk two IDs: `page_id` for the source page and `chunk_id` for the piece. Store the chunk's text and its source URL too.
+10. Search results get scored by page, not by chunk. Write a small function, `unique_pages(chunks)`, that turns a ranked list of chunks into a ranked list of different pages, keeping each page's first appearance: `[A:1, A:2, B:1, C:1]` becomes `[A, B, C]`, so B is now rank 2. Keep the matching chunks too, because the answer prompt needs them.
 
 ### Days 8–11 · about 6 hours
 
-10. Add to Ask MDN: build a sqlitesearch vector index of your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning.
+11. Add to Ask MDN: build a vector search over your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Do one piece a Day.
+12. **Day 8:** split every MDN page into chunks, keeping `page_id`, `chunk_id`, text and source URL. Stop when you can print all the chunks of one page.
+13. **Day 9:** build the sqlitesearch vector index of your chunks with the ONNX embedder. Embedding every chunk takes a while, so build it once and keep the file. Stop when the index file exists and one question returns 5 chunks.
+14. **Day 10:** write `vector_search(question)`. It returns the top chunks with their `page_id` and source URL, in the same shape as your keyword search, so the rest of Ask MDN can use either one.
+15. **Day 11:** compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning.
 
 ### Day 12 · campus track, about 45 min
 
-11. Take 8 intents from your question bank and write each three ways: English, Bangla and Banglish. Embed all 24 sentences with today's embedder, then with one embedder whose model card lists Bengali among its training languages.
-12. For each sentence and each other language, search only that language's sentences; a hit means the nearest one has the same intent. Record a hit rate per language pair and model in your log. Expect Banglish to be the hardest; your numbers here are the evidence. With 8 sentences per pair, one miss moves a score by 12.5 points, so treat this as a first signal and confirm it in [Multilingual Search](35-multilingual-search.md).
+16. Take 8 intents from your question bank. Write each one three ways: English, Bangla and Banglish. Embed all 24 sentences with the embedder you use now. Then embed them again with a second embedder whose model card lists Bengali among its training languages.
+17. Take each sentence and search only the sentences in another language. It's a hit when the nearest one has the same intent. For each pair of languages and each embedder, record the hit rate in your log. Expect Banglish to be the hardest. With only 8 sentences per pair, one miss moves a score by 12.5 points, so treat this as a first signal only.
 
 ### Day 13 · under the hood, about 90 min
 
-13. Without AI-written code, rebuild the vector search you've been using: in numpy, normalise your MDN chunk vectors, compute cosine similarity for a question as one matrix product, and take the top 5.
-14. Compare it with sqlitesearch on 5 practice questions. Yours is exact; sqlitesearch's vector search is approximate by default: an index picks candidates, then only those are reranked exactly. So where the top 5 differ, check that your extra result really scores higher, and record how many of the 25 results match. Then time yours on 1,000 and 100,000 random unit vectors, and write one sentence on why sqlitesearch, like large systems, trades a little recall for speed.
-15. Stop here when both checks are in your log.
+18. Without AI-written code, rebuild the vector search you've been using. In numpy, normalise your MDN chunk vectors, compute the cosine similarity for a question as one matrix product, and take the top 5.
+19. Compare it with sqlitesearch on 5 practice questions. Yours is exact. sqlitesearch's vector search is approximate by default: an index picks candidates, and only those are reranked exactly. Where the top 5 differ, check that your extra result really scores higher. Record how many of the 25 results match.
+20. Time your version on 1,000 and on 100,000 random unit vectors.
+21. Write one sentence on why sqlitesearch, like large systems, trades a little recall for speed.
+22. Stop here when both checks are in your log.
 
 ### Memory check · 10 min
 
-16. Close this page. In your log, answer from memory, then check:
+23. Close this page. In your log, answer from memory, then check:
    - Why can vector search find answers that keyword search misses? ([where to check](https://developers.google.com/machine-learning/crash-course/embeddings))
    - What does function calling let the model do? ([where to check](11-tools-and-the-agent-loop.md))
-17. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+24. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: Why can vector search find answers that keyword search misses?</summary>
 
-Embeddings can place texts with similar meanings near one another even when their words differ. Vector search can therefore retrieve useful paraphrases that keyword matching misses, but similarity does not guarantee relevance or correctness.
+Embeddings put texts with similar meanings close together, even when the words differ. So vector search can find paraphrases that keyword search misses. But a close match isn't always a relevant or correct one.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -112,7 +119,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: What does function calling let the model do?</summary>
 
-Function calling lets the model request a named tool with structured arguments. Your application decides whether to execute it and sends the result back; the model does not run the function itself.
+The model can ask for a named tool to be run, with arguments in a fixed format. Your code decides whether to run it and sends the result back. The model never runs the function itself.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 

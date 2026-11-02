@@ -10,8 +10,6 @@
 
 This is your Zoomcamp final project, built on MDN. It answers CSS and JavaScript questions, shows which pages it used, and says “I don't know” when the docs don't cover a question.
 
-You're a web developer, so you'll spot wrong answers quickly. That makes MDN a great place to learn.
-
 **After this, you can** demo a live, cited RAG app, with scores measured on questions it never saw.
 
 **The skill that lasts:** end-to-end ownership, backed by evidence. This is likely the repo interviewers will ask about.
@@ -21,9 +19,7 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 - Read the Zoomcamp [project criteria](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/project.md) and use them as a checklist. This path covers most of them; the optional extras are in Extra credit below.
 - Decide who it's for, for example first-years in your university's programming club. Only your prompt and README change.
 - Your MDN data and your test questions are frozen. Don't change them now.
-- MDN's text is shared under a license called CC-BY-SA. Credit “Mozilla Contributors” and link each page you use ([MDN licensing](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license)).
-- Don't look at other people's versions of this project until yours works. Then compare and learn.
-- Stuck for more than 20 minutes? Write down what you tried, take a short break, search the course FAQ or docs, then ask with your code and the exact error.
+- MDN's text is shared under a licence called CC-BY-SA. Credit “Mozilla Contributors” and link each page you use ([MDN licensing](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license)).
 
 ## Assignment
 
@@ -36,30 +32,33 @@ You're a web developer, so you'll spot wrong answers quickly. That makes MDN a g
 ### Days 7–12 · about 9 hours
 
 4. **Days 7–8:** Check the “I don't know” path on your 10 unanswerable questions.
-5. **Days 9–11:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](13-measuring-search.md) on them and report the range next to each metric. On a 10-question sample, manually assess correctness and whether the cited passage supports the claim; a valid URL alone is not enough. Answer the same 10 questions with the same model and output limit but no retrieved pages, prompted to answer from its own knowledge and say when it's unsure, and grade both the same way: that baseline shows what retrieval actually adds. Record mistakes even when retrieval succeeded. Once inspected, this set becomes regression data; do not call it unseen after tuning on it.
-6. **Stop here on Day 12:** your README has the results table.
+5. **Days 9–11:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](13-measuring-search.md) on them and report the range next to each metric.
+6. Grade a 10-answer sample by hand: is the answer correct, and does the cited passage support the claim? A valid URL alone is not enough.
+7. Answer the same 10 questions with the same model and output limit, but with no retrieved pages. Prompt it to answer from its own knowledge and to say when it's unsure. Grade both sets the same way. This baseline shows what retrieval really adds.
+8. Record mistakes even when retrieval succeeded. Once you've looked at the held-back results, they become regression data: don't call them unseen after you tune on them.
+9. **Stop here on Day 12:** your README has the results table.
 
 ### Days 13–18 · about 9 hours
 
-7. **Days 13–14:** Put the final version online as a private app (see [Deploy It Safely](18-deploy-it-safely.md)). This is **Ask MDN v1.0**.
-8. **Day 15:** If a friend can help, ask them for 5 CSS or JavaScript questions they really got stuck on this month, and run them on the live app. No one free? Ask in the Zoomcamp Slack, or use 5 old bugs of your own.
-9. **Days 16–17:** Finish the README. Open it with a real bug you once lost hours to, and Ask MDN's cited answer. Then: how it works, how to run it, your results, a GIF and what you'd improve.
-10. **Day 18:** If a Zoomcamp cohort is open, submit your project for peer review. If not, share your repo in `#course-llm-zoomcamp` and ask for feedback.
+10. **Days 13–14:** Put the final version online as a private app (see [Deploy It Safely](18-deploy-it-safely.md)). This is **Ask MDN v1.0**.
+11. **Day 15:** If a friend can help, ask them for 5 CSS or JavaScript questions they really got stuck on this month, and run them on the live app. No one free? Ask in the Zoomcamp Slack, or use 5 old bugs of your own.
+12. **Days 16–17:** Finish the README. Open it with a real bug you once lost hours to, and Ask MDN's cited answer. Then: how it works, how to run it, your results, a GIF and what you'd improve.
+13. **Day 18:** If a Zoomcamp cohort is open, submit your project for peer review. If not, share your repo in `#course-llm-zoomcamp` and ask for feedback.
 
 ### Memory check · 10 min
 
-11. Close this page. In your log, answer from memory, then check:
+14. Close this page. In your log, answer from memory, then check:
    - What goes into a RAG prompt? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/06-building-prompt.md))
    - How do you roll back a bad deploy? ([where to check](18-deploy-it-safely.md))
-12. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+15. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## You're done when
 
-- [ ] Your README reports Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions. If hybrid doesn't win, you explain why. Include your model/configuration comparison and its decision, with prompt and corpus versions.
-- [ ] Every factual answer identifies its source passages. Your README includes manual correctness and citation-support grades for a 10-answer sample beside the same model answering without retrieval, with failures explained.
-- [ ] Report abstention results on the 10 known unanswerable questions and incorrect refusals on answerable questions. Call this a regression result, not proof of performance on new questions.
+- [ ] Your README reports Hit Rate@5 and MRR@5 for keyword, vector and hybrid search on the 50 held-back questions. If hybrid doesn't win, explain why. Include your model or setup comparison and its decision, with the prompt and corpus versions.
+- [ ] Every factual answer names its source passages. Your README shows hand-graded results for 10 answers (is it correct? does the citation support it?) next to the same model answering without retrieval, and explains the failures.
+- [ ] Report how often it said “I don't know” on the 10 unanswerable questions, and how often it wrongly refused answerable ones. Call this a regression result, not proof that it works on new questions.
 - [ ] It runs online as your private Streamlit app, with the API key stored in Secrets and conversations saved in Neon.
-- [ ] Explain the request flow, two design decisions and one failure. Write a core retrieval function without AI-generated code (such as page deduplication or rank fusion), test duplicate/missing results, and explain its behavior on a new input. Documentation is allowed; note the commit.
+- [ ] Explain the request flow, two design decisions and one failure. Without AI-generated code, write a core retrieval function (such as page deduplication or rank fusion), test it with duplicate and missing results, and explain how it behaves on a new input. Documentation is allowed. Note the commit.
 
 ## Show it off
 

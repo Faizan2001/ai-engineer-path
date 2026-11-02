@@ -26,24 +26,30 @@ By the end of this lesson, you should be able to:
 
 ### Days 1–2 · about 3 hours
 
-1. Add the chat screen where your app's navigation rules allow it. Reuse the service, the citation format, the feedback buttons and the “Need help now?” link from the web.
+1. Add the chat screen where your app's navigation rules allow it.
+2. Reuse the service, the citation format, the feedback buttons and the “Need help now?” link from the web.
+3. **Stop here on Day 2** when you can ask one question on a phone and get a cited answer.
 
 ### Days 3–4 · about 3 hours
 
-2. Handle the hard cases. Generate the idempotency key on the phone and save it with [AsyncStorage](https://docs.expo.dev/versions/latest/sdk/async-storage/) before sending. When the app returns to the foreground, or after it was closed, re-send the same key through the gateway to fetch the stored answer; never read the assistant's server-only records directly. Add a timeout message and cancellation, and check that sign-out and account switching clear the chat and the saved keys.
-3. Acceptance test: force-close the app in the middle of a request and reopen it at once, while the first request may still be running. Confirm the student sees a waiting state, then the answer, with exactly one completed request record, one model call and one charge.
-4. Measure the slow path: the first request after the service and database have been idle. Record the p95 time and what the student sees while waiting.
+4. Handle the hard cases. Generate the idempotency key on the phone and save it with [AsyncStorage](https://docs.expo.dev/versions/latest/sdk/async-storage/) before sending.
+5. When the app returns to the foreground, or after it was closed, send the same key again through the gateway to fetch the stored answer. Never read the assistant's server-only records directly.
+6. Add a timeout message and cancellation. Check that signing out or switching accounts clears the chat and the saved keys.
+7. Acceptance test: force-close the app in the middle of a request and reopen it at once, while the first request may still be running. Confirm the student sees a waiting state, then the answer, with exactly one completed request record, one model call and one charge.
+8. Measure the slow path: the first request after the service and database have been idle. Record the p95 time and what the student sees while waiting.
+9. **Stop here on Day 4** when the acceptance test passes.
 
 ### Days 5–6 · about 3 hours
 
-5. Test on a real Android phone (and an iPhone if you can) on slow mobile data. Fix what breaks: keyboard covering the input, long Bangla text wrapping, links opening outside the app.
-6. No native app? Make the web chat page work well on a phone instead, and test it on a real phone on mobile data.
+10. Test on a real Android phone (and an iPhone if you can) on slow mobile data. Fix what breaks: the keyboard covering the input, long Bangla text wrapping, links opening outside the app.
+11. No native app? Make the web chat page work well on a phone instead, and test it on a real phone on mobile data.
+12. **Stop here on Day 6** when you have tested on a real phone and fixed the worst problems.
 
 ### Memory check · 10 min
 
-7. Close this page. In your log, answer from memory, then check:
+13. Close this page. In your log, answer from memory, then check:
    - Name two mobile problems a web chat page rarely has. ([where to check](40-assistant-in-the-mobile-app.md))
-8. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+14. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: Name two mobile problems a web chat page rarely has.</summary>

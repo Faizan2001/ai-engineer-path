@@ -256,3 +256,23 @@ Two agents then judged every recommendation, one as a necessity skeptic and one 
 
 **Result:** text edits only, inside existing Day groups. Tick boxes, Day labels, the duration (about 54 weeks) and saved progress are unchanged. `node --test tests/` passes 26 cases, and assets are at 8.3.
 
+
+### Round 4: plain language and lesson flow (3 November 2026)
+
+The owner read Setting Up Your Tools and found that Day 2 and Day 3 did not follow from Day 1, that Day 3 jumped to a later lesson, and that many steps were long and used heavy wording. Every lesson, the course page and the section openers were then reread in order.
+
+| Change | Why |
+|---|---|
+| No step sends the learner to a later lesson. Links to later lessons remain only under optional resources and in What's Next | Day 3 of Setting Up Your Tools told learners to skip it if they had already done Keyword RAG, and other lessons linked ahead too. |
+| Setting Up Your Tools: key and budget first, then the Zoomcamp page, a `git status` check for `.env`, a plain-text search warm-up on Day 3 | Day 1 had steps in the wrong order (the `.gitignore` check came after the key was used), and Day 2 and Day 3 never said which folder to work in. |
+| Install Docker moved from Day 2 of Setting Up Your Tools to Postgres Search and Access Rules | Nothing used Docker until the pgvector step, 25 lessons later. |
+| The Gemini note in Setting Up Your Tools now says lessons where it matters will say so. Testing and CI says to pick a Gemini grader, and Structured Output and Errors says how to fake a refusal | The note named promptfoo before the course had introduced it. |
+| The weekly 30-minute crisis-set block is now set out in Evals That Catch Real Bugs, where it starts | Campus Knowledge Base described a block that began lessons later. |
+| The "marked this complete before 28 Oct?" note was removed from Campus Knowledge Base | It was a migration note for earlier learners, and it interrupted the lesson. |
+| Long steps were split so each step is one action, and long Day blocks (Embeddings Days 8–11, Monitoring Days 5–7, Grading Days 3–5) gained a Stop line per Day | Learners could not tell what to do next inside a 4-day block. |
+| Missing details added: the `Event` fields, the softmax formula, where `ask-mdn` and the MDN clone live, which folder to run `git rev-parse HEAD` in, what the two pytest tests check, and which group to use in `save_note` before there are several | Steps assumed facts the lesson never gave. |
+| Wording simplified on the course page, the section openers and lesson text. Jargon such as "abstention", "frozen subset" and "fixtures" was replaced | Plain, direct wording, in the style of The Odin Project. |
+
+A second read-through (also 3 November) went field by field, not just the steps. It replaced quip-style hooks and `—` asides with plain statements, shortened the memory-check answers and "You're done when" lines, swapped terms such as "synthetic", "permitted" and "configuration" for plainer ones, added short explanations for MCP, LoRA, quantization and open-weight models where they first appear, and made spelling consistent (British). Overview bullets now match what the steps teach (for example, Embeddings no longer promises three vector-search tools). A third, trimming pass removed sentences that only hedged or repeated the hook, the project boilerplate already given in Poster Reader, and optional extras that repeated earlier reading. Stories, hooks and the honest caveats that change what you do were kept.
+
+**Result:** text edits only. Day labels, tick boxes, slugs, the duration (about 54 weeks) and saved progress are unchanged. `node --test tests/` passes 26 cases, and assets are at 8.4.

@@ -24,21 +24,22 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
-1. Read Anthropic's [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents). Notice how a workflow is different from an agent.
+1. Read Anthropic's [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents). Notice how a workflow differs from an agent.
 2. Watch Barry Zhang's talk [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) (15 min, Anthropic). Write down his advice on when not to build an agent.
-3. Choose 3 possible product features. For each, name the user, the problem, the simplest useful solution and one measurable success rule. Include a plain-code baseline. Then sort these failures: missing facts → supply context or retrieval; inconsistent format → schema and validation; repeated task behavior still wrong after prompt/data fixes → consider fine-tuning with a separate test set. Training from scratch is a different project. Keep this one-page brief.
+3. Choose 3 possible product features. For each one, write the user, the problem, the simplest useful solution and one way to measure success. Include a plain-code version as a baseline.
+4. Match each failure to its usual fix. Missing facts: give the model context or retrieval. Inconsistent format: use a schema and validation. The right behaviour still fails after prompt and data fixes: consider fine-tuning, with a separate test set. Training a model from scratch is a different project. Keep your three features and this list on one page.
 
 ### Memory check · 10 min
 
-4. Close this page. In your log, answer from memory, then check:
+5. Close this page. In your log, answer from memory, then check:
    - What's the difference between a workflow and an agent? ([where to check](https://www.anthropic.com/engineering/building-effective-agents))
    - Why can the same question get different answers from a model? ([where to check](05-how-llms-work.md))
-5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What's the difference between a workflow and an agent?</summary>
 
-A workflow follows steps and branches defined in code; an agent lets the model choose its next actions or tools within limits set by the application.
+In a workflow, your code sets the steps and branches. In an agent, the model chooses its next actions or tools, within limits your code sets.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -47,7 +48,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: Why can the same question get different answers from a model?</summary>
 
-Generation can sample among several possible next tokens, so the same question can produce different wording or answers. Temperature affects this randomness; a plausible answer is not necessarily correct.
+The model picks among several likely next tokens, so the same question can get different wording, or even different answers. Temperature controls how much randomness goes into that pick. A believable answer isn't always a correct one.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
