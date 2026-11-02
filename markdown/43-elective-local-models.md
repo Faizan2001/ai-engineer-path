@@ -24,6 +24,10 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
+> **Why:** Find out what running models on your own machine really costs.
+>
+> **Skip if** you've run models with Ollama and measured them on your own eval.
+
 1. Install [Ollama](https://github.com/ollama/ollama) or llama.cpp. Run a small and a medium model; record memory use, how long the first word takes on a long prompt, and tokens per second on your machine.
 2. Run your Bangla and Banglish eval slice with both, at two quantization levels. Compare with the hosted model you chose in [Choose Models and a Budget](38-choose-models-and-budget.md).
 3. Put the best local model behind your assistant's model interface and use it for offline tests and labelling drafts. Write when local serving would make sense for real users, and what it would cost.

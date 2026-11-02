@@ -26,6 +26,10 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
+> **Why:** Set up the routine and the log that carry you through 54 weeks, breaks included.
+>
+> **Don't skip:** Every lesson ends with a log entry, and the three rules are how you restart.
+
 1. Read the [course page](README.md). It has 7 sections and 5 projects, plus optional Electives. The core path takes about 54 weeks and ends with your Campus Assistant.
 2. Pick your study days and a fixed time, and add them to your calendar. Aim for about 9 hours a week: 6 sessions of 90 minutes, or fewer, longer ones. Set the same number as your weekly target on the [course page](README.md). It counts sessions per week, not a daily streak.
 3. Create a private GitHub repository called `ai-learning-log` and add a file called `log.md`. This is where your notes go. Each project gets its own public repo later.

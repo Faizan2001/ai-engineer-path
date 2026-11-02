@@ -44,32 +44,60 @@ To grade search you need an answer key: questions whose correct page you already
 
 ### Day 1 · about 90 min
 
+> **Why:** Learn how to build an answer key: questions with known correct pages.
+>
+> **Skip if** you've built ground-truth question sets for search before.
+
 1. Module 4: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/01-intro.md) and [02 Ground truth](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/02-ground-truth.md) (it generates questions with structured output, which you already know).
 
 ### Day 2 · about 90 min
+
+> **Why:** Generate candidate test questions for 60 MDN pages in one batch.
+>
+> **Don't skip:** They become your held-back test set.
 
 2. [03 Ground truth batch](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/03-ground-truth-batch.md).
 3. Use the same method to generate questions for a random sample of 60 of your MDN pages, not all of them.
 
 ### Day 3 · about 90 min
 
+> **Why:** Clean the questions and lock 50 away as an honest final test.
+>
+> **Don't skip:** The Ask MDN project is scored on this set.
+
 4. Read through the questions, fix or replace the bad ones, and keep 50. Commit them as your **held-back** set. Don't use them for tuning.
 
 ### Day 4 · about 90 min
+
+> **Why:** See how a search run is scored, question by question.
+>
+> **Skip if** you can already score a search run against ground truth.
 
 5. [04 Search evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/04-search-evaluation.md).
 
 ### Day 5 · about 90 min
 
+> **Why:** Learn Hit Rate and MRR, and how to tune search without cheating.
+>
+> **Skip if** you can compute Hit Rate and MRR by hand and know why tuning uses practice data only.
+
 6. [05 Search metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md) and [06 Search tuning](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/06-search-tuning.md).
 
 ### Days 6–7 · about 3 hours
+
+> **Why:** Put real numbers on Ask MDN's keyword and vector search.
+>
+> **Don't skip:** Your README reports these numbers.
 
 7. Add to Ask MDN: measure Hit Rate@5 and MRR@5 for keyword search and for vector search on your 20 practice questions. The @5 means only the top 5 results count. Write the numbers in your README.
 8. Score the first 5 different pages, not 5 chunks. Fetch more chunks if you need to, then remove repeated pages in rank order with your `unique_pages` function. If fewer than 5 pages remain, score what you have.
 9. Add a small test: repeated chunks from page A must not push page B out of the top five pages.
 
 ### Day 8 · about 60 min
+
+> **Why:** Learn how sure you can be of a score from only 20 questions.
+>
+> **Don't skip:** Ask MDN reruns this bootstrap on its final test.
 
 10. Your Hit Rate on 20 practice questions is an estimate, not a fact. To see how uncertain it is, write a paired bootstrap, without AI-written code.
 11. Repeat 1,000 times: pick 20 of your practice questions at random, with replacement (some appear twice, some not at all). On that same pick, compute Hit Rate for keyword search and for vector search, and save the difference.

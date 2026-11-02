@@ -26,6 +26,10 @@ Your assistant is ready for a small trial with a time limit. If you have all the
 
 ### Days 1–6 · about 9 hours
 
+> **Why:** Run the final checks, then choose between an approved pilot and a rehearsal.
+>
+> **Don't skip:** This decides whether real students can use it.
+
 1. **Days 1–3:** Run the frozen candidate once on the reserved release set. Record per-language search and answer counts, thresholds, set IDs and all versions.
 2. Separately, pass the known hard, crisis and cross-university regression suites, plus provider eligibility and cost limits.
 3. For crisis, that means: zero misses in every language on your crisis set (or a stricter bar the counselling centre sets); the help link working in every state; and the centre's written approval of the card recorded in `PILOT-AUTHORIZATION.md`. Without that approval, run the rehearsal only.
@@ -37,10 +41,18 @@ Your assistant is ready for a small trial with a time limit. If you have all the
 
 ### Days 7–12 · about 9 hours
 
+> **Why:** Run the pilot for two weeks and grade answers every day.
+>
+> **Don't skip:** This is the evidence the whole path builds toward.
+
 9. **Days 7–12, one session a Day while the pilot runs:** Run the approved pilot or the isolated rehearsal for two weeks. Each day, review redacted feedback and new questions. Approve every published fix by hand and version it, and add failures to regression. A change prompted by release-check failures needs a fresh release sample before that topic or setting is switched back on.
 10. Each Day, regrade a random sample of answers. Track correct answers, appropriate clarifications, routes and declines, and errors. For a rehearsal, state that questions and users were made up or scripted. Don't count them as evidence of real student adoption.
 
 ### Days 13–18 · about 9 hours
+
+> **Why:** Write the report and decide the next step from evidence.
+>
+> **Don't skip:** The report is what you show the university and employers.
 
 11. **Days 13–15:** Write `PILOT-REPORT.md`, headed **Approved pilot** or **Rehearsal**, with the authorization status, data used, quality counts by language, failure modes, fixes, cost and user feedback. Separate development, regression and fresh release results, including failed runs and set versions. A rehearsal cannot establish real-world demand or adoption.
 12. **Days 16–17:** Finish with a decision and its evidence: widen an approved pilot, seek authorization after a rehearsal, or pause and fix. Share the report with the responsible reviewers. Never describe a rehearsal as a completed campus deployment.

@@ -67,6 +67,7 @@ Keep each lesson's `slug` unique and don't rename slugs once you've started; sav
 | section `opener`, `shift` | A short story at the start of each section, and its before/after lines. |
 | group `added`, `split` | A Day block appended after release (`added`), or a former one-tick "Week" block now shown as Days (`split`): a save written before that change treats its single tick as the whole block. |
 | section `optional` | `true` keeps a section, such as Electives, out of the top progress count, the finish date and the **Continue** button. Put optional sections last. |
+| group `why`, `skip`, `keep` | The highlighted box at the top of each Day. `why` says what the Day is for. Each group has either `skip` (a quick check: if it is already true for you, tick the Day and move on) or `keep` (later work needs what this Day produces). No links inside. |
 | lesson `added` | The date a core lesson was inserted. A learner whose progress already reached a later lesson sees it as catch-up instead of being sent back; a learner who started after that date (the save's `since`) gets it in the normal sequence. |
 
 ## Curriculum review
@@ -82,6 +83,6 @@ The [28 October Campus Assistant review](CAMPUS-ASSISTANT-REVIEW.md) explains th
 Run `node --test tests/` (26 cases) after changing saved progress, Day blocks, durations or Continue behavior. It needs the git history, because it compares against the last live release (0775835).
 
 - `tests/progress.test.cjs` executes the real course and app in a minimal browser shell: partial lessons, catch-up work, legacy Day migration, save/reload, the first account sync, and a page still open on the live release.
-- `tests/course.test.cjs` checks that every live lesson and Day group keeps its place and its number of boxes, that new material is flagged `added`, that internal links resolve, and that the stated duration matches the Day count.
+- `tests/course.test.cjs` checks that every live lesson and Day group keeps its place and its number of boxes, that new material is flagged `added`, that internal links resolve, that the stated duration matches the Day count, and that every Day has a `why` plus exactly one of `skip` or `keep`.
 
 Progress is saved under `ai-engineer-path:progress:v2` (and `progress-v2` in a Claude account). The older `v1` save is only read while no v2 save exists, so a page still open on an older version can't overwrite newer progress. Ticks made in such a page after the switch stay in that page. These tests do not replace mobile-browser or real account-sync checks.

@@ -30,9 +30,17 @@ Tip: make `save_note` useful to you. Use it to save revision notes for this cour
 
 ### Day 1 · about 90 min
 
+> **Why:** Practise planning a project yourself before you follow the steps.
+>
+> **Don't skip:** You compare this plan with what really happened on Day 12.
+
 1. Before you read the steps below, write your own day-by-day plan for this project in your log. Compare it with the steps afterwards.
 
 ### Days 2–6 · about 7.5 hours
+
+> **Why:** Give Ask MDN tools, and make the one that writes data wait for a person's approval.
+>
+> **Don't skip:** This approval flow is the heart of the project.
 
 2. **Days 2–3:** In LangGraph, give the agent three tools: `search_docs` (your hybrid search), `browser_support` (looks up a feature in the browser data) and `save_note` (writes a note to a `notes` table in Neon, with a `group_id` column; use one fixed group for now).
 3. **Days 4–5:** Before `save_note` runs, pause with `interrupt()`. Show the person the exact arguments, and run the tool only if they approve, using exactly those arguments.
@@ -40,6 +48,10 @@ Tip: make `save_note` useful to you. Use it to save revision notes for this cour
 5. **Stop here on Day 6:** one approved note is saved and one rejected note isn't.
 
 ### Days 7–12 · about 9 hours
+
+> **Why:** Add hard limits, stop duplicate writes, and prove injected instructions can't trigger actions.
+>
+> **Don't skip:** These tests are the project's evidence.
 
 6. **Days 7–8:** Add limits: at most 8 steps, a cost limit per question, and at most 2 retries per tool call.
 7. For `save_note`, add a database unique constraint on `(group_id, operation_id)` and handle it with [INSERT ON CONFLICT](https://www.postgresql.org/docs/current/sql-insert.html). A repeated ID returns the original result only if the arguments match. Changed arguments need a new approval.

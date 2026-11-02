@@ -40,6 +40,10 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 - ▶ [Prompt Injection, explained](https://www.youtube.com/watch?v=FgxwCaL6UTA) (Simon Willison, 12 min): From the person who named the attack. A good start before the readings.
 
+> **Why:** Learn how a web page can hijack your agent, and design the approval rule that stops it.
+>
+> **Don't skip:** The next project is built around this rule.
+
 1. Read Simon Willison's [The lethal trifecta for AI agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/).
 2. Read OWASP [LLM01 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) and [LLM06 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/).
 3. For Ask MDN's agent, write down its three trifecta parts: private data, untrusted content and a way to send data out (Simon Willison calls it external communication). Which part will you cut off, and how?

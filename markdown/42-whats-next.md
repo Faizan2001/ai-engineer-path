@@ -26,6 +26,10 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
+> **Why:** Check your skills on a problem you haven't seen, then pick what to practise next.
+>
+> **Don't skip:** This is how you find out what you really learned.
+
 1. **Days 1–2:** Finish any required project checks you haven't done yet. Then pick one public source you haven't used, such as a small museum visitor FAQ or an open-source project's installation guide. Keep it to 5–10 pages, and record its source and reuse terms.
 2. Before you write any code, write a short brief, 6 expected question and answer cases (2 of them unanswerable from the source), and a cost limit. Stop when the brief and cases are committed.
 3. **Days 3–6:** Spend 3–6 hours adapting your existing app. First choose the simplest design that works, and explain whether you need retrieval or an agent. You may use documentation and your own code. Keep AI in explain-and-review mode: it must not design or write the solution. You don't need a new framework. Stop when your 6 cases run.

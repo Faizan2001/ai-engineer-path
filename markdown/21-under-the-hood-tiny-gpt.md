@@ -34,15 +34,27 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 ### Day 1 · under the hood, about 90 min
 
+> **Why:** Build a next-character model by counting, and learn what the loss number means.
+>
+> **Skip if** you've done Karpathy's first makemore lecture.
+
 1. Watch Andrej Karpathy's [building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo) up to 1:02:57, typing as you go. You'll count letter pairs in a list of names, sample new names and compute the average negative log likelihood. In the broadcasting section (36:17 to 50:14), watch without typing, then type only the final normalisation line.
 2. Stop when you can sample 20 names and say what the loss number means.
 
 ### Day 2 · under the hood, about 90 min
 
+> **Why:** Rebuild the same model as a tiny neural network, and see why both reach the same loss.
+>
+> **Skip if** you've finished the first makemore lecture to the end.
+
 3. Finish the video from 1:02:57. You'll rebuild the same bigram model as a one-layer neural network in PyTorch, trained with gradient descent. Watch the summary (1:26:17 to 1:35:49) and the two notes (1:47:49 to 1:54:31) without typing.
 4. Stop when its loss is close to the counting model's loss, and you can explain why they should match.
 
 ### Day 3 · under the hood, about 90 min
+
+> **Why:** Start the GPT build and learn attention's core trick: averaging earlier tokens with one matrix.
+>
+> **Skip if** you've done Let's build GPT up to the attention section.
 
 5. Start Karpathy's [Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY). Watch up to 42:13 without typing. You built the data split, batches and a bigram model in makemore, so copy `bigram.py` from the [lecture's code](https://github.com/karpathy/ng-video-lecture) instead.
 6. Then type along from 42:13. Before the attention section, do the “mathematical trick” by hand: on a 4-token example, average each token with the tokens before it, first with loops, then as one matrix multiplication.
@@ -50,16 +62,28 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 ### Day 4 · under the hood, about 90 min
 
+> **Why:** Build self-attention by hand, the idea every GPT is built on.
+>
+> **Skip if** you've implemented multi-head self-attention from scratch.
+
 8. Build one self-attention head, then several heads and a feed-forward block, following the video. Keep every shape written in a comment.
 9. Stop when a forward pass runs on a batch and every shape matches your comments.
 
 ### Day 5 · under the hood, about 90 min
+
+> **Why:** Train your tiny GPT and watch it write text.
+>
+> **Skip if** you've trained a small transformer from scratch and still have the code. Day 6 uses it.
 
 10. Add residual connections and layer norm as the video does (1:26:48 to 1:37:49).
 11. Then train a tiny configuration on CPU or a free [Colab](https://colab.research.google.com/) notebook, on a small text you have the right to use (the video's Shakespeare file is fine). Plot training and validation loss, and sample some text.
 12. Stop when the plot and a sample are committed. If training is too slow, shrink the model; the goal is the mechanism, not quality.
 
 ### Day 6 · under the hood, about 90 min
+
+> **Why:** Run one fair experiment, then explain context windows, token cost and temperature from your own code.
+>
+> **Don't skip:** This explanation is the payoff of the whole lesson.
 
 13. Change one thing, such as the context length or the number of layers (with residuals and layer norm in place). Compare training and validation loss fairly: same data, same steps, same seed.
 14. Without the video, explain in your log what a context window is, why tokens cost money, and what temperature changes, using your own code as the example.

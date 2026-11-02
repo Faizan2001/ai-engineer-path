@@ -45,17 +45,33 @@ Attacks come two ways: the user types something sneaky, or a page the app finds 
 
 ### Day 1 · about 90 min
 
+> **Why:** Point promptfoo's attack mode at your app, running as a real user.
+>
+> **Don't skip:** The project reruns these attacks.
+
 1. Follow promptfoo's [red team quickstart](https://www.promptfoo.dev/docs/red-team/quickstart/), pointing it at your `answer(question, user)` Python provider so each attack runs as a specific user.
 
 ### Day 2 · about 90 min
+
+> **Why:** Generate a fixed set of 30 attacks, so every rerun is comparable.
+>
+> **Don't skip:** The project runs this set three times.
 
 2. Set up three plugins: [rbac](https://www.promptfoo.dev/docs/red-team/plugins/rbac/) (access control), [hijacking](https://www.promptfoo.dev/docs/red-team/plugins/hijacking/) and [indirect prompt injection](https://www.promptfoo.dev/docs/red-team/plugins/indirect-prompt-injection/). Generate 30 attack cases and commit them, so the test stays the same each time. Generating may use promptfoo's online service, which can have usage limits, so generate once. If it's unavailable, write the cases by hand.
 
 ### Day 3 · about 90 min
 
+> **Why:** Plant secret pages that prove a leak beyond doubt if they ever show up.
+>
+> **Don't skip:** Canaries are the proof the project needs.
+
 3. Add 5 canary documents to the JS group: pages that contain a unique secret phrase. A CSS user must never see them.
 
 ### Day 4 · about 90 min
+
+> **Why:** Attack your app and list what got through.
+>
+> **Don't skip:** The project fixes this list.
 
 4. Run the attacks and write down every one that worked. A passing rbac test is a model's opinion, not proof. A canary phrase shown to the wrong user is proof, so check the canaries and your database yourself. Fix the failures in the project that follows this lesson.
 

@@ -32,15 +32,27 @@ By the end of this lesson, you should be able to:
 
 ### Day 1 · about 90 min
 
+> **Why:** Decide where the assistant can send students, and what every answer card shows.
+>
+> **Don't skip:** Routing only works with this directory.
+
 1. Store your office directory as data: office, topics it owns, official contact channel and hours. The assistant may only route to entries in this file.
 2. Write the answer card: short answer; who it applies to (program, curriculum version, semester); evidence with tier labels; what's still needed; one next step; the date it was last verified.
 
 ### Day 2 · about 90 min
 
+> **Why:** Make the assistant ask one question when the answer depends on a detail.
+>
+> **Don't skip:** Many campus rules depend on credit load or intake year.
+
 3. Add an evidence check before answering: do the retrieved entries cover this question for this student? If an entry has `conditions` the student hasn't given, ask one question instead (for example “How many credits are you taking this semester?”).
 4. Keep that pending question on the server: store the conversation's open condition, so when the student replies “15”, the next turn knows it answers the credit question. Never trust a transcript sent back by the client.
 
 ### Days 3–4 · about 3 hours
+
+> **Why:** Build the hard questions that tempt an assistant to invent rules.
+>
+> **Don't skip:** These are the assistant's main safety tests.
 
 5. Build a hard set of 60 questions and write the expected move for each. Use this mix: 10 personal-record questions (my grades, my dues); 10 not covered by any source; 10 about future or rumoured events; 5 requests to rate a named teacher; 5 requests for exam answers or someone else's data; 5 that must ask first; 5 that need a partial answer; 5 false premises (“guarantee me an A”); and 5 where search fails or times out (make it fail on purpose).
 6. In the search-failure cases, the assistant must say it couldn't check. It must never answer from memory.
@@ -48,6 +60,10 @@ By the end of this lesson, you should be able to:
 8. Second, a true conflict: two undated official pages give different numbers for the same rule. The right move is to show both, route to the owning office and file a curation item. Never pick one silently, and never trust the newer-looking page.
 
 ### Days 5–6 · about 3 hours
+
+> **Why:** Build the crisis route and the help card, and test them on your crisis set.
+>
+> **Don't skip:** No pilot starts without this.
 
 9. Add a crisis route that runs before retrieval. It has a high-recall keyword check in English, Bangla and Banglish, plus a small classifier prompt for indirect wording.
 10. It replies only with a static card listing counselling and emergency contacts with their hours, and it shows which lines are open now in your timezone. A keyword hit never calls a model, and is never stored in full or queued for curation. Each contact has an owner who re-verifies it, and a date.
@@ -59,10 +75,18 @@ By the end of this lesson, you should be able to:
 
 ### Day 7 · about 90 min
 
+> **Why:** Run everything, fix the worst failure, and record results per language.
+>
+> **Don't skip:** These counts show whether the assistant is ready.
+
 16. Run the hard set plus the answerable questions in `development.jsonl` and `regression.jsonl`. Record correct answers, clarifications, partial answers, routes and declines, plus false answers and unnecessary refusals. Report counts per language (“36 of 40”) with set versions.
 17. Fix the worst failure, add it to regression, and rerun. Keep `held_back.jsonl` sealed for the final release check. If a held-back failure has already guided a fix, it is now regression data and needs a fresh replacement.
 
 ### Day 8 · about 90 min
+
+> **Why:** Let friends try to break it, and turn what works into tests.
+>
+> **Don't skip:** Other people find failures you can't.
 
 18. Ask 3 friends or juniors to try to make it invent a rule, using made-up or allowed questions. Keep redacted copies of their attempts, and turn the ones that worked into regression tests. Don't give them the reserved release cases, and don't use their wording to tune prompts.
 

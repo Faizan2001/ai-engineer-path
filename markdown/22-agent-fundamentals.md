@@ -45,17 +45,33 @@ The Hugging Face course shows what the API hides. Your message list becomes one 
 
 ### Day 1 · light day, about 45 min
 
+> **Why:** Learn what an agent is, and how a message list becomes one prompt with special tokens.
+>
+> **Skip if** you can explain chat templates and special tokens.
+
 1. Hugging Face Agents Course, Unit 1: [What are agents?](https://huggingface.co/learn/agents-course/en/unit1/what-are-agents) and [Messages and special tokens](https://huggingface.co/learn/agents-course/en/unit1/messages-and-special-tokens).
 
 ### Day 2 · light day, about 45 min
+
+> **Why:** See how tools are described to a model, and how an agent's steps fit together.
+>
+> **Skip if** you've defined tools for a model and can explain the agent cycle.
 
 2. [Tools](https://huggingface.co/learn/agents-course/en/unit1/tools) and [Agent steps and structure](https://huggingface.co/learn/agents-course/en/unit1/agent-steps-and-structure).
 
 ### Day 3 · light day, about 45 min
 
+> **Why:** Learn the think, act, observe cycle in detail.
+>
+> **Skip if** you can explain ReAct and the think, act, observe loop.
+
 3. [Thoughts](https://huggingface.co/learn/agents-course/en/unit1/thoughts), [Actions](https://huggingface.co/learn/agents-course/en/unit1/actions) and [Observations](https://huggingface.co/learn/agents-course/en/unit1/observations). Stuck? Ask in the Hugging Face Discord's `#agents-course-questions` channel.
 
 ### Day 4 · about 90 min
+
+> **Why:** Extend your own loop by hand: tool errors become observations, plus a second tool.
+>
+> **Don't skip:** The next lesson starts from this loop.
 
 4. **No AI for this one:** take the agent loop you wrote in [Tools and the Agent Loop](11-tools-and-the-agent-loop.md) and add two things. First, make a tool error go back to the model as an observation instead of crashing. Second, add a tool that returns a page's title. Log every step.
 

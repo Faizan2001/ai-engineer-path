@@ -54,9 +54,17 @@ Row-level security adds a hidden WHERE to every query on a table. Your app says 
 
 ### Day 1 · about 90 min
 
+> **Why:** Learn how the database itself can keep each group's data apart.
+>
+> **Skip if** you've set up Postgres row-level security with `current_setting` before.
+
 1. Read [Multi-tenant data isolation with PostgreSQL Row Level Security](https://aws.amazon.com/blogs/database/multi-tenant-data-isolation-with-postgresql-row-level-security/) by Michael Beardsley (AWS Database Blog). Multitenant means one app serving several separate groups. It's plain Postgres: policies, `current_setting`, BYPASSRLS and FORCE.
 
 ### Days 2–4 · about 4.5 hours
+
+> **Why:** Move Ask MDN's search into Postgres, so the database can enforce access.
+>
+> **Don't skip:** Everything from here runs on this table.
 
 2. Install Docker ([get started](https://docs.docker.com/get-started/)) and run `docker run hello-world`. Docker runs programs in their own little boxes called containers. Low on memory or disk space? Use a free [GitHub Codespace](https://docs.github.com/en/codespaces/getting-started/quickstart) instead; it runs in the browser and has Docker built in.
 3. Do Zoomcamp Module 2's [08 pgvector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/08-pgvector.md) lesson now (you skipped it in Embeddings and Vector Search): vector search inside Postgres.
@@ -66,11 +74,19 @@ Row-level security adds a hidden WHERE to every query on a table. Your app says 
 
 ### Days 5–6 · about 3 hours
 
+> **Why:** Turn on row-level security, with an app role that can't bypass it.
+>
+> **Don't skip:** This is the lock the capstone depends on.
+
 7. Read the Postgres [row-level security docs](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). Turn row-level security on and force it on the chunks and `notes` tables, with a policy that only shows rows whose `group_id` matches the current group.
 8. Create your app's role with [CREATE ROLE](https://www.postgresql.org/docs/current/sql-createrole.html): not the table owner, not a superuser and no BYPASSRLS, because those can skip the rules. Grant it only what it needs.
 9. Set the current group at the start of each transaction with `set_config` ([docs](https://www.postgresql.org/docs/current/functions-admin.html)).
 
 ### Day 7 · about 90 min
+
+> **Why:** Prove one group can't see the other's data, and that the test really tests the database.
+>
+> **Don't skip:** These tests guard every later change.
 
 10. Write pytest tests: with the group set to CSS, search returns zero JavaScript chunks and reading or writing JS notes fails. Check in SQL that your app role's `rolbypassrls` is false.
 11. In the same tests, check that `current_user` is your app role, and that your search code has no `WHERE group_id = …` of its own. AI assistants like to add one, and then the tests pass even when row-level security does nothing.

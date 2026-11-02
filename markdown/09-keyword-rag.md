@@ -49,17 +49,33 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 
 ### Day 1 · about 90 min
 
+> **Why:** Understand what RAG is, and why a plain model doesn't know your data.
+>
+> **Skip if** you can explain RAG's steps, from question to answer, from memory.
+
 1. Zoomcamp Module 1: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/01-intro.md), [03 RAG](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md) (notice why plain models don't know your data) and [04 Dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/04-dataset.md). You did 02 in Setting Up Your Tools.
 
 ### Day 2 · about 90 min
+
+> **Why:** See how search and prompt building work in the Zoomcamp code.
+>
+> **Skip if** you've used minsearch, or built a search-then-prompt pipeline before.
 
 2. [05 Search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/05-search.md) (watch how boosting fields changes results) and [06 Building the prompt](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/06-building-prompt.md).
 
 ### Day 3 · about 90 min
 
+> **Why:** Connect search to the model, and wrap it in a reusable RAG helper.
+>
+> **Skip if** you can write search, prompt and answer as one function without the notes.
+
 3. [07 LLM](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/07-llm.md) (it shows how to calculate the price, like you did for posters) and [08 RAG helper](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/08-rag-helper.md).
 
 ### Day 4 · about 90 min
+
+> **Why:** Start Ask MDN with a frozen copy of the docs, so every later test is fair.
+>
+> **Don't skip:** Ask MDN and all its tests use this exact data.
 
 4. [09 Data ingestion](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/09-data-ingestion.md) and, only if you have time, [10 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/10-rag-next-steps.md).
 5. Start Ask MDN: create a new **public** GitHub repo called `ask-mdn` and clone it.
@@ -67,6 +83,10 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 7. In the `content` folder, run `git rev-parse HEAD` and write the commit ID in the README of `ask-mdn`. That exact version is your data from now on, so your tests stay fair.
 
 ### Day 5 · about 90 min
+
+> **Why:** Get Ask MDN v0.1 finding the right MDN pages for a question.
+>
+> **Don't skip:** Every later Ask MDN version builds on it.
 
 8. Load the two folders into minsearch: CSS properties and JavaScript global objects.
 9. Each MDN page is a Markdown file. It starts with front matter between `---` lines and contains `{{macro}}` lines. Read the title and slug from the front matter, drop the macro lines and keep the text.

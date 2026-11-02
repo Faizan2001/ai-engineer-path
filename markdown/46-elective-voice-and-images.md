@@ -22,6 +22,10 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
+> **Why:** Add image and voice input, and measure their errors honestly.
+>
+> **Skip if** you've measured OCR and speech-to-text errors on your own data.
+
 1. Collect 20 official notices that exist only as images or scans. Extract text with a vision model or OCR; compare with a hand-typed version and count errors that change meaning (dates, amounts).
 2. Record 20 short spoken questions (with permission). Transcribe them with an open speech model such as [Whisper](https://github.com/openai/whisper); measure word errors and check whether search still finds the right entry.
 3. Write a decision: ship, ship with human review, or not yet.
