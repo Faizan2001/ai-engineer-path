@@ -526,7 +526,10 @@
           ' aria-describedby="dayh-' + gi + '"> ' + (n > 1 ? esc(tickLabel(g, kk)) + " done" : "Done") + "</label>";
       }
       var head = g.day ? '<div class="day-head" id="day-' + gi + '"><h3 id="dayh-' + gi + '">' + esc(g.day) + '</h3><div class="day-ticks">' + boxes + "</div></div>" : "";
-      var html = head + '<ol start="' + k + '">' + g.steps.map(function (s) { return "<li>" + fmt(s) + "</li>"; }).join("") + "</ol>";
+      var purpose = g.why ? '<div class="purpose"><p><span class="purpose-tag">Why</span>' + fmt(g.why) + "</p>" +
+        (g.skip ? '<p><span class="purpose-tag skip">Skip if</span>' + fmt(g.skip) + "</p>" : "") +
+        (g.keep ? '<p><span class="purpose-tag">Don\'t skip</span>' + fmt(g.keep) + "</p>" : "") + "</div>" : "";
+      var html = head + purpose + '<ol start="' + k + '">' + g.steps.map(function (s) { return "<li>" + fmt(s) + "</li>"; }).join("") + "</ol>";
       k += g.steps.length;
       return html;
     }).join("");

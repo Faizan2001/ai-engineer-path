@@ -49,10 +49,18 @@ An LLM judge is a second model that grades an answer against a rubric. It is fas
 
 ### Day 1 · about 90 min
 
+> **Why:** Give every entry a status and a queue, so nothing unchecked reaches students.
+>
+> **Don't skip:** The assistant only serves approved entries.
+
 1. Add statuses to every entry: `draft → checked → needs-human → approved → expired`. Write a small script that prints the queue: counts per status, entries past `review_by`, and entries whose source changed since approval.
 2. Reuse your [Fresh Data](31-fresh-data.md) manifest idea: hash each saved source document so a changed rule automatically moves its entries back to `needs-human`.
 
 ### Day 2 · about 90 min
+
+> **Why:** Write the automatic checks that catch bad entries before a human looks.
+>
+> **Don't skip:** Every entry goes through these checks.
 
 3. Write five automatic checks: (1) every claim cites quoted source text; (2) the judge says the quote supports the claim; (3) no conflict with another approved entry; (4) no personal data about individuals (student names, IDs, phone numbers); (5) `review_by` is in the future.
 4. Contacts from your official office directory are allowed. Record staff confirmations by office or role plus date, never by a person's name.
@@ -60,10 +68,18 @@ An LLM judge is a second model that grades an answer against a rubric. It is fas
 
 ### Day 3 · about 90 min
 
+> **Why:** Measure your judge against your own grades, and tune its rubric.
+>
+> **Don't skip:** You can't trust the checks without this.
+
 6. Grade 60 entries yourself: correct and supported, or not. Include 15 you deliberately broke (wrong number, outdated semester, unsupported claim). Run the judge on the same 60 and build the confusion matrix. Compute Cohen's kappa too ([scikit-learn's cohen_kappa_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html)).
 7. Read every disagreement and fix the rubric, not the labels. Rerun once. These 60 are now tuning data, so their scores are optimistic.
 
 ### Days 4–5 · about 3 hours
+
+> **Why:** Test the judge on fresh entries, and write down why it can't publish on its own.
+>
+> **Don't skip:** The pilot needs this approval policy.
 
 8. Freeze the rubric. Then grade 40 fresh entries before you see the judge's results: 20 sampled real entries, and 20 new entries that you make wrong on purpose. Make 4 wrong entries of each kind: a wrong number, an expired rule, an unsupported claim, a mismatched source, and a wrong student or curriculum.
 9. Don't reuse the 60 tuning entries or rewrites of them. Confirm the expected labels, then run the judge once.
@@ -74,6 +90,10 @@ An LLM judge is a second model that grades an answer against a rubric. It is fas
 14. Approve every pilot entry by hand through the queue, with the curator, source revision, timestamp and reason in its changelog. Test that the judge cannot publish, that low-risk entries also wait, and that changing a source removes approval.
 
 ### Day 6 · about 90 min
+
+> **Why:** Add one check yourself, without AI, to prove you understand the system.
+>
+> **Don't skip:** It's short, and it's this lesson's skill check.
 
 15. Without AI-written code, add one new check (for example: an answer that mentions a date must cite the academic calendar). Test it on a passing and a failing entry, and explain it in your log.
 

@@ -31,6 +31,10 @@ By the end of this lesson, you should be able to:
 
 ### Day 1 · about 90 min
 
+> **Why:** Get one paid model call working, with a key that can't leak and spending you control.
+>
+> **Don't skip:** Every later lesson runs on this setup. If you've done it before, it's a quick check.
+
 1. Create an OpenAI account. Then make a new project just for this path and create an API key inside it. A separate project shows you exactly what this path costs.
 2. Add only a small amount of credit. $5 is enough to start. If your account has auto-recharge, turn it off. Set a budget alert, and check whether it stops spending or only sends a warning.
 3. **Paying from Bangladesh:** OpenAI needs a card that works for international online payments. Many banks offer a dual-currency card; ask yours. Add credit $5 at a time.
@@ -42,12 +46,20 @@ By the end of this lesson, you should be able to:
 
 ### Day 2 · about 90 min
 
+> **Why:** Check that your Python is ready for the model lessons, and give your AI assistant rules.
+>
+> **Skip if** you can write the CSV top-3 script in 15 minutes without AI. Still create `AGENTS.md`.
+
 9. **No AI for this one:** in your project folder, write `top3.py`. It reads a CSV file, counts the rows for each value in one column and prints the top 3. Check it with a CSV of six rows whose counts you already know. Stuck for 20 minutes? Read the matching part of the [Python tutorial](https://docs.python.org/3/tutorial/), then try again.
 10. If files, dictionaries or functions still feel new, spend up to two extra sessions on those parts of the Python tutorial, then retry with a different CSV. Pass this check before the model-call lessons. Needing the extra practice is normal.
 11. Create a file called `AGENTS.md` in your project folder ([the format](https://agents.md/)). It's a note that AI coding assistants read before they work. Write four rules in it: explain code to me, review my code, ask me questions, and never write my lesson solutions. Add one more: no keys, secrets or private code in a prompt.
 12. Commit `top3.py` and `AGENTS.md`. Run `git status` again: `.env` must still not appear.
 
 ### Day 3 · first win, about 90 min
+
+> **Why:** Build a tiny search engine by hand, so retrieval, the core of RAG, makes sense before a library hides it.
+>
+> **Skip if** you've written keyword search with scoring and tests before. Nothing later uses these files.
 
 13. Before any AI, write five short help pages for an imaginary student office, as plain text files in a folder called `pages` in your project folder. Start each file with an ID, a date and a source, like this: `fees-01 · 2026-09-01 · Accounts office`. Make one page out of date on purpose.
 14. Without AI-written code, write `search.py`. Given a question, it prints the top 2 page IDs, or `no matching page` when nothing matches. It should be about 30 lines.

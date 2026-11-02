@@ -47,11 +47,19 @@ A model call predicts tokens from its input and what it learned in training. It 
 
 ### Day 1 · about 90 min
 
+> **Why:** Get a working picture of tokens and next-token prediction, so model behaviour stops being a mystery.
+>
+> **Skip if** you can explain tokens, attention and sampling in 5 sentences. Write them in your log and move on.
+
 1. Watch 3Blue1Brown's [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs) (7 min). Watch for the idea of predicting one token at a time.
 2. Watch [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) (27 min). Pause often and write one sentence for each new idea. On mobile data, watch at 480p or download it on Wi-Fi first.
 3. In your log, before you rewatch anything, explain in 5 sentences how a chat model answers a question. Use only words you could explain to a friend.
 
 ### Day 2 · under the hood, about 90 min
+
+> **Why:** Measure what Bangla and Banglish cost in tokens, and write the sampling step yourself.
+>
+> **Don't skip:** Your token ratios feed the capstone's cost estimate.
 
 4. Predict first: will the same question cost more tokens in English, in Bangla script or in Banglish? Write your guess in your log.
 5. Write one campus question yourself (never copy a real post) in three forms: English, Bangla script and Banglish. Make each one three or four sentences long.

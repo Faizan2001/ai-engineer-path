@@ -99,6 +99,9 @@ for idx, l in enumerate(lessons):
     for g in l.get("assignment", []):
         if g.get("day"):
             out += [f"### {g['day']}", ""]
+        if g.get("why"):
+            out += [f"> **Why:** {md(g['why'])}", ">"]
+            out += [f"> **Skip if** {md(g['skip'])}" if g.get("skip") else f"> **Don't skip:** {md(g['keep'])}", ""]
         for s in g["steps"]:
             out.append(f"{k}. {md(s)}")
             k += 1

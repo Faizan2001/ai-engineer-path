@@ -26,6 +26,10 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
+> **Why:** See what the job really is, which parts you already do, and set your capstone goal.
+>
+> **Don't skip:** You'll reread your goal and your reason when motivation dips.
+
 1. Read the README of Alexey Grigorev's [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Write down the 5 tasks that show up most in job posts.
 2. In your log, mark which of those tasks you've already done as a web developer and which are new to you.
 3. Write your capstone goal in your log. This path ends with a Campus Assistant that answers students' repeated questions from approved sources. The author of this path builds it for IUB, inside the Events platform, for the website and the Android/iOS app. Write one sentence for yours: who will it help, and which repeated questions will it answer?

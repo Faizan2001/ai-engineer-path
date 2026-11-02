@@ -24,6 +24,10 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
+> **Why:** Learn to pick the simplest thing that works, often plain code rather than an agent.
+>
+> **Skip if** you've read Building effective agents and can say when a workflow beats an agent.
+
 1. Read Anthropic's [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents). Notice how a workflow differs from an agent.
 2. Watch Barry Zhang's talk [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) (15 min, Anthropic). Write down his advice on when not to build an agent.
 3. Choose 3 possible product features. For each one, write the user, the problem, the simplest useful solution and one way to measure success. Include a plain-code version as a baseline.

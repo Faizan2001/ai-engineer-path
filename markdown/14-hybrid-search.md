@@ -49,15 +49,27 @@ Each search gives a ranked list, and their scores can't be compared. RRF ignores
 
 ### Day 1 · about 90 min
 
+> **Why:** See why mixing keyword and vector search helps, and how RRF merges the two lists.
+>
+> **Skip if** you can explain RRF, and why raw scores from two searches can't be added.
+
 1. Read Module 6 lessons [02 Hybrid search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md) and [03 Reranking (RRF)](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/03-reranking.md). They were recorded in 2024, so some code is old. Take the ideas, not the code. Skip the Elasticsearch part of 03, because its built-in RRF needs a paid licence. Lesson 02 uses k = 1 and lesson 03 uses k = 60. Use 60 in Ask MDN.
 
 ### Day 2 · about 90 min
+
+> **Why:** Write RRF yourself and wire up hybrid search.
+>
+> **Don't skip:** Ask MDN's search uses this from now on.
 
 2. **No AI for this one:** write your own RRF function, about 15 lines. A page gets 1/(60 + rank) points from each list it appears in, and its points are added up. Ranks start at 1.
 3. Add a `hybrid_search()` that runs keyword search and vector search, turns each chunk list into a list of different pages with `unique_pages`, and combines the two with your RRF function.
 4. Test two cases: repeated chunks from one page, and a page that appears in only one list.
 
 ### Day 3 · about 90 min
+
+> **Why:** Measure hybrid search, and make Ask MDN say “I don't know” when the pages don't support an answer.
+>
+> **Don't skip:** This is Ask MDN v0.4.
 
 5. Measure Hit Rate@5 and MRR@5 for hybrid search on your practice questions and compare with keyword and vector search.
 6. A high RRF score doesn't mean the answer exists, so don't use it as a cutoff. Ask the model instead. Put the top passages in a structured prompt. It must return `supported` (true or false), an answer only if supported, and the IDs and short quotes of the chunks that support it.

@@ -24,6 +24,10 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
+> **Why:** Learn to get unstuck fast, and to keep only code you can explain.
+>
+> **Skip if** you've done The Odin Project's Mindset and Asking for Help lessons. Still join the Slack and copy the rule into your log.
+
 1. Read The Odin Project's [Motivation and Mindset](https://www.theodinproject.com/lessons/foundations-motivation-and-mindset) lesson, especially the part about what to do when you're stuck.
 2. Reread their [Asking for Help](https://www.theodinproject.com/lessons/foundations-asking-for-help) lesson. The same tips apply here.
 3. Join the [DataTalks.Club Slack](https://datatalks.club/slack.html) and find the `#course-llm-zoomcamp` channel. Search the [Zoomcamp FAQ](https://datatalks.club/faq/llm-zoomcamp.html) before you post. Join the [Hugging Face Discord](https://hf.co/join/discord) too.

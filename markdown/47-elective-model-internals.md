@@ -22,6 +22,10 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
+> **Why:** See how tokenization shapes cost for Bangla, and go deeper into building models.
+>
+> **Skip if** you've built a BPE tokenizer and trained a GPT from scratch.
+
 1. Watch Karpathy's [Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE) and build a byte-pair encoder, using [minbpe](https://github.com/karpathy/minbpe) as the reference. Train it on a slice of [Bangla Wikipedia](https://dumps.wikimedia.org/bnwiki/) (openly licensed under CC BY-SA; credit it). Never train on group posts, form answers or anything personal.
 2. Measure tokens per word for English, Bangla and Banglish, with your tokenizer and with your provider's counts from [How LLMs Work](05-how-llms-work.md). Explain the gap.
 3. Retrain your tiny GPT from [Under the Hood](21-under-the-hood-tiny-gpt.md) on the same Bangla text twice: once with your tokenizer and once character by character.

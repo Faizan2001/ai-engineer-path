@@ -34,15 +34,27 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 ### Day 1 · about 90 min
 
+> **Why:** Guard the final test against leaks, then get search scores for each language.
+>
+> **Don't skip:** The rest of the lesson compares against these scores.
+
 1. Write a leak check: it fails if any held-back question appears in your indexed text. Compare after lowercasing, collapsing spaces and normalising to Unicode NFC. Run it without printing the questions.
 2. Also check that related phrasings stay in one split. This catches copied text, but it can't catch tuning after you've seen test results. Keep the release set out of routine evaluations, and record any exposure in `EVAL-SETS.md`.
 3. Index approved entries with your Ask MDN search code. Run `development.jsonl` and report Hit Rate@5 and MRR@5 for each language slice. Reuse these development cases for the comparisons below.
 
 ### Day 2 · about 90 min
 
+> **Why:** Try a multilingual embedder and Bangla paraphrases to lift the weak languages.
+>
+> **Don't skip:** You choose the final setup from these results.
+
 4. Swap in a multilingual embedder and rerun. Then try adding Bangla and Banglish paraphrases to each entry's text. Record both results per slice.
 
 ### Day 3 · about 90 min
+
+> **Why:** Try rewriting the question into English and Bangla before searching.
+>
+> **Don't skip:** You choose the final setup from these results.
 
 5. Add a rewrite step: one cheap model call that returns `{language, english_query, bangla_query}` as structured output (as in [Structured Output and Errors](07-structured-output-and-errors.md)). Write `bangla_query` in Bengali script, not romanized.
 6. Run vector search on the raw question and on both rewrites. Run keyword search on the raw and English versions. Fuse everything with RRF (as in [Hybrid Search](14-hybrid-search.md)).
@@ -51,10 +63,18 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 ### Day 4 · about 90 min
 
+> **Why:** Pick the best setup with numbers, and make answers come back in the student's language.
+>
+> **Don't skip:** The assistant ships with this choice.
+
 9. Pick the configuration using development results, then check known failures in `regression.jsonl`. Put the decision, per-language counts, set versions and cost in your README, labelled development evidence. Do not open `held_back.jsonl` here. It is for the final check of your finished candidate.
 10. Make the answer prompt reply in the student's language, and test 5 mixed-language questions by hand.
 
 ### Day 5 · about 90 min
+
+> **Why:** Write the merge function yourself, without AI.
+>
+> **Don't skip:** It's short, and it's this lesson's skill check.
 
 11. Without AI-written code, write the function that merges and deduplicates results from the two rewrites. Test it with an empty list, duplicates and a missing language.
 

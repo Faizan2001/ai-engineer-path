@@ -22,6 +22,10 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
+> **Why:** Share your knowledge base with other AI tools without widening access.
+>
+> **Skip if** you've built an MCP server with token checks before.
+
 1. Read the [MCP introduction](https://modelcontextprotocol.io/docs/getting-started/intro), its [authorization specification](https://modelcontextprotocol.io/specification/latest/basic/authorization) and its [security best practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices).
 2. Build a server with one read-only tool that returns approved entries with citations. No write tools.
 3. Use the HTTP transport with token verification, so the server maps each caller's token to one university. A local stdio server has only one user, so a tenant test on it proves nothing.

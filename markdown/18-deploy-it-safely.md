@@ -29,21 +29,37 @@ By the end of this lesson, you should be able to:
 
 ### Day 1 · about 90 min
 
+> **Why:** Get ready to deploy without leaking a key.
+>
+> **Don't skip:** A key in your Git history must be revoked before the app goes online.
+
 1. Read [Deploy your app](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app) and [Secrets management](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 2. Check that no API key is anywhere in your Git history, for example with `git log --all -p -S"sk-"`. If you find one, don't panic: revoke that key in OpenAI first, then clean the history. Then put the OpenAI key in the app's Secrets settings.
 3. Use the ONNX embedder from Embeddings and Vector Search, so the app stays small. Ship the sqlitesearch index file with the app, or build it when the app starts.
 
 ### Day 2 · about 90 min
 
+> **Why:** Give Ask MDN an online database, with a role that can't skip security rules.
+>
+> **Don't skip:** Ask MDN's logs live here.
+
 4. Create a free Neon project ([plans](https://neon.com/docs/introduction/plans)). Read [Neon roles](https://neon.com/docs/manage/roles). Roles made on Neon's website get powers that skip security rules, so create your app's database role with SQL ([CREATE ROLE](https://www.postgresql.org/docs/current/sql-createrole.html)) instead.
 5. Point Ask MDN's conversation logging at Neon through Secrets, and check that new chats appear there.
 
 ### Day 3 · about 90 min
 
+> **Why:** Put Ask MDN online privately, and practise undoing a bad deploy.
+>
+> **Don't skip:** This is your first live app.
+
 6. Deploy it. Then make it your one private app and invite yourself and one friend as viewers ([Share your app](https://docs.streamlit.io/deploy/streamlit-community-cloud/share-your-app)).
 7. Practise a rollback: deploy a broken version on purpose, then deploy the previous version again.
 
 ### Day 4 · about 90 min
+
+> **Why:** Check costs, document the deploy, and write down how to turn it off.
+>
+> **Don't skip:** This is Ask MDN v0.6.
 
 8. Check your OpenAI budget alerts and credit balance.
 9. Write a short “How to deploy” section in your README. Recruiters can't open a private app, so add a short GIF or recording of it working. This is **Ask MDN v0.6**: it's online.

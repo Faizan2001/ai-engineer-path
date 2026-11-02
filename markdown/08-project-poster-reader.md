@@ -26,12 +26,20 @@ A person always checks and approves the form before anything is saved. This is t
 
 ### Days 1–6 · about 9 hours
 
+> **Why:** Build your first AI feature end to end: test data, scoring rules, then a reader that fails safely.
+>
+> **Don't skip:** This is a project. It's your first piece of evidence for employers.
+
 1. **Day 1:** Collect 15 test posters in 2 hours at most: your real photos plus posters you make. Keep 10 to practise on and hold back 5. On purpose, include some with missing, unclear or hard-to-read details. Stop when all 15 are in two folders.
 2. **Days 2–3:** Write `expected.json` with the correct details for all 15 posters. Then write `SCORING.md`: how you'll compare dates, times and venue names, and how you'll score missing or unclear details. Stop when someone could score a poster from your rules alone.
 3. **Days 4–6:** Build the reader. An image goes in and a strict `Event` comes out. Do one piece a day. Day 4: the model call. Day 5: plain-code checks (the date is real, the end is after the start). Day 6: a timeout, at most 2 retries and refusal handling.
 4. **Stop here on Day 6:** the reader works on 3 practice posters from the command line.
 
 ### Days 7–12 · about 9 hours
+
+> **Why:** Add the approval step, score it honestly on posters it never saw, and package it.
+>
+> **Don't skip:** The held-back score and the README are what people look at.
 
 5. **Days 7–8:** Build the approval screen in Streamlit: show the draft, let a person fix it, and save only when they approve. Stop when one approved poster is saved and one rejected one isn't.
 6. **Days 9–10:** Improve your prompt using only the 10 practice posters. When you're happy, run the 5 held-back posters once. Stop when the held-back score is written down, good or bad.

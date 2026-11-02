@@ -36,15 +36,27 @@ A graph is your agent loop drawn as boxes (nodes) and arrows (edges), all sharin
 
 ### Days 1–3 · about 3 hours
 
+> **Why:** Learn LangGraph's basics: graphs, routers, agents and memory.
+>
+> **Skip if** you've built a LangGraph agent with memory before.
+
 1. Do LangChain Academy's [Intro to LangGraph](https://academy.langchain.com/courses/intro-to-langgraph), Module 1: the simple graph, chain, router, agent and agent-with-memory lessons only (skip Studio and deployment).
 2. Some notebooks use LangSmith for tracing. A free [LangSmith](https://docs.smith.langchain.com/) account is enough, or skip those parts. Write the `langgraph` version you installed in your log.
 3. Stop each Day when one notebook runs and you can say in one sentence what its graph does.
 
 ### Days 4–5 · two light days, about 45 min each
 
+> **Why:** Learn how LangGraph's state and reducers work.
+>
+> **Skip if** you know LangGraph state schemas and reducers.
+
 4. Do Module 2. **Day 4:** the state schema lesson. **Day 5:** the state reducer lesson. Skip the message-trimming, summarising and external-memory notebooks. You'll build your own context selection on Day 9.
 
 ### Days 6–7 · about 1 hour each
+
+> **Why:** Learn to pause a run for a person and edit its state.
+>
+> **Skip if** you've used LangGraph interrupts and human feedback before.
 
 5. **Day 6:** read the [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts), then do Module 3's breakpoints lesson.
 6. **Day 7:** do the editing-state and human-feedback lesson.
@@ -52,10 +64,18 @@ A graph is your agent loop drawn as boxes (nodes) and arrows (edges), all sharin
 
 ### Day 8 · about 90 min
 
+> **Why:** Rebuild your loop in LangGraph, with an approval pause before a tool runs.
+>
+> **Don't skip:** The next project starts from this loop.
+
 8. Reread the approvals part of the [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts). For approvals, use `interrupt()` and resume with `Command(resume=...)`; the docs recommend static breakpoints only for debugging.
 9. Rebuild your loop in LangGraph with one interrupt before a tool runs. In your log, list what LangGraph now does that you wrote by hand.
 
 ### Day 9 · about 90 min
+
+> **Why:** Choose what the model sees each turn, within a budget, without losing key facts.
+>
+> **Don't skip:** The project's context checks come from here.
 
 10. Read the “anatomy of effective context” section of Anthropic’s [context engineering guide](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents), for 15 minutes. Think of context as what the model can see right now. A saved conversation, a summary and a permission record do different jobs.
 11. Build a small context-selection function that picks what to send to the model. Set an input budget below your model’s context limit, leaving room for the output. Count tokens with the model's own tokenizer where you can. If a request is still too big, reject it safely.

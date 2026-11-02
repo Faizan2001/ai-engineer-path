@@ -50,13 +50,25 @@ A judge is a second model with a marking scheme. Question, answer and sources go
 
 ### Day 1 · about 90 min
 
+> **Why:** See how to evaluate the final answers, not just the search.
+>
+> **Skip if** you've evaluated RAG answers before.
+
 1. [11 Evaluation intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/11-evaluation-intro.md) and [12 RAG answers](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/12-rag-answers.md).
 
 ### Day 2 · about 90 min
 
+> **Why:** Learn to use a model as a grader, and how to check that grader.
+>
+> **Skip if** you've built an LLM judge and checked it against your own labels.
+
 2. [13 LLM as judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md). Pay attention to “Evaluating the judge”. Then skim [14 Agent evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/14-agent-evaluation.md) and [15 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/15-next-steps.md). For 14, watch its 2-minute video and read only the headings; the page itself is long.
 
 ### Days 3–5 · about 4.5 hours
+
+> **Why:** Grade Ask MDN's answers with a judge, and measure how often it agrees with you.
+>
+> **Don't skip:** The next lesson starts from these saved answers and the agreement number.
 
 3. Add to Ask MDN, one piece a Day. Run the judge once per change, not after every small idea.
 4. **Day 3:** generate answers for your 20 practice questions and save them to a file, so you can grade again without paying again.
@@ -64,6 +76,10 @@ A judge is a second model with a marking scheme. Question, answer and sources go
 6. **Day 5:** grade 10 of the answers yourself, before you look at the judge's verdicts. Write down how often the judge agreed with you.
 
 ### Day 6 · about 90 min
+
+> **Why:** Choose a model with numbers: quality, speed and cost on the same inputs.
+>
+> **Don't skip:** Ask MDN's README includes this comparison.
 
 7. Read only “Design your eval process” in OpenAI’s [evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices). Use your own files and grader; you don't need OpenAI’s hosted Evals platform.
 8. Choose 10 of your practice questions. Include some with exact identifiers (like `justify-content`) and some your docs can't answer. Compare two models from your current provider. Give both the same retrieved chunks, prompt and output limit. Estimate the cost first. If you can only use one model, compare two settings of it instead, and call it a configuration comparison, not a model comparison.

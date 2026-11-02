@@ -50,36 +50,68 @@ An embedding turns a text into a few hundred numbers: a point on a map of meanin
 
 ### Day 1 · about 90 min
 
+> **Why:** Get the big idea of embeddings, and avoid a multi-GB PyTorch install before Day 2.
+>
+> **Skip if** you can explain embeddings and cosine similarity, and you already have CPU-only PyTorch.
+
 1. Read Google's [Embeddings](https://developers.google.com/machine-learning/crash-course/embeddings) module for the big idea. Then Module 2: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/01-intro.md).
 2. Before Day 2: Zoomcamp lesson 02 installs sentence-transformers, which also installs PyTorch. On Linux that can mean several GB of GPU libraries. On a slow connection or a small laptop, first add the PyTorch CPU index to `pyproject.toml` as in uv's [PyTorch guide](https://docs.astral.sh/uv/guides/integration/pytorch/) and run `uv add torch`, then add sentence-transformers. Or work in a Codespace.
 
 ### Day 2 · about 90 min
 
+> **Why:** Turn text into vectors and compare them with cosine similarity.
+>
+> **Skip if** you've embedded text and ranked it by cosine similarity before.
+
 3. [02 Embeddings](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/02-embeddings.md) (focus on cosine similarity) and [03 Embeddings dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/03-embeddings-dataset.md).
 
 ### Day 3 · about 90 min
+
+> **Why:** Search by meaning with minsearch's vector mode.
+>
+> **Skip if** you've built vector search before.
 
 4. [04 Vector search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/04-vector-search.md) and [05 minsearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/05-minsearch-vector.md).
 
 ### Day 4 · about 90 min
 
+> **Why:** Answer questions from vector search results instead of keyword results.
+>
+> **Skip if** you've built RAG on top of vector search.
+
 5. [06 RAG with vectors](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/06-rag-vector.md).
 
 ### Day 5 · about 90 min
+
+> **Why:** Keep the vector index in one file, the way Ask MDN will run online.
+>
+> **Don't skip:** Ask MDN uses sqlitesearch from here on.
 
 6. [07 sqlitesearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/07-sqlitesearch-vector.md). This keeps your search index in one file, which is what Ask MDN will use online. Skip lesson 08 (pgvector) for now. You don't need it yet.
 
 ### Day 6 · about 90 min
 
+> **Why:** Switch to a small embedder that runs without PyTorch, so the online app stays light.
+>
+> **Don't skip:** Ask MDN uses this embedder online.
+
 7. [09 ONNX embedder](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/09-onnx-embedder.md) (a smaller embedder that doesn't need PyTorch; Ask MDN will use it online) and [10 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/10-next-steps.md).
 
 ### Day 7 · about 90 min
+
+> **Why:** Split long pages into chunks and track which page each chunk came from.
+>
+> **Don't skip:** Search scores and citations depend on these IDs and on `unique_pages`.
 
 8. Read [Chunking for longer texts](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/07-project-example/07-chunking.md). MDN pages can be long, so split each page into chunks of a few paragraphs, and keep the page ID on every chunk.
 9. Give every chunk two IDs: `page_id` for the source page and `chunk_id` for the piece. Store the chunk's text and its source URL too.
 10. Search results get scored by page, not by chunk. Write a small function, `unique_pages(chunks)`, that turns a ranked list of chunks into a ranked list of different pages, keeping each page's first appearance: `[A:1, A:2, B:1, C:1]` becomes `[A, B, C]`, so B is now rank 2. Keep the matching chunks too, because the answer prompt needs them.
 
 ### Days 8–11 · about 6 hours
+
+> **Why:** Build Ask MDN v0.3: search by meaning over your own chunked docs.
+>
+> **Don't skip:** Every later Ask MDN version uses this index.
 
 11. Add to Ask MDN: build a vector search over your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Do one piece a Day.
 12. **Day 8:** split every MDN page into chunks, keeping `page_id`, `chunk_id`, text and source URL. Stop when you can print all the chunks of one page.
@@ -89,10 +121,18 @@ An embedding turns a text into a few hundred numbers: a point on a map of meanin
 
 ### Day 12 · campus track, about 45 min
 
+> **Why:** Get a first measure of how embedders handle Bangla and Banglish.
+>
+> **Don't skip:** The capstone's multilingual search starts from these numbers.
+
 16. Take 8 intents from your question bank. Write each one three ways: English, Bangla and Banglish. Embed all 24 sentences with the embedder you use now. Then embed them again with a second embedder whose model card lists Bengali among its training languages.
 17. Take each sentence and search only the sentences in another language. It's a hit when the nearest one has the same intent. For each pair of languages and each embedder, record the hit rate in your log. Expect Banglish to be the hardest. With only 8 sentences per pair, one miss moves a score by 12.5 points, so treat this as a first signal only.
 
 ### Day 13 · under the hood, about 90 min
+
+> **Why:** Rebuild vector search in numpy, so you know what the library does for you.
+>
+> **Skip if** you've written cosine top-k search in numpy and know why indexes are approximate.
 
 18. Without AI-written code, rebuild the vector search you've been using. In numpy, normalise your MDN chunk vectors, compute the cosine similarity for a question as one matrix product, and take the top 5.
 19. Compare it with sqlitesearch on 5 practice questions. Yours is exact. sqlitesearch's vector search is approximate by default: an index picks candidates, and only those are reranked exactly. Where the top 5 differ, check that your extra result really scores higher. Record how many of the 25 results match.

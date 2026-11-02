@@ -66,3 +66,14 @@ test('the stated duration matches the Day count, with one session in ten for cat
   }
   assert.equal(course.duration, `about ${Math.round(sessions * 1.1 / 6)} weeks`);
 });
+
+test('every Day says why it matters, and whether it can be skipped', () => {
+  for (const l of now) (l.assignment || []).forEach((g, gi) => {
+    assert.ok(g.why, `${l.slug} group ${gi} has no why`);
+    assert.ok(!!g.skip !== !!g.keep, `${l.slug} group ${gi} needs exactly one of skip or keep`);
+    for (const text of [g.why, g.skip, g.keep].filter(Boolean)) {
+      assert.ok(text.split(/\s+/).length <= 30, `${l.slug} group ${gi}: keep the purpose box under 30 words a line`);
+      assert.doesNotMatch(text, /\]\(/, `${l.slug} group ${gi}: no links in the purpose box`);
+    }
+  });
+});

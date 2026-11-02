@@ -26,11 +26,19 @@ By the end of this lesson, you should be able to:
 
 ### Days 1–2 · about 3 hours
 
+> **Why:** Put the assistant in your app, reusing everything from the web.
+>
+> **Don't skip:** Most students will use the phone version.
+
 1. Add the chat screen where your app's navigation rules allow it.
 2. Reuse the service, the citation format, the feedback buttons and the “Need help now?” link from the web.
 3. **Stop here on Day 2** when you can ask one question on a phone and get a cited answer.
 
 ### Days 3–4 · about 3 hours
+
+> **Why:** Handle phone problems: apps closed mid-answer, slow networks, and retries without double charges.
+>
+> **Don't skip:** These are the bugs real phones cause.
 
 4. Handle the hard cases. Generate the idempotency key on the phone and save it with [AsyncStorage](https://docs.expo.dev/versions/latest/sdk/async-storage/) before sending.
 5. When the app returns to the foreground, or after it was closed, send the same key again through the gateway to fetch the stored answer. Never read the assistant's server-only records directly.
@@ -40,6 +48,10 @@ By the end of this lesson, you should be able to:
 9. **Stop here on Day 4** when the acceptance test passes.
 
 ### Days 5–6 · about 3 hours
+
+> **Why:** Test on a real phone on mobile data, and fix what breaks.
+>
+> **Don't skip:** Emulators hide these problems.
 
 10. Test on a real Android phone (and an iPhone if you can) on slow mobile data. Fix what breaks: the keyboard covering the input, long Bangla text wrapping, links opening outside the app.
 11. No native app? Make the web chat page work well on a phone instead, and test it on a real phone on mobile data.

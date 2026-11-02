@@ -51,6 +51,10 @@ Login only answers “who is this?”. Google proves the email, and Streamlit ke
 
 ### Days 1–2 · about 3 hours
 
+> **Why:** Add Google sign-in, so the app knows who each user is.
+>
+> **Skip if** you've shipped OAuth or OIDC sign-in before. Do only the short Test-out steps.
+
 1. **Test-out:** have you already shipped OAuth or OIDC sign-in, for example Firebase Auth or Google sign-in? Then skip the reading and the tutorial's explanations.
 2. Still create the Google OAuth client, add `st.login` to Ask MDN and add your two test accounts as Test users (about 45 minutes). Then write two lines in your log on how your own platform maps a signed-in user to their data, and tick both Days. If you haven't shipped one before, do the steps below.
 3. Read Streamlit's [authentication guide](https://docs.streamlit.io/develop/concepts/connections/authentication). It uses OIDC, the standard behind “Sign in with Google”. Login tells you who someone is, not what they may see.
@@ -58,12 +62,20 @@ Login only answers “who is this?”. Google proves the email, and Streamlit ke
 
 ### Days 3–4 · about 3 hours
 
+> **Why:** Decide on the server what each user may see, and protect saved chats and approvals.
+>
+> **Don't skip:** This is where most real apps leak data.
+
 5. Make a `user_groups` table on the server that maps each email to a group. For every request, look up the signed-in user's group and set it in the database transaction. Never trust a group sent from the browser.
 6. Give each conversation a server-recorded `owner_id`, `group_id` and random thread ID.
 7. Before you load history, load a checkpoint or resume a pending approval, check that the signed-in user owns the conversation and still has its group. A thread ID only locates state; it grants no permission.
 8. Clear the browser session's chat state when the user logs out or changes. Make history private by default.
 
 ### Days 5–6 · about 3 hours
+
+> **Why:** Prove with tests that users can't reach each other's data, even with guessed IDs.
+>
+> **Don't skip:** The attack tests build on these.
 
 9. Use two fake test accounts, never real students. Write tests: a CSS user gets zero JavaScript chunks through search, through the agent's tools, and when guessing a document ID. A user with no group gets nothing.
 10. Also try a known JS conversation or thread ID as the CSS user, and as a second user in the same group. Neither may read or resume the owner's private chat or approval. Test switching users in the same browser.

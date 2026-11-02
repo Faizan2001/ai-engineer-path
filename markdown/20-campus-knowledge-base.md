@@ -41,6 +41,10 @@ Every answer your assistant gives will point back to one entry in this knowledge
 
 ### Day 1 · about 90 min
 
+> **Why:** Set the data rules and ask for permission before you collect anything.
+>
+> **Don't skip:** The capstone can't use data collected without these rules.
+
 1. Write a one-page data policy as `POLICY.md` in your private `campus-assistant-data` repository (you made it in ML Basics). Say what you collect (question wording, rewritten in your own words), what you never collect (names, usernames, profile links, photos, private messages, ratings of named teachers), where it is stored, and when you delete it.
 2. Add one rule for model calls: only questions you wrote or paraphrased go to a model API, with nothing that identifies a person. Never send raw posts, exports or anything you couldn't show the person who wrote it.
 3. Read Meta's [Automated Data Collection Terms](https://www.facebook.com/legal/automated_data_collection_terms). They cover any automated collection (bots, crawlers and similar tools) and require Meta's written permission. An AI agent driving your logged-in browser counts, so don't use one. Read the group yourself and write down only the question, in your own words.
@@ -49,11 +53,19 @@ Every answer your assistant gives will point back to one entry in this knowledge
 
 ### Day 2 · about 90 min
 
+> **Why:** Find the official sources that can actually answer students' questions.
+>
+> **Don't skip:** Every answer must cite one of these.
+
 6. Build `sources.csv` with at least 25 official sources: academic rules, scholarships and waivers, fees and deadlines, the academic calendar, degree curricula and prerequisites, registration and advising steps, student services, and an office contact list. For each one, record the URL, the owning office, the format, the semester it applies to and the date you retrieved it.
 7. Check each site's `robots.txt` and terms before downloading. Save a dated copy of each document, because pages change without notice. Note which ones are scanned images, because they need OCR (software that reads text from images).
 8. Mark the gaps: questions in your bank that no public source answers. Those need a staff answer, or they stay unanswerable.
 
 ### Days 3–4 · about 3 hours
+
+> **Why:** Grow the question bank, and split it so your final test stays honest.
+>
+> **Don't skip:** The capstone's tests use these splits.
 
 9. Grow the question bank to 100. Take form submissions first, then questions friends and juniors ask, then patterns you notice reading the group yourself. Rewrite each one in your own words, keep the student's language (English, Bangla or Banglish) and record the month. If a community answer conflicts with an official one, note it as a hint to check, never as the answer.
 10. Split the bank before you group it. Keep paraphrases and translations of the same question together in one split. Put practice cases in `development.jsonl`. Put every third new case in `held_back.jsonl`, with at least 5 per language to start. The held-back file is for the final release check only: never use its wording in entries, prompts or model choices.
@@ -62,6 +74,10 @@ Every answer your assistant gives will point back to one entry in this knowledge
 
 ### Days 5–6 · about 3 hours
 
+> **Why:** Write your first approved answers, and start the weekly hour that grows them.
+>
+> **Don't skip:** This weekly hour is how the knowledge base gets built.
+
 13. Write 20 entries in `faq.jsonl`. Each entry has: `intent`, `question`, `paraphrases` (including Bangla and Banglish, written by you, never copied from `held_back.jsonl`), `answer`, `conditions` (for example credit load or intake year), `applies_to`, `sources` with quoted text, `tier`, `effective_semester`, `review_by` and `status`.
 14. Answer only from the quoted source. If the source doesn't settle a case, write the condition the student must check and the office to ask. Mark entries without an official source `needs-staff`.
 15. From now until the capstone, block **1 hour a week** inside your 9 hours for the knowledge base. Each week: add or review 5 entries, add 3 new questions (form submissions first), put every third new case in `held_back.jsonl`, recheck one changed page, and log any gaps. Keep related phrasings in the same split.
@@ -69,6 +85,10 @@ Every answer your assistant gives will point back to one entry in this knowledge
 17. A friend can keep your release set sealed. If you work alone, avoid looking at it during development, and say so in your report.
 
 ### Day 7 · first campus slice, about 90 min
+
+> **Why:** Run your first campus assistant: Ask MDN's code on your own entries.
+>
+> **Don't skip:** It becomes your monthly scoreboard.
 
 18. Point your Ask MDN v1.0 code at your first 20 entries with an official source (skip `needs-staff` ones): private, on your laptop, English first, no users. Predict first: on 10 development questions, which wins, keyword search over questions and paraphrases, or your hybrid search?
 19. Then try the safest answer mode there is: the model may only return the ID of an approved entry, or `none`. Your code shows that entry's approved text, or a route card when the reply is `none`, empty or invalid. The model never writes a rule.

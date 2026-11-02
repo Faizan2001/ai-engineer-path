@@ -28,6 +28,10 @@ By the end of this lesson, you should be able to:
 
 ### Days 1–3 · about 4.5 hours
 
+> **Why:** Plan the live service: privacy rules, a design note, request contracts and approval requests.
+>
+> **Don't skip:** Approvals take weeks, so they start here.
+
 1. Update `POLICY.md` for live use before you write code. Student messages are personal data. Redact IDs, phone numbers and grades before storing. Keep raw text only briefly. Curation items carry a redacted paraphrase, not the raw message. Crisis-routed messages are never stored in full.
 2. Choose a model provider tier that doesn't train on your prompts. Keep the record of what you process (purposes, systems, retention) separate from chat transcripts: the record lasts for years, transcripts only briefly. Your notice names the model provider and says that messages leave the country. Before a live pilot with real students, get a qualified local review of your privacy duties.
 3. Add a scrubber that removes phone numbers, student IDs, emails and national ID numbers before anything is logged or sent to a model. Test it on Bangla and Banglish text.
@@ -40,6 +44,10 @@ By the end of this lesson, you should be able to:
 
 ### Days 4–6 · about 4.5 hours
 
+> **Why:** Deploy the answer service so only your gateway can call it.
+>
+> **Don't skip:** This keeps students from calling the service directly.
+
 10. Deploy the answer service privately, so only the gateway's service identity can call it ([Cloud Run service-to-service authentication](https://docs.cloud.google.com/run/docs/authenticating/service-to-service)). That identity proves **which service called**, not which student.
 11. Give the gateway its own runtime service account, and allow it to invoke only the answer service. On the service, verify the token's audience and that its `email` claim is the gateway's service account. Other accounts can hold invoke permission too (for example, through project-wide roles), so the audience alone doesn't say who called.
 12. Only after authenticating the gateway may Python accept the internal envelope. Validate its schema, and match its context and input hash to the gateway-created request record. Load conversations and citations only within that verified user and tenant scope. The public contract still rejects identity fields. The internal contract deliberately carries them.
@@ -48,12 +56,20 @@ By the end of this lesson, you should be able to:
 
 ### Days 7–9 · about 4.5 hours
 
+> **Why:** Build the gateway that checks who is asking and which university they belong to.
+>
+> **Don't skip:** This is the lock between universities' data.
+
 15. Build the gateway: authenticate, resolve strict tenant authority for that same user, require `resolved`, then enforce access state and assistant entitlement. Use your platform's strict authority check, the one that fails closed, never a fallback resolver. Take `tenantId` only from its result, never from a profile field such as a student's institutional ID.
 16. Test missing claims, a missing bootstrap or profile, conflicting records, stale sessions and suspended membership with emulators. Every failure stops before the model call.
 17. Write the gateway on a currently supported runtime and function generation. Check your provider's runtime-support table: a runtime retired before your pilot would block every fix.
 18. **Stop here** when every failure case in your emulator tests stops before the model call.
 
 ### Days 10–12 · about 4.5 hours
+
+> **Why:** Add limits, budgets and safe retries, so one request means one charge.
+>
+> **Don't skip:** Double charges and runaway costs start here if you skip it.
 
 19. Add per-user limits and a budget reservation before the model call. Settle the actual cost after success and expire abandoned reservations.
 20. Scope idempotency to the verified tenant and user. Claim the key atomically before the model call (a create-only write, or a transaction on the request record). If a request with that key is still running, return `pending` and let the client retry shortly. Never start a second model call.
@@ -63,11 +79,19 @@ By the end of this lesson, you should be able to:
 
 ### Days 13–15 · about 4.5 hours
 
+> **Why:** Build the chat page with the answer card, feedback and the always-on help link.
+>
+> **Don't skip:** This is what students will see.
+
 24. Build the chat page with the answer card: answer, who it applies to, evidence links, what's still needed, next step, last-verified date, and thumbs up/down with an optional comment. Start with a full answer per request. Add streaming later only if the wait feels long and both clients support it.
 25. Add an always-visible “Need help now?” link that opens the static crisis card without calling the gateway. It must still work when a student is over the limit, the feature is switched off or the service fails.
 26. Feedback becomes a redacted curation item, never an automatic change to an answer. Run your eval suite in CI against the service with a fake model, and nightly with the real one. **Stop here** when a thumbs-down in the chat page creates a redacted curation item.
 
 ### Days 16–18 · about 4.5 hours
+
+> **Why:** Use it yourself for a week behind a feature flag, and fix the top issue.
+>
+> **Don't skip:** You'll find problems your tests missed.
 
 27. Ship behind a feature flag to curators only. Use it yourself for a week of normal questions, while you work on the next lesson. Record latency, cost per answer and refusals. Fix the top issue.
 28. No platform of your own? Build the gateway as a small FastAPI app with two demo groups instead of universities, and a simple web chat page. The identity, limit, budget and retry tests are the same. **Stop here** when a week of your own questions is logged and the top issue is fixed.

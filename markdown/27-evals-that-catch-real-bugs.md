@@ -41,6 +41,10 @@ Don't invent metrics first. Read 50 real conversations, note each failure in one
 
 ### Day 1 · light day, about 45 min
 
+> **Why:** Learn why reading real failures beats generic scores, and start the crisis test set.
+>
+> **Don't skip:** The crisis set takes weeks to build.
+
 1. Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later.
 2. Before you look at any data, write down the three failures you expect most often in Ask MDN. Day 3 checks your guess.
 3. This week, also start a crisis test set for the Campus Assistant. It takes 30 minutes a week, outside these Days.
@@ -48,17 +52,33 @@ Don't invent metrics first. Read 50 real conversations, note each failure in one
 
 ### Day 2 · light day, about 45 min
 
+> **Why:** Compare your evals with a simple three-step method and spot what's missing.
+>
+> **Skip if** you already know Eugene Yan's three steps for product evals.
+
 5. Read Eugene Yan's [Product Evals in Three Simple Steps](https://eugeneyan.com/writing/product-evals/). Write down which of his three steps Ask MDN already has, and which it's missing.
 
 ### Day 3 · about 90 min
+
+> **Why:** Read 50 real conversations and group the failures you find.
+>
+> **Don't skip:** These groups become your tests.
 
 6. Collect 50 conversations that are public or made up: use recent redacted examples from Neon, and top up with the Zoomcamp [synthetic data generator](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md). Review them before you keep them as a separate test set. Don't keep raw logs longer just to reach 50. Read them in two 25-minute blocks, write down every failure, and sort the failures into 3 to 6 groups.
 
 ### Day 4 · about 90 min
 
+> **Why:** Turn each failure group into a pass-or-fail check.
+>
+> **Don't skip:** CI runs these checks in the next lesson.
+
 7. Write a pass-or-fail check for each group. Use plain code where you can, and an LLM judge only where you must.
 
 ### Day 5 · about 90 min
+
+> **Why:** Check that your LLM judge agrees with you before you trust it.
+>
+> **Don't skip:** CI relies on this judge.
 
 8. Grade 20 answers yourself, then check how often your LLM judge agrees with you.
 

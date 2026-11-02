@@ -45,19 +45,35 @@ promptfoo runs tests against your app. A YAML file lists the questions and the c
 
 ### Day 1 · about 90 min
 
+> **Why:** Install promptfoo and learn how it tests RAG apps.
+>
+> **Skip if** you've used promptfoo to evaluate a RAG app before.
+
 1. Install Node.js LTS ([download](https://nodejs.org/en/download)); promptfoo runs with `npx promptfoo`.
 2. Read the [promptfoo intro](https://www.promptfoo.dev/docs/intro/) and its [RAG evaluation guide](https://www.promptfoo.dev/docs/guides/evaluate-rag/).
 
 ### Day 2 · about 90 min
+
+> **Why:** Let tests call Ask MDN directly, without the web page.
+>
+> **Don't skip:** Every test and attack from here uses this function.
 
 3. Give Ask MDN a plain Python function `answer(question, user)` that your Streamlit app calls. Now your tests don't need the web page.
 4. Point promptfoo at it with a [Python provider](https://www.promptfoo.dev/docs/providers/python/): a small file whose `call_api(prompt, options, context)` calls your `answer()`. Read the user from `context['vars']`. Return the pages it found as well as the answer, because context-faithfulness needs them.
 
 ### Day 3 · about 90 min
 
+> **Why:** Turn your failure checks into a promptfoo test suite.
+>
+> **Don't skip:** CI runs this suite.
+
 5. Turn your checks from the last lesson into a promptfoo config. Use rule-based checks (citations are present, the output is valid) plus [context-faithfulness](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/) (does the answer stick to the pages you found?) and [llm-rubric](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/llm-rubric/).
 
 ### Day 4 · about 90 min
+
+> **Why:** Run your tests automatically on every push and pull request.
+>
+> **Don't skip:** Tomorrow's Day blocks bad changes with these runs. Already know GitHub Actions? Use the Test-out.
 
 6. **Test-out:** already run GitHub Actions? Skip the quickstart. Otherwise follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart).
 7. Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Using Gemini? Pick a Gemini model as promptfoo's grader.
@@ -65,6 +81,10 @@ promptfoo runs tests against your app. A YAML file lists the questions and the c
 9. Don't expose API secrets to untrusted fork code.
 
 ### Day 5 · about 90 min
+
+> **Why:** Make a failing test block deployment, and prove it with a broken prompt.
+>
+> **Don't skip:** This is what keeps a bad prompt away from users.
 
 10. Protect your deployment branch with [required status checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), including the pre-merge evaluation job, and apply the rule to yourself too. From now on, change the app only through pull requests: Streamlit deploys from the protected branch.
 11. Break a prompt in a PR. Prove that the PR can't merge and that the live app stays on the previous version.

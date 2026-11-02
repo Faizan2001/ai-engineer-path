@@ -21,6 +21,7 @@ window.COURSE = {
   "Plan for about 54 weeks at 9 hours a week (about 41 at 12 hours), including spare time for breaks and catching up. Allow 2–4 more weeks if you need to repair a skill, deploy or debug. Follow the checks, not a deadline.",
   "From [Campus Knowledge Base](#campus-knowledge-base) onward, spend one hour of each study week on your capstone's data: permission, official sources and approved answers. Data takes calendar time, so it grows while you learn the rest. Some steps wait on other people (permission, staff replies, pilot approval). Start them early and keep studying while you wait. Only questions you wrote or paraphrased yourself, with nothing that identifies a person, may go to a model API. That includes practice exercises.",
   "Every lesson is split into **Day** steps of about 90 minutes. Stop when the Day's **Stop here** line is true or, on Days without one, when its last step is done. Then tick the Day, write tomorrow's first step in your log, and stop, even if you have energy left. Never do two Days to catch up. About one session in ten goes to debugging, curation or catching up, and the week estimates already include it. Missed a few days? Reread your last log entry and do the smallest next step. Low on energy? A 15-minute session still counts.",
+  "Each Day opens with a highlighted box. **Why** says what the Day is for. **Skip if** is a quick check: if it's already true for you, tick the Day and move on. **Don't skip** means later work needs what this Day produces, so do it, quickly if it's familiar.",
   "Finish each lesson's **Memory check** before you mark it complete. Explain the idea without looking, compare with the source, and fix what you missed. Retry any missed question next session. For projects, show the evidence listed under “You're done when”. A tick alone doesn't prove a skill.",
   "Your coding assistant is welcome, but each project raises the bar on work you do by hand: one change, then one function, then one test, then one bug fixed without AI. [Mindset and Asking for Help](#mindset-and-asking-for-help) explains why.",
   "Some Days are marked **Under the hood**. You build a small version of something you use, such as a gradient engine, a search index or a tiny GPT, and check it against the real thing. They are short on purpose. Building the mechanism once makes the rest of the path less mysterious.",
@@ -63,7 +64,9 @@ window.COURSE = {
         "Add three rules to your log. After a break: “Check my last result, then take one small next step.” Low energy: “15 minutes of review counts. It doesn't have to finish a lesson.” Stuck: “After 20 minutes without a useful clue, make the problem smaller, check the docs, then ask with my attempt and the exact error.”",
         "If two sessions in a row end at the same obstacle, go back only to the skill you're missing. Don't restart the course.",
         "Mark exams, Ramadan, Eid and family events in your calendar now. Plan shorter sessions for those weeks. A longer break only moves your finish date."
-       ]
+       ],
+       "why": "Set up the routine and the log that carry you through 54 weeks, breaks included.",
+       "keep": "Every lesson ends with a log entry, and the three rules are how you restart."
       }
      ],
      "recall": [
@@ -109,7 +112,9 @@ window.COURSE = {
         "Write your capstone goal in your log. This path ends with a Campus Assistant that answers students' repeated questions from approved sources. The author of this path builds it for IUB, inside the Events platform, for the website and the Android/iOS app. Write one sentence for yours: who will it help, and which repeated questions will it answer?",
         "No platform of your own? Pick any community whose questions repeat, such as a club, a society or a team wiki. Most lessons work the same. The platform lessons have a smaller fallback: a simple web chat with two demo groups instead of universities, a phone-friendly web page instead of a native app, and a rehearsal pilot.",
         "Spend 10 minutes writing in your log: why does this matter to you and to the people you care about? Be specific. Reread it when your motivation dips."
-       ]
+       ],
+       "why": "See what the job really is, which parts you already do, and set your capstone goal.",
+       "keep": "You'll reread your goal and your reason when motivation dips."
       }
      ],
      "recall": [
@@ -154,7 +159,9 @@ window.COURSE = {
         "Copy this rule to your log: “I can trace and check the code I keep.”",
         "Here is why. In a [study of 52 developers](https://www.anthropic.com/research/AI-assistance-coding-skills), the group that used AI while learning a new Python library scored lower on a quiz straight afterwards. It was a small study, so treat it as a warning, not proof. Use AI to explain an idea or give a hint. Before you run code, predict what it will do. Then run it and explain any difference yourself.",
         "If you want a study buddy, post a short hello in the Zoomcamp Slack with your weekly goal. You can also start alone: at each project, record a short demo and ask for one specific piece of feedback. If nobody replies, check your work against the project's checks and write down one thing you're unsure about."
-       ]
+       ],
+       "why": "Learn to get unstuck fast, and to keep only code you can explain.",
+       "skip": "you've done The Odin Project's Mindset and Asking for Help lessons. Still join the Slack and copy the rule into your log."
       }
      ],
      "recall": [
@@ -220,7 +227,9 @@ window.COURSE = {
         "Follow the Zoomcamp [environment lesson](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md). It installs uv (a fast Python package manager), creates your project folder (the page calls it `llm-zoomcamp-2026-code`), adds the packages, puts your key in a `.env` file and runs a test call. Stop when the test call prints an answer.",
         "In the project folder, run `git status`. The file `.env` must not appear in the list. If it does, add `.env` to `.gitignore` and check again before your first commit. Your key must never reach GitHub.",
         "In your log, write down the package version, model ID and API endpoint that worked. The Zoomcamp examples can be older than today's docs. Before you change the model or provider, check that the new one supports images, structured output and tools."
-       ]
+       ],
+       "why": "Get one paid model call working, with a key that can't leak and spending you control.",
+       "keep": "Every later lesson runs on this setup. If you've done it before, it's a quick check."
       },
       {
        "day": "Day 2 · about 90 min",
@@ -229,7 +238,9 @@ window.COURSE = {
         "If files, dictionaries or functions still feel new, spend up to two extra sessions on those parts of the Python tutorial, then retry with a different CSV. Pass this check before the model-call lessons. Needing the extra practice is normal.",
         "Create a file called `AGENTS.md` in your project folder ([the format](https://agents.md/)). It's a note that AI coding assistants read before they work. Write four rules in it: explain code to me, review my code, ask me questions, and never write my lesson solutions. Add one more: no keys, secrets or private code in a prompt.",
         "Commit `top3.py` and `AGENTS.md`. Run `git status` again: `.env` must still not appear."
-       ]
+       ],
+       "why": "Check that your Python is ready for the model lessons, and give your AI assistant rules.",
+       "skip": "you can write the CSV top-3 script in 15 minutes without AI. Still create `AGENTS.md`."
       },
       {
        "day": "Day 3 · first win, about 90 min",
@@ -241,7 +252,9 @@ window.COURSE = {
         "Write three tests in `test_search.py` as plain `assert` lines. Run them with `python test_search.py`.",
         "Test 1: a question with an obvious answer. Test 2: a question no page answers; your search must print `no matching page`, not guess. Test 3: a question that matches the out-of-date page. Assert that it returns that page, and add a comment: this is wrong, because search can't tell the page is old.",
         "Stop here when all three tests pass and you've recorded a one-minute screen capture: a question goes in, page IDs come out. That's your first search engine."
-       ]
+       ],
+       "why": "Build a tiny search engine by hand, so retrieval, the core of RAG, makes sense before a library hides it.",
+       "skip": "you've written keyword search with scoring and tests before. Nothing later uses these files."
       }
      ],
      "recall": [
@@ -307,7 +320,9 @@ window.COURSE = {
         "Watch [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) (27 min). Pause often and write one sentence for each new idea. On mobile data, watch at 480p or download it on Wi-Fi first.",
         "In your log, before you rewatch anything, explain in 5 sentences how a chat model answers a question. Use only words you could explain to a friend."
        ],
-       "day": "Day 1 · about 90 min"
+       "day": "Day 1 · about 90 min",
+       "why": "Get a working picture of tokens and next-token prediction, so model behaviour stops being a mystery.",
+       "skip": "you can explain tokens, attention and sampling in 5 sentences. Write them in your log and move on."
       },
       {
        "day": "Day 2 · under the hood, about 90 min",
@@ -321,7 +336,9 @@ window.COURSE = {
         "Turn the scores into probabilities with softmax: divide each score by the temperature, take e to that power, then divide by the total of all five. Pick a token at random using those probabilities.",
         "Run it 20 times at temperature 0.2, 1.0 and 1.5 and compare the picks. You've just written the last step of every chat model.",
         "Stop here when your log has the token table, your guess next to the real ratio, and one sentence on what temperature does."
-       ]
+       ],
+       "why": "Measure what Bangla and Banglish cost in tokens, and write the sampling step yourself.",
+       "keep": "Your token ratios feed the capstone's cost estimate."
       }
      ],
      "recall": [
@@ -368,7 +385,9 @@ window.COURSE = {
         "Watch Barry Zhang's talk [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) (15 min, Anthropic). Write down his advice on when not to build an agent.",
         "Choose 3 possible product features. For each one, write the user, the problem, the simplest useful solution and one way to measure success. Include a plain-code version as a baseline.",
         "Match each failure to its usual fix. Missing facts: give the model context or retrieval. Inconsistent format: use a schema and validation. The right behaviour still fails after prompt and data fixes: consider fine-tuning, with a separate test set. Training a model from scratch is a different project. Keep your three features and this list on one page."
-       ]
+       ],
+       "why": "Learn to pick the simplest thing that works, often plain code rather than an agent.",
+       "skip": "you've read Building effective agents and can say when a workflow beats an agent."
       }
      ],
      "recall": [
@@ -416,28 +435,36 @@ window.COURSE = {
        "steps": [
         "Read OpenAI's [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). Focus on Pydantic models, strict schemas and the `refusal` field.",
         "Write a script that turns a sentence like “Hackathon, Friday 3pm, Room 402” into an `Event` Pydantic model. Give `Event` a title, date, start time, end time and venue. Make the fields that can be missing optional. Before each run, write down what you expect back, then compare."
-       ]
+       ],
+       "why": "Get the model to fill a typed form instead of writing prose.",
+       "keep": "Poster Reader is built on this `Event` model."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "Read the [images and vision guide](https://developers.openai.com/api/docs/guides/images-vision). Send one poster image (a photo or a screenshot of any event poster) and get your `Event` back.",
         "Work out the cost of that call. Read the token counts in the response's `usage` field and multiply them by the prices on the [pricing page](https://developers.openai.com/api/docs/pricing). Print the cost after every call."
-       ]
+       ],
+       "why": "Read an image with a model, and know what each call costs.",
+       "keep": "Poster Reader reads images and reports the cost per poster."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a request timeout and at most 2 retries, only for rate-limit and server errors. If the response has a `Retry-After` time, wait that long. Otherwise wait a little longer each time, with some randomness. Also set an overall deadline. Never retry bad credentials, or a bad request without changing it.",
         "Handle refusals: log them and return “needs a human” instead of crashing. Using Gemini? It has no documented `refusal` field, so make a fake refusal in your test."
-       ]
+       ],
+       "why": "Make calls fail safely: timeouts, the right retries, and refusals that end in “needs a human”.",
+       "skip": "you've built retries with backoff and `Retry-After` before. Still add the refusal handling."
       },
       {
        "day": "Day 4 · about 90 min",
        "steps": [
         "Follow pytest's [getting started guide](https://docs.pytest.org/en/stable/getting-started.html), then write 3 tests for your code: one with good input, one with a missing field and one with a refusal.",
         "Follow Streamlit's [get started](https://docs.streamlit.io/get-started) page, then show your `Event` in a small [form](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form) with a Save button."
-       ]
+       ],
+       "why": "Test with pytest and put a form on screen with Streamlit. Every project uses both.",
+       "skip": "you already use pytest and have built a Streamlit form."
       },
       {
        "day": "Day 5 · about 90 min",
@@ -446,7 +473,9 @@ window.COURSE = {
         "Make 6 practice inputs, including one with an ambiguous date and one with a missing venue. Save your current prompt as v1. Make v2 by changing one thing only: clearer instructions, or two examples.",
         "Run both on the same inputs, with the same model and settings. Keep the raw outputs. Mark each field correct, wrong or “unknown” (right when the input doesn't say). Neater formatting doesn't mean the facts are better.",
         "Keep v2 only if the scores say it is better. Write the model ID, prompt version, settings and cost next to the scores. If the results are tied, say so. Six practice cases are too few to prove much."
-       ]
+       ],
+       "why": "Improve a prompt by changing one thing and measuring, not by feel.",
+       "keep": "This one-change method is how you tune every project."
       }
      ],
      "recall": [
@@ -496,7 +525,9 @@ window.COURSE = {
         "**Days 4–6:** Build the reader. An image goes in and a strict `Event` comes out. Do one piece a day. Day 4: the model call. Day 5: plain-code checks (the date is real, the end is after the start). Day 6: a timeout, at most 2 retries and refusal handling.",
         "**Stop here on Day 6:** the reader works on 3 practice posters from the command line."
        ],
-       "split": true
+       "split": true,
+       "why": "Build your first AI feature end to end: test data, scoring rules, then a reader that fails safely.",
+       "keep": "This is a project. It's your first piece of evidence for employers."
       },
       {
        "day": "Days 7–12 · about 9 hours",
@@ -505,7 +536,9 @@ window.COURSE = {
         "**Days 9–10:** Improve your prompt using only the 10 practice posters. When you're happy, run the 5 held-back posters once. Stop when the held-back score is written down, good or bad.",
         "**Days 11–12:** Write a README: what it does, how to run it, your score on the held-back posters, the cost per poster and one note for every mistake. Add a 60-second recording or GIF: photo in, draft out, a human fix, then approval."
        ],
-       "split": true
+       "split": true,
+       "why": "Add the approval step, score it honestly on posters it never saw, and package it.",
+       "keep": "The held-back score and the README are what people look at."
       }
      ],
      "done": [
@@ -608,19 +641,25 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Zoomcamp Module 1: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/01-intro.md), [03 RAG](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md) (notice why plain models don't know your data) and [04 Dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/04-dataset.md). You did 02 in Setting Up Your Tools."
-       ]
+       ],
+       "why": "Understand what RAG is, and why a plain model doesn't know your data.",
+       "skip": "you can explain RAG's steps, from question to answer, from memory."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "[05 Search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/05-search.md) (watch how boosting fields changes results) and [06 Building the prompt](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/06-building-prompt.md)."
-       ]
+       ],
+       "why": "See how search and prompt building work in the Zoomcamp code.",
+       "skip": "you've used minsearch, or built a search-then-prompt pipeline before."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "[07 LLM](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/07-llm.md) (it shows how to calculate the price, like you did for posters) and [08 RAG helper](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/08-rag-helper.md)."
-       ]
+       ],
+       "why": "Connect search to the model, and wrap it in a reusable RAG helper.",
+       "skip": "you can write search, prompt and answer as one function without the notes."
       },
       {
        "day": "Day 4 · about 90 min",
@@ -629,7 +668,9 @@ window.COURSE = {
         "Start Ask MDN: create a new **public** GitHub repo called `ask-mdn` and clone it.",
         "Next to it, not inside it, download only the two folders you need from [mdn/content](https://github.com/mdn/content). The whole repo is about 500 MB, so run `git clone --depth 1 --filter=blob:none --sparse https://github.com/mdn/content.git`. Then go into the new `content` folder and run `git sparse-checkout set files/en-us/web/css/reference/properties files/en-us/web/javascript/reference/global_objects`.",
         "In the `content` folder, run `git rev-parse HEAD` and write the commit ID in the README of `ask-mdn`. That exact version is your data from now on, so your tests stay fair."
-       ]
+       ],
+       "why": "Start Ask MDN with a frozen copy of the docs, so every later test is fair.",
+       "keep": "Ask MDN and all its tests use this exact data."
       },
       {
        "day": "Day 5 · about 90 min",
@@ -637,7 +678,9 @@ window.COURSE = {
         "Load the two folders into minsearch: CSS properties and JavaScript global objects.",
         "Each MDN page is a Markdown file. It starts with front matter between `---` lines and contains `{{macro}}` lines. Read the title and slug from the front matter, drop the macro lines and keep the text.",
         "Ask it three questions and look at what it finds. This is **Ask MDN v0.1**: it finds the right pages for a question. Commit early and often, with messages that say what changed."
-       ]
+       ],
+       "why": "Get Ask MDN v0.1 finding the right MDN pages for a question.",
+       "keep": "Every later Ask MDN version builds on it."
       }
      ],
      "recall": [
@@ -689,13 +732,17 @@ window.COURSE = {
        "day": "Day 1 · light day, about 45 min",
        "steps": [
         "Read Google's ML Crash Course lesson [Dividing the original dataset](https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets). This is a light day, good for low-energy days or a power cut."
-       ]
+       ],
+       "why": "Learn why test data must stay hidden while you tune.",
+       "skip": "you can explain training, validation and test splits, and how data leaks."
       },
       {
        "day": "Day 2 · light day, about 45 min",
        "steps": [
         "Read Google's ML Crash Course lesson [Accuracy, precision and recall](https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall)."
-       ]
+       ],
+       "why": "Learn precision and recall, the two numbers behind most search scores.",
+       "skip": "you can define precision and recall and give an example of each."
       },
       {
        "day": "Days 3–5 · about 4.5 hours",
@@ -703,7 +750,9 @@ window.COURSE = {
         "In your `ask-mdn` repo, write 20 practice questions for Ask MDN. For each one, list the page IDs (file paths) that answer it. These are for tuning, so use them as often as you like.",
         "Write 10 questions your two MDN folders cannot answer. Mix clearly unrelated questions with believable CSS or JavaScript questions whose answer isn't in your folders. Write down why each one can't be answered. You'll use these to teach Ask MDN to say “I don't know”.",
         "Commit both files. You'll write the hidden test questions later."
-       ]
+       ],
+       "why": "Write the questions Ask MDN is tuned on, including ones it must refuse.",
+       "keep": "The next lessons score Ask MDN on these files."
       },
       {
        "day": "Day 6 · campus track, about 45 min",
@@ -713,7 +762,9 @@ window.COURSE = {
         "Split the bank the way you split the Ask MDN questions: 14 for practice and 6 held back. You'll add more questions later.",
         "Send a short, friendly email to your student affairs or registrar office. Say what you're building, that it's an unofficial student project, and ask for a named contact for policy questions and the counselling centre's contact details. Replies take weeks, so ask now."
        ],
-       "added": "2026-10-28"
+       "added": "2026-10-28",
+       "why": "Start the capstone's question bank, and ask the university for contacts now, because replies take weeks.",
+       "keep": "The capstone needs this bank and these contacts."
       },
       {
        "day": "Days 7–10 · under the hood, about 6 hours",
@@ -727,7 +778,9 @@ window.COURSE = {
         "Now see overfitting yourself. Make data where it is easy to see: two overlapping clusters of 2-D points, with 20 points for training (flip 10% of their labels) and 200 held out.",
         "Train a 2-16-16-1 MLP for 500 steps. Every 10 steps, log the training loss and the held-out loss. Plot both (`uv add matplotlib`).",
         "Find where the training loss keeps falling but the held-out loss stops falling. That is overfitting, measured by you. If the held-out loss never flattens, halve the training set. Stop when the plot and a three-line explanation are committed."
-       ]
+       ],
+       "why": "Build backpropagation yourself, so “training a model” means something concrete, then watch overfitting happen.",
+       "skip": "you've already built micrograd or an autograd engine. Still do the overfitting experiment at the end."
       }
      ],
      "recall": [
@@ -791,19 +844,25 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "[11 Agents intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/11-agents-intro.md) and [12 RAG revision](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/12-rag-revision.md) (optional if RAG feels clear)."
-       ]
+       ],
+       "why": "See what “agentic RAG” means: the model decides when to search.",
+       "skip": "you can explain tool calling and when a model should search."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "[13 Function calling](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/13-function-calling.md). Watch how the tool's result is sent back to the model."
-       ]
+       ],
+       "why": "Learn function calling: the model asks, your code runs the tool and sends back the result.",
+       "skip": "you've built function calling with any model API."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "[14 Agentic loop](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md). Keep your loop code; you'll use it on Day 4."
-       ]
+       ],
+       "why": "Build the loop that keeps calling tools until the model answers.",
+       "keep": "You rewrite this loop from memory tomorrow."
       },
       {
        "day": "Day 4 · about 90 min",
@@ -811,14 +870,18 @@ window.COURSE = {
         "**No AI for this one:** close the course code and rewrite the agent loop from memory, in 20 minutes at most. Then compare it with the course code and fix the gaps.",
         "Add to Ask MDN: turn your search into a tool, let the model call it, and log every call.",
         "Before you put the loop in a chat page, add three limits: at most 8 rounds of model and tool calls, a timeout on each network call, and a clear “stopped” status. Test it with a fake model that keeps asking for search: it must stop at the limit. Keep tools read-only for now. A step limit doesn't cap cost, so also record token usage."
-       ]
+       ],
+       "why": "Prove you understand the loop by rewriting it, then make it safe with limits.",
+       "keep": "Ask MDN's search tool and its limits are built here."
       },
       {
        "day": "Day 5 · about 90 min",
        "steps": [
         "Build a small Streamlit chat page for Ask MDN, about 20 lines. You used Streamlit in Structured Output and Errors.",
         "This is **Ask MDN v0.2**: you can chat with it, and it decides when to search. Ask it 5 of your practice questions, then show it to a friend if one is around."
-       ]
+       ],
+       "why": "Give Ask MDN a chat page, so you can use it and show it to someone.",
+       "keep": "This is Ask MDN v0.2."
       }
      ],
      "recall": [
@@ -892,37 +955,49 @@ window.COURSE = {
        "steps": [
         "Read Google's [Embeddings](https://developers.google.com/machine-learning/crash-course/embeddings) module for the big idea. Then Module 2: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/01-intro.md).",
         "Before Day 2: Zoomcamp lesson 02 installs sentence-transformers, which also installs PyTorch. On Linux that can mean several GB of GPU libraries. On a slow connection or a small laptop, first add the PyTorch CPU index to `pyproject.toml` as in uv's [PyTorch guide](https://docs.astral.sh/uv/guides/integration/pytorch/) and run `uv add torch`, then add sentence-transformers. Or work in a Codespace."
-       ]
+       ],
+       "why": "Get the big idea of embeddings, and avoid a multi-GB PyTorch install before Day 2.",
+       "skip": "you can explain embeddings and cosine similarity, and you already have CPU-only PyTorch."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "[02 Embeddings](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/02-embeddings.md) (focus on cosine similarity) and [03 Embeddings dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/03-embeddings-dataset.md)."
-       ]
+       ],
+       "why": "Turn text into vectors and compare them with cosine similarity.",
+       "skip": "you've embedded text and ranked it by cosine similarity before."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "[04 Vector search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/04-vector-search.md) and [05 minsearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/05-minsearch-vector.md)."
-       ]
+       ],
+       "why": "Search by meaning with minsearch's vector mode.",
+       "skip": "you've built vector search before."
       },
       {
        "day": "Day 4 · about 90 min",
        "steps": [
         "[06 RAG with vectors](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/06-rag-vector.md)."
-       ]
+       ],
+       "why": "Answer questions from vector search results instead of keyword results.",
+       "skip": "you've built RAG on top of vector search."
       },
       {
        "day": "Day 5 · about 90 min",
        "steps": [
         "[07 sqlitesearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/07-sqlitesearch-vector.md). This keeps your search index in one file, which is what Ask MDN will use online. Skip lesson 08 (pgvector) for now. You don't need it yet."
-       ]
+       ],
+       "why": "Keep the vector index in one file, the way Ask MDN will run online.",
+       "keep": "Ask MDN uses sqlitesearch from here on."
       },
       {
        "day": "Day 6 · about 90 min",
        "steps": [
         "[09 ONNX embedder](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/09-onnx-embedder.md) (a smaller embedder that doesn't need PyTorch; Ask MDN will use it online) and [10 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/10-next-steps.md)."
-       ]
+       ],
+       "why": "Switch to a small embedder that runs without PyTorch, so the online app stays light.",
+       "keep": "Ask MDN uses this embedder online."
       },
       {
        "day": "Day 7 · about 90 min",
@@ -930,7 +1005,9 @@ window.COURSE = {
         "Read [Chunking for longer texts](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/07-project-example/07-chunking.md). MDN pages can be long, so split each page into chunks of a few paragraphs, and keep the page ID on every chunk.",
         "Give every chunk two IDs: `page_id` for the source page and `chunk_id` for the piece. Store the chunk's text and its source URL too.",
         "Search results get scored by page, not by chunk. Write a small function, `unique_pages(chunks)`, that turns a ranked list of chunks into a ranked list of different pages, keeping each page's first appearance: `[A:1, A:2, B:1, C:1]` becomes `[A, B, C]`, so B is now rank 2. Keep the matching chunks too, because the answer prompt needs them."
-       ]
+       ],
+       "why": "Split long pages into chunks and track which page each chunk came from.",
+       "keep": "Search scores and citations depend on these IDs and on `unique_pages`."
       },
       {
        "day": "Days 8–11 · about 6 hours",
@@ -940,7 +1017,9 @@ window.COURSE = {
         "**Day 9:** build the sqlitesearch vector index of your chunks with the ONNX embedder. Embedding every chunk takes a while, so build it once and keep the file. Stop when the index file exists and one question returns 5 chunks.",
         "**Day 10:** write `vector_search(question)`. It returns the top chunks with their `page_id` and source URL, in the same shape as your keyword search, so the rest of Ask MDN can use either one.",
         "**Day 11:** compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning."
-       ]
+       ],
+       "why": "Build Ask MDN v0.3: search by meaning over your own chunked docs.",
+       "keep": "Every later Ask MDN version uses this index."
       },
       {
        "day": "Day 12 · campus track, about 45 min",
@@ -948,7 +1027,9 @@ window.COURSE = {
         "Take 8 intents from your question bank. Write each one three ways: English, Bangla and Banglish. Embed all 24 sentences with the embedder you use now. Then embed them again with a second embedder whose model card lists Bengali among its training languages.",
         "Take each sentence and search only the sentences in another language. It's a hit when the nearest one has the same intent. For each pair of languages and each embedder, record the hit rate in your log. Expect Banglish to be the hardest. With only 8 sentences per pair, one miss moves a score by 12.5 points, so treat this as a first signal only."
        ],
-       "added": "2026-10-28"
+       "added": "2026-10-28",
+       "why": "Get a first measure of how embedders handle Bangla and Banglish.",
+       "keep": "The capstone's multilingual search starts from these numbers."
       },
       {
        "day": "Day 13 · under the hood, about 90 min",
@@ -959,7 +1040,9 @@ window.COURSE = {
         "Time your version on 1,000 and on 100,000 random unit vectors.",
         "Write one sentence on why sqlitesearch, like large systems, trades a little recall for speed.",
         "Stop here when both checks are in your log."
-       ]
+       ],
+       "why": "Rebuild vector search in numpy, so you know what the library does for you.",
+       "skip": "you've written cosine top-k search in numpy and know why indexes are approximate."
       }
      ],
      "recall": [
@@ -1022,32 +1105,42 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Module 4: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/01-intro.md) and [02 Ground truth](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/02-ground-truth.md) (it generates questions with structured output, which you already know)."
-       ]
+       ],
+       "why": "Learn how to build an answer key: questions with known correct pages.",
+       "skip": "you've built ground-truth question sets for search before."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "[03 Ground truth batch](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/03-ground-truth-batch.md).",
         "Use the same method to generate questions for a random sample of 60 of your MDN pages, not all of them."
-       ]
+       ],
+       "why": "Generate candidate test questions for 60 MDN pages in one batch.",
+       "keep": "They become your held-back test set."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Read through the questions, fix or replace the bad ones, and keep 50. Commit them as your **held-back** set. Don't use them for tuning."
-       ]
+       ],
+       "why": "Clean the questions and lock 50 away as an honest final test.",
+       "keep": "The Ask MDN project is scored on this set."
       },
       {
        "day": "Day 4 · about 90 min",
        "steps": [
         "[04 Search evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/04-search-evaluation.md)."
-       ]
+       ],
+       "why": "See how a search run is scored, question by question.",
+       "skip": "you can already score a search run against ground truth."
       },
       {
        "day": "Day 5 · about 90 min",
        "steps": [
         "[05 Search metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md) and [06 Search tuning](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/06-search-tuning.md)."
-       ]
+       ],
+       "why": "Learn Hit Rate and MRR, and how to tune search without cheating.",
+       "skip": "you can compute Hit Rate and MRR by hand and know why tuning uses practice data only."
       },
       {
        "day": "Days 6–7 · about 3 hours",
@@ -1055,7 +1148,9 @@ window.COURSE = {
         "Add to Ask MDN: measure Hit Rate@5 and MRR@5 for keyword search and for vector search on your 20 practice questions. The @5 means only the top 5 results count. Write the numbers in your README.",
         "Score the first 5 different pages, not 5 chunks. Fetch more chunks if you need to, then remove repeated pages in rank order with your `unique_pages` function. If fewer than 5 pages remain, score what you have.",
         "Add a small test: repeated chunks from page A must not push page B out of the top five pages."
-       ]
+       ],
+       "why": "Put real numbers on Ask MDN's keyword and vector search.",
+       "keep": "Your README reports these numbers."
       },
       {
        "day": "Day 8 · about 60 min",
@@ -1065,7 +1160,9 @@ window.COURSE = {
         "Repeat 1,000 times: pick 20 of your practice questions at random, with replacement (some appear twice, some not at all). On that same pick, compute Hit Rate for keyword search and for vector search, and save the difference.",
         "Report the middle 95% of the 1,000 differences (the 2.5th to the 97.5th percentile). If the range includes 0, you can't yet say which search is better. With 20 questions the range will be wide. That is the point.",
         "Add the rule of three to your log: if you see 0 failures in n tries, the true failure rate could still be as high as about 3/n. Stop here when your results table shows every metric with its n and its range."
-       ]
+       ],
+       "why": "Learn how sure you can be of a score from only 20 questions.",
+       "keep": "Ask MDN reruns this bootstrap on its final test."
       }
      ],
      "recall": [
@@ -1132,7 +1229,9 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Read Module 6 lessons [02 Hybrid search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/02-hybrid-search.md) and [03 Reranking (RRF)](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/06-best-practices/03-reranking.md). They were recorded in 2024, so some code is old. Take the ideas, not the code. Skip the Elasticsearch part of 03, because its built-in RRF needs a paid licence. Lesson 02 uses k = 1 and lesson 03 uses k = 60. Use 60 in Ask MDN."
-       ]
+       ],
+       "why": "See why mixing keyword and vector search helps, and how RRF merges the two lists.",
+       "skip": "you can explain RRF, and why raw scores from two searches can't be added."
       },
       {
        "day": "Day 2 · about 90 min",
@@ -1140,7 +1239,9 @@ window.COURSE = {
         "**No AI for this one:** write your own RRF function, about 15 lines. A page gets 1/(60 + rank) points from each list it appears in, and its points are added up. Ranks start at 1.",
         "Add a `hybrid_search()` that runs keyword search and vector search, turns each chunk list into a list of different pages with `unique_pages`, and combines the two with your RRF function.",
         "Test two cases: repeated chunks from one page, and a page that appears in only one list."
-       ]
+       ],
+       "why": "Write RRF yourself and wire up hybrid search.",
+       "keep": "Ask MDN's search uses this from now on."
       },
       {
        "day": "Day 3 · about 90 min",
@@ -1150,7 +1251,9 @@ window.COURSE = {
         "Check the reply in code: reject unknown chunk IDs and quotes that are not in those chunks. If the evidence is missing, answer “I don't know from these sources.”",
         "This check can still be wrong. Look at its decisions on your 20 practice questions and 10 unanswerable ones, including believable questions whose answer isn't in the docs. Count unsupported answers and unnecessary refusals separately.",
         "This is **Ask MDN v0.4**: it combines both searches and says “I don't know” when it can't support an answer."
-       ]
+       ],
+       "why": "Measure hybrid search, and make Ask MDN say “I don't know” when the pages don't support an answer.",
+       "keep": "This is Ask MDN v0.4."
       }
      ],
      "recall": [
@@ -1205,20 +1308,26 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Write Ask MDN's ingestion script. It reads your MDN snapshot, chunks each page, and saves each page's path, title and content hash along with its chunks. A content hash is a fingerprint of the text: if the text changes, the fingerprint changes."
-       ]
+       ],
+       "why": "Write the script that loads your docs, with a fingerprint for every page.",
+       "keep": "Later lessons extend this script."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "Make it safe to run twice: skip pages whose fingerprint hasn't changed. Run it twice; the second run should change nothing."
-       ]
+       ],
+       "why": "Make reloading safe: running the script twice changes nothing.",
+       "keep": "Real data changes, and you'll reload it often."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Save and commit a manifest file: a list of every page path and its hash from this run.",
         "Write 2 pytest tests for the script: running it twice changes nothing, and an edited page is picked up again."
-       ]
+       ],
+       "why": "Record exactly what you loaded, and test the script.",
+       "keep": "Later syncs compare against this manifest."
       }
      ],
      "recall": [
@@ -1285,13 +1394,17 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "[11 Evaluation intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/11-evaluation-intro.md) and [12 RAG answers](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/12-rag-answers.md)."
-       ]
+       ],
+       "why": "See how to evaluate the final answers, not just the search.",
+       "skip": "you've evaluated RAG answers before."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "[13 LLM as judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md). Pay attention to “Evaluating the judge”. Then skim [14 Agent evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/14-agent-evaluation.md) and [15 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/15-next-steps.md). For 14, watch its 2-minute video and read only the headings; the page itself is long."
-       ]
+       ],
+       "why": "Learn to use a model as a grader, and how to check that grader.",
+       "skip": "you've built an LLM judge and checked it against your own labels."
       },
       {
        "day": "Days 3–5 · about 4.5 hours",
@@ -1300,7 +1413,9 @@ window.COURSE = {
         "**Day 3:** generate answers for your 20 practice questions and save them to a file, so you can grade again without paying again.",
         "**Day 4:** write the judge and use it to grade all 20 answers.",
         "**Day 5:** grade 10 of the answers yourself, before you look at the judge's verdicts. Write down how often the judge agreed with you."
-       ]
+       ],
+       "why": "Grade Ask MDN's answers with a judge, and measure how often it agrees with you.",
+       "keep": "The next lesson starts from these saved answers and the agreement number."
       },
       {
        "day": "Day 6 · about 90 min",
@@ -1310,7 +1425,9 @@ window.COURSE = {
         "Hide the model names while you grade correctness, citation support and refusals. Record the cost, total time and failures for each answer. Re-run the two most unclear cases once to see how much answers vary. Don't touch your held-back questions.",
         "Write a five-line decision: the quality you accept, the longest wait and highest cost you accept, which option meets them, one failure it still has, and what would make you reconsider.",
         "Save a run manifest: model ID, prompt or config version, corpus hash, date and scores."
-       ]
+       ],
+       "why": "Choose a model with numbers: quality, speed and cost on the same inputs.",
+       "keep": "Ask MDN's README includes this comparison."
       }
      ],
      "recall": [
@@ -1367,25 +1484,33 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Module 5: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/01-intro.md), [02 Assistant setup](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/02-assistant-setup.md) and [03 Chat app](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/03-chat-app.md). Heads-up: the download links in 02 are broken. Copy `ingest.py` and `rag_helper.py` from the [05-monitoring/code folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/code) instead."
-       ]
+       ],
+       "why": "Turn Ask MDN into a full chat app with the Zoomcamp code.",
+       "keep": "This lesson's logging is built on top of it."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "[04 Metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/04-metrics.md) and [05 Database](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/05-database.md) (adapt the example to your metadata and retention policy)."
-       ]
+       ],
+       "why": "Decide what to measure for each request, and where to store it.",
+       "skip": "you've designed request metrics and a logging table before."
       },
       {
        "day": "Day 3 · about 60 min",
        "steps": [
         "Skim [06 Querying](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/06-querying.md) and [07 Streamlit dashboard](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/07-streamlit-dashboard.md); you won't build these. Then do [08 User feedback](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/08-user-feedback.md) properly: you'll add the same thumbs up or down to Ask MDN."
-       ]
+       ],
+       "why": "Add thumbs up or down, so users can tell you which answers failed.",
+       "keep": "Ask MDN's feedback comes from this."
       },
       {
        "day": "Day 4 · about 60 min",
        "steps": [
         "Skim [09 Built-in judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/09-built-in-judge.md) and [10 Feedback dashboard](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/10-feedback-dashboard.md). Then do [11 Synthetic data](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md) properly. Keep the generator: it makes realistic fake conversations."
-       ]
+       ],
+       "why": "Learn to generate realistic fake conversations for testing.",
+       "keep": "Later evals use this generator."
       },
       {
        "day": "Days 5–7 · about 4.5 hours",
@@ -1394,7 +1519,9 @@ window.COURSE = {
         "**Day 5:** give every request one request ID, and use it to join retrieval, model calls and errors. Stop when one question gives you a single record you can read from start to finish.",
         "**Day 6:** for each request, save the step durations, the retrieved page IDs, the model, prompt and corpus versions, the tokens and the cost.",
         "**Day 7:** add the thumbs up or down feedback to the same record. Then inspect one failed run from input to output. This is **Ask MDN v0.5**: a wrong answer now leaves clues."
-       ]
+       ],
+       "why": "Make every answer traceable: one record per request with timings, cost and feedback.",
+       "keep": "This is Ask MDN v0.5, and later debugging relies on it."
       },
       {
        "day": "Day 8 · about 90 min",
@@ -1403,7 +1530,9 @@ window.COURSE = {
         "Write a one-page data policy: what leaves your app, where logs are kept, who can read them and when they are deleted. Keep conversation text for 7 days. Never log keys, auth headers or real private messages. Keep your approved made-up test data in a separate place.",
         "Test the policy. Send a fake email address and a fake token through the app, and make sure both are removed before anything is saved. A regex won't catch every kind of personal information. Add a cleanup command that deletes old logs, and test it on old fake logs. A restricted log is still stored data.",
         "Make a 5-request sample report: where the time went, the cost per request, one retrieval failure and one model failure. Plain JSON and a short table are enough. A new tracing service is optional."
-       ]
+       ],
+       "why": "Decide what you log, who can read it and when it's deleted, then test that.",
+       "keep": "The capstone's privacy rules start here."
       }
      ],
      "recall": [
@@ -1450,21 +1579,27 @@ window.COURSE = {
         "Read [Deploy your app](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app) and [Secrets management](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).",
         "Check that no API key is anywhere in your Git history, for example with `git log --all -p -S\"sk-\"`. If you find one, don't panic: revoke that key in OpenAI first, then clean the history. Then put the OpenAI key in the app's Secrets settings.",
         "Use the ONNX embedder from Embeddings and Vector Search, so the app stays small. Ship the sqlitesearch index file with the app, or build it when the app starts."
-       ]
+       ],
+       "why": "Get ready to deploy without leaking a key.",
+       "keep": "A key in your Git history must be revoked before the app goes online."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "Create a free Neon project ([plans](https://neon.com/docs/introduction/plans)). Read [Neon roles](https://neon.com/docs/manage/roles). Roles made on Neon's website get powers that skip security rules, so create your app's database role with SQL ([CREATE ROLE](https://www.postgresql.org/docs/current/sql-createrole.html)) instead.",
         "Point Ask MDN's conversation logging at Neon through Secrets, and check that new chats appear there."
-       ]
+       ],
+       "why": "Give Ask MDN an online database, with a role that can't skip security rules.",
+       "keep": "Ask MDN's logs live here."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Deploy it. Then make it your one private app and invite yourself and one friend as viewers ([Share your app](https://docs.streamlit.io/deploy/streamlit-community-cloud/share-your-app)).",
         "Practise a rollback: deploy a broken version on purpose, then deploy the previous version again."
-       ]
+       ],
+       "why": "Put Ask MDN online privately, and practise undoing a bad deploy.",
+       "keep": "This is your first live app."
       },
       {
        "day": "Day 4 · about 90 min",
@@ -1472,7 +1607,9 @@ window.COURSE = {
         "Check your OpenAI budget alerts and credit balance.",
         "Write a short “How to deploy” section in your README. Recruiters can't open a private app, so add a short GIF or recording of it working. This is **Ask MDN v0.6**: it's online.",
         "Set a local success target, such as 9 of 10 normal requests finishing within your time and cost limits. Write a short runbook: your failure limits, how to turn the app off, and how to roll back."
-       ]
+       ],
+       "why": "Check costs, document the deploy, and write down how to turn it off.",
+       "keep": "This is Ask MDN v0.6."
       }
      ],
      "recall": [
@@ -1515,7 +1652,9 @@ window.COURSE = {
         "**Days 4–5:** Make every answer show links to the MDN pages it used.",
         "**Stop here on Day 6:** 5 practice questions get correct, cited answers."
        ],
-       "split": true
+       "split": true,
+       "why": "Bring every piece of this section into one app that cites its pages.",
+       "keep": "This is your main RAG portfolio project."
       },
       {
        "day": "Days 7–12 · about 9 hours",
@@ -1527,7 +1666,9 @@ window.COURSE = {
         "Record mistakes even when retrieval succeeded. Once you've looked at the held-back results, they become regression data: don't call them unseen after you tune on them.",
         "**Stop here on Day 12:** your README has the results table."
        ],
-       "split": true
+       "split": true,
+       "why": "Score Ask MDN honestly on questions it never saw, and against the same model without retrieval.",
+       "keep": "These numbers are what interviewers ask about."
       },
       {
        "day": "Days 13–18 · about 9 hours",
@@ -1537,7 +1678,9 @@ window.COURSE = {
         "**Days 16–17:** Finish the README. Open it with a real bug you once lost hours to, and Ask MDN's cited answer. Then: how it works, how to run it, your results, a GIF and what you'd improve.",
         "**Day 18:** If a Zoomcamp cohort is open, submit your project for peer review. If not, share your repo in `#course-llm-zoomcamp` and ask for feedback."
        ],
-       "split": true
+       "split": true,
+       "why": "Ship v1.0, try it on real questions, and write the README people will read.",
+       "keep": "The README is your shop window."
       }
      ],
      "done": [
@@ -1626,7 +1769,9 @@ window.COURSE = {
         "Read Meta's [Automated Data Collection Terms](https://www.facebook.com/legal/automated_data_collection_terms). They cover any automated collection (bots, crawlers and similar tools) and require Meta's written permission. An AI agent driving your logged-in browser counts, so don't use one. Read the group yourself and write down only the question, in your own words.",
         "Start with consent. Make a short form where students submit questions they wish someone had answered, with no names, IDs or personal cases. If you post it in a Facebook group, Meta's [Pages, Groups and Events policies](https://www.facebook.com/policies_center/pages_groups_events) require notice and explicit consent, and you must make clear that you, not Meta, are collecting. Put that at the top of the form.",
         "Ask for help, not just permission. Message the group's admins: explain what you will and won't collect, and ask them to pin the form. Email the student affairs or registrar office: ask for the official rule documents, and ask whether someone could confirm answers once a month."
-       ]
+       ],
+       "why": "Set the data rules and ask for permission before you collect anything.",
+       "keep": "The capstone can't use data collected without these rules."
       },
       {
        "day": "Day 2 · about 90 min",
@@ -1634,7 +1779,9 @@ window.COURSE = {
         "Build `sources.csv` with at least 25 official sources: academic rules, scholarships and waivers, fees and deadlines, the academic calendar, degree curricula and prerequisites, registration and advising steps, student services, and an office contact list. For each one, record the URL, the owning office, the format, the semester it applies to and the date you retrieved it.",
         "Check each site's `robots.txt` and terms before downloading. Save a dated copy of each document, because pages change without notice. Note which ones are scanned images, because they need OCR (software that reads text from images).",
         "Mark the gaps: questions in your bank that no public source answers. Those need a staff answer, or they stay unanswerable."
-       ]
+       ],
+       "why": "Find the official sources that can actually answer students' questions.",
+       "keep": "Every answer must cite one of these."
       },
       {
        "day": "Days 3–4 · about 3 hours",
@@ -1643,7 +1790,9 @@ window.COURSE = {
         "Split the bank before you group it. Keep paraphrases and translations of the same question together in one split. Put practice cases in `development.jsonl`. Put every third new case in `held_back.jsonl`, with at least 5 per language to start. The held-back file is for the final release check only: never use its wording in entries, prompts or model choices.",
         "Start `regression.jsonl` for failures you find while building. If you looked at held-back results to make a change, move those cases to regression and replace them with fresh cases before release.",
         "Group the remaining questions into intents by hand, using the labels you started in ML Basics. If you automate it, embed with the Bengali-capable model from your Embeddings check and confirm every group yourself. English, Bangla and Banglish versions of one question often land in different groups ([clustering overview](https://scikit-learn.org/stable/modules/clustering.html)). Count each intent. The top 20 are your first FAQ entries."
-       ]
+       ],
+       "why": "Grow the question bank, and split it so your final test stays honest.",
+       "keep": "The capstone's tests use these splits."
       },
       {
        "day": "Days 5–6 · about 3 hours",
@@ -1653,7 +1802,9 @@ window.COURSE = {
         "From now until the capstone, block **1 hour a week** inside your 9 hours for the knowledge base. Each week: add or review 5 entries, add 3 new questions (form submissions first), put every third new case in `held_back.jsonl`, recheck one changed page, and log any gaps. Keep related phrasings in the same split.",
         "Your target is 150 questions, with at least 15 per language held back for release. Record each set's version, case IDs, language counts and any exposure in `EVAL-SETS.md`.",
         "A friend can keep your release set sealed. If you work alone, avoid looking at it during development, and say so in your report."
-       ]
+       ],
+       "why": "Write your first approved answers, and start the weekly hour that grows them.",
+       "keep": "This weekly hour is how the knowledge base gets built."
       },
       {
        "day": "Day 7 · first campus slice, about 90 min",
@@ -1662,7 +1813,9 @@ window.COURSE = {
         "Then try the safest answer mode there is: the model may only return the ID of an approved entry, or `none`. Your code shows that entry's approved text, or a route card when the reply is `none`, empty or invalid. The model never writes a rule.",
         "Stop here when you've asked 5 questions, including one that must get an honest “I don't know, ask this office”, and logged which mode answered more questions correctly without inventing anything. That's your first campus assistant.",
         "Re-run these 10 questions in the first data hour of each month. It's your campus scoreboard."
-       ]
+       ],
+       "why": "Run your first campus assistant: Ask MDN's code on your own entries.",
+       "keep": "It becomes your monthly scoreboard."
       }
      ],
      "recall": [
@@ -1716,14 +1869,18 @@ window.COURSE = {
        "steps": [
         "Watch Andrej Karpathy's [building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo) up to 1:02:57, typing as you go. You'll count letter pairs in a list of names, sample new names and compute the average negative log likelihood. In the broadcasting section (36:17 to 50:14), watch without typing, then type only the final normalisation line.",
         "Stop when you can sample 20 names and say what the loss number means."
-       ]
+       ],
+       "why": "Build a next-character model by counting, and learn what the loss number means.",
+       "skip": "you've done Karpathy's first makemore lecture."
       },
       {
        "day": "Day 2 · under the hood, about 90 min",
        "steps": [
         "Finish the video from 1:02:57. You'll rebuild the same bigram model as a one-layer neural network in PyTorch, trained with gradient descent. Watch the summary (1:26:17 to 1:35:49) and the two notes (1:47:49 to 1:54:31) without typing.",
         "Stop when its loss is close to the counting model's loss, and you can explain why they should match."
-       ]
+       ],
+       "why": "Rebuild the same model as a tiny neural network, and see why both reach the same loss.",
+       "skip": "you've finished the first makemore lecture to the end."
       },
       {
        "day": "Day 3 · under the hood, about 90 min",
@@ -1731,14 +1888,18 @@ window.COURSE = {
         "Start Karpathy's [Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY). Watch up to 42:13 without typing. You built the data split, batches and a bigram model in makemore, so copy `bigram.py` from the [lecture's code](https://github.com/karpathy/ng-video-lecture) instead.",
         "Then type along from 42:13. Before the attention section, do the “mathematical trick” by hand: on a 4-token example, average each token with the tokens before it, first with loops, then as one matrix multiplication.",
         "Stop when both versions give the same numbers."
-       ]
+       ],
+       "why": "Start the GPT build and learn attention's core trick: averaging earlier tokens with one matrix.",
+       "skip": "you've done Let's build GPT up to the attention section."
       },
       {
        "day": "Day 4 · under the hood, about 90 min",
        "steps": [
         "Build one self-attention head, then several heads and a feed-forward block, following the video. Keep every shape written in a comment.",
         "Stop when a forward pass runs on a batch and every shape matches your comments."
-       ]
+       ],
+       "why": "Build self-attention by hand, the idea every GPT is built on.",
+       "skip": "you've implemented multi-head self-attention from scratch."
       },
       {
        "day": "Day 5 · under the hood, about 90 min",
@@ -1746,7 +1907,9 @@ window.COURSE = {
         "Add residual connections and layer norm as the video does (1:26:48 to 1:37:49).",
         "Then train a tiny configuration on CPU or a free [Colab](https://colab.research.google.com/) notebook, on a small text you have the right to use (the video's Shakespeare file is fine). Plot training and validation loss, and sample some text.",
         "Stop when the plot and a sample are committed. If training is too slow, shrink the model; the goal is the mechanism, not quality."
-       ]
+       ],
+       "why": "Train your tiny GPT and watch it write text.",
+       "skip": "you've trained a small transformer from scratch and still have the code. Day 6 uses it."
       },
       {
        "day": "Day 6 · under the hood, about 90 min",
@@ -1755,7 +1918,9 @@ window.COURSE = {
         "Without the video, explain in your log what a context window is, why tokens cost money, and what temperature changes, using your own code as the example.",
         "Then answer one more question. Your tiny GPT can only continue text, but the model you use every day can ask your code to run a tool. Why? Hint: after pre-training, it was trained further on examples of tool requests, written with special tokens that mark where a request starts and ends. Your code, not the model, runs the tool, as in [Tools and the Agent Loop](#tools-and-the-agent-loop).",
         "Stop when someone could follow your explanation."
-       ]
+       ],
+       "why": "Run one fair experiment, then explain context windows, token cost and temperature from your own code.",
+       "keep": "This explanation is the payoff of the whole lesson."
       }
      ],
      "recall": [
@@ -1825,25 +1990,33 @@ window.COURSE = {
        "day": "Day 1 · light day, about 45 min",
        "steps": [
         "Hugging Face Agents Course, Unit 1: [What are agents?](https://huggingface.co/learn/agents-course/en/unit1/what-are-agents) and [Messages and special tokens](https://huggingface.co/learn/agents-course/en/unit1/messages-and-special-tokens)."
-       ]
+       ],
+       "why": "Learn what an agent is, and how a message list becomes one prompt with special tokens.",
+       "skip": "you can explain chat templates and special tokens."
       },
       {
        "day": "Day 2 · light day, about 45 min",
        "steps": [
         "[Tools](https://huggingface.co/learn/agents-course/en/unit1/tools) and [Agent steps and structure](https://huggingface.co/learn/agents-course/en/unit1/agent-steps-and-structure)."
-       ]
+       ],
+       "why": "See how tools are described to a model, and how an agent's steps fit together.",
+       "skip": "you've defined tools for a model and can explain the agent cycle."
       },
       {
        "day": "Day 3 · light day, about 45 min",
        "steps": [
         "[Thoughts](https://huggingface.co/learn/agents-course/en/unit1/thoughts), [Actions](https://huggingface.co/learn/agents-course/en/unit1/actions) and [Observations](https://huggingface.co/learn/agents-course/en/unit1/observations). Stuck? Ask in the Hugging Face Discord's `#agents-course-questions` channel."
-       ]
+       ],
+       "why": "Learn the think, act, observe cycle in detail.",
+       "skip": "you can explain ReAct and the think, act, observe loop."
       },
       {
        "day": "Day 4 · about 90 min",
        "steps": [
         "**No AI for this one:** take the agent loop you wrote in [Tools and the Agent Loop](#tools-and-the-agent-loop) and add two things. First, make a tool error go back to the model as an observation instead of crashing. Second, add a tool that returns a page's title. Log every step."
-       ]
+       ],
+       "why": "Extend your own loop by hand: tool errors become observations, plus a second tool.",
+       "keep": "The next lesson starts from this loop."
       }
      ],
      "recall": [
@@ -1902,13 +2075,17 @@ window.COURSE = {
         "Do LangChain Academy's [Intro to LangGraph](https://academy.langchain.com/courses/intro-to-langgraph), Module 1: the simple graph, chain, router, agent and agent-with-memory lessons only (skip Studio and deployment).",
         "Some notebooks use LangSmith for tracing. A free [LangSmith](https://docs.smith.langchain.com/) account is enough, or skip those parts. Write the `langgraph` version you installed in your log.",
         "Stop each Day when one notebook runs and you can say in one sentence what its graph does."
-       ]
+       ],
+       "why": "Learn LangGraph's basics: graphs, routers, agents and memory.",
+       "skip": "you've built a LangGraph agent with memory before."
       },
       {
        "day": "Days 4–5 · two light days, about 45 min each",
        "steps": [
         "Do Module 2. **Day 4:** the state schema lesson. **Day 5:** the state reducer lesson. Skip the message-trimming, summarising and external-memory notebooks. You'll build your own context selection on Day 9."
-       ]
+       ],
+       "why": "Learn how LangGraph's state and reducers work.",
+       "skip": "you know LangGraph state schemas and reducers."
       },
       {
        "day": "Days 6–7 · about 1 hour each",
@@ -1916,14 +2093,18 @@ window.COURSE = {
         "**Day 6:** read the [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts), then do Module 3's breakpoints lesson.",
         "**Day 7:** do the editing-state and human-feedback lesson.",
         "These notebooks pause with breakpoints (`interrupt_before`). That's fine for learning, but your project uses `interrupt()`. Skip streaming, dynamic breakpoints and time travel."
-       ]
+       ],
+       "why": "Learn to pause a run for a person and edit its state.",
+       "skip": "you've used LangGraph interrupts and human feedback before."
       },
       {
        "day": "Day 8 · about 90 min",
        "steps": [
         "Reread the approvals part of the [interrupts guide](https://docs.langchain.com/oss/python/langgraph/interrupts). For approvals, use `interrupt()` and resume with `Command(resume=...)`; the docs recommend static breakpoints only for debugging.",
         "Rebuild your loop in LangGraph with one interrupt before a tool runs. In your log, list what LangGraph now does that you wrote by hand."
-       ]
+       ],
+       "why": "Rebuild your loop in LangGraph, with an approval pause before a tool runs.",
+       "keep": "The next project starts from this loop."
       },
       {
        "day": "Day 9 · about 90 min",
@@ -1933,7 +2114,9 @@ window.COURSE = {
         "Always keep the instructions, the current question and recent complete turns. Add relevant evidence, and cap the size of tool output. Never separate a tool call from its result.",
         "Test it on a made-up 20-turn conversation where the user states a browser or version constraint early on. Check that your selection keeps that constraint, or asks the user to repeat it. Keep critical task facts in explicit application state. A summary written by the model can be wrong, so never let it grant authorization or approval. Also test one oversized tool result and one lost constraint.",
         "Stop here. Long-term personalised memory is optional, so skip it for now."
-       ]
+       ],
+       "why": "Choose what the model sees each turn, within a budget, without losing key facts.",
+       "keep": "The project's context checks come from here."
       }
      ],
      "recall": [
@@ -1997,7 +2180,9 @@ window.COURSE = {
         "For Ask MDN's agent, write down its three trifecta parts: private data, untrusted content and a way to send data out (Simon Willison calls it external communication). Which part will you cut off, and how?",
         "Write your approval rule in your log: a person approves the exact tool name and its exact arguments. If anything changes, the approval no longer counts.",
         "A tool found through MCP (a standard way to connect agents to tools) needs the same checks. MCP only standardises the connection. It doesn't make a server trustworthy or give it permission to act."
-       ]
+       ],
+       "why": "Learn how a web page can hijack your agent, and design the approval rule that stops it.",
+       "keep": "The next project is built around this rule."
       }
      ],
      "recall": [
@@ -2048,7 +2233,9 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Before you read the steps below, write your own day-by-day plan for this project in your log. Compare it with the steps afterwards."
-       ]
+       ],
+       "why": "Practise planning a project yourself before you follow the steps.",
+       "keep": "You compare this plan with what really happened on Day 12."
       },
       {
        "day": "Days 2–6 · about 7.5 hours",
@@ -2058,7 +2245,9 @@ window.COURSE = {
         "Tie the approval to one operation ID. Your code creates that ID once, before the pause, saves it, and reuses it on a retry. A repeated click is the same operation.",
         "**Stop here on Day 6:** one approved note is saved and one rejected note isn't."
        ],
-       "split": true
+       "split": true,
+       "why": "Give Ask MDN tools, and make the one that writes data wait for a person's approval.",
+       "keep": "This approval flow is the heart of the project."
       },
       {
        "day": "Days 7–12 · about 9 hours",
@@ -2072,7 +2261,9 @@ window.COURSE = {
         "Run all 10 through your agent. **Stop here on Day 11** when the log shows that every injection ended without an unapproved `save_note` call, and that the real save request paused for approval.",
         "**Day 12:** In your log, compare your Day 1 plan with what really happened. That gap is a lesson in itself. **Stop here** when the comparison is in your log."
        ],
-       "split": true
+       "split": true,
+       "why": "Add hard limits, stop duplicate writes, and prove injected instructions can't trigger actions.",
+       "keep": "These tests are the project's evidence."
       }
      ],
      "done": [
@@ -2139,7 +2330,9 @@ window.COURSE = {
         "Put a separate 1-hour block in your calendar each week to apply to 2 or 3 jobs. Add more time when your study load allows.",
         "Every other week, spend 20 minutes of that block on one timed practice without AI: a small Python coding task, or designing an AI feature out loud (what it calls, where it can fail, how you'd measure it).",
         "If you have JavaScript or TypeScript web work, list it next to your AI repos. Many AI teams build web products too."
-       ]
+       ],
+       "why": "Start applying now, with a resume, three stories and a weekly routine.",
+       "keep": "Job hunting takes months, so it starts halfway through the path."
       }
      ],
      "recall": [
@@ -2217,31 +2410,41 @@ window.COURSE = {
         "Before you look at any data, write down the three failures you expect most often in Ask MDN. Day 3 checks your guess.",
         "This week, also start a crisis test set for the Campus Assistant. It takes 30 minutes a week, outside these Days.",
         "Each week, write 2 messages from a student who might be in crisis, and 2 harmless look-alikes (for example, “I'm dying to see the results”), in each language: English, Bangla and Banglish. Ask a native speaker to review them. Keep going every week: you'll use the set to test your assistant's crisis response later in the capstone."
-       ]
+       ],
+       "why": "Learn why reading real failures beats generic scores, and start the crisis test set.",
+       "keep": "The crisis set takes weeks to build."
       },
       {
        "day": "Day 2 · light day, about 45 min",
        "steps": [
         "Read Eugene Yan's [Product Evals in Three Simple Steps](https://eugeneyan.com/writing/product-evals/). Write down which of his three steps Ask MDN already has, and which it's missing."
-       ]
+       ],
+       "why": "Compare your evals with a simple three-step method and spot what's missing.",
+       "skip": "you already know Eugene Yan's three steps for product evals."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Collect 50 conversations that are public or made up: use recent redacted examples from Neon, and top up with the Zoomcamp [synthetic data generator](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md). Review them before you keep them as a separate test set. Don't keep raw logs longer just to reach 50. Read them in two 25-minute blocks, write down every failure, and sort the failures into 3 to 6 groups."
-       ]
+       ],
+       "why": "Read 50 real conversations and group the failures you find.",
+       "keep": "These groups become your tests."
       },
       {
        "day": "Day 4 · about 90 min",
        "steps": [
         "Write a pass-or-fail check for each group. Use plain code where you can, and an LLM judge only where you must."
-       ]
+       ],
+       "why": "Turn each failure group into a pass-or-fail check.",
+       "keep": "CI runs these checks in the next lesson."
       },
       {
        "day": "Day 5 · about 90 min",
        "steps": [
         "Grade 20 answers yourself, then check how often your LLM judge agrees with you."
-       ]
+       ],
+       "why": "Check that your LLM judge agrees with you before you trust it.",
+       "keep": "CI relies on this judge."
       }
      ],
      "recall": [
@@ -2314,20 +2517,26 @@ window.COURSE = {
        "steps": [
         "Install Node.js LTS ([download](https://nodejs.org/en/download)); promptfoo runs with `npx promptfoo`.",
         "Read the [promptfoo intro](https://www.promptfoo.dev/docs/intro/) and its [RAG evaluation guide](https://www.promptfoo.dev/docs/guides/evaluate-rag/)."
-       ]
+       ],
+       "why": "Install promptfoo and learn how it tests RAG apps.",
+       "skip": "you've used promptfoo to evaluate a RAG app before."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "Give Ask MDN a plain Python function `answer(question, user)` that your Streamlit app calls. Now your tests don't need the web page.",
         "Point promptfoo at it with a [Python provider](https://www.promptfoo.dev/docs/providers/python/): a small file whose `call_api(prompt, options, context)` calls your `answer()`. Read the user from `context['vars']`. Return the pages it found as well as the answer, because context-faithfulness needs them."
-       ]
+       ],
+       "why": "Let tests call Ask MDN directly, without the web page.",
+       "keep": "Every test and attack from here uses this function."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Turn your checks from the last lesson into a promptfoo config. Use rule-based checks (citations are present, the output is valid) plus [context-faithfulness](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/) (does the answer stick to the pages you found?) and [llm-rubric](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/llm-rubric/)."
-       ]
+       ],
+       "why": "Turn your failure checks into a promptfoo test suite.",
+       "keep": "CI runs this suite."
       },
       {
        "day": "Day 4 · about 90 min",
@@ -2336,7 +2545,9 @@ window.COURSE = {
         "Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Using Gemini? Pick a Gemini model as promptfoo's grader.",
         "Run pytest and the rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly, and cache unchanged evaluations.",
         "Don't expose API secrets to untrusted fork code."
-       ]
+       ],
+       "why": "Run your tests automatically on every push and pull request.",
+       "keep": "Tomorrow's Day blocks bad changes with these runs. Already know GitHub Actions? Use the Test-out."
       },
       {
        "day": "Day 5 · about 90 min",
@@ -2344,7 +2555,9 @@ window.COURSE = {
         "Protect your deployment branch with [required status checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), including the pre-merge evaluation job, and apply the rule to yourself too. From now on, change the app only through pull requests: Streamlit deploys from the protected branch.",
         "Break a prompt in a PR. Prove that the PR can't merge and that the live app stays on the previous version.",
         "Fix the prompt, wait for the required checks, then merge. A red workflow after deployment is too late."
-       ]
+       ],
+       "why": "Make a failing test block deployment, and prove it with a broken prompt.",
+       "keep": "This is what keeps a bad prompt away from users."
       }
      ],
      "recall": [
@@ -2418,7 +2631,9 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Read [Multi-tenant data isolation with PostgreSQL Row Level Security](https://aws.amazon.com/blogs/database/multi-tenant-data-isolation-with-postgresql-row-level-security/) by Michael Beardsley (AWS Database Blog). Multitenant means one app serving several separate groups. It's plain Postgres: policies, `current_setting`, BYPASSRLS and FORCE."
-       ]
+       ],
+       "why": "Learn how the database itself can keep each group's data apart.",
+       "skip": "you've set up Postgres row-level security with `current_setting` before."
       },
       {
        "day": "Days 2–4 · about 4.5 hours",
@@ -2428,7 +2643,9 @@ window.COURSE = {
         "Start Postgres with pgvector locally using the [pgvector Docker image](https://hub.docker.com/r/pgvector/pgvector) (`pgvector/pgvector:0.8.7-pg17`). If port 5432 is taken by your Zoomcamp database, use another port.",
         "Read the [full-text search intro](https://www.postgresql.org/docs/current/textsearch-intro.html) and [Tables and Indexes](https://www.postgresql.org/docs/current/textsearch-tables.html). They show the generated column and GIN index you need.",
         "Move Ask MDN's chunks into one table with a `group_id` column, a text-search column and an embedding column. Then rebuild `hybrid_search()` on top of it."
-       ]
+       ],
+       "why": "Move Ask MDN's search into Postgres, so the database can enforce access.",
+       "keep": "Everything from here runs on this table."
       },
       {
        "day": "Days 5–6 · about 3 hours",
@@ -2436,14 +2653,18 @@ window.COURSE = {
         "Read the Postgres [row-level security docs](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). Turn row-level security on and force it on the chunks and `notes` tables, with a policy that only shows rows whose `group_id` matches the current group.",
         "Create your app's role with [CREATE ROLE](https://www.postgresql.org/docs/current/sql-createrole.html): not the table owner, not a superuser and no BYPASSRLS, because those can skip the rules. Grant it only what it needs.",
         "Set the current group at the start of each transaction with `set_config` ([docs](https://www.postgresql.org/docs/current/functions-admin.html))."
-       ]
+       ],
+       "why": "Turn on row-level security, with an app role that can't bypass it.",
+       "keep": "This is the lock the capstone depends on."
       },
       {
        "day": "Day 7 · about 90 min",
        "steps": [
         "Write pytest tests: with the group set to CSS, search returns zero JavaScript chunks and reading or writing JS notes fails. Check in SQL that your app role's `rolbypassrls` is false.",
         "In the same tests, check that `current_user` is your app role, and that your search code has no `WHERE group_id = …` of its own. AI assistants like to add one, and then the tests pass even when row-level security does nothing."
-       ]
+       ],
+       "why": "Prove one group can't see the other's data, and that the test really tests the database.",
+       "keep": "These tests guard every later change."
       }
      ],
      "recall": [
@@ -2521,7 +2742,9 @@ window.COURSE = {
         "Still create the Google OAuth client, add `st.login` to Ask MDN and add your two test accounts as Test users (about 45 minutes). Then write two lines in your log on how your own platform maps a signed-in user to their data, and tick both Days. If you haven't shipped one before, do the steps below.",
         "Read Streamlit's [authentication guide](https://docs.streamlit.io/develop/concepts/connections/authentication). It uses OIDC, the standard behind “Sign in with Google”. Login tells you who someone is, not what they may see.",
         "Follow Streamlit's [Google login tutorial](https://docs.streamlit.io/develop/tutorials/authentication/google) to create a Google sign-in (OAuth) client and add `st.login` to Ask MDN locally. Also add your two test accounts as Test users on Google's consent screen, or Google won't let them sign in. If an OAuth error (like a redirect URI mismatch) takes more than 45 minutes, stop and ask, with the exact error message."
-       ]
+       ],
+       "why": "Add Google sign-in, so the app knows who each user is.",
+       "skip": "you've shipped OAuth or OIDC sign-in before. Do only the short Test-out steps."
       },
       {
        "day": "Days 3–4 · about 3 hours",
@@ -2530,7 +2753,9 @@ window.COURSE = {
         "Give each conversation a server-recorded `owner_id`, `group_id` and random thread ID.",
         "Before you load history, load a checkpoint or resume a pending approval, check that the signed-in user owns the conversation and still has its group. A thread ID only locates state; it grants no permission.",
         "Clear the browser session's chat state when the user logs out or changes. Make history private by default."
-       ]
+       ],
+       "why": "Decide on the server what each user may see, and protect saved chats and approvals.",
+       "keep": "This is where most real apps leak data."
       },
       {
        "day": "Days 5–6 · about 3 hours",
@@ -2538,7 +2763,9 @@ window.COURSE = {
         "Use two fake test accounts, never real students. Write tests: a CSS user gets zero JavaScript chunks through search, through the agent's tools, and when guessing a document ID. A user with no group gets nothing.",
         "Also try a known JS conversation or thread ID as the CSS user, and as a second user in the same group. Neither may read or resume the owner's private chat or approval. Test switching users in the same browser.",
         "Don't send any loaded state to a model until these checks pass."
-       ]
+       ],
+       "why": "Prove with tests that users can't reach each other's data, even with guessed IDs.",
+       "keep": "The attack tests build on these."
       }
      ],
      "recall": [
@@ -2590,7 +2817,9 @@ window.COURSE = {
        "steps": [
         "Sketch your ingestion process from memory, then compare it with [Data Ingestion](#data-ingestion).",
         "Extend it: compare the old and new manifests, re-index edited pages, add new pages, and delete removed pages and their chunks. Publish a new `corpus_version` only after the sync succeeds."
-       ]
+       ],
+       "why": "Extend ingestion to handle edited and deleted pages.",
+       "keep": "Deleted rules must stop being quoted."
       },
       {
        "day": "Day 2 · about 90 min",
@@ -2598,7 +2827,9 @@ window.COURSE = {
         "Make a test copy of your data: delete 3 pages and edit 2, then sync.",
         "Store the corpus version with each conversation. Pick a simple policy: if the version changes, expire that conversation's pending approvals and start a fresh, server-owned agent thread before the next answer. Don't copy old retrieved chunks or assistant answers into the new prompt, and tell the user that the sources changed.",
         "Check thread ownership before you look at or reset any state."
-       ]
+       ],
+       "why": "Decide what happens to an open conversation when the docs change.",
+       "keep": "Without it, old answers leak into new ones."
       },
       {
        "day": "Day 3 · about 90 min",
@@ -2606,13 +2837,17 @@ window.COURSE = {
         "Ask about the deleted pages in a new chat and in a chat started before the sync. Look at the actual model input: no removed chunks or old answers should be in it.",
         "Check every returned citation against the current, allowed source records, and reject stale IDs. Test an edit as well as a deletion, and prove that an old pending approval can't resume.",
         "This stops old content from reaching new answers. It doesn't erase a transcript someone has already read or copied."
-       ]
+       ],
+       "why": "Prove deleted pages never come back in answers or citations.",
+       "keep": "The project checks exactly this."
       },
       {
        "day": "Day 4 · about 90 min",
        "steps": [
         "Finish the edit, deletion and stale-approval tests. Write down one weakness of this cautious reset policy, for example losing the conversation's context when unrelated pages change."
-       ]
+       ],
+       "why": "Finish the tests, and write down what this simple policy costs you.",
+       "keep": "These tests are project evidence."
       }
      ],
      "recall": [
@@ -2673,25 +2908,33 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Follow promptfoo's [red team quickstart](https://www.promptfoo.dev/docs/red-team/quickstart/), pointing it at your `answer(question, user)` Python provider so each attack runs as a specific user."
-       ]
+       ],
+       "why": "Point promptfoo's attack mode at your app, running as a real user.",
+       "keep": "The project reruns these attacks."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "Set up three plugins: [rbac](https://www.promptfoo.dev/docs/red-team/plugins/rbac/) (access control), [hijacking](https://www.promptfoo.dev/docs/red-team/plugins/hijacking/) and [indirect prompt injection](https://www.promptfoo.dev/docs/red-team/plugins/indirect-prompt-injection/). Generate 30 attack cases and commit them, so the test stays the same each time. Generating may use promptfoo's online service, which can have usage limits, so generate once. If it's unavailable, write the cases by hand."
-       ]
+       ],
+       "why": "Generate a fixed set of 30 attacks, so every rerun is comparable.",
+       "keep": "The project runs this set three times."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Add 5 canary documents to the JS group: pages that contain a unique secret phrase. A CSS user must never see them."
-       ]
+       ],
+       "why": "Plant secret pages that prove a leak beyond doubt if they ever show up.",
+       "keep": "Canaries are the proof the project needs."
       },
       {
        "day": "Day 4 · about 90 min",
        "steps": [
         "Run the attacks and write down every one that worked. A passing rbac test is a model's opinion, not proof. A canary phrase shown to the wrong user is proof, so check the canaries and your database yourself. Fix the failures in the project that follows this lesson."
-       ]
+       ],
+       "why": "Attack your app and list what got through.",
+       "keep": "The project fixes this list."
       }
      ],
      "recall": [
@@ -2737,7 +2980,9 @@ window.COURSE = {
         "**Days 4–5:** Add login and server-side group mapping, like in Login.",
         "**Stop here on Day 6:** the online app shows a CSS user only CSS answers."
        ],
-       "split": true
+       "split": true,
+       "why": "Put the secure Postgres version online, with login and group mapping.",
+       "keep": "This is the base of the project."
       },
       {
        "day": "Days 7–12 · about 9 hours",
@@ -2746,7 +2991,9 @@ window.COURSE = {
         "**Days 9–11:** Run CI on every push: pytest, the isolation tests and the rule-based promptfoo checks, against the Postgres service. Run the model-graded checks on pull requests.",
         "**Stop here on Day 12:** a broken prompt makes CI fail."
        ],
-       "split": true
+       "split": true,
+       "why": "Add the data sync and the automatic tests that guard every change.",
+       "keep": "CI and the sync are part of the project's evidence."
       },
       {
        "day": "Days 13–21 · about 13.5 hours",
@@ -2758,7 +3005,9 @@ window.COURSE = {
         "**Days 18–19:** Add cost tracking for each group, a simple rate limit for each user, and an off switch: a setting that makes the app stop answering.",
         "**Days 20–21:** Update the README with your results and an architecture diagram. Add a short list of what a real team deployment would still need. **Stop here on Day 21** when the README has your results and the architecture diagram."
        ],
-       "split": true
+       "split": true,
+       "why": "Pass the attack test and a fresh quality check, then add cost limits and an off switch.",
+       "keep": "These results go in your README."
       },
       {
        "day": "Days 22–23 · about 3 hours",
@@ -2770,7 +3019,9 @@ window.COURSE = {
         "Return a clear validation error for malformed input, and a safe timeout or “unavailable” response when a dependency fails. Keep stack traces and keys out of responses.",
         "Checkpoint: a command-line HTTP client gets a valid answer and predictable errors. In the next step you replace the fixed account with token verification, before you use any real data.",
         "Spend 15 minutes on FastAPI’s [concurrency guide](https://fastapi.tiangolo.com/async/). If your SDK or database calls block, start with a normal `def` endpoint. Don't call blocking code directly inside `async def`. Put timeouts on the dependency calls themselves."
-       ]
+       ],
+       "why": "Wrap the answer function in a small read-only API, the same shape as the capstone's service.",
+       "keep": "The capstone service reuses this API."
       },
       {
        "day": "Days 24–25 · about 3 hours",
@@ -2781,7 +3032,9 @@ window.COURSE = {
         "Use [TestClient](https://fastapi.tiangolo.com/tutorial/testing/) to check valid, missing, revoked and wrong-user requests, malformed input, a provider timeout and group isolation. Keep authentication real in these tests and fake only the model provider. Reuse the database checks.",
         "Send a request that asks the HTTP service to save a note. Verify that no write tool runs and the database is unchanged.",
         "This API lab stays local. A public deployment needs TLS and a proper token lifecycle. Don't copy test credentials into it."
-       ]
+       ],
+       "why": "Protect the API with real token checks, and test them.",
+       "keep": "The capstone service reuses these checks."
       },
       {
        "day": "Days 26–27 · about 3 hours",
@@ -2789,7 +3042,9 @@ window.COURSE = {
         "**Test-out:** if you can write a pinned, non-root Dockerfile with a `.dockerignore` from memory in 30 minutes, do that and skip the guide walkthrough. The checkpoint below still applies.",
         "Follow the [FastAPI container guide](https://fastapi.tiangolo.com/deployment/docker/) to package the service. Pin dependencies, run as a non-root user, and use a `.dockerignore` and environment secrets. Bind the published port to localhost for this lab. Build from a fresh checkout, run without your editor, and call `/health` and `/answer`. Keep API tests and an image-build check in CI. No extra paid hosting is needed.",
         "Checkpoint: one documented command starts the container, and the protected HTTP checks pass. Write down the remaining deployment work: TLS, credential rotation, backups, and a shared quota if you add replicas. Streamlit stays your private online demo."
-       ]
+       ],
+       "why": "Package the API in a container that builds the same way every time.",
+       "skip": "you can write a pinned, non-root Dockerfile from memory. Do the Test-out step instead."
       },
       {
        "day": "Days 28–29 · about 3 hours",
@@ -2800,7 +3055,9 @@ window.COURSE = {
         "Use Python’s [threading events/barriers](https://docs.python.org/3/library/threading.html) (or the async equivalent) to hold the fake calls in place. A fixed sleep is not a reliable test barrier.",
         "Run two simultaneous agent writes with the SAME approved operation ID. Check the database: exactly one note, matching arguments, and no cross-user state. This exercises the existing write tool separately; the new HTTP endpoint stays read-only.",
         "**Stop here on Day 29** when both failure drills, the 429 test and the duplicate-write check pass."
-       ]
+       ],
+       "why": "Prove the app fails safely when the model or database fails, or traffic spikes.",
+       "keep": "Interviewers ask about exactly this."
       },
       {
        "day": "Days 30–31 · about 3 hours",
@@ -2810,7 +3067,9 @@ window.COURSE = {
         "Trace one failure, operate the off switch and follow your rollback runbook. Write a 5-line incident note: symptom, cause, fix, regression check and remaining limitation.",
         "Optional: add progress events or streamed draft text. Measure the time to first visible feedback separately from the time to a validated final answer. Never treat partial JSON or streamed text as approval to write.",
         "**Stop here on Day 31** when the timings and the incident note are committed."
-       ]
+       ],
+       "why": "Measure speed under light load, and practise handling an incident.",
+       "keep": "The incident note is project evidence."
       }
      ],
      "done": [
@@ -2920,7 +3179,9 @@ window.COURSE = {
        "steps": [
         "Add statuses to every entry: `draft → checked → needs-human → approved → expired`. Write a small script that prints the queue: counts per status, entries past `review_by`, and entries whose source changed since approval.",
         "Reuse your [Fresh Data](#fresh-data) manifest idea: hash each saved source document so a changed rule automatically moves its entries back to `needs-human`."
-       ]
+       ],
+       "why": "Give every entry a status and a queue, so nothing unchecked reaches students.",
+       "keep": "The assistant only serves approved entries."
       },
       {
        "day": "Day 2 · about 90 min",
@@ -2928,14 +3189,18 @@ window.COURSE = {
         "Write five automatic checks: (1) every claim cites quoted source text; (2) the judge says the quote supports the claim; (3) no conflict with another approved entry; (4) no personal data about individuals (student names, IDs, phone numbers); (5) `review_by` is in the future.",
         "Contacts from your official office directory are allowed. Record staff confirmations by office or role plus date, never by a person's name.",
         "Every checked entry goes to `needs-human` before publication, including low-risk topics. Keep a sensitive-topic flag for fees, scholarships, discipline and health. Each check returns a reason, not just pass or fail. Only a curator action can set `approved`."
-       ]
+       ],
+       "why": "Write the automatic checks that catch bad entries before a human looks.",
+       "keep": "Every entry goes through these checks."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Grade 60 entries yourself: correct and supported, or not. Include 15 you deliberately broke (wrong number, outdated semester, unsupported claim). Run the judge on the same 60 and build the confusion matrix. Compute Cohen's kappa too ([scikit-learn's cohen_kappa_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html)).",
         "Read every disagreement and fix the rubric, not the labels. Rerun once. These 60 are now tuning data, so their scores are optimistic."
-       ]
+       ],
+       "why": "Measure your judge against your own grades, and tune its rubric.",
+       "keep": "You can't trust the checks without this."
       },
       {
        "day": "Days 4–5 · about 3 hours",
@@ -2947,13 +3212,17 @@ window.COURSE = {
         "Remember that 0 false accepts out of 20 bad cases does not prove safety. By the rule of three, the true rate could still be about 15%.",
         "Any later proposal to allow auto-approval would need all of these: an error tolerance approved separately, enough real and challenge cases to measure the uncertainty, an audit owner and schedule, and a rule to suspend it after one confirmed false acceptance or source change. Sensitive topics stay human-only. No kappa score or small zero-error sample can enable publication by itself.",
         "Approve every pilot entry by hand through the queue, with the curator, source revision, timestamp and reason in its changelog. Test that the judge cannot publish, that low-risk entries also wait, and that changing a source removes approval."
-       ]
+       ],
+       "why": "Test the judge on fresh entries, and write down why it can't publish on its own.",
+       "keep": "The pilot needs this approval policy."
       },
       {
        "day": "Day 6 · about 90 min",
        "steps": [
         "Without AI-written code, add one new check (for example: an answer that mentions a date must cite the academic calendar). Test it on a passing and a failing entry, and explain it in your log."
-       ]
+       ],
+       "why": "Add one check yourself, without AI, to prove you understand the system.",
+       "keep": "It's short, and it's this lesson's skill check."
       }
      ],
      "recall": [
@@ -3004,13 +3273,17 @@ window.COURSE = {
         "Write a leak check: it fails if any held-back question appears in your indexed text. Compare after lowercasing, collapsing spaces and normalising to Unicode NFC. Run it without printing the questions.",
         "Also check that related phrasings stay in one split. This catches copied text, but it can't catch tuning after you've seen test results. Keep the release set out of routine evaluations, and record any exposure in `EVAL-SETS.md`.",
         "Index approved entries with your Ask MDN search code. Run `development.jsonl` and report Hit Rate@5 and MRR@5 for each language slice. Reuse these development cases for the comparisons below."
-       ]
+       ],
+       "why": "Guard the final test against leaks, then get search scores for each language.",
+       "keep": "The rest of the lesson compares against these scores."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "Swap in a multilingual embedder and rerun. Then try adding Bangla and Banglish paraphrases to each entry's text. Record both results per slice."
-       ]
+       ],
+       "why": "Try a multilingual embedder and Bangla paraphrases to lift the weak languages.",
+       "keep": "You choose the final setup from these results."
       },
       {
        "day": "Day 3 · about 90 min",
@@ -3019,20 +3292,26 @@ window.COURSE = {
         "Run vector search on the raw question and on both rewrites. Run keyword search on the raw and English versions. Fuse everything with RRF (as in [Hybrid Search](#hybrid-search)).",
         "Don't stem or “fix” Banglish spelling. For Bengali text, Unicode normalisation is enough.",
         "Check 10 rewrites by hand for changed meaning, and measure the extra time and cost per question."
-       ]
+       ],
+       "why": "Try rewriting the question into English and Bangla before searching.",
+       "keep": "You choose the final setup from these results."
       },
       {
        "day": "Day 4 · about 90 min",
        "steps": [
         "Pick the configuration using development results, then check known failures in `regression.jsonl`. Put the decision, per-language counts, set versions and cost in your README, labelled development evidence. Do not open `held_back.jsonl` here. It is for the final check of your finished candidate.",
         "Make the answer prompt reply in the student's language, and test 5 mixed-language questions by hand."
-       ]
+       ],
+       "why": "Pick the best setup with numbers, and make answers come back in the student's language.",
+       "keep": "The assistant ships with this choice."
       },
       {
        "day": "Day 5 · about 90 min",
        "steps": [
         "Without AI-written code, write the function that merges and deduplicates results from the two rewrites. Test it with an empty list, duplicates and a missing language."
-       ]
+       ],
+       "why": "Write the merge function yourself, without AI.",
+       "keep": "It's short, and it's this lesson's skill check."
       }
      ],
      "recall": [
@@ -3075,14 +3354,18 @@ window.COURSE = {
        "steps": [
         "Store your office directory as data: office, topics it owns, official contact channel and hours. The assistant may only route to entries in this file.",
         "Write the answer card: short answer; who it applies to (program, curriculum version, semester); evidence with tier labels; what's still needed; one next step; the date it was last verified."
-       ]
+       ],
+       "why": "Decide where the assistant can send students, and what every answer card shows.",
+       "keep": "Routing only works with this directory."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "Add an evidence check before answering: do the retrieved entries cover this question for this student? If an entry has `conditions` the student hasn't given, ask one question instead (for example “How many credits are you taking this semester?”).",
         "Keep that pending question on the server: store the conversation's open condition, so when the student replies “15”, the next turn knows it answers the credit question. Never trust a transcript sent back by the client."
-       ]
+       ],
+       "why": "Make the assistant ask one question when the answer depends on a detail.",
+       "keep": "Many campus rules depend on credit load or intake year."
       },
       {
        "day": "Days 3–4 · about 3 hours",
@@ -3091,7 +3374,9 @@ window.COURSE = {
         "In the search-failure cases, the assistant must say it couldn't check. It must never answer from memory.",
         "Add two conflict cases. First, a version question: a program overview gives one credit total, but the program page lists two curricula with different totals. The right move is to ask the student's intake year, then answer for that curriculum.",
         "Second, a true conflict: two undated official pages give different numbers for the same rule. The right move is to show both, route to the owning office and file a curation item. Never pick one silently, and never trust the newer-looking page."
-       ]
+       ],
+       "why": "Build the hard questions that tempt an assistant to invent rules.",
+       "keep": "These are the assistant's main safety tests."
       },
       {
        "day": "Days 5–6 · about 3 hours",
@@ -3103,20 +3388,26 @@ window.COURSE = {
         "Test the card with a fake clock at 10:00 and at 23:00.",
         "Report misses and false alarms as counts with their denominators. By the rule of three, 0 misses out of 30 still allows a true miss rate of up to about 10%. That is encouraging, not proof.",
         "**Stop here on Day 6** when both clock tests pass and the counts are in your log."
-       ]
+       ],
+       "why": "Build the crisis route and the help card, and test them on your crisis set.",
+       "keep": "No pilot starts without this."
       },
       {
        "day": "Day 7 · about 90 min",
        "steps": [
         "Run the hard set plus the answerable questions in `development.jsonl` and `regression.jsonl`. Record correct answers, clarifications, partial answers, routes and declines, plus false answers and unnecessary refusals. Report counts per language (“36 of 40”) with set versions.",
         "Fix the worst failure, add it to regression, and rerun. Keep `held_back.jsonl` sealed for the final release check. If a held-back failure has already guided a fix, it is now regression data and needs a fresh replacement."
-       ]
+       ],
+       "why": "Run everything, fix the worst failure, and record results per language.",
+       "keep": "These counts show whether the assistant is ready."
       },
       {
        "day": "Day 8 · about 90 min",
        "steps": [
         "Ask 3 friends or juniors to try to make it invent a rule, using made-up or allowed questions. Keep redacted copies of their attempts, and turn the ones that worked into regression tests. Don't give them the reserved release cases, and don't use their wording to tune prompts."
-       ]
+       ],
+       "why": "Let friends try to break it, and turn what works into tests.",
+       "keep": "Other people find failures you can't."
       }
      ],
      "recall": [
@@ -3172,33 +3463,43 @@ window.COURSE = {
         "Cite the document, its version and the cohorts it applies to. Add later years only after the tests pass.",
         "Keep the catalog separate from a term's offerings. If you have no official offering list, offerings are unknown, not “not offered”.",
         "No university curriculum to work from? Use any publicly posted degree plan with prerequisites, or your community's own published rules (for example, a club's requirements for joining a team). The eligible, blocked and unknown tools and the 30 test profiles work the same."
-       ]
+       ],
+       "why": "Turn one program's curriculum into data that code can check.",
+       "keep": "This lesson's tools run on this file."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
         "Without AI-written code, write `check_eligibility(profile, course)` returning `eligible`, `blocked` or `unknown` with a machine-readable reason (“needs CSE 201”, “curriculum version not given”), and `options(profile)` that lists eligible courses."
-       ]
+       ],
+       "why": "Write the eligibility check yourself, in plain code.",
+       "keep": "The model only explains what this code decides."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Write 30 made-up student profiles with expected results you've checked by hand: AND/OR prerequisites, failed and repeated courses, minimum grades, labs, equivalents, the wrong curriculum version, and missing offerings. Every one must pass."
-       ]
+       ],
+       "why": "Write 30 test students that prove the rules work.",
+       "keep": "These tests are how you trust the helper."
       },
       {
        "day": "Day 4 · about 90 min",
        "steps": [
         "Expose both as read-only tools to your assistant. It may suggest only courses the tools return. It must show the reason, ask for the curriculum version when it's missing, and say that offerings and seats change each semester.",
         "Keep these tools out of the student pilot: every pilot answer must trace to an approved knowledge-base entry. They can join a later pilot once their curriculum pack is approved the same way."
-       ]
+       ],
+       "why": "Let the model call your tools and explain the result, without making up courses.",
+       "keep": "This is the helper students would use."
       },
       {
        "day": "Days 5–6 · about 3 hours",
        "steps": [
         "Run the assistant on 10 profiles in conversation, including impossible requests (a course that doesn't exist, “guarantee me an A”). Count suggestions from outside the tools: the target is zero. If no plan fits, it should name the conflicting rules, never quietly drop a prerequisite.",
         "Ask a department member or a senior in that program to review `curriculum.json`. Until someone has, label the helper a preview."
-       ]
+       ],
+       "why": "Test it in real conversations, and get someone from the department to check the data.",
+       "keep": "The helper stays a preview until a person checks it."
       }
      ],
      "recall": [
@@ -3240,7 +3541,9 @@ window.COURSE = {
        "steps": [
         "Local models are optional here. If you have a local model running, add it as a third contender. Otherwise say in your results that you skipped it.",
         "Compare two hosted models (and your local one, if you have it) on the same development and regression sets, with the same prompt and retrieval setup. Record quality per language, “I don't know” results, median and slow (p95) latency, and tokens per question. Keep `held_back.jsonl` sealed."
-       ]
+       ],
+       "why": "Compare models on your own eval, not on public benchmarks.",
+       "keep": "The capstone ships with the model you pick here."
       },
       {
        "day": "Day 2 · about 90 min",
@@ -3248,21 +3551,27 @@ window.COURSE = {
         "Read each provider's current pricing page, data-use terms and age terms. Free tiers may use your prompts to improve their products. Providers also treat users under 18 differently: some forbid them, others allow them with safeguards or a parent's consent. Some freshers are 17. Read the terms for your exact use (the API, not the consumer app), and record what they require.",
         "Use your expected language mix and the token ratios from [How LLMs Work](#how-llms-work) Day 2. Check them against the tokens per question you recorded on Day 1.",
         "Compute the cost per 1,000 questions, and per month at 2,000, 20,000 and 100,000 questions, including reasoning tokens. Show the arithmetic."
-       ]
+       ],
+       "why": "Work out the monthly cost, and check each provider's rules for users under 18.",
+       "keep": "Some freshers are 17."
       },
       {
        "day": "Day 3 · about 90 min",
        "steps": [
         "Write `MODEL-DECISION.md`: the serving candidate you chose on development data, a proposed fallback, and where local models help (labelling, offline tests, private experiments). Record the provider's age and retention terms, and when to repeat the comparison.",
         "Freeze the chosen model, prompt and retrieval versions for the release check later. A changed model or fallback needs its own release evidence before you use it. Don't pick a winner by repeatedly testing the final held-back set."
-       ]
+       ],
+       "why": "Write down the model decision and freeze it for the release check.",
+       "keep": "The release check tests exactly this setup."
       },
       {
        "day": "Day 4 · about 90 min",
        "steps": [
         "Add guards: a monthly budget alert, a per-user daily question limit and a global off switch. Test that the limit returns a friendly message, not an error.",
         "Don't cache answers yet. Write down the cache key you would need later: university, knowledge-base version, entry IDs and their approval versions, normalised question and answer language. Note why answers that depended on a student's own details must never be cached, and how an entry changing status would clear the cache."
-       ]
+       ],
+       "why": "Add budget alerts, per-user limits and an off switch.",
+       "keep": "These stop one bad day from costing real money."
       },
       {
        "day": "Day 5 · about 90 min",
@@ -3273,7 +3582,9 @@ window.COURSE = {
         "Run your development set at low and medium reasoning effort. Record quality, slow (p95) latency and cost per 1,000 questions. Reasoning tokens are billed as output.",
         "Add to `MODEL-DECISION.md` when you'd use a stronger model: only when good evidence was retrieved and the model still failed to use it. A stronger model can't fix a missing source.",
         "Stop here when both comparisons and the rule are in your decision file."
-       ]
+       ],
+       "why": "Learn when prompt caching and extra reasoning are worth paying for.",
+       "skip": "you've measured prompt caching and reasoning effort with your provider. Still add the stronger-model rule to `MODEL-DECISION.md`."
       }
      ],
      "recall": [
@@ -3317,7 +3628,9 @@ window.COURSE = {
         "Write two contracts. First, the public contract. The client sends `{question, idempotencyKey, conversationId?, preferredLanguage?, programHint?, curriculumHint?}`. Reject extra identity fields, and never forward client identity headers.",
         "Second, the internal contract. After verifying the student, the gateway creates an internal envelope `{context: {uid, tenantId, requestId, operation}, input: {...}}`. Its context comes only from server authority, and is bound to a gateway-created request record with those fields and a hash of the allowed input. Conversations and results are server-owned. Fetches and retries recheck user and tenant ownership.",
         "Start `PILOT-AUTHORIZATION.md` now, and send your approval requests. Ask the registrar or student-affairs office for written permission for the scope of a small pilot, and ask the platform owner to authorize it. If you haven't yet, send the crisis card to the counselling centre for written approval. Approvals take calendar time. **Stop here** when the policy, the design note and both contracts are committed and the requests are sent."
-       ]
+       ],
+       "why": "Plan the live service: privacy rules, a design note, request contracts and approval requests.",
+       "keep": "Approvals take weeks, so they start here."
       },
       {
        "day": "Days 4–6 · about 4.5 hours",
@@ -3327,7 +3640,9 @@ window.COURSE = {
         "Only after authenticating the gateway may Python accept the internal envelope. Validate its schema, and match its context and input hash to the gateway-created request record. Load conversations and citations only within that verified user and tenant scope. The public contract still rejects identity fields. The internal contract deliberately carries them.",
         "Write tests for both doors. Direct or wrong-service calls must fail. Public `uid`, `tenantId` or `tenant_id` fields and forged identity headers must not be able to choose a user or university. Missing context, context or input that differs from the request record, and another user's conversation or result must all fail before retrieval.",
         "Prove that two universities work through the same gateway service account, and that a second student in the same university cannot read the first student's private chat. **Stop here** when direct and forged-identity calls fail in your tests."
-       ]
+       ],
+       "why": "Deploy the answer service so only your gateway can call it.",
+       "keep": "This keeps students from calling the service directly."
       },
       {
        "day": "Days 7–9 · about 4.5 hours",
@@ -3336,7 +3651,9 @@ window.COURSE = {
         "Test missing claims, a missing bootstrap or profile, conflicting records, stale sessions and suspended membership with emulators. Every failure stops before the model call.",
         "Write the gateway on a currently supported runtime and function generation. Check your provider's runtime-support table: a runtime retired before your pilot would block every fix.",
         "**Stop here** when every failure case in your emulator tests stops before the model call."
-       ]
+       ],
+       "why": "Build the gateway that checks who is asking and which university they belong to.",
+       "keep": "This is the lock between universities' data."
       },
       {
        "day": "Days 10–12 · about 4.5 hours",
@@ -3346,7 +3663,9 @@ window.COURSE = {
         "The same key and input returns the stored answer with no second model call or charge. A changed input with that key is rejected.",
         "Test result fetches and retries after suspension, and requests from another student, including one in the same university. Neither a request ID nor a conversation ID grants access.",
         "**Stop here** when two simultaneous requests with one key produce one model call and one charge."
-       ]
+       ],
+       "why": "Add limits, budgets and safe retries, so one request means one charge.",
+       "keep": "Double charges and runaway costs start here if you skip it."
       },
       {
        "day": "Days 13–15 · about 4.5 hours",
@@ -3354,14 +3673,18 @@ window.COURSE = {
         "Build the chat page with the answer card: answer, who it applies to, evidence links, what's still needed, next step, last-verified date, and thumbs up/down with an optional comment. Start with a full answer per request. Add streaming later only if the wait feels long and both clients support it.",
         "Add an always-visible “Need help now?” link that opens the static crisis card without calling the gateway. It must still work when a student is over the limit, the feature is switched off or the service fails.",
         "Feedback becomes a redacted curation item, never an automatic change to an answer. Run your eval suite in CI against the service with a fake model, and nightly with the real one. **Stop here** when a thumbs-down in the chat page creates a redacted curation item."
-       ]
+       ],
+       "why": "Build the chat page with the answer card, feedback and the always-on help link.",
+       "keep": "This is what students will see."
       },
       {
        "day": "Days 16–18 · about 4.5 hours",
        "steps": [
         "Ship behind a feature flag to curators only. Use it yourself for a week of normal questions, while you work on the next lesson. Record latency, cost per answer and refusals. Fix the top issue.",
         "No platform of your own? Build the gateway as a small FastAPI app with two demo groups instead of universities, and a simple web chat page. The identity, limit, budget and retry tests are the same. **Stop here** when a week of your own questions is logged and the top issue is fixed."
-       ]
+       ],
+       "why": "Use it yourself for a week behind a feature flag, and fix the top issue.",
+       "keep": "You'll find problems your tests missed."
       }
      ],
      "recall": [
@@ -3403,7 +3726,9 @@ window.COURSE = {
         "Add the chat screen where your app's navigation rules allow it.",
         "Reuse the service, the citation format, the feedback buttons and the “Need help now?” link from the web.",
         "**Stop here on Day 2** when you can ask one question on a phone and get a cited answer."
-       ]
+       ],
+       "why": "Put the assistant in your app, reusing everything from the web.",
+       "keep": "Most students will use the phone version."
       },
       {
        "day": "Days 3–4 · about 3 hours",
@@ -3414,7 +3739,9 @@ window.COURSE = {
         "Acceptance test: force-close the app in the middle of a request and reopen it at once, while the first request may still be running. Confirm the student sees a waiting state, then the answer, with exactly one completed request record, one model call and one charge.",
         "Measure the slow path: the first request after the service and database have been idle. Record the p95 time and what the student sees while waiting.",
         "**Stop here on Day 4** when the acceptance test passes."
-       ]
+       ],
+       "why": "Handle phone problems: apps closed mid-answer, slow networks, and retries without double charges.",
+       "keep": "These are the bugs real phones cause."
       },
       {
        "day": "Days 5–6 · about 3 hours",
@@ -3422,7 +3749,9 @@ window.COURSE = {
         "Test on a real Android phone (and an iPhone if you can) on slow mobile data. Fix what breaks: the keyboard covering the input, long Bangla text wrapping, links opening outside the app.",
         "No native app? Make the web chat page work well on a phone instead, and test it on a real phone on mobile data.",
         "**Stop here on Day 6** when you have tested on a real phone and fixed the worst problems."
-       ]
+       ],
+       "why": "Test on a real phone on mobile data, and fix what breaks.",
+       "keep": "Emulators hide these problems."
       }
      ],
      "recall": [
@@ -3467,7 +3796,9 @@ window.COURSE = {
         "**Days 5–6:** Choose the route before you start. If all required permissions and gates have passed, invite 20–30 consenting students from different departments who meet the provider's terms.",
         "Otherwise keep the service in an isolated development environment, use made-up users and made-up or otherwise allowed data, and call it a rehearsal. Willing friends may try scripted made-up cases, with notice and consent. Don't use real student records or imply university permission."
        ],
-       "split": true
+       "split": true,
+       "why": "Run the final checks, then choose between an approved pilot and a rehearsal.",
+       "keep": "This decides whether real students can use it."
       },
       {
        "day": "Days 7–12 · about 9 hours",
@@ -3475,7 +3806,9 @@ window.COURSE = {
         "**Days 7–12, one session a Day while the pilot runs:** Run the approved pilot or the isolated rehearsal for two weeks. Each day, review redacted feedback and new questions. Approve every published fix by hand and version it, and add failures to regression. A change prompted by release-check failures needs a fresh release sample before that topic or setting is switched back on.",
         "Each Day, regrade a random sample of answers. Track correct answers, appropriate clarifications, routes and declines, and errors. For a rehearsal, state that questions and users were made up or scripted. Don't count them as evidence of real student adoption."
        ],
-       "split": true
+       "split": true,
+       "why": "Run the pilot for two weeks and grade answers every day.",
+       "keep": "This is the evidence the whole path builds toward."
       },
       {
        "day": "Days 13–18 · about 9 hours",
@@ -3488,7 +3821,9 @@ window.COURSE = {
         "Add an iOS build, sign-in and background test before you claim iOS works. Attestation adds a layer. It doesn't replace sign-in, limits or idempotency.",
         "**Stop here on Day 18** when `PILOT-REPORT.md` and the decision are committed."
        ],
-       "split": true
+       "split": true,
+       "why": "Write the report and decide the next step from evidence.",
+       "keep": "The report is what you show the university and employers."
       }
      ],
      "done": [
@@ -3563,7 +3898,9 @@ window.COURSE = {
         "Add a portfolio evidence table: requirement → code → test → result → limitation. Ask someone to review one requirement, or record a ten-minute walkthrough yourself.",
         "Keep your weekly application routine. Start applying to applied AI and backend roles, and use interview feedback to choose your next repair task.",
         "Choose deeper study only for a specific goal: [ML Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp) for broader ML modelling, [LLMs from Scratch](https://github.com/rasbt/LLMs-from-scratch) for model internals, or serving and infrastructure work for an AI platform role. This path covers applied LLM applications. It does not claim mastery of every AI specialty, or protection from automation."
-       ]
+       ],
+       "why": "Check your skills on a problem you haven't seen, then pick what to practise next.",
+       "keep": "This is how you find out what you really learned."
       }
      ],
      "recall": [
@@ -3628,7 +3965,9 @@ window.COURSE = {
         "Install [Ollama](https://github.com/ollama/ollama) or llama.cpp. Run a small and a medium model; record memory use, how long the first word takes on a long prompt, and tokens per second on your machine.",
         "Run your Bangla and Banglish eval slice with both, at two quantization levels. Compare with the hosted model you chose in [Choose Models and a Budget](#choose-models-and-budget).",
         "Put the best local model behind your assistant's model interface and use it for offline tests and labelling drafts. Write when local serving would make sense for real users, and what it would cost."
-       ]
+       ],
+       "why": "Find out what running models on your own machine really costs.",
+       "skip": "you've run models with Ollama and measured them on your own eval."
       }
      ],
      "recall": [
@@ -3663,7 +4002,9 @@ window.COURSE = {
         "Split by original question, so each question and all its paraphrases sit on one side. Every intent still appears in training. The test set uses only real, human-written questions.",
         "Fine-tune a small open model with LoRA in a free notebook GPU, following the [PEFT documentation](https://huggingface.co/docs/peft/index). Record time, cost and settings.",
         "Compare with your rewrite prompt on the test set: accuracy, latency, cost. Write whether you'd ship it, and what would change your mind."
-       ]
+       ],
+       "why": "Learn when fine-tuning beats prompting, with a fair test.",
+       "skip": "you've fine-tuned with LoRA and compared it against a prompt baseline."
       }
      ],
      "recall": [
@@ -3698,7 +4039,9 @@ window.COURSE = {
         "Build a server with one read-only tool that returns approved entries with citations. No write tools.",
         "Use the HTTP transport with token verification, so the server maps each caller's token to one university. A local stdio server has only one user, so a tenant test on it proves nothing.",
         "Connect it to an MCP client and test three things: only approved entries come back, only the caller's university, and prompt-injection text in an entry is returned as data, not followed."
-       ]
+       ],
+       "why": "Share your knowledge base with other AI tools without widening access.",
+       "skip": "you've built an MCP server with token checks before."
       }
      ],
      "recall": [
@@ -3732,7 +4075,9 @@ window.COURSE = {
         "Collect 20 official notices that exist only as images or scans. Extract text with a vision model or OCR; compare with a hand-typed version and count errors that change meaning (dates, amounts).",
         "Record 20 short spoken questions (with permission). Transcribe them with an open speech model such as [Whisper](https://github.com/openai/whisper); measure word errors and check whether search still finds the right entry.",
         "Write a decision: ship, ship with human review, or not yet."
-       ]
+       ],
+       "why": "Add image and voice input, and measure their errors honestly.",
+       "skip": "you've measured OCR and speech-to-text errors on your own data."
       }
      ],
      "recall": [
@@ -3768,7 +4113,9 @@ window.COURSE = {
         "Retrain your tiny GPT from [Under the Hood](#under-the-hood-tiny-gpt) on the same Bangla text twice: once with your tokenizer and once character by character.",
         "Compare loss per character on the same validation text (the sum of per-token losses divided by the number of characters), not the raw per-token loss. Compare samples too.",
         "Optional, for model-building roles: makemore lectures 2–5 from [Zero to Hero](https://karpathy.ai/zero-to-hero.html), then [Let's reproduce GPT-2 (124M)](https://www.youtube.com/watch?v=l8pRSuU81PU) on a rented GPU."
-       ]
+       ],
+       "why": "See how tokenization shapes cost for Bangla, and go deeper into building models.",
+       "skip": "you've built a BPE tokenizer and trained a GPT from scratch."
       }
      ],
      "recall": [

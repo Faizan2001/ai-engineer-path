@@ -36,25 +36,45 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ### Day 1 · about 90 min
 
+> **Why:** Get the model to fill a typed form instead of writing prose.
+>
+> **Don't skip:** Poster Reader is built on this `Event` model.
+
 1. Read OpenAI's [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). Focus on Pydantic models, strict schemas and the `refusal` field.
 2. Write a script that turns a sentence like “Hackathon, Friday 3pm, Room 402” into an `Event` Pydantic model. Give `Event` a title, date, start time, end time and venue. Make the fields that can be missing optional. Before each run, write down what you expect back, then compare.
 
 ### Day 2 · about 90 min
+
+> **Why:** Read an image with a model, and know what each call costs.
+>
+> **Don't skip:** Poster Reader reads images and reports the cost per poster.
 
 3. Read the [images and vision guide](https://developers.openai.com/api/docs/guides/images-vision). Send one poster image (a photo or a screenshot of any event poster) and get your `Event` back.
 4. Work out the cost of that call. Read the token counts in the response's `usage` field and multiply them by the prices on the [pricing page](https://developers.openai.com/api/docs/pricing). Print the cost after every call.
 
 ### Day 3 · about 90 min
 
+> **Why:** Make calls fail safely: timeouts, the right retries, and refusals that end in “needs a human”.
+>
+> **Skip if** you've built retries with backoff and `Retry-After` before. Still add the refusal handling.
+
 5. Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a request timeout and at most 2 retries, only for rate-limit and server errors. If the response has a `Retry-After` time, wait that long. Otherwise wait a little longer each time, with some randomness. Also set an overall deadline. Never retry bad credentials, or a bad request without changing it.
 6. Handle refusals: log them and return “needs a human” instead of crashing. Using Gemini? It has no documented `refusal` field, so make a fake refusal in your test.
 
 ### Day 4 · about 90 min
 
+> **Why:** Test with pytest and put a form on screen with Streamlit. Every project uses both.
+>
+> **Skip if** you already use pytest and have built a Streamlit form.
+
 7. Follow pytest's [getting started guide](https://docs.pytest.org/en/stable/getting-started.html), then write 3 tests for your code: one with good input, one with a missing field and one with a refusal.
 8. Follow Streamlit's [get started](https://docs.streamlit.io/get-started) page, then show your `Event` in a small [form](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form) with a Save button.
 
 ### Day 5 · about 90 min
+
+> **Why:** Improve a prompt by changing one thing and measuring, not by feel.
+>
+> **Don't skip:** This one-change method is how you tune every project.
 
 9. Spend 15 minutes on Anthropic's [Providing examples](https://academy.claude.com/courses/building-with-the-claude-api/providing-examples). Few-shot prompting means showing the model a few examples of input and output. Read the explanation or watch the video, and do the exercise with your own provider.
 10. Make 6 practice inputs, including one with an ambiguous date and one with a missing venue. Save your current prompt as v1. Make v2 by changing one thing only: clearer instructions, or two examples.

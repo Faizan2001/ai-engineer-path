@@ -26,6 +26,10 @@ By the end of this lesson, you should be able to:
 
 ## Assignment
 
+> **Why:** Start applying now, with a resume, three stories and a weekly routine.
+>
+> **Don't skip:** Job hunting takes months, so it starts halfway through the path.
+
 1. Read the interview and take-home sections of the [AI Engineering Field Guide](https://github.com/alexeygrigorev/ai-engineering-field-guide). Try one take-home task with a time limit.
 2. Add Poster Reader and Ask MDN to your resume ([resume guide](https://www.techinterviewhandbook.org/resume/)). Link the public repos and lead with the numbers from your READMEs.
 3. Prepare three short stories from your log: a hard bug, a design choice and a mistake you fixed ([behavioral interview guide](https://www.techinterviewhandbook.org/behavioral-interview/)).

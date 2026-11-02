@@ -38,10 +38,18 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 ### Day 1 · about 90 min
 
+> **Why:** Extend ingestion to handle edited and deleted pages.
+>
+> **Don't skip:** Deleted rules must stop being quoted.
+
 1. Sketch your ingestion process from memory, then compare it with [Data Ingestion](15-data-ingestion.md).
 2. Extend it: compare the old and new manifests, re-index edited pages, add new pages, and delete removed pages and their chunks. Publish a new `corpus_version` only after the sync succeeds.
 
 ### Day 2 · about 90 min
+
+> **Why:** Decide what happens to an open conversation when the docs change.
+>
+> **Don't skip:** Without it, old answers leak into new ones.
 
 3. Make a test copy of your data: delete 3 pages and edit 2, then sync.
 4. Store the corpus version with each conversation. Pick a simple policy: if the version changes, expire that conversation's pending approvals and start a fresh, server-owned agent thread before the next answer. Don't copy old retrieved chunks or assistant answers into the new prompt, and tell the user that the sources changed.
@@ -49,11 +57,19 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 ### Day 3 · about 90 min
 
+> **Why:** Prove deleted pages never come back in answers or citations.
+>
+> **Don't skip:** The project checks exactly this.
+
 6. Ask about the deleted pages in a new chat and in a chat started before the sync. Look at the actual model input: no removed chunks or old answers should be in it.
 7. Check every returned citation against the current, allowed source records, and reject stale IDs. Test an edit as well as a deletion, and prove that an old pending approval can't resume.
 8. This stops old content from reaching new answers. It doesn't erase a transcript someone has already read or copied.
 
 ### Day 4 · about 90 min
+
+> **Why:** Finish the tests, and write down what this simple policy costs you.
+>
+> **Don't skip:** These tests are project evidence.
 
 9. Finish the edit, deletion and stale-approval tests. Write down one weakness of this cautious reset policy, for example losing the conversation's context when unrelated pages change.
 

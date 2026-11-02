@@ -28,17 +28,29 @@ Finish the app first. Then give its read-only answer function a small API, so an
 
 ### Days 1–6 · about 9 hours
 
+> **Why:** Put the secure Postgres version online, with login and group mapping.
+>
+> **Don't skip:** This is the base of the project.
+
 1. **Days 1–3:** Move the Postgres version online: on Neon, enable pgvector, turn row-level security on and force it, and use your SQL-created app role. Connect your private Streamlit app to it through Secrets.
 2. **Days 4–5:** Add login and server-side group mapping, like in Login.
 3. **Stop here on Day 6:** the online app shows a CSS user only CSS answers.
 
 ### Days 7–12 · about 9 hours
 
+> **Why:** Add the data sync and the automatic tests that guard every change.
+>
+> **Don't skip:** CI and the sync are part of the project's evidence.
+
 4. **Days 7–8:** Sync against your manifest: re-index edits and remove deleted pages.
 5. **Days 9–11:** Run CI on every push: pytest, the isolation tests and the rule-based promptfoo checks, against the Postgres service. Run the model-graded checks on pull requests.
 6. **Stop here on Day 12:** a broken prompt makes CI fail.
 
 ### Days 13–21 · about 13.5 hours
+
+> **Why:** Pass the attack test and a fresh quality check, then add cost limits and an off switch.
+>
+> **Don't skip:** These results go in your README.
 
 7. **Days 13–15:** Run your attack test (30 cases plus 5 canaries), 3 times for each case. Fix what breaks, then run it again.
 8. **Days 16–17:** Freeze this version, then set aside 12 fresh questions: 4 each for CSS and JS, with expected answers and supporting passages, plus 4 believable questions that the user's documents can't answer.
@@ -48,6 +60,10 @@ Finish the app first. Then give its read-only answer function a small API, so an
 12. **Days 20–21:** Update the README with your results and an architecture diagram. Add a short list of what a real team deployment would still need. **Stop here on Day 21** when the README has your results and the architecture diagram.
 
 ### Days 22–23 · about 3 hours
+
+> **Why:** Wrap the answer function in a small read-only API, the same shape as the capstone's service.
+>
+> **Don't skip:** The capstone service reuses this API.
 
 13. **Backend lab, first checkpoint:** read FastAPI’s [request body](https://fastapi.tiangolo.com/tutorial/body/) and [response model](https://fastapi.tiangolo.com/tutorial/response-model/) guides.
 14. Reuse `answer(question, user)` behind a read-only `POST /answer`, and add `GET /health`. Use Pydantic for a question field with a size limit, and for a response with the answer, the source IDs and the request ID. Reject extra identity or group fields.
@@ -59,6 +75,10 @@ Finish the app first. Then give its read-only answer function a small API, so an
 
 ### Days 24–25 · about 3 hours
 
+> **Why:** Protect the API with real token checks, and test them.
+>
+> **Don't skip:** The capstone service reuses these checks.
+
 20. Read FastAPI’s [HTTPBearer reference](https://fastapi.tiangolo.com/reference/security/#fastapi.security.HTTPBearer). It only extracts a token; your code must verify it.
 21. For this local exercise, generate two long random tokens, keep them in environment secrets, and map each to one made-up server-side account. Compare tokens with a constant-time comparison, reject missing or unknown tokens, and test revoking one.
 22. Look up the account’s current group with the SAME authorization code as the UI. Never accept the user or group from JSON. These tokens are not your model provider’s API key.
@@ -68,11 +88,19 @@ Finish the app first. Then give its read-only answer function a small API, so an
 
 ### Days 26–27 · about 3 hours
 
+> **Why:** Package the API in a container that builds the same way every time.
+>
+> **Skip if** you can write a pinned, non-root Dockerfile from memory. Do the Test-out step instead.
+
 26. **Test-out:** if you can write a pinned, non-root Dockerfile with a `.dockerignore` from memory in 30 minutes, do that and skip the guide walkthrough. The checkpoint below still applies.
 27. Follow the [FastAPI container guide](https://fastapi.tiangolo.com/deployment/docker/) to package the service. Pin dependencies, run as a non-root user, and use a `.dockerignore` and environment secrets. Bind the published port to localhost for this lab. Build from a fresh checkout, run without your editor, and call `/health` and `/answer`. Keep API tests and an image-build check in CI. No extra paid hosting is needed.
 28. Checkpoint: one documented command starts the container, and the protected HTTP checks pass. Write down the remaining deployment work: TLS, credential rotation, backups, and a shared quota if you add replicas. Streamlit stays your private online demo.
 
 ### Days 28–29 · about 3 hours
+
+> **Why:** Prove the app fails safely when the model or database fails, or traffic spikes.
+>
+> **Don't skip:** Interviewers ask about exactly this.
 
 29. **Failure drill:** make a fake model provider time out and return retryable rate-limit errors. Separately, make the database fail: inject a connection or query failure, or stop only your throwaway local test database. In each case, require a safe error within your recorded deadline. Never interrupt the online database.
 30. Test overload: run one API worker with at most 2 model requests in flight and no waiting queue. Use a fake provider held at a test barrier.
@@ -82,6 +110,10 @@ Finish the app first. Then give its read-only answer function a small API, so an
 34. **Stop here on Day 29** when both failure drills, the 429 test and the duplicate-write check pass.
 
 ### Days 30–31 · about 3 hours
+
+> **Why:** Measure speed under light load, and practise handling an incident.
+>
+> **Don't skip:** The incident note is project evidence.
 
 35. Send 20 fake-provider requests at concurrency 1 and 5. Record the accepted and rejected counts, the success counts, and the p50 and p95 response times (the typical time, and the slow tail). Twenty requests are a smoke test, not proof of capacity.
 36. Trace one failure, operate the off switch and follow your rollback runbook. Write a 5-line incident note: symptom, cause, fix, regression check and remaining limitation.

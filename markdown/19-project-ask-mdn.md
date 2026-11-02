@@ -25,11 +25,19 @@ This is your Zoomcamp final project, built on MDN. It answers CSS and JavaScript
 
 ### Days 1–6 · about 9 hours
 
+> **Why:** Bring every piece of this section into one app that cites its pages.
+>
+> **Don't skip:** This is your main RAG portfolio project.
+
 1. **Days 1–3:** Bring together everything from this section: ingestion, hybrid search, the prompt, the chat app and logging. One piece a Day, each one running before you add the next.
 2. **Days 4–5:** Make every answer show links to the MDN pages it used.
 3. **Stop here on Day 6:** 5 practice questions get correct, cited answers.
 
 ### Days 7–12 · about 9 hours
+
+> **Why:** Score Ask MDN honestly on questions it never saw, and against the same model without retrieval.
+>
+> **Don't skip:** These numbers are what interviewers ask about.
 
 4. **Days 7–8:** Check the “I don't know” path on your 10 unanswerable questions.
 5. **Days 9–11:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](13-measuring-search.md) on them and report the range next to each metric.
@@ -39,6 +47,10 @@ This is your Zoomcamp final project, built on MDN. It answers CSS and JavaScript
 9. **Stop here on Day 12:** your README has the results table.
 
 ### Days 13–18 · about 9 hours
+
+> **Why:** Ship v1.0, try it on real questions, and write the README people will read.
+>
+> **Don't skip:** The README is your shop window.
 
 10. **Days 13–14:** Put the final version online as a private app (see [Deploy It Safely](18-deploy-it-safely.md)). This is **Ask MDN v1.0**.
 11. **Day 15:** If a friend can help, ask them for 5 CSS or JavaScript questions they really got stuck on this month, and run them on the live app. No one free? Ask in the Zoomcamp Slack, or use 5 old bugs of your own.

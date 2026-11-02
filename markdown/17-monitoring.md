@@ -34,21 +34,41 @@ A request ID connects the steps behind one answer: search, model calls, time, co
 
 ### Day 1 · about 90 min
 
+> **Why:** Turn Ask MDN into a full chat app with the Zoomcamp code.
+>
+> **Don't skip:** This lesson's logging is built on top of it.
+
 1. Module 5: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/01-intro.md), [02 Assistant setup](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/02-assistant-setup.md) and [03 Chat app](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/03-chat-app.md). Heads-up: the download links in 02 are broken. Copy `ingest.py` and `rag_helper.py` from the [05-monitoring/code folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/code) instead.
 
 ### Day 2 · about 90 min
+
+> **Why:** Decide what to measure for each request, and where to store it.
+>
+> **Skip if** you've designed request metrics and a logging table before.
 
 2. [04 Metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/04-metrics.md) and [05 Database](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/05-database.md) (adapt the example to your metadata and retention policy).
 
 ### Day 3 · about 60 min
 
+> **Why:** Add thumbs up or down, so users can tell you which answers failed.
+>
+> **Don't skip:** Ask MDN's feedback comes from this.
+
 3. Skim [06 Querying](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/06-querying.md) and [07 Streamlit dashboard](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/07-streamlit-dashboard.md); you won't build these. Then do [08 User feedback](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/08-user-feedback.md) properly: you'll add the same thumbs up or down to Ask MDN.
 
 ### Day 4 · about 60 min
 
+> **Why:** Learn to generate realistic fake conversations for testing.
+>
+> **Don't skip:** Later evals use this generator.
+
 4. Skim [09 Built-in judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/09-built-in-judge.md) and [10 Feedback dashboard](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/10-feedback-dashboard.md). Then do [11 Synthetic data](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md) properly. Keep the generator: it makes realistic fake conversations.
 
 ### Days 5–7 · about 4.5 hours
+
+> **Why:** Make every answer traceable: one record per request with timings, cost and feedback.
+>
+> **Don't skip:** This is Ask MDN v0.5, and later debugging relies on it.
 
 5. Add to Ask MDN, one piece a Day. Use only public or made-up test conversations.
 6. **Day 5:** give every request one request ID, and use it to join retrieval, model calls and errors. Stop when one question gives you a single record you can read from start to finish.
@@ -56,6 +76,10 @@ A request ID connects the steps behind one answer: search, model calls, time, co
 8. **Day 7:** add the thumbs up or down feedback to the same record. Then inspect one failed run from input to output. This is **Ask MDN v0.5**: a wrong answer now leaves clues.
 
 ### Day 8 · about 90 min
+
+> **Why:** Decide what you log, who can read it and when it's deleted, then test that.
+>
+> **Don't skip:** The capstone's privacy rules start here.
 
 9. Skim the monitoring and privacy topics in [Stanford CS329S](https://stanford-cs329s.github.io/syllabus.html).
 10. Write a one-page data policy: what leaves your app, where logs are kept, who can read them and when they are deleted. Keep conversation text for 7 days. Never log keys, auth headers or real private messages. Keep your approved made-up test data in a separate place.

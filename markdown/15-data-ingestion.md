@@ -45,13 +45,25 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ### Day 1 · about 90 min
 
+> **Why:** Write the script that loads your docs, with a fingerprint for every page.
+>
+> **Don't skip:** Later lessons extend this script.
+
 1. Write Ask MDN's ingestion script. It reads your MDN snapshot, chunks each page, and saves each page's path, title and content hash along with its chunks. A content hash is a fingerprint of the text: if the text changes, the fingerprint changes.
 
 ### Day 2 · about 90 min
 
+> **Why:** Make reloading safe: running the script twice changes nothing.
+>
+> **Don't skip:** Real data changes, and you'll reload it often.
+
 2. Make it safe to run twice: skip pages whose fingerprint hasn't changed. Run it twice; the second run should change nothing.
 
 ### Day 3 · about 90 min
+
+> **Why:** Record exactly what you loaded, and test the script.
+>
+> **Don't skip:** Later syncs compare against this manifest.
 
 3. Save and commit a manifest file: a list of every page path and its hash from this run.
 4. Write 2 pytest tests for the script: running it twice changes nothing, and an edited page is picked up again.
