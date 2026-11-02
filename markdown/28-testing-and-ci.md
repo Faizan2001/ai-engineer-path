@@ -6,7 +6,7 @@
 
 ## Introduction
 
-> **CI reruns every test on every push and never gets bored or polite.**
+> **CI reruns every test on every push. It never gets tired and never skips one.**
 
 CI (continuous integration) means your tests run automatically every time you push code. It catches a bad change before your users see it.
 
@@ -30,7 +30,7 @@ By the end of this lesson, you should be able to:
 
 ## Before you read
 
-**Picture this:** CI is the exam-hall invigilator who checks every admit card, every time, with no favourites. Each push is a candidate, and a prompt tweak that breaks ten old answers is stopped at the door. A test only earns trust after you've watched it fail.
+**Picture this:** CI is like an invigilator who checks every admit card, every time. Each push is a candidate. A prompt change that breaks ten old answers is stopped at the door. And a test only earns your trust after you've watched it fail.
 
 promptfoo runs tests against your app. A YAML file lists the questions and the checks. A small Python adapter takes each question (and the user, from `context['vars']`), calls your `answer()` and returns the answer plus the pages it found.
 
@@ -50,27 +50,32 @@ promptfoo runs tests against your app. A YAML file lists the questions and the c
 
 ### Day 2 · about 90 min
 
-3. Give Ask MDN a plain Python function `answer(question, user)` that your Streamlit app calls. Then point promptfoo at it with a [Python provider](https://www.promptfoo.dev/docs/providers/python/): a small file whose `call_api(prompt, options, context)` calls your `answer()`. Read the user from `context['vars']`, and return the pages it found as well as the answer, because context-faithfulness needs them. Now tests don't need the web page.
+3. Give Ask MDN a plain Python function `answer(question, user)` that your Streamlit app calls. Now your tests don't need the web page.
+4. Point promptfoo at it with a [Python provider](https://www.promptfoo.dev/docs/providers/python/): a small file whose `call_api(prompt, options, context)` calls your `answer()`. Read the user from `context['vars']`. Return the pages it found as well as the answer, because context-faithfulness needs them.
 
 ### Day 3 · about 90 min
 
-4. Turn your checks from the last lesson into a promptfoo config. Use rule-based checks (citations are present, the output is valid) plus [context-faithfulness](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/) (does the answer stick to the pages you found?) and [llm-rubric](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/llm-rubric/).
+5. Turn your checks from the last lesson into a promptfoo config. Use rule-based checks (citations are present, the output is valid) plus [context-faithfulness](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/) (does the answer stick to the pages you found?) and [llm-rubric](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/llm-rubric/).
 
 ### Day 4 · about 90 min
 
-5. **Test-out:** already run GitHub Actions? Skip the quickstart. Otherwise follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart).
-6. Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Run pytest and rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly; cache unchanged evaluations. Do not expose API secrets to untrusted fork code.
+6. **Test-out:** already run GitHub Actions? Skip the quickstart. Otherwise follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart).
+7. Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Using Gemini? Pick a Gemini model as promptfoo's grader.
+8. Run pytest and the rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly, and cache unchanged evaluations.
+9. Don't expose API secrets to untrusted fork code.
 
 ### Day 5 · about 90 min
 
-7. Protect your deployment branch with [required status checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), including the pre-merge evaluation job, and apply the rule to yourself too. Use a pull request for changes; Streamlit deploys from the protected branch. Break a prompt in a PR: prove the PR cannot merge and the live app stays on the previous version. Fix it, wait for the required checks, then merge. A red workflow after deployment is too late.
+10. Protect your deployment branch with [required status checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), including the pre-merge evaluation job, and apply the rule to yourself too. From now on, change the app only through pull requests: Streamlit deploys from the protected branch.
+11. Break a prompt in a PR. Prove that the PR can't merge and that the live app stays on the previous version.
+12. Fix the prompt, wait for the required checks, then merge. A red workflow after deployment is too late.
 
 ### Memory check · 10 min
 
-8. Close this page. In your log, answer from memory, then check:
+13. Close this page. In your log, answer from memory, then check:
    - What does context-faithfulness check? ([where to check](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/))
    - Why does each failure group get its own pass-or-fail check? ([where to check](27-evals-that-catch-real-bugs.md))
-9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+14. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

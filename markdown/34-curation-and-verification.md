@@ -6,9 +6,9 @@
 
 ## Introduction
 
-*Registration week. Three freshers ask the same question in three languages within an hour: will dropping a course cost them their scholarship? Last year a senior answered from memory and was half right. This section builds the assistant that answers from the rule itself, asks how many credits they are taking, and names the office when the rule doesn't cover their case.*
+*Registration week. Three freshers ask the same question in three languages within an hour: will dropping a course cost them their scholarship? Last year a senior answered from memory and was half right. In this section you build an assistant that answers from the rule itself, asks how many credits they are taking, and names the office when the rule doesn't cover their case.*
 
-> **Automate the checking, not the trusting.**
+> **Let a model do the first check. Keep a human for the final yes.**
 
 Your knowledge base now has entries written over many weeks. Before an assistant serves them, every entry needs the same checks, and you need a queue that shows what is waiting, what changed and what expired.
 
@@ -20,7 +20,7 @@ You'll build automatic checks with an LLM judge, then measure its mistakes again
 
 **After this, you can** run a curation queue where an automatic judge does the first pass and you can prove how far to trust it.
 
-**The skill that lasts:** calibrating an automated reviewer against human judgment, one of the most transferable evaluation skills.
+**The skill that lasts:** checking an automated reviewer against human judgment. This skill carries over to almost any evaluation work.
 
 ## Lesson overview
 
@@ -54,35 +54,40 @@ An LLM judge is a second model that grades an answer against a rubric. It is fas
 
 ### Day 2 · about 90 min
 
-3. Write automatic checks: every claim cites quoted source text; the judge says the quote supports the claim; no conflict with another approved entry; no personal data about individuals (student names, IDs, phone numbers); `review_by` is in the future. Contacts from your official office directory are allowed, and staff confirmations are recorded by office or role plus date, not by a person's name.
-4. Every checked entry goes to `needs-human` before publication, including low-risk topics. Keep a sensitive-topic flag for fees, scholarships, discipline and health. Each check returns a reason, not just pass or fail; only a curator action can set `approved`.
+3. Write five automatic checks: (1) every claim cites quoted source text; (2) the judge says the quote supports the claim; (3) no conflict with another approved entry; (4) no personal data about individuals (student names, IDs, phone numbers); (5) `review_by` is in the future.
+4. Contacts from your official office directory are allowed. Record staff confirmations by office or role plus date, never by a person's name.
+5. Every checked entry goes to `needs-human` before publication, including low-risk topics. Keep a sensitive-topic flag for fees, scholarships, discipline and health. Each check returns a reason, not just pass or fail. Only a curator action can set `approved`.
 
 ### Day 3 · about 90 min
 
-5. Grade 60 entries yourself: correct and supported, or not. Include 15 you deliberately broke (wrong number, outdated semester, unsupported claim). Run the judge on the same 60 and build the confusion matrix. Compute Cohen's kappa too ([scikit-learn's cohen_kappa_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html)).
-6. Read every disagreement and fix the rubric, not the labels. Rerun once. These 60 are now tuning data, so their scores are optimistic.
+6. Grade 60 entries yourself: correct and supported, or not. Include 15 you deliberately broke (wrong number, outdated semester, unsupported claim). Run the judge on the same 60 and build the confusion matrix. Compute Cohen's kappa too ([scikit-learn's cohen_kappa_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html)).
+7. Read every disagreement and fix the rubric, not the labels. Rerun once. These 60 are now tuning data, so their scores are optimistic.
 
 ### Days 4–5 · about 3 hours
 
-7. Freeze the rubric. Grade 40 fresh entries before seeing the judge's results: 20 sampled real entries and 20 new deliberately incorrect entries (4 each with a wrong number, expired rule, unsupported claim, mismatched source, or wrong student/curriculum applicability). Do not reuse the 60 tuning entries or their cosmetic rewrites. Confirm the expected labels, then run the judge once. Report the representative and challenge samples separately, with false accepts divided by human-failed entries and false rejects divided by human-passed entries. A denominator of zero is “not measured”, never a pass. If you revise the rubric, these cases become regression data; use fresh cases for the next independent check.
-8. Write `AUTO-APPROVAL.md` with automatic publication **disabled for the course and pilot**. Record the rubric version, sample counts, confusion matrices and uncertainty: even 0 false accepts out of 20 bad cases does not prove safety: by the rule of three, the true rate could still be about 15%. Any later proposal needs a separately approved error tolerance, enough representative and challenge cases to assess uncertainty, an audit owner and schedule, and a suspension rule for a confirmed false acceptance or source change. Sensitive topics stay human-only. No kappa score or small zero-error sample enables publication by itself.
-9. Approve every pilot entry by hand through the queue, with the curator, source revision, timestamp and reason in its changelog. Test that the judge cannot publish, that low-risk entries also wait, and that changing a source removes approval.
+8. Freeze the rubric. Then grade 40 fresh entries before you see the judge's results: 20 sampled real entries, and 20 new entries that you make wrong on purpose. Make 4 wrong entries of each kind: a wrong number, an expired rule, an unsupported claim, a mismatched source, and a wrong student or curriculum.
+9. Don't reuse the 60 tuning entries or rewrites of them. Confirm the expected labels, then run the judge once.
+10. Report the real and the wrong-on-purpose samples separately. Divide false accepts by the entries you failed, and false rejects by the entries you passed. If a denominator is zero, write “not measured”; it is never a pass. If you change the rubric, these cases become regression data. Use fresh cases for the next independent check.
+11. Write `AUTO-APPROVAL.md` with automatic publication **disabled for the course and the pilot**. Record the rubric version, the sample counts, the confusion matrices and the uncertainty.
+12. Remember that 0 false accepts out of 20 bad cases does not prove safety. By the rule of three, the true rate could still be about 15%.
+13. Any later proposal to allow auto-approval would need all of these: an error tolerance approved separately, enough real and challenge cases to measure the uncertainty, an audit owner and schedule, and a rule to suspend it after one confirmed false acceptance or source change. Sensitive topics stay human-only. No kappa score or small zero-error sample can enable publication by itself.
+14. Approve every pilot entry by hand through the queue, with the curator, source revision, timestamp and reason in its changelog. Test that the judge cannot publish, that low-risk entries also wait, and that changing a source removes approval.
 
 ### Day 6 · about 90 min
 
-10. Without AI-written code, add one new check (for example: an answer that mentions a date must cite the academic calendar). Test it on a passing and a failing entry, and explain it in your log.
+15. Without AI-written code, add one new check (for example: an answer that mentions a date must cite the academic calendar). Test it on a passing and a failing entry, and explain it in your log.
 
 ### Memory check · 10 min
 
-11. Close this page. In your log, answer from memory, then check:
+16. Close this page. In your log, answer from memory, then check:
    - Why does a judge that passed 40 correct entries tell you little about unsafe approvals? ([where to check](34-curation-and-verification.md))
    - What moves an approved entry back to needs-human without anyone noticing a problem? ([where to check](34-curation-and-verification.md))
-12. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+17. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: Why does a judge that passed 40 correct entries tell you little about unsafe approvals?</summary>
 
-It has not shown that it rejects wrong entries. Measure false accepts over human-failed entries on unseen challenge and representative samples, report uncertainty, and keep human approval throughout the pilot.
+Passing correct entries says nothing about whether it rejects wrong ones. Measure false accepts (the share of entries you failed that the judge passed) on unseen real and wrong-on-purpose samples, report the uncertainty, and keep human approval throughout the pilot.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 

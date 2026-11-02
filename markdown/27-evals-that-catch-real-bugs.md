@@ -6,17 +6,17 @@
 
 ## Introduction
 
-*Picture next year's demo. University A's events officer asks your Campus Assistant about next week, and one forgotten WHERE clause shows her University B's unannounced fest. This section rehearses that day with a CSS team and a JS team, and makes the leak impossible rather than unlikely.*
+*Picture next year's demo. University A's events officer asks your Campus Assistant about next week, and one forgotten WHERE clause shows her University B's unannounced fest. In this section you rehearse that day with a CSS team and a JS team, and make the leak impossible rather than unlikely.*
 
 > **“4.2 out of 5” fixes nothing. Fifty real conversations show exactly what to fix.**
 
 Vague scores like “4 out of 5 for helpfulness” don't find bugs. Reading real failures does.
 
-In this lesson you'll turn your app's logs into tests. Evals are simply tests for how your AI behaves.
+In this lesson you'll turn your app's logs into tests. Evals are tests for how your AI behaves.
 
 **After this, you can** turn real failures into tests that catch them next time.
 
-**The skill that lasts:** error analysis: deciding what “good” means. People discover their criteria by grading real outputs, so your judgment sets the bar.
+**The skill that lasts:** error analysis: deciding what “good” means. You find your standards by grading real outputs, so your judgment sets the bar.
 
 ## Lesson overview
 
@@ -41,30 +41,33 @@ Don't invent metrics first. Read 50 real conversations, note each failure in one
 
 ### Day 1 · light day, about 45 min
 
-1. Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later. Then, before looking at any data, write down the three failures you expect most often in Ask MDN; Day 3 checks your guess. This week, also start your 30-minute weekly crisis-set block from [Campus Knowledge Base](20-campus-knowledge-base.md).
+1. Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later.
+2. Before you look at any data, write down the three failures you expect most often in Ask MDN. Day 3 checks your guess.
+3. This week, also start a crisis test set for the Campus Assistant. It takes 30 minutes a week, outside these Days.
+4. Each week, write 2 messages from a student who might be in crisis, and 2 harmless look-alikes (for example, “I'm dying to see the results”), in each language: English, Bangla and Banglish. Ask a native speaker to review them. Keep going every week: you'll use the set to test your assistant's crisis response later in the capstone.
 
 ### Day 2 · light day, about 45 min
 
-2. Read Eugene Yan's [Product Evals in Three Simple Steps](https://eugeneyan.com/writing/product-evals/). Write down which of his three steps Ask MDN already has, and which it's missing.
+5. Read Eugene Yan's [Product Evals in Three Simple Steps](https://eugeneyan.com/writing/product-evals/). Write down which of his three steps Ask MDN already has, and which it's missing.
 
 ### Day 3 · about 90 min
 
-3. Collect 50 permitted public/synthetic conversations: use recent redacted diagnostic examples from Neon, topped up with the Zoomcamp [synthetic data generator](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md). Review them before keeping a separate evaluation fixture; do not extend raw-log retention to fill the count. Read in two 25-minute blocks, write down every failure and sort them into 3 to 6 groups.
+6. Collect 50 conversations that are public or made up: use recent redacted examples from Neon, and top up with the Zoomcamp [synthetic data generator](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md). Review them before you keep them as a separate test set. Don't keep raw logs longer just to reach 50. Read them in two 25-minute blocks, write down every failure, and sort the failures into 3 to 6 groups.
 
 ### Day 4 · about 90 min
 
-4. Write a pass-or-fail check for each group. Use plain code where you can, and an LLM judge only where you must.
+7. Write a pass-or-fail check for each group. Use plain code where you can, and an LLM judge only where you must.
 
 ### Day 5 · about 90 min
 
-5. Grade 20 answers yourself, then check how often your LLM judge agrees with you.
+8. Grade 20 answers yourself, then check how often your LLM judge agrees with you.
 
 ### Memory check · 10 min
 
-6. Close this page. In your log, answer from memory, then check:
+9. Close this page. In your log, answer from memory, then check:
    - Why use pass or fail instead of a 1 to 5 score? ([where to check](https://hamel.dev/blog/posts/evals-faq/))
    - What do you save for every conversation in Ask MDN? ([where to check](17-monitoring.md))
-7. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 
@@ -72,7 +75,7 @@ These are optional. Use them if you want to go further.
 
 - [Chip Huyen, AI Engineering, chapters 3 and 4 (book)](https://github.com/chiphuyen/aie-book)
 - [Task-specific LLM evals that do and don't work](https://eugeneyan.com/writing/evals/) by Eugene Yan: which checks catch real problems and which ones just look busy.
-- [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic, 2026): calibrating model graders against people, giving the grader an “unknown” option, and checking consistency across repeated runs.
+- [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic, 2026): how to check model graders against people, give the grader an “unknown” option, and test consistency across repeated runs.
 
 ---
 

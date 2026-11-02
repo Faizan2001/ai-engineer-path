@@ -8,7 +8,7 @@
 
 > **Sooner or later someone will ask Ask MDN for a biryani recipe. Logs show you the question, and what it said back.**
 
-Once people use your app, you need to see where answers fail, how much they cost and how long they take. Record metadata for each request. Keep diagnostic conversation content only for permitted public or synthetic examples, with a short retention period.
+Once people use your app, you need to see where answers fail, how much they cost and how long they take. Record details about each request, but not people's private messages. Keep the text of a conversation only if it is public or made up, and delete it after a short time.
 
 **After this, you can** see what users ask, what each answer costs and where it fails.
 
@@ -19,13 +19,13 @@ Once people use your app, you need to see where answers fail, how much they cost
 By the end of this lesson, you should be able to:
 
 - Turn your Streamlit page into a full chat app.
-- Save request metadata and permitted diagnostic examples to a database.
+- Save details about each request, and a few allowed example conversations, in a database.
 - Collect user feedback and inspect it alongside failed requests.
-- Trace a failure without keeping unnecessary private data.
+- Follow a failure through the logs without keeping private data you don't need.
 
 ## Before you read
 
-A request ID connects the steps behind one answer: search, model calls, time, cost and errors. That lets you find where a failure started. For this course, save diagnostic text only from permitted public/synthetic examples and remove it after 7 days. Your evaluation fixtures are a separate, reviewed dataset.
+A request ID connects the steps behind one answer: search, model calls, time, cost and errors. That lets you find where a failure started. In this course, save conversation text only from public or made-up examples, and delete it after 7 days. Your evaluation test questions are a separate, reviewed dataset.
 
 - **request trace**: linked records showing the steps behind one answer
 - **feedback**: the thumbs up or down saved on that row
@@ -46,29 +46,33 @@ A request ID connects the steps behind one answer: search, model calls, time, co
 
 ### Day 4 · about 60 min
 
-4. Skim [09 Built-in judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/09-built-in-judge.md) and [10 Feedback dashboard](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/10-feedback-dashboard.md). Then do [11 Synthetic data](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md) properly. You'll use this generator in Section 5 to create realistic logs.
+4. Skim [09 Built-in judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/09-built-in-judge.md) and [10 Feedback dashboard](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/10-feedback-dashboard.md). Then do [11 Synthetic data](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md) properly. Keep the generator: it makes realistic fake conversations.
 
 ### Days 5–7 · about 4.5 hours
 
-5. Add to Ask MDN: one request ID joining retrieval, model calls and errors. Save step durations, retrieved page IDs, model/prompt/corpus versions, tokens, cost and user feedback. Use only public or synthetic test conversations; inspect a failed run from input to output. This is **Ask MDN v0.5**: a wrong answer now leaves clues.
+5. Add to Ask MDN, one piece a Day. Use only public or made-up test conversations.
+6. **Day 5:** give every request one request ID, and use it to join retrieval, model calls and errors. Stop when one question gives you a single record you can read from start to finish.
+7. **Day 6:** for each request, save the step durations, the retrieved page IDs, the model, prompt and corpus versions, the tokens and the cost.
+8. **Day 7:** add the thumbs up or down feedback to the same record. Then inspect one failed run from input to output. This is **Ask MDN v0.5**: a wrong answer now leaves clues.
 
 ### Day 8 · about 90 min
 
-6. Skim the monitoring and privacy topics in [Stanford CS329S](https://stanford-cs329s.github.io/syllabus.html). Then write a small data policy: what leaves your app, where logs live, who can read them and when they are deleted. For this exercise, retain diagnostic content for 7 days; never log keys, auth headers or real private messages. Keep approved synthetic evaluation fixtures separately.
-7. Test the policy with a fake email and token-shaped string: redact them before saving diagnostics. Do not assume a regex removes every kind of personal information. Add a cleanup command and test it on old fake logs. A restricted log is still stored data.
-8. Make a 5-request sample report: where time went, cost per request, one retrieval failure and one model failure. Plain JSON and a short table are enough; a new tracing service is optional.
+9. Skim the monitoring and privacy topics in [Stanford CS329S](https://stanford-cs329s.github.io/syllabus.html).
+10. Write a one-page data policy: what leaves your app, where logs are kept, who can read them and when they are deleted. Keep conversation text for 7 days. Never log keys, auth headers or real private messages. Keep your approved made-up test data in a separate place.
+11. Test the policy. Send a fake email address and a fake token through the app, and make sure both are removed before anything is saved. A regex won't catch every kind of personal information. Add a cleanup command that deletes old logs, and test it on old fake logs. A restricted log is still stored data.
+12. Make a 5-request sample report: where the time went, the cost per request, one retrieval failure and one model failure. Plain JSON and a short table are enough. A new tracing service is optional.
 
 ### Memory check · 10 min
 
-9. Close this page. In your log, answer from memory, then check:
+13. Close this page. In your log, answer from memory, then check:
    - What should a useful trace reveal, and what should it leave out? ([where to check](17-monitoring.md))
    - Why can't you fully trust an LLM judge without checking it? ([where to check](16-grading-answers.md))
-10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+14. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What should a useful trace reveal, and what should it leave out?</summary>
 
-A request ID joins retrieval, model and tool steps with durations, versions, costs and errors. Keep only necessary permitted content; omit credentials and private messages, restrict access and test deletion. Logging everything forever creates another problem.
+A request ID joins the retrieval, model and tool steps, with timings, versions, costs and errors. Keep only the text you need and are allowed to keep. Leave out credentials and private messages, limit who can read the logs, and test that deletion works. Logging everything forever is its own problem.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 

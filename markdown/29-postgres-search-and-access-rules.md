@@ -10,7 +10,7 @@
 
 Your Campus Assistant will hold several universities' data in one app. Each one must only ever see its own. The safest place to enforce that is the database itself.
 
-You'll move all of Ask MDN's search (keyword and vector) into Postgres, then turn on row-level security: rules inside the database that hide rows a user isn't allowed to see. You'll practise with two pretend groups: a CSS team and a JS team. Think of them as University A and University B; that's exactly what your Campus Assistant will need.
+You'll move all of Ask MDN's search (keyword and vector) into Postgres. Then you'll turn on row-level security: rules inside the database that hide rows a user isn't allowed to see. You'll practise with two pretend groups, a CSS team and a JS team. Think of them as University A and University B, which is what your Campus Assistant will need.
 
 **True story (2025): an AI connector shows one company's files to another.** A flaw in Asana's new AI connector could show one organisation's tasks and files to users in other organisations. About 1,000 customers were told. [Source](https://bleepingcomputer.com/news/security/asana-warns-mcp-ai-feature-exposed-customer-data-to-other-orgs/)
 
@@ -58,32 +58,34 @@ Row-level security adds a hidden WHERE to every query on a table. Your app says 
 
 ### Days 2–4 · about 4.5 hours
 
-2. Do Zoomcamp Module 2's [08 pgvector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/08-pgvector.md) lesson now (you skipped it in Embeddings and Vector Search): vector search inside Postgres.
-3. Start Postgres with pgvector locally using the [pgvector Docker image](https://hub.docker.com/r/pgvector/pgvector) (`pgvector/pgvector:0.8.7-pg17`). If port 5432 is taken by your Zoomcamp database, use another port.
-4. Read the [full-text search intro](https://www.postgresql.org/docs/current/textsearch-intro.html) and [Tables and Indexes](https://www.postgresql.org/docs/current/textsearch-tables.html), which shows the generated column and GIN index you need. Move Ask MDN's chunks into one table with a `group_id` column, a text-search column and an embedding column. Rebuild `hybrid_search()` on top of it.
+2. Install Docker ([get started](https://docs.docker.com/get-started/)) and run `docker run hello-world`. Docker runs programs in their own little boxes called containers. Low on memory or disk space? Use a free [GitHub Codespace](https://docs.github.com/en/codespaces/getting-started/quickstart) instead; it runs in the browser and has Docker built in.
+3. Do Zoomcamp Module 2's [08 pgvector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/08-pgvector.md) lesson now (you skipped it in Embeddings and Vector Search): vector search inside Postgres.
+4. Start Postgres with pgvector locally using the [pgvector Docker image](https://hub.docker.com/r/pgvector/pgvector) (`pgvector/pgvector:0.8.7-pg17`). If port 5432 is taken by your Zoomcamp database, use another port.
+5. Read the [full-text search intro](https://www.postgresql.org/docs/current/textsearch-intro.html) and [Tables and Indexes](https://www.postgresql.org/docs/current/textsearch-tables.html). They show the generated column and GIN index you need.
+6. Move Ask MDN's chunks into one table with a `group_id` column, a text-search column and an embedding column. Then rebuild `hybrid_search()` on top of it.
 
 ### Days 5–6 · about 3 hours
 
-5. Read the Postgres [row-level security docs](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). Turn row-level security on and force it on the chunks and `notes` tables, with a policy that only shows rows whose `group_id` matches the current group.
-6. Create your app's role with [CREATE ROLE](https://www.postgresql.org/docs/current/sql-createrole.html): not the table owner, not a superuser and no BYPASSRLS, because those can skip the rules. Grant it only what it needs.
-7. Set the current group at the start of each transaction with `set_config` ([docs](https://www.postgresql.org/docs/current/functions-admin.html)).
+7. Read the Postgres [row-level security docs](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). Turn row-level security on and force it on the chunks and `notes` tables, with a policy that only shows rows whose `group_id` matches the current group.
+8. Create your app's role with [CREATE ROLE](https://www.postgresql.org/docs/current/sql-createrole.html): not the table owner, not a superuser and no BYPASSRLS, because those can skip the rules. Grant it only what it needs.
+9. Set the current group at the start of each transaction with `set_config` ([docs](https://www.postgresql.org/docs/current/functions-admin.html)).
 
 ### Day 7 · about 90 min
 
-8. Write pytest tests: with the group set to CSS, search returns zero JavaScript chunks and reading or writing JS notes fails. Check in SQL that your app role's `rolbypassrls` is false.
-9. In the same tests, check that `current_user` is your app role, and that your search code has no `WHERE group_id = …` of its own. AI assistants like to add one, and then the tests pass even when row-level security does nothing.
+10. Write pytest tests: with the group set to CSS, search returns zero JavaScript chunks and reading or writing JS notes fails. Check in SQL that your app role's `rolbypassrls` is false.
+11. In the same tests, check that `current_user` is your app role, and that your search code has no `WHERE group_id = …` of its own. AI assistants like to add one, and then the tests pass even when row-level security does nothing.
 
 ### Memory check · 10 min
 
-10. Close this page. In your log, answer from memory, then check:
+12. Close this page. In your log, answer from memory, then check:
    - Which database roles can skip row-level security? ([where to check](https://www.postgresql.org/docs/current/ddl-rowsecurity.html))
    - How does promptfoo call Ask MDN without the web page? ([where to check](28-testing-and-ci.md))
-11. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: Which database roles can skip row-level security?</summary>
 
-Superusers and roles with BYPASSRLS bypass row-level security. Table owners normally bypass it too unless FORCE ROW LEVEL SECURITY applies; FORCE does not remove the superuser or BYPASSRLS exemptions.
+Superusers and roles with BYPASSRLS skip row-level security. Table owners skip it too, unless you use FORCE ROW LEVEL SECURITY. FORCE doesn't stop superusers or BYPASSRLS roles from skipping it.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -92,7 +94,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: How does promptfoo call Ask MDN without the web page?</summary>
 
-A promptfoo Python provider calls your answer(question, user) function directly, using the test user supplied in context['vars']. The adapter returns the answer and retrieved context needed for evaluation, so it does not need the Streamlit page.
+A promptfoo Python provider calls your `answer(question, user)` function directly, with the test user from `context['vars']`. It returns the answer and the retrieved pages that the checks need, so the Streamlit page isn't involved.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 

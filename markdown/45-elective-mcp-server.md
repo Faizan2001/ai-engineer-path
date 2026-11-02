@@ -6,7 +6,7 @@
 
 > **A protocol makes a connection. It never grants permission.**
 
-Expose a read-only search over your approved knowledge base as an MCP server, so other AI tools can use it, and keep the same access rules.
+Share a read-only search over your approved knowledge base as an MCP server, so other AI tools can use it, with the same access rules. MCP (Model Context Protocol) is a standard way for AI tools to connect to tools and data.
 
 **After this, you can** build a small MCP server with a read-only tool and its own access checks.
 
@@ -23,14 +23,15 @@ By the end of this lesson, you should be able to:
 ## Assignment
 
 1. Read the [MCP introduction](https://modelcontextprotocol.io/docs/getting-started/intro), its [authorization specification](https://modelcontextprotocol.io/specification/latest/basic/authorization) and its [security best practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices).
-2. Build a server with one read-only tool that returns approved entries with citations. No write tools. Use the HTTP transport with token verification, so the server maps each caller's token to one university; a local stdio server is single-user, so a tenant test on it proves nothing.
-3. Connect it to an MCP client and test: only approved entries, only the caller's university, and prompt-injection text in an entry is returned as data, not followed.
+2. Build a server with one read-only tool that returns approved entries with citations. No write tools.
+3. Use the HTTP transport with token verification, so the server maps each caller's token to one university. A local stdio server has only one user, so a tenant test on it proves nothing.
+4. Connect it to an MCP client and test three things: only approved entries come back, only the caller's university, and prompt-injection text in an entry is returned as data, not followed.
 
 ### Memory check · 10 min
 
-4. Close this page. In your log, answer from memory, then check:
+5. Close this page. In your log, answer from memory, then check:
    - Why does adding an MCP server not change who may read the knowledge base? ([where to check](45-elective-mcp-server.md))
-5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: Why does adding an MCP server not change who may read the knowledge base?</summary>

@@ -32,7 +32,7 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 ## Before you read
 
-The model can't run code. It sends back a structured request: “call search with this query”. Your code runs it, sends back the result and asks again. This repeats until the model answers in plain text, or a step limit stops it.
+It sends back a structured request: “call search with this query”. Your code runs it, sends back the result and asks again. This repeats until the model answers in plain text, or a step limit stops it.
 
 - **function call**: the model's structured request for your code to run a named function
 - **developer message**: Zoomcamp's name for the message that holds the agent's instructions
@@ -53,29 +53,30 @@ The model can't run code. It sends back a structured request: “call search wit
 
 ### Day 3 · about 90 min
 
-3. [14 Agentic loop](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md). Keep your loop; you'll extend it in Section 4.
+3. [14 Agentic loop](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md). Keep your loop code; you'll use it on Day 4.
 
 ### Day 4 · about 90 min
 
-4. **No AI for this one:** close the course code and rewrite the agent loop from memory, in 20 minutes at most. Then compare and fix the gaps.
+4. **No AI for this one:** close the course code and rewrite the agent loop from memory, in 20 minutes at most. Then compare it with the course code and fix the gaps.
 5. Add to Ask MDN: turn your search into a tool, let the model call it, and log every call.
-6. Before putting the loop in the chat page, add a maximum of 8 model/tool rounds, a timeout on each network call and a clear stopped status. Test with a fake model that keeps requesting search: it must terminate at the limit. Keep tools read-only here. A step limit is not a guarantee about cost; record usage too.
+6. Before you put the loop in a chat page, add three limits: at most 8 rounds of model and tool calls, a timeout on each network call, and a clear “stopped” status. Test it with a fake model that keeps asking for search: it must stop at the limit. Keep tools read-only for now. A step limit doesn't cap cost, so also record token usage.
 
 ### Day 5 · about 90 min
 
-7. Build a small Streamlit chat page for Ask MDN (about 20 lines, using what you learned in Structured Output and Errors). This is **Ask MDN v0.2**: you can chat with it, and it decides when to search. Ask it 5 of your practice questions, then show it to a friend if one is around.
+7. Build a small Streamlit chat page for Ask MDN, about 20 lines. You used Streamlit in Structured Output and Errors.
+8. This is **Ask MDN v0.2**: you can chat with it, and it decides when to search. Ask it 5 of your practice questions, then show it to a friend if one is around.
 
 ### Memory check · 10 min
 
-8. Close this page. In your log, answer from memory, then check:
+9. Close this page. In your log, answer from memory, then check:
    - What stops an agent loop from running forever? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md))
    - What is the difference between precision and recall? ([where to check](10-ml-basics-measuring-quality.md))
-9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What stops an agent loop from running forever?</summary>
 
-The loop normally ends when the model produces a final answer without requesting another tool. A step limit enforced by your code stops repeated tool calls even if the model never decides to finish.
+The loop normally ends when the model gives a final answer without asking for another tool. Your code also enforces a step limit, which stops the loop even if the model never decides to finish.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -84,7 +85,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: What is the difference between precision and recall?</summary>
 
-For search, precision is the fraction of retrieved items that are relevant; recall is the fraction of all relevant items that were retrieved. In classification, the corresponding formulas are TP/(TP+FP) and TP/(TP+FN).
+For search, precision is the share of the results you got that are relevant. Recall is the share of all relevant items that you found. As formulas: precision = TP / (TP + FP), recall = TP / (TP + FN).
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -99,8 +100,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 These are optional. Use them if you want to go further.
 
-- [Anthropic, Building effective agents (worth a second read now)](https://www.anthropic.com/engineering/building-effective-agents)
-- Zoomcamp [15 Frameworks](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/15-frameworks.md) and [16 Other frameworks](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/16-other-frameworks.md): a tour of agent frameworks. This path uses LangGraph in Section 4.
+- Zoomcamp [15 Frameworks](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/15-frameworks.md) and [16 Other frameworks](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/16-other-frameworks.md): a tour of agent frameworks. This path uses LangGraph in the Agents section.
 - [You should write an agent](https://fly.io/blog/everyone-write-an-agent/) by Thomas Ptacek, Fly.io: why writing a small agent yourself teaches more than reading about one.
 
 ---

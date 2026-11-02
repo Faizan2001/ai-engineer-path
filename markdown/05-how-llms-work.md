@@ -4,7 +4,7 @@
 
 ## Introduction
 
-> **ChatGPT is autocomplete that read a library. That explains its genius, and why it can invent a court case with a straight face.**
+> **ChatGPT is autocomplete that has read a huge library. That is why it is so good, and why it can invent a court case.**
 
 An LLM (large language model) is the kind of AI behind ChatGPT. You don't need the math to build with one, but you do need a simple picture of how it works.
 
@@ -36,9 +36,9 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ## Before you read
 
-**Picture this:** Think of your phone's suggestion bar, scaled up enormously. It produces tokens one at a time, using the context to choose what comes next. Attention helps relate words: in “the bank of the river”, river changes how bank is interpreted. This is an intuition for generation, not a complete account of reasoning or planning.
+**Picture this:** Think of your phone's suggestion bar, made much bigger. It picks one token at a time, using everything before it. Attention lets words affect each other: in “the bank of the river”, “river” tells the model which kind of “bank” this is. This is a simple picture, not the full story of how models reason.
 
-A model call predicts tokens from its input and learned patterns. It does not automatically search your files or verify facts. An application can give it tools or retrieved documents; later lessons build that layer. A fluent answer can still be wrong. Pause the video when you need to sketch the process yourself.
+A model call predicts tokens from its input and what it learned in training. It does not search your files or check facts on its own. Your code can add tools or documents; you'll do that later. A fluent answer can still be wrong. Pause the video whenever you want to sketch the process yourself.
 
 - **token**: a small chunk of text the model reads and writes
 - **temperature**: how much randomness goes into each pick
@@ -49,26 +49,30 @@ A model call predicts tokens from its input and learned patterns. It does not au
 
 1. Watch 3Blue1Brown's [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs) (7 min). Watch for the idea of predicting one token at a time.
 2. Watch [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) (27 min). Pause often and write one sentence for each new idea. On mobile data, watch at 480p or download it on Wi-Fi first.
-3. In your log, before you rewatch anything, explain in 5 sentences how a chat model answers a question. Only use words you could explain to a friend.
+3. In your log, before you rewatch anything, explain in 5 sentences how a chat model answers a question. Use only words you could explain to a friend.
 
 ### Day 2 · under the hood, about 90 min
 
-4. Predict first: will the same question cost more tokens in English, in Bangla script or in Banglish? Write your guess.
-5. Write one campus question yourself (never copy a real post) in all three forms, three or four sentences long. Send each once to your model with no instructions and read the input token count from the response's `usage` field: that is the count you are billed for. Every request also carries a few fixed formatting tokens, so also send a one-word message and subtract its count from each before computing the ratio to English. Record the model, the three counts and the ratios. You'll reuse them in [Choose Models and a Budget](38-choose-models-and-budget.md).
-6. Without AI-written code, write `sample.py`: a made-up table of five possible next tokens with scores, a softmax that turns scores into probabilities, and a sampler. Sample 20 times at temperature 0.2, 1.0 and 1.5 and compare. You've just written the last step of every chat model.
-7. Stop here when your log has the token table, your guess next to the real ratio, and one sentence on what temperature does.
+4. Predict first: will the same question cost more tokens in English, in Bangla script or in Banglish? Write your guess in your log.
+5. Write one campus question yourself (never copy a real post) in three forms: English, Bangla script and Banglish. Make each one three or four sentences long.
+6. Send each question to your model with no instructions. Read the input token count in the response's `usage` field. That is the count you're billed for.
+7. Every request has a few fixed formatting tokens, so also send a one-word message and subtract its count from each result. Then divide each count by the English one to get a ratio. Record the model, the three counts and the ratios in your log.
+8. Without AI-written code, write `sample.py`. Make up a table of five possible next tokens, each with a score.
+9. Turn the scores into probabilities with softmax: divide each score by the temperature, take e to that power, then divide by the total of all five. Pick a token at random using those probabilities.
+10. Run it 20 times at temperature 0.2, 1.0 and 1.5 and compare the picks. You've just written the last step of every chat model.
+11. Stop here when your log has the token table, your guess next to the real ratio, and one sentence on what temperature does.
 
 ### Memory check · 10 min
 
-8. Close this page. In your log, answer from memory, then check:
+12. Close this page. In your log, answer from memory, then check:
    - What is a token, and what does the model predict? ([where to check](https://www.youtube.com/watch?v=LPZh9BOjkQs))
    - Why should you never put an API key in Git? ([where to check](04-setting-up-your-tools.md))
-9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What is a token, and what does the model predict?</summary>
 
-A token is a small unit of text, such as part of a word or punctuation. The model predicts possible next tokens from the available context and generates an answer one token at a time.
+A token is a small piece of text, such as part of a word or a punctuation mark. The model predicts the next token from everything before it, and repeats until the answer is done.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -77,7 +81,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: Why should you never put an API key in Git?</summary>
 
-An API key can let someone make calls using your account's permissions and credit. Git preserves history, so deleting a key from the latest file does not remove it from earlier commits.
+Anyone with the key can make calls on your account and spend your credit. Git keeps history, so deleting the key from the latest file doesn't remove it from older commits.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 

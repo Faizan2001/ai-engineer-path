@@ -6,7 +6,7 @@
 
 > **Many notices are photos, and many questions are easier to say than type.**
 
-Add two inputs: text extracted from notice images and scanned PDFs for ingestion, and spoken Bangla or English questions transcribed to text.
+Add two new inputs: text read from notice images and scanned PDFs (for ingestion), and spoken Bangla or English questions turned into text.
 
 **After this, you can** ingest image-only notices and accept spoken questions, each with a measured error rate.
 

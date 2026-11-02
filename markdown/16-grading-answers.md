@@ -23,7 +23,7 @@ By the end of this lesson, you should be able to:
 - Generate answers for many questions at once.
 - Grade answers with an LLM judge.
 - Check that the judge agrees with you.
-- Choose a model configuration using quality, delay and cost together.
+- Choose a model setup by looking at quality, speed and cost together.
 
 ## Try it first
 
@@ -58,26 +58,30 @@ A judge is a second model with a marking scheme. Question, answer and sources go
 
 ### Days 3–5 · about 4.5 hours
 
-3. Add to Ask MDN: generate answers for your 20 practice questions and save them to a file, so you can grade again without paying again. Grade them with a judge, then grade 10 of them yourself. Write down how often the judge agreed with you. Run the judge once per change, not after every small idea.
+3. Add to Ask MDN, one piece a Day. Run the judge once per change, not after every small idea.
+4. **Day 3:** generate answers for your 20 practice questions and save them to a file, so you can grade again without paying again.
+5. **Day 4:** write the judge and use it to grade all 20 answers.
+6. **Day 5:** grade 10 of the answers yourself, before you look at the judge's verdicts. Write down how often the judge agreed with you.
 
 ### Day 6 · about 90 min
 
-4. Read only “Design your eval process” in OpenAI’s [evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices). Use your own files and grader; this assignment does not need OpenAI’s hosted Evals platform.
-5. Choose 10 of your practice questions, including exact identifiers and unsupported questions. Compare two available models from your current provider using the SAME retrieved chunks, prompt and output limit. Estimate the spend first. If only one model is affordable or available, compare two supported configurations and label this a configuration comparison, not a model comparison. No extra provider account is required.
-6. Hide the model names while you grade correctness, citation support and refusals. Record cost, total time and failures for each answer. Re-run the two most ambiguous cases once to notice variability. Keep the frozen final questions untouched.
-7. Write a five-line decision: acceptable quality, maximum wait/cost, which option meets those limits, a failure it still has, and what would make you reconsider. Save a run manifest: model ID, prompt/config version, corpus hash, date and scores. This is a small engineering experiment, not a model leaderboard.
+7. Read only “Design your eval process” in OpenAI’s [evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices). Use your own files and grader; you don't need OpenAI’s hosted Evals platform.
+8. Choose 10 of your practice questions. Include some with exact identifiers (like `justify-content`) and some your docs can't answer. Compare two models from your current provider. Give both the same retrieved chunks, prompt and output limit. Estimate the cost first. If you can only use one model, compare two settings of it instead, and call it a configuration comparison, not a model comparison.
+9. Hide the model names while you grade correctness, citation support and refusals. Record the cost, total time and failures for each answer. Re-run the two most unclear cases once to see how much answers vary. Don't touch your held-back questions.
+10. Write a five-line decision: the quality you accept, the longest wait and highest cost you accept, which option meets them, one failure it still has, and what would make you reconsider.
+11. Save a run manifest: model ID, prompt or config version, corpus hash, date and scores.
 
 ### Memory check · 10 min
 
-8. Close this page. In your log, answer from memory, then check:
+12. Close this page. In your log, answer from memory, then check:
    - When is the cheaper model the better engineering choice? ([where to check](16-grading-answers.md))
    - Why save a content hash for every page? ([where to check](15-data-ingestion.md))
-9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: When is the cheaper model the better engineering choice?</summary>
 
-When it meets the task’s predeclared quality and safety criteria within the latency and cost limits. Compare identical inputs, inspect failures, and record uncertainty; a tiny test set cannot establish universal superiority.
+When it meets the quality and safety bar you set before testing, within your speed and cost limits. Compare the models on identical inputs and look at the failures. A tiny test set can't show that one model is better everywhere.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -86,7 +90,7 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 <details>
 <summary>Check your answer: Why save a content hash for every page?</summary>
 
-A saved content hash lets you detect changed page text and skip unchanged pages on later ingestion runs. Compare page IDs in successive manifests as well, because hashes alone do not reveal pages that have disappeared.
+A saved hash shows which pages changed, so later runs can skip the unchanged ones. Hashes can't show that a page has disappeared, so compare the page IDs in successive manifests too.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -96,9 +100,9 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 These are optional. Use them if you want to go further.
 
-- [AI Evals FAQ by Hamel Husain and Shreya Shankar (a preview of Section 5)](https://hamel.dev/blog/posts/evals-faq/)
+- [AI Evals FAQ by Hamel Husain and Shreya Shankar (more on evals)](https://hamel.dev/blog/posts/evals-faq/)
 - [Creating an LLM-as-a-judge that drives business results](https://hamel.dev/blog/posts/llm-judge/) by Hamel Husain: how to build a judge you can actually trust.
-- [Building with the Claude API: prompt evaluation](https://academy.claude.com/courses/building-with-the-claude-api) — optional video alternative. Use the Prompt evaluation section only; you do not need a second complete course.
+- [Building with the Claude API: prompt evaluation](https://academy.claude.com/courses/building-with-the-claude-api): an optional video alternative. Use only the Prompt evaluation section; you don't need a second full course.
 
 ---
 

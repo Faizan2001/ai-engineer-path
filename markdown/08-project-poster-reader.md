@@ -4,9 +4,9 @@
 
 ## Introduction
 
-> **A blurry poster goes in; a clean event form comes out. The smartest part of the feature is the Approve button.**
+> **A poster photo goes in and an event form comes out. The most important part is the Approve button.**
 
-Time for your first real AI feature! You'll take a photo of an event poster and turn it into a filled event form.
+Your first real AI feature: you take a photo of an event poster and turn it into a filled event form.
 
 A person always checks and approves the form before anything is saved. This is the kind of feature you might add to your Events platform one day.
 
@@ -17,8 +17,8 @@ A person always checks and approves the form before anything is saved. This is t
 ## Before you start
 
 - Create a new **public** GitHub repo called `poster-reader`. Commit early and often, with messages that say what changed.
-- Use 2–5 photos of real public notices from your campus boards (include one in Bangla and English, and blur any personal phone numbers), plus simple posters you make yourself. Plain text slides are fine. Give poster-making 2 hours in total: the AI is the project, not the design.
-- Write down the correct answers before you write any prompt. Keep some posters hidden while you build (held back) so your final score is honest.
+- Use 2–5 photos of real public notices from campus boards. Include one in Bangla and English, and blur any personal phone numbers. Add simple posters you make yourself; plain text slides are fine. Spend 2 hours at most making posters: the AI is the project, not the design.
+- Write down the correct answers before you write any prompt. Keep some posters hidden while you build (“held back”), so your final score is honest.
 - Don't look at other people's versions of this project until yours works. Then compare and learn.
 - Stuck for more than 20 minutes? Write down what you tried, take a short break, search the course FAQ or docs, then ask with your code and the exact error.
 
@@ -26,9 +26,9 @@ A person always checks and approves the form before anything is saved. This is t
 
 ### Days 1–6 · about 9 hours
 
-1. **Day 1:** Collect 15 test posters, in 2 hours at most: 10 to practise on and 5 to hold back. On purpose, include some with missing, unclear and hard-to-read details. Stop when all 15 are in two folders.
+1. **Day 1:** Collect 15 test posters in 2 hours at most: your real photos plus posters you make. Keep 10 to practise on and hold back 5. On purpose, include some with missing, unclear or hard-to-read details. Stop when all 15 are in two folders.
 2. **Days 2–3:** Write `expected.json` with the correct details for all 15 posters. Then write `SCORING.md`: how you'll compare dates, times and venue names, and how you'll score missing or unclear details. Stop when someone could score a poster from your rules alone.
-3. **Days 4–6:** Build the reader: an image goes in and a strict `Event` comes out. Add plain-code checks (the date is real, the end is after the start), a timeout, at most 2 retries and refusal handling. One piece a Day: the call, then the checks, then the failure handling.
+3. **Days 4–6:** Build the reader. An image goes in and a strict `Event` comes out. Do one piece a day. Day 4: the model call. Day 5: plain-code checks (the date is real, the end is after the start). Day 6: a timeout, at most 2 retries and refusal handling.
 4. **Stop here on Day 6:** the reader works on 3 practice posters from the command line.
 
 ### Days 7–12 · about 9 hours
@@ -47,9 +47,9 @@ A person always checks and approves the form before anything is saved. This is t
 ## You're done when
 
 - [ ] Your public repo's README shows the score on the 5 held-back posters (using your scoring guide) and the cost per poster, with a note on every mistake.
-- [ ] A test shows that the save path rejects an unapproved draft; an approved draft saves. Record the scenarios you tested.
+- [ ] A test shows that an unapproved draft can't be saved and an approved one can. List the cases you tested.
 - [ ] A failed API call is retried at most twice, then shows “needs a human”.
-- [ ] Explain the request flow, two decisions and one failure. Without AI-generated code, change a real validation rule (for example, an end time before its start). Predict the result and show a check failing before the fix and passing after. Documentation is allowed.
+- [ ] Explain the request flow, two decisions and one failure. Then, without AI-written code, change a real validation rule (for example, reject an end time before its start). Predict what will happen, then show a check that fails before the change and passes after it. You may use the docs.
 
 ## Show it off
 

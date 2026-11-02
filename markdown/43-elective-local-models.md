@@ -4,11 +4,11 @@
 
 ## Introduction
 
-*The assistant works. Now curiosity takes over: could it run on your own machine, learn Banglish better, talk to other AI tools, listen, or could you build the model itself? Each elective answers one of those with a small, measured experiment.*
+*The assistant works. Now you can follow your curiosity: run it on your own machine, improve its Banglish, connect it to other AI tools, add voice, or build a model yourself. Each elective is one small, measured experiment.*
 
 > **Free per token isn't free. Measure what it really costs.**
 
-Run open-weight models on your own computer, learn what quantization trades away, and decide where local models belong in your assistant.
+Run open-weight models (models whose files you can download) on your own computer, learn what quantization (shrinking a model to save memory) gives up, and decide where local models fit in your assistant.
 
 **After this, you can** run, measure and serve an open-weight model on your own hardware.
 
@@ -25,8 +25,8 @@ By the end of this lesson, you should be able to:
 ## Assignment
 
 1. Install [Ollama](https://github.com/ollama/ollama) or llama.cpp. Run a small and a medium model; record memory use, how long the first word takes on a long prompt, and tokens per second on your machine.
-2. Run your Bangla/Banglish eval slice with both, at two quantization levels. Compare with your hosted model from the bake-off.
-3. Put the best local model behind your assistant's model interface and use it for offline tests and labeling drafts. Write when local serving would make sense for real users, and what it would cost.
+2. Run your Bangla and Banglish eval slice with both, at two quantization levels. Compare with the hosted model you chose in [Choose Models and a Budget](38-choose-models-and-budget.md).
+3. Put the best local model behind your assistant's model interface and use it for offline tests and labelling drafts. Write when local serving would make sense for real users, and what it would cost.
 
 ### Memory check · 10 min
 

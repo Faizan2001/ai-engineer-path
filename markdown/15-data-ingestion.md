@@ -2,15 +2,15 @@
 
 *Section 3: RAG with LLM Zoomcamp · Lesson 15 of 42 · about 4.5 hours*
 
-**Before you start, check that** Ask MDN v0.4 combines both searches and declines when it cannot find supporting evidence; you have recorded both false answers and unnecessary refusals.
+**Before you start, check that** Ask MDN v0.4 combines both searches and says “I don't know” when it can't find supporting evidence, and you have counted both its false answers and its unnecessary refusals.
 
 ## Introduction
 
-> **A good ingestion script is a lift button: press it ten times, still one trip.**
+> **A good ingestion script is safe to run twice: run it ten times and you still get the same data.**
 
 Ingestion means loading your data into the app. Real data changes, so a good ingestion script is safe to run again and again without creating duplicates.
 
-You'll write Ask MDN's ingestion script now, and in Section 5 you'll extend it to handle edited and deleted pages.
+You'll write Ask MDN's ingestion script now.
 
 **True story (2024): glue on pizza.** Google's AI search answers suggested putting glue on pizza, built from a joke forum post. Google then limited which sources those answers could use. [Source](https://www.theregister.com/2024/05/31/google_ai_search_update)
 
@@ -45,7 +45,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ### Day 1 · about 90 min
 
-1. Write Ask MDN's ingestion script: read your MDN snapshot, chunk each page and save its path, title and content hash. A content hash is like a fingerprint of the text: if the text changes, the fingerprint changes.
+1. Write Ask MDN's ingestion script. It reads your MDN snapshot, chunks each page, and saves each page's path, title and content hash along with its chunks. A content hash is a fingerprint of the text: if the text changes, the fingerprint changes.
 
 ### Day 2 · about 90 min
 
@@ -53,14 +53,15 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 ### Day 3 · about 90 min
 
-3. Save and commit a manifest file: a list of every page path and its hash from this run. You'll compare manifests in Fresh Data. Write 2 pytest tests for the script. Commit early and often, with messages that say what changed.
+3. Save and commit a manifest file: a list of every page path and its hash from this run.
+4. Write 2 pytest tests for the script: running it twice changes nothing, and an edited page is picked up again.
 
 ### Memory check · 10 min
 
-4. Close this page. In your log, answer from memory, then check:
+5. Close this page. In your log, answer from memory, then check:
    - What makes an ingestion script safe to run twice? ([where to check](15-data-ingestion.md))
    - How does Ask MDN decide to say “I don't know”? ([where to check](14-hybrid-search.md))
-5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 
