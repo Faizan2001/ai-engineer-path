@@ -276,3 +276,19 @@ The owner read Setting Up Your Tools and found that Day 2 and Day 3 did not foll
 A second read-through (also 3 November) went field by field, not just the steps. It replaced quip-style hooks and `—` asides with plain statements, shortened the memory-check answers and "You're done when" lines, swapped terms such as "synthetic", "permitted" and "configuration" for plainer ones, added short explanations for MCP, LoRA, quantization and open-weight models where they first appear, and made spelling consistent (British). Overview bullets now match what the steps teach (for example, Embeddings no longer promises three vector-search tools). A third, trimming pass removed sentences that only hedged or repeated the hook, the project boilerplate already given in Poster Reader, and optional extras that repeated earlier reading. Stories, hooks and the honest caveats that change what you do were kept.
 
 **Result:** text edits only. Day labels, tick boxes, slugs, the duration (about 54 weeks) and saved progress are unchanged. `node --test tests/` passes 26 cases, and assets are at 8.4.
+
+### Round 5: Setting Up Your Tools rebuilt (6 November 2026)
+
+The owner has a free Gemini key and no OpenAI key, and could not tell where the key goes. Checking this turned up two real faults:
+- The Zoomcamp environment page's "test" only creates a client. It never calls a model, so "stop when the test call prints an answer" could not be met.
+- Zoomcamp's code uses OpenAI's Responses API. Gemini's OpenAI-compatible endpoint has no `/responses` route (it returns 404), so a Gemini learner would have crashed at Keyword RAG with no warning.
+
+| Change | Why |
+|---|---|
+| The assignment is self-contained: exact commands, file contents and what you should see, with no jump to the Zoomcamp page | Each jump was a place to get lost. |
+| One `.env` file works for both providers. The `openai` package reads `OPENAI_API_KEY` and `OPENAI_BASE_URL`, so the same code calls Gemini or OpenAI | The key lives in one place, and no code changes between providers. |
+| `llm.py` plus one swap rule for Zoomcamp code; Gemini notes where `parse`, images and tools differ (Lessons 7, 9, 11, 13, 17) | Lesson 4 promised these notes, and only two existed. |
+| Steps can now hold code blocks, on the site and in the Markdown export | Learners need to copy commands and files exactly. |
+
+**Tested:** every command in a clean folder with uv, Google's endpoint reached with a fake key, and the success path, `llm.py` and a notebook against a local stand-in server. **Not tested:** a real answer from Gemini, because no real key was used.
+

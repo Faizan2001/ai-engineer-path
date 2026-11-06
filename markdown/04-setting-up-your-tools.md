@@ -6,15 +6,15 @@
 
 *Pasting one poster into ChatGPT works. Your code has to handle a hundred, and some will fail. In this section you learn how language models work, how to get checked answers from them, and how to handle errors and cost. You finish by building a poster reader.*
 
-> **Your API key is a password that spends money. Make leaking it hard, and cheap if it happens.**
+> **Your API key is a password. Keep it in one file, and never let that file reach GitHub.**
 
-In this lesson you set up your computer and get an API key. You'll use this setup for the whole path, so take your time.
+In this lesson you set up your computer, get a free Gemini API key and call a model from your own code. You'll use this setup for the whole path, so take your time.
 
 **True story (2023): secret code pasted into a chatbot.** Samsung engineers pasted internal source code into ChatGPT. The company then restricted AI chat tools on work devices. [Source](https://www.forbes.com.au/news/innovation/samsung-bans-chatgpt-among-employees-after-sensitive-code-leak/)
 
 **What you'll do differently:** write rules for your assistant on day one: no keys, secrets or private code in prompts.
 
-**After this, you can** run paid AI calls with capped cost and no leaked keys.
+**After this, you can** call a model from your own code, with no leaked keys and no surprise bills.
 
 **The skill that lasts:** secret and cost hygiene, a habit reviewers notice quickly.
 
@@ -22,38 +22,159 @@ In this lesson you set up your computer and get an API key. You'll use this setu
 
 By the end of this lesson, you should be able to:
 
-- Create Python projects with uv, a fast tool for Python packages.
-- Keep your API key out of your code.
-- Limit how much a leaked key could cost you.
+- Create a Python project with uv, a fast tool for Python packages.
+- Call a model from your own code, with Gemini's free tier or OpenAI.
+- Keep your API key in one file, out of your code and out of Git.
 - Set some rules for your AI coding assistant.
 
 ## Assignment
 
 ### Day 1 · about 90 min
 
-> **Why:** Get one paid model call working, with a key that can't leak and spending you control.
+> **Why:** Make one real model call from your own code, with your key kept in one safe file.
 >
 > **Don't skip:** Every later lesson runs on this setup. If you've done it before, it's a quick check.
 
-1. Create an OpenAI account. Then make a new project just for this path and create an API key inside it. A separate project shows you exactly what this path costs.
-2. Add only a small amount of credit. $5 is enough to start. If your account has auto-recharge, turn it off. Set a budget alert, and check whether it stops spending or only sends a warning.
-3. **Paying from Bangladesh:** OpenAI needs a card that works for international online payments. Many banks offer a dual-currency card; ask yours. Add credit $5 at a time.
-4. **No such card yet?** Don't stop. Use Google's Gemini free tier through its [OpenAI-compatible endpoint](https://ai.google.dev/gemini-api/docs/openai): change the `base_url`, the key and the model name. Send only public data, because Google may use free-tier content to improve its products ([pricing page](https://ai.google.dev/gemini-api/docs/pricing)).
-5. **If you use Gemini:** expect small differences from OpenAI, such as no documented `refusal` field. Lessons where it matters will say so. Switch to OpenAI when you can.
-6. Follow the Zoomcamp [environment lesson](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md). It installs uv (a fast Python package manager), creates your project folder (the page calls it `llm-zoomcamp-2026-code`), adds the packages, puts your key in a `.env` file and runs a test call. Stop when the test call prints an answer.
-7. In the project folder, run `git status`. The file `.env` must not appear in the list. If it does, add `.env` to `.gitignore` and check again before your first commit. Your key must never reach GitHub.
-8. In your log, write down the package version, model ID and API endpoint that worked. The Zoomcamp examples can be older than today's docs. Before you change the model or provider, check that the new one supports images, structured output and tools.
+1. **Get your API key.** Open [Google AI Studio](https://aistudio.google.com/apikey), sign in and click **Create API key**. Copy the key. Already have one? Use that. It's free and needs no card. Don't add billing, so a leaked key can't cost you money.
+2. **Know the free-tier rule.** Google may use what you send on the free tier to improve its products ([pricing page](https://ai.google.dev/gemini-api/docs/pricing)). Send only public text or text you wrote yourself, never real students' details.
+3. **Install uv.** uv installs Python and your packages. In a terminal, run:
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+   Close the terminal, open a new one and run `uv --version`. You should see a version number. On Windows, use the command on [uv's install page](https://docs.astral.sh/uv/getting-started/installation/).
+4. **Make your project folder.** This one folder holds all your Zoomcamp work. Run these one at a time:
+   ```bash
+   mkdir llm-zoomcamp-2026-code
+   cd llm-zoomcamp-2026-code
+   uv init
+   uv add openai python-dotenv requests minsearch jupyter
+   ```
+   `uv init` also starts a Git repo and creates `main.py`. You don't need `main.py`, so delete it.
+5. **Tell Git to ignore your key file.** Do this before the key exists:
+   ```bash
+   echo ".env" >> .gitignore
+   git check-ignore .env
+   ```
+   The second command must print `.env`. That means Git will never upload this file.
+6. **Put your key in `.env`.** Create a file called `.env` in the project folder with these three lines. Replace `paste-your-gemini-key-here` with your key, with no spaces or quotes:
+   ```text
+   OPENAI_API_KEY=paste-your-gemini-key-here
+   OPENAI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/
+   MODEL=gemini-3.8-flash
+   ```
+   This file is the only place your key ever goes. You never type it into your code.
+7. **Why a Gemini key sits on a line called `OPENAI_API_KEY`.** You'll send requests with the `openai` Python package, and that package looks for these names. It's only the tool that sends the request. `OPENAI_BASE_URL` points it at Google, so you're using Gemini and your Gemini key. Nothing goes to OpenAI.
+8. **Make your first call.** Create `first_call.py` in the same folder:
+   ```python
+   import os
+   
+   from dotenv import load_dotenv
+   from openai import OpenAI
+   
+   load_dotenv()
+   client = OpenAI()
+   
+   response = client.chat.completions.create(
+       model=os.environ["MODEL"],
+       messages=[{"role": "user", "content": "Say hello in one short sentence."}],
+   )
+   
+   print(response.choices[0].message.content)
+   print(response.usage.total_tokens, "tokens used")
+   ```
+   Run it:
+   ```bash
+   uv run first_call.py
+   ```
+   You should see a short hello, then a token count. That's a real model answering your own code.
+9. **Got an error instead?** Read its last line. `Error code: 400`: your key is wrong, so copy it into `.env` again. `Error code: 404`: the model name is out of date, so pick a current one from [Gemini's models page](https://ai.google.dev/gemini-api/docs/models) and change `MODEL`. `Error code: 429`: you hit a [free-tier limit](https://ai.google.dev/gemini-api/docs/rate-limits), so wait a minute and try again. `Missing credentials`: the file isn't named exactly `.env`, or it's in another folder.
+10. **Save your work.**
+   ```bash
+   git add .
+   git commit -m "First model call"
+   ```
+   Git leaves out `.env`, as you told it to. In your log, write down the model that worked. Stop here when `first_call.py` prints an answer.
+11. **Only if you pay for OpenAI instead:** OpenAI needs a card that works for international payments. Many banks offer a dual-currency card. Make a new OpenAI project with its own key, add $5 of credit, turn auto-recharge off and set a budget alert. In `.env`, use that key, delete the `OPENAI_BASE_URL` line and set `MODEL=gpt-5.4-mini`. Nothing else changes.
 
 ### Day 2 · about 90 min
 
-> **Why:** Check that your Python is ready for the model lessons, and give your AI assistant rules.
+> **Why:** Write the `llm()` function you'll reuse, learn the one swap for Zoomcamp code, and check your Python.
 >
-> **Skip if** you can write the CSV top-3 script in 15 minutes without AI. Still create `AGENTS.md`.
+> **Don't skip:** Every Zoomcamp lesson uses `llm()` and this swap. If you know Python, the check takes 15 minutes.
 
-9. **No AI for this one:** in your project folder, write `top3.py`. It reads a CSV file, counts the rows for each value in one column and prints the top 3. Check it with a CSV of six rows whose counts you already know. Stuck for 20 minutes? Read the matching part of the [Python tutorial](https://docs.python.org/3/tutorial/), then try again.
-10. If files, dictionaries or functions still feel new, spend up to two extra sessions on those parts of the Python tutorial, then retry with a different CSV. Pass this check before the model-call lessons. Needing the extra practice is normal.
-11. Create a file called `AGENTS.md` in your project folder ([the format](https://agents.md/)). It's a note that AI coding assistants read before they work. Write four rules in it: explain code to me, review my code, ask me questions, and never write my lesson solutions. Add one more: no keys, secrets or private code in a prompt.
-12. Commit `top3.py` and `AGENTS.md`. Run `git status` again: `.env` must still not appear.
+12. **Save your call as a function.** You'll use it for every plain model call. Create `llm.py` in your project folder:
+   ```python
+   import os
+   
+   from dotenv import load_dotenv
+   from openai import OpenAI
+   
+   load_dotenv()
+   client = OpenAI()
+   
+   
+   def llm(prompt):
+       response = client.chat.completions.create(
+           model=os.environ["MODEL"],
+           messages=[{"role": "user", "content": prompt}],
+       )
+       return response.choices[0].message.content
+   ```
+13. **Open a notebook.** Zoomcamp lessons run in notebooks, so check that yours works:
+   ```bash
+   uv run jupyter notebook
+   ```
+   A browser tab opens. Click **New**, then **Python 3 (ipykernel)**. Save it as `setup-check` in the project folder.
+14. **Call your function.** Paste this into the first cell and press Shift+Enter:
+   ```python
+   from llm import llm
+   
+   llm("What is a token? Answer in one sentence.")
+   ```
+   You should see the answer under the cell.
+15. **Learn the one swap for Zoomcamp code.** Zoomcamp's examples use OpenAI's Responses API. Gemini doesn't have it, so that code stops with `Error code: 404`. When you see this:
+   ```python
+   response = openai_client.responses.create(
+       model="gpt-5.4-mini",
+       input=prompt
+   )
+   answer = response.output_text
+   ```
+   write this instead:
+   ```python
+   answer = llm(prompt)
+   ```
+   The lessons on structured output and tools each show their own swap. Paying for OpenAI? Keep Zoomcamp's code as it is.
+16. **Python check, no AI for this one.** Create `students.csv`:
+   ```text
+   name,department
+   Anika,CSE
+   Rafi,CSE
+   Mim,EEE
+   Tanvir,CSE
+   Nadia,BBA
+   Sakib,EEE
+   ```
+   Write `top3.py`. It reads the file, counts the students in each department and prints the top 3:
+   ```text
+   CSE 3
+   EEE 2
+   BBA 1
+   ```
+   Stuck for 20 minutes? Read the Python tutorial on [reading files](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files) and [dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries), then try again.
+17. If files, dictionaries or functions still feel new, spend up to two extra sessions on those tutorial pages, then retry with a different CSV. Get this working before you move on. Needing the extra practice is normal.
+18. **Give your AI assistant rules.** Create `AGENTS.md` in the project folder ([the format](https://agents.md/)). AI coding assistants read this file before they work. Put this in it:
+   ```text
+   Explain code to me and review my code. Ask me questions.
+   Don't write my lesson solutions.
+   Never read .env. Never put keys, secrets or private code in a prompt.
+   ```
+19. **Save your work.**
+   ```bash
+   git add .
+   git commit -m "Add llm function, Python check and assistant rules"
+   ```
+   Stop here when `llm()` answers in your notebook and `top3.py` prints those three lines.
 
 ### Day 3 · first win, about 90 min
 
@@ -61,19 +182,59 @@ By the end of this lesson, you should be able to:
 >
 > **Skip if** you've written keyword search with scoring and tests before. Nothing later uses these files.
 
-13. Before any AI, write five short help pages for an imaginary student office, as plain text files in a folder called `pages` in your project folder. Start each file with an ID, a date and a source, like this: `fees-01 · 2026-09-01 · Accounts office`. Make one page out of date on purpose.
-14. Without AI-written code, write `search.py`. Given a question, it prints the top 2 page IDs, or `no matching page` when nothing matches. It should be about 30 lines.
-15. Build it in four parts. First, lowercase the question and split it into words. Second, remove common words (the, a, an, is, are, what, when, how, do, i, my, to, of, for). Third, give each page one point for every remaining word it contains. Fourth, print the two highest-scoring pages, or `no matching page` if the best score is 0.
-16. Write three tests in `test_search.py` as plain `assert` lines. Run them with `python test_search.py`.
-17. Test 1: a question with an obvious answer. Test 2: a question no page answers; your search must print `no matching page`, not guess. Test 3: a question that matches the out-of-date page. Assert that it returns that page, and add a comment: this is wrong, because search can't tell the page is old.
-18. Stop here when all three tests pass and you've recorded a one-minute screen capture: a question goes in, page IDs come out. That's your first search engine.
+20. Today you build a small search engine, with no AI-written code. In your project folder, make a folder called `pages` with five short help pages for an imaginary student office, one text file each. The file name is the page ID. The first line gives the ID, date and source. For example, `pages/fees-01.txt`:
+   ```text
+   fees-01 · 2026-09-01 · Accounts office
+   Tuition fees are due by 15 January. Pay at the bank or online.
+   ```
+21. Make one of the five out of date on purpose, for example a `library-01` page dated 2024 with old closing times.
+22. Create `search.py` with one function, `search(question)`. It returns a list of up to 2 page IDs, best first, or an empty list if nothing matches. Build it in four parts. First, lowercase the question, split it into words and strip the `?`. Second, remove common words (the, a, an, is, are, what, when, how, do, i, my, to, of, for). Third, give each page one point for every remaining word its text contains. Fourth, return the two highest-scoring pages, leaving out any page with 0 points. It should be about 20 lines.
+23. Add this to the bottom of `search.py`, so you can ask questions from the terminal:
+   ```python
+   if __name__ == "__main__":
+       import sys
+       ids = search(sys.argv[1])
+       print(ids if ids else "no matching page")
+   ```
+   Try it:
+   ```bash
+   uv run search.py "when are tuition fees due?"
+   ```
+   You should see page IDs, with the right page first.
+24. Create `test_search.py` with three tests. Change the questions and IDs to match your own pages:
+   ```python
+   from search import search
+   
+   # A question with an obvious answer
+   assert search("when are tuition fees due?")[0] == "fees-01"
+   
+   # A question no page answers
+   assert search("is there a swimming pool?") == []
+   
+   # A question that finds the out-of-date page.
+   # This is a wrong answer: search can't read dates yet.
+   assert search("when does the library close?")[0] == "library-01"
+   
+   print("all tests passed")
+   ```
+   Run it with `uv run test_search.py`.
+25. Stop here when you see `all tests passed`, then commit. That's your first search engine.
 
 ### Memory check · 10 min
 
-19. Close this page. In your log, answer from memory, then check:
-   - Why must your API key never be in your code or Git history? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md))
+26. Close this page. In your log, answer from memory, then check:
+   - Why must your API key never be in your code or Git history? ([where to check](04-setting-up-your-tools.md))
    - What are your two log rules for being stuck and for coming back after a break? ([where to check](01-how-this-path-works.md))
-20. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+27. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+
+<details>
+<summary>Check your answer: Why must your API key never be in your code or Git history?</summary>
+
+Anyone who gets the key can use your account. Git keeps every old version, so a key you commit stays in the history even after you delete it. Keep it in `.env`, which Git ignores.
+
+Different wording is fine. Correct missing pieces, then retry without looking next session.
+
+</details>
 
 ## Additional resources
 

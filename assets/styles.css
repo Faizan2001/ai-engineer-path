@@ -115,6 +115,8 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--band); bor
 .lead-line { color: var(--muted); }
 .panel { background: var(--band); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; display: flex; flex-direction: column; gap: 12px; }
 .panel h3 + ol { margin-top: -4px; }
+.content pre { margin: 8px 0; padding: 10px 12px; overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; font: 0.84rem/1.55 var(--mono); }
+.content pre code { padding: 0; border: 0; background: none; font: inherit; overflow-wrap: normal; }
 .purpose { display: flex; flex-direction: column; gap: 6px; padding: 12px 16px; border-radius: 10px; background: var(--accent-soft); border-left: 4px solid var(--accent); }
 .purpose p { margin: 0; }
 .purpose-tag { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 4px; border: 1px solid var(--accent); background: var(--surface); color: var(--accent-text); font: 700 0.74rem var(--body); letter-spacing: 0.03em; text-transform: uppercase; vertical-align: 1px; }

@@ -49,6 +49,7 @@ To grade search you need an answer key: questions whose correct page you already
 > **Skip if** you've built ground-truth question sets for search before.
 
 1. Module 4: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/01-intro.md) and [02 Ground truth](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/02-ground-truth.md) (it generates questions with structured output, which you already know).
+2. **Using Gemini?** Swap `responses.parse` for the `beta.chat.completions.parse` form from [Structured Output and Errors](07-structured-output-and-errors.md).
 
 ### Day 2 · about 90 min
 
@@ -56,8 +57,8 @@ To grade search you need an answer key: questions whose correct page you already
 >
 > **Don't skip:** They become your held-back test set.
 
-2. [03 Ground truth batch](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/03-ground-truth-batch.md).
-3. Use the same method to generate questions for a random sample of 60 of your MDN pages, not all of them.
+3. [03 Ground truth batch](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/03-ground-truth-batch.md).
+4. Use the same method to generate questions for a random sample of 60 of your MDN pages, not all of them.
 
 ### Day 3 · about 90 min
 
@@ -65,7 +66,7 @@ To grade search you need an answer key: questions whose correct page you already
 >
 > **Don't skip:** The Ask MDN project is scored on this set.
 
-4. Read through the questions, fix or replace the bad ones, and keep 50. Commit them as your **held-back** set. Don't use them for tuning.
+5. Read through the questions, fix or replace the bad ones, and keep 50. Commit them as your **held-back** set. Don't use them for tuning.
 
 ### Day 4 · about 90 min
 
@@ -73,7 +74,7 @@ To grade search you need an answer key: questions whose correct page you already
 >
 > **Skip if** you can already score a search run against ground truth.
 
-5. [04 Search evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/04-search-evaluation.md).
+6. [04 Search evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/04-search-evaluation.md).
 
 ### Day 5 · about 90 min
 
@@ -81,7 +82,7 @@ To grade search you need an answer key: questions whose correct page you already
 >
 > **Skip if** you can compute Hit Rate and MRR by hand and know why tuning uses practice data only.
 
-6. [05 Search metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md) and [06 Search tuning](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/06-search-tuning.md).
+7. [05 Search metrics](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md) and [06 Search tuning](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/06-search-tuning.md).
 
 ### Days 6–7 · about 3 hours
 
@@ -89,9 +90,9 @@ To grade search you need an answer key: questions whose correct page you already
 >
 > **Don't skip:** Your README reports these numbers.
 
-7. Add to Ask MDN: measure Hit Rate@5 and MRR@5 for keyword search and for vector search on your 20 practice questions. The @5 means only the top 5 results count. Write the numbers in your README.
-8. Score the first 5 different pages, not 5 chunks. Fetch more chunks if you need to, then remove repeated pages in rank order with your `unique_pages` function. If fewer than 5 pages remain, score what you have.
-9. Add a small test: repeated chunks from page A must not push page B out of the top five pages.
+8. Add to Ask MDN: measure Hit Rate@5 and MRR@5 for keyword search and for vector search on your 20 practice questions. The @5 means only the top 5 results count. Write the numbers in your README.
+9. Score the first 5 different pages, not 5 chunks. Fetch more chunks if you need to, then remove repeated pages in rank order with your `unique_pages` function. If fewer than 5 pages remain, score what you have.
+10. Add a small test: repeated chunks from page A must not push page B out of the top five pages.
 
 ### Day 8 · about 60 min
 
@@ -99,17 +100,17 @@ To grade search you need an answer key: questions whose correct page you already
 >
 > **Don't skip:** Ask MDN reruns this bootstrap on its final test.
 
-10. Your Hit Rate on 20 practice questions is an estimate, not a fact. To see how uncertain it is, write a paired bootstrap, without AI-written code.
-11. Repeat 1,000 times: pick 20 of your practice questions at random, with replacement (some appear twice, some not at all). On that same pick, compute Hit Rate for keyword search and for vector search, and save the difference.
-12. Report the middle 95% of the 1,000 differences (the 2.5th to the 97.5th percentile). If the range includes 0, you can't yet say which search is better. With 20 questions the range will be wide. That is the point.
-13. Add the rule of three to your log: if you see 0 failures in n tries, the true failure rate could still be as high as about 3/n. Stop here when your results table shows every metric with its n and its range.
+11. Your Hit Rate on 20 practice questions is an estimate, not a fact. To see how uncertain it is, write a paired bootstrap, without AI-written code.
+12. Repeat 1,000 times: pick 20 of your practice questions at random, with replacement (some appear twice, some not at all). On that same pick, compute Hit Rate for keyword search and for vector search, and save the difference.
+13. Report the middle 95% of the 1,000 differences (the 2.5th to the 97.5th percentile). If the range includes 0, you can't yet say which search is better. With 20 questions the range will be wide. That is the point.
+14. Add the rule of three to your log: if you see 0 failures in n tries, the true failure rate could still be as high as about 3/n. Stop here when your results table shows every metric with its n and its range.
 
 ### Memory check · 10 min
 
-14. Close this page. In your log, answer from memory, then check:
+15. Close this page. In your log, answer from memory, then check:
    - What does MRR reward that Hit Rate doesn't? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/05-search-metrics.md))
    - Why did you split long MDN pages into chunks? ([where to check](12-embeddings-and-vector-search.md))
-15. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+16. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What does MRR reward that Hit Rate doesn't?</summary>

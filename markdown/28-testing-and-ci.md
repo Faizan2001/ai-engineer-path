@@ -76,7 +76,7 @@ promptfoo runs tests against your app. A YAML file lists the questions and the c
 > **Don't skip:** Tomorrow's Day blocks bad changes with these runs. Already know GitHub Actions? Use the Test-out.
 
 6. **Test-out:** already run GitHub Actions? Skip the quickstart. Otherwise follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart).
-7. Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Using Gemini? Pick a Gemini model as promptfoo's grader.
+7. Add your key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Using Gemini? Also add `OPENAI_BASE_URL` and `MODEL`, and pick a Gemini model as promptfoo's grader.
 8. Run pytest and the rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly, and cache unchanged evaluations.
 9. Don't expose API secrets to untrusted fork code.
 

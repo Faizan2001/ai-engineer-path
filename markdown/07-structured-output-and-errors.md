@@ -42,6 +42,15 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 
 1. Read OpenAI's [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). Focus on Pydantic models, strict schemas and the `refusal` field.
 2. Write a script that turns a sentence like “Hackathon, Friday 3pm, Room 402” into an `Event` Pydantic model. Give `Event` a title, date, start time, end time and venue. Make the fields that can be missing optional. Before each run, write down what you expect back, then compare.
+3. **Using Gemini?** `responses.parse` gives a 404 there, so use this form instead:
+   ```python
+   completion = client.beta.chat.completions.parse(
+       model=os.environ["MODEL"],
+       messages=[{"role": "user", "content": text}],
+       response_format=Event,
+   )
+   event = completion.choices[0].message.parsed
+   ```
 
 ### Day 2 · about 90 min
 
@@ -49,8 +58,9 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 >
 > **Don't skip:** Poster Reader reads images and reports the cost per poster.
 
-3. Read the [images and vision guide](https://developers.openai.com/api/docs/guides/images-vision). Send one poster image (a photo or a screenshot of any event poster) and get your `Event` back.
-4. Work out the cost of that call. Read the token counts in the response's `usage` field and multiply them by the prices on the [pricing page](https://developers.openai.com/api/docs/pricing). Print the cost after every call.
+4. Read the [images and vision guide](https://developers.openai.com/api/docs/guides/images-vision). Send one poster image (a photo or a screenshot of any event poster) and get your `Event` back.
+5. **Using Gemini?** Send the image through `client.chat.completions`, as in [Gemini's image example](https://ai.google.dev/gemini-api/docs/openai#image-understanding).
+6. Work out the cost of that call. Read the token counts in the response's `usage` field and multiply them by the prices on the [pricing page](https://developers.openai.com/api/docs/pricing). Print the cost after every call.
 
 ### Day 3 · about 90 min
 
@@ -58,8 +68,8 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 >
 > **Skip if** you've built retries with backoff and `Retry-After` before. Still add the refusal handling.
 
-5. Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a request timeout and at most 2 retries, only for rate-limit and server errors. If the response has a `Retry-After` time, wait that long. Otherwise wait a little longer each time, with some randomness. Also set an overall deadline. Never retry bad credentials, or a bad request without changing it.
-6. Handle refusals: log them and return “needs a human” instead of crashing. Using Gemini? It has no documented `refusal` field, so make a fake refusal in your test.
+7. Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a request timeout and at most 2 retries, only for rate-limit and server errors. If the response has a `Retry-After` time, wait that long. Otherwise wait a little longer each time, with some randomness. Also set an overall deadline. Never retry bad credentials, or a bad request without changing it.
+8. Handle refusals: log them and return “needs a human” instead of crashing. Using Gemini? It has no documented `refusal` field, so make a fake refusal in your test.
 
 ### Day 4 · about 90 min
 
@@ -67,8 +77,8 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 >
 > **Skip if** you already use pytest and have built a Streamlit form.
 
-7. Follow pytest's [getting started guide](https://docs.pytest.org/en/stable/getting-started.html), then write 3 tests for your code: one with good input, one with a missing field and one with a refusal.
-8. Follow Streamlit's [get started](https://docs.streamlit.io/get-started) page, then show your `Event` in a small [form](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form) with a Save button.
+9. Follow pytest's [getting started guide](https://docs.pytest.org/en/stable/getting-started.html), then write 3 tests for your code: one with good input, one with a missing field and one with a refusal.
+10. Follow Streamlit's [get started](https://docs.streamlit.io/get-started) page, then show your `Event` in a small [form](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form) with a Save button.
 
 ### Day 5 · about 90 min
 
@@ -76,17 +86,17 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 >
 > **Don't skip:** This one-change method is how you tune every project.
 
-9. Spend 15 minutes on Anthropic's [Providing examples](https://academy.claude.com/courses/building-with-the-claude-api/providing-examples). Few-shot prompting means showing the model a few examples of input and output. Read the explanation or watch the video, and do the exercise with your own provider.
-10. Make 6 practice inputs, including one with an ambiguous date and one with a missing venue. Save your current prompt as v1. Make v2 by changing one thing only: clearer instructions, or two examples.
-11. Run both on the same inputs, with the same model and settings. Keep the raw outputs. Mark each field correct, wrong or “unknown” (right when the input doesn't say). Neater formatting doesn't mean the facts are better.
-12. Keep v2 only if the scores say it is better. Write the model ID, prompt version, settings and cost next to the scores. If the results are tied, say so. Six practice cases are too few to prove much.
+11. Spend 15 minutes on Anthropic's [Providing examples](https://academy.claude.com/courses/building-with-the-claude-api/providing-examples). Few-shot prompting means showing the model a few examples of input and output. Read the explanation or watch the video, and do the exercise with your own provider.
+12. Make 6 practice inputs, including one with an ambiguous date and one with a missing venue. Save your current prompt as v1. Make v2 by changing one thing only: clearer instructions, or two examples.
+13. Run both on the same inputs, with the same model and settings. Keep the raw outputs. Mark each field correct, wrong or “unknown” (right when the input doesn't say). Neater formatting doesn't mean the facts are better.
+14. Keep v2 only if the scores say it is better. Write the model ID, prompt version, settings and cost next to the scores. If the results are tied, say so. Six practice cases are too few to prove much.
 
 ### Memory check · 10 min
 
-13. Close this page. In your log, answer from memory, then check:
+15. Close this page. In your log, answer from memory, then check:
    - How do you tell whether a prompt change helped? ([where to check](07-structured-output-and-errors.md))
    - When is a workflow a better choice than an agent? ([where to check](06-the-ai-staircase.md))
-14. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+16. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: How do you tell whether a prompt change helped?</summary>

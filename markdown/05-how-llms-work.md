@@ -63,7 +63,7 @@ A model call predicts tokens from its input and what it learned in training. It 
 
 4. Predict first: will the same question cost more tokens in English, in Bangla script or in Banglish? Write your guess in your log.
 5. Write one campus question yourself (never copy a real post) in three forms: English, Bangla script and Banglish. Make each one three or four sentences long.
-6. Send each question to your model with no instructions. Read the input token count in the response's `usage` field. That is the count you're billed for.
+6. Send each question to your model with no instructions. Read the input token count in `response.usage.prompt_tokens`. That is the count you're billed for.
 7. Every request has a few fixed formatting tokens, so also send a one-word message and subtract its count from each result. Then divide each count by the English one to get a ratio. Record the model, the three counts and the ratios in your log.
 8. Without AI-written code, write `sample.py`. Make up a table of five possible next tokens, each with a score.
 9. Turn the scores into probabilities with softmax: divide each score by the temperature, take e to that power, then divide by the total of all five. Pick a token at random using those probabilities.

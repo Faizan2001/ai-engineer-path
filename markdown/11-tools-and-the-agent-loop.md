@@ -58,6 +58,7 @@ It sends back a structured request: “call search with this query”. Your code
 > **Skip if** you've built function calling with any model API.
 
 2. [13 Function calling](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/13-function-calling.md). Watch how the tool's result is sent back to the model.
+3. **Using Gemini?** Tools go through Chat Completions, so four things change. Nest each tool under a `function` key. Call `client.chat.completions.create(model=..., messages=messages, tools=tools)`. Read the requests from `response.choices[0].message.tool_calls`. Send each result back as a message with `role` set to `tool` and its `tool_call_id`. See [Gemini's example](https://ai.google.dev/gemini-api/docs/openai#function-calling). The same changes apply in tomorrow's agent loop.
 
 ### Day 3 · about 90 min
 
@@ -65,7 +66,7 @@ It sends back a structured request: “call search with this query”. Your code
 >
 > **Don't skip:** You rewrite this loop from memory tomorrow.
 
-3. [14 Agentic loop](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md). Keep your loop code; you'll use it on Day 4.
+4. [14 Agentic loop](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md). Keep your loop code; you'll use it on Day 4.
 
 ### Day 4 · about 90 min
 
@@ -73,9 +74,9 @@ It sends back a structured request: “call search with this query”. Your code
 >
 > **Don't skip:** Ask MDN's search tool and its limits are built here.
 
-4. **No AI for this one:** close the course code and rewrite the agent loop from memory, in 20 minutes at most. Then compare it with the course code and fix the gaps.
-5. Add to Ask MDN: turn your search into a tool, let the model call it, and log every call.
-6. Before you put the loop in a chat page, add three limits: at most 8 rounds of model and tool calls, a timeout on each network call, and a clear “stopped” status. Test it with a fake model that keeps asking for search: it must stop at the limit. Keep tools read-only for now. A step limit doesn't cap cost, so also record token usage.
+5. **No AI for this one:** close the course code and rewrite the agent loop from memory, in 20 minutes at most. Then compare it with the course code and fix the gaps.
+6. Add to Ask MDN: turn your search into a tool, let the model call it, and log every call.
+7. Before you put the loop in a chat page, add three limits: at most 8 rounds of model and tool calls, a timeout on each network call, and a clear “stopped” status. Test it with a fake model that keeps asking for search: it must stop at the limit. Keep tools read-only for now. A step limit doesn't cap cost, so also record token usage.
 
 ### Day 5 · about 90 min
 
@@ -83,15 +84,15 @@ It sends back a structured request: “call search with this query”. Your code
 >
 > **Don't skip:** This is Ask MDN v0.2.
 
-7. Build a small Streamlit chat page for Ask MDN, about 20 lines. You used Streamlit in Structured Output and Errors.
-8. This is **Ask MDN v0.2**: you can chat with it, and it decides when to search. Ask it 5 of your practice questions, then show it to a friend if one is around.
+8. Build a small Streamlit chat page for Ask MDN, about 20 lines. You used Streamlit in Structured Output and Errors.
+9. This is **Ask MDN v0.2**: you can chat with it, and it decides when to search. Ask it 5 of your practice questions, then show it to a friend if one is around.
 
 ### Memory check · 10 min
 
-9. Close this page. In your log, answer from memory, then check:
+10. Close this page. In your log, answer from memory, then check:
    - What stops an agent loop from running forever? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md))
    - What is the difference between precision and recall? ([where to check](10-ml-basics-measuring-quality.md))
-10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+11. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What stops an agent loop from running forever?</summary>
