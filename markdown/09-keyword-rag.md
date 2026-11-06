@@ -70,6 +70,7 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 > **Skip if** you can write search, prompt and answer as one function without the notes.
 
 3. [07 LLM](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/07-llm.md) (it shows how to calculate the price, like you did for posters) and [08 RAG helper](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/08-rag-helper.md).
+4. **Using Gemini?** Wherever these pages call `responses.create`, use your `llm()` function. Copy `llm.py` into any new project.
 
 ### Day 4 · about 90 min
 
@@ -77,10 +78,10 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 >
 > **Don't skip:** Ask MDN and all its tests use this exact data.
 
-4. [09 Data ingestion](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/09-data-ingestion.md) and, only if you have time, [10 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/10-rag-next-steps.md).
-5. Start Ask MDN: create a new **public** GitHub repo called `ask-mdn` and clone it.
-6. Next to it, not inside it, download only the two folders you need from [mdn/content](https://github.com/mdn/content). The whole repo is about 500 MB, so run `git clone --depth 1 --filter=blob:none --sparse https://github.com/mdn/content.git`. Then go into the new `content` folder and run `git sparse-checkout set files/en-us/web/css/reference/properties files/en-us/web/javascript/reference/global_objects`.
-7. In the `content` folder, run `git rev-parse HEAD` and write the commit ID in the README of `ask-mdn`. That exact version is your data from now on, so your tests stay fair.
+5. [09 Data ingestion](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/09-data-ingestion.md) and, only if you have time, [10 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/10-rag-next-steps.md).
+6. Start Ask MDN: create a new **public** GitHub repo called `ask-mdn` and clone it.
+7. Next to it, not inside it, download only the two folders you need from [mdn/content](https://github.com/mdn/content). The whole repo is about 500 MB, so run `git clone --depth 1 --filter=blob:none --sparse https://github.com/mdn/content.git`. Then go into the new `content` folder and run `git sparse-checkout set files/en-us/web/css/reference/properties files/en-us/web/javascript/reference/global_objects`.
+8. In the `content` folder, run `git rev-parse HEAD` and write the commit ID in the README of `ask-mdn`. That exact version is your data from now on, so your tests stay fair.
 
 ### Day 5 · about 90 min
 
@@ -88,16 +89,16 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 >
 > **Don't skip:** Every later Ask MDN version builds on it.
 
-8. Load the two folders into minsearch: CSS properties and JavaScript global objects.
-9. Each MDN page is a Markdown file. It starts with front matter between `---` lines and contains `{{macro}}` lines. Read the title and slug from the front matter, drop the macro lines and keep the text.
-10. Ask it three questions and look at what it finds. This is **Ask MDN v0.1**: it finds the right pages for a question. Commit early and often, with messages that say what changed.
+9. Load the two folders into minsearch: CSS properties and JavaScript global objects.
+10. Each MDN page is a Markdown file. It starts with front matter between `---` lines and contains `{{macro}}` lines. Read the title and slug from the front matter, drop the macro lines and keep the text.
+11. Ask it three questions and look at what it finds. This is **Ask MDN v0.1**: it finds the right pages for a question. Commit early and often, with messages that say what changed.
 
 ### Memory check · 10 min
 
-11. Close this page. In your log, answer from memory, then check:
+12. Close this page. In your log, answer from memory, then check:
    - What are the steps of RAG, from question to answer? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md))
    - What makes structured output better than free text for an app? ([where to check](07-structured-output-and-errors.md))
-12. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 

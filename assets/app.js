@@ -37,6 +37,11 @@
   // ---------- inline formatting: escape first, then `code`, **bold**, [label](https://... or #slug)
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function fmt(text) {
+    return String(text).split(/```\w*\n([\s\S]*?)\n```/).map(function (part, i) {
+      return i % 2 ? "<pre><code>" + esc(part) + "</code></pre>" : fmtInline(part);
+    }).join("");
+  }
+  function fmtInline(text) {
     var s = esc(text);
     s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
     s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");

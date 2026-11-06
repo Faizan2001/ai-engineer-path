@@ -77,3 +77,8 @@ test('every Day says why it matters, and whether it can be skipped', () => {
     }
   });
 });
+
+test('code blocks in steps are closed', () => {
+  for (const l of now) (l.assignment || []).forEach((g, gi) => g.steps.forEach((s, si) =>
+    assert.equal((s.match(/```/g) || []).length % 2, 0, `${l.slug} group ${gi} step ${si} has an unclosed code block`)));
+});

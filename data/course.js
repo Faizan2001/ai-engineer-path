@@ -25,7 +25,7 @@ window.COURSE = {
   "Finish each lesson's **Memory check** before you mark it complete. Explain the idea without looking, compare with the source, and fix what you missed. Retry any missed question next session. For projects, show the evidence listed under “You're done when”. A tick alone doesn't prove a skill.",
   "Your coding assistant is welcome, but each project raises the bar on work you do by hand: one change, then one function, then one test, then one bug fixed without AI. [Mindset and Asking for Help](#mindset-and-asking-for-help) explains why.",
   "Some Days are marked **Under the hood**. You build a small version of something you use, such as a gradient engine, a search index or a tiny GPT, and check it against the real thing. They are short on purpose. Building the mechanism once makes the rest of the path less mysterious.",
-  "Cost: the learning materials are free. Model calls and some hosting can cost money. Set your own API budget, price each experiment before you run it, and use fake responses for routine tests. You don't need accounts with three model providers. [Setting Up Your Tools](#setting-up-your-tools) has a free-tier fallback. There is no certificate; your projects and checks are the evidence.",
+  "Cost: the learning materials are free. Model calls and some hosting can cost money. Set your own API budget, price each experiment before you run it, and use fake responses for routine tests. You don't need accounts with three model providers. [Setting Up Your Tools](#setting-up-your-tools) starts you on Gemini's free tier, with no card needed. There is no certificate; your projects and checks are the evidence.",
   "On mobile data, or expecting a power cut? Open the next lesson's links on Wi-Fi first. Videos are always optional and show their length.",
   "Assignments are the required path. Videos can help an idea click. Additional resources and Extra credit are optional. Use the materials named in the current step, then build. If two sessions end in the same confusion, pause the new material and repair that skill with a smaller example.",
   "Already started? Your saved progress stays. Anything added behind you (a new lesson, or a new Day in a lesson you finished) appears on the course page under “New since you passed this point”."
@@ -196,9 +196,9 @@ window.COURSE = {
      "title": "Setting Up Your Tools",
      "kind": "lesson",
      "time": "about 4.5 hours",
-     "hook": "Your API key is a password that spends money. Make leaking it hard, and cheap if it happens.",
+     "hook": "Your API key is a password. Keep it in one file, and never let that file reach GitHub.",
      "intro": [
-      "In this lesson you set up your computer and get an API key. You'll use this setup for the whole path, so take your time."
+      "In this lesson you set up your computer, get a free Gemini API key and call a model from your own code. You'll use this setup for the whole path, so take your time."
      ],
      "story": {
       "year": "2023",
@@ -207,51 +207,58 @@ window.COURSE = {
       "url": "https://www.forbes.com.au/news/innovation/samsung-bans-chatgpt-among-employees-after-sensitive-code-leak/",
       "title": "secret code pasted into a chatbot"
      },
-     "unlocks": "run paid AI calls with capped cost and no leaked keys.",
+     "unlocks": "call a model from your own code, with no leaked keys and no surprise bills.",
      "edge": "secret and cost hygiene, a habit reviewers notice quickly.",
      "overview": [
-      "Create Python projects with uv, a fast tool for Python packages.",
-      "Keep your API key out of your code.",
-      "Limit how much a leaked key could cost you.",
+      "Create a Python project with uv, a fast tool for Python packages.",
+      "Call a model from your own code, with Gemini's free tier or OpenAI.",
+      "Keep your API key in one file, out of your code and out of Git.",
       "Set some rules for your AI coding assistant."
      ],
      "assignment": [
       {
        "day": "Day 1 · about 90 min",
        "steps": [
-        "Create an OpenAI account. Then make a new project just for this path and create an API key inside it. A separate project shows you exactly what this path costs.",
-        "Add only a small amount of credit. $5 is enough to start. If your account has auto-recharge, turn it off. Set a budget alert, and check whether it stops spending or only sends a warning.",
-        "**Paying from Bangladesh:** OpenAI needs a card that works for international online payments. Many banks offer a dual-currency card; ask yours. Add credit $5 at a time.",
-        "**No such card yet?** Don't stop. Use Google's Gemini free tier through its [OpenAI-compatible endpoint](https://ai.google.dev/gemini-api/docs/openai): change the `base_url`, the key and the model name. Send only public data, because Google may use free-tier content to improve its products ([pricing page](https://ai.google.dev/gemini-api/docs/pricing)).",
-        "**If you use Gemini:** expect small differences from OpenAI, such as no documented `refusal` field. Lessons where it matters will say so. Switch to OpenAI when you can.",
-        "Follow the Zoomcamp [environment lesson](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md). It installs uv (a fast Python package manager), creates your project folder (the page calls it `llm-zoomcamp-2026-code`), adds the packages, puts your key in a `.env` file and runs a test call. Stop when the test call prints an answer.",
-        "In the project folder, run `git status`. The file `.env` must not appear in the list. If it does, add `.env` to `.gitignore` and check again before your first commit. Your key must never reach GitHub.",
-        "In your log, write down the package version, model ID and API endpoint that worked. The Zoomcamp examples can be older than today's docs. Before you change the model or provider, check that the new one supports images, structured output and tools."
+        "**Get your API key.** Open [Google AI Studio](https://aistudio.google.com/apikey), sign in and click **Create API key**. Copy the key. Already have one? Use that. It's free and needs no card. Don't add billing, so a leaked key can't cost you money.",
+        "**Know the free-tier rule.** Google may use what you send on the free tier to improve its products ([pricing page](https://ai.google.dev/gemini-api/docs/pricing)). Send only public text or text you wrote yourself, never real students' details.",
+        "**Install uv.** uv installs Python and your packages. In a terminal, run:\n```bash\ncurl -LsSf https://astral.sh/uv/install.sh | sh\n```\nClose the terminal, open a new one and run `uv --version`. You should see a version number. On Windows, use the command on [uv's install page](https://docs.astral.sh/uv/getting-started/installation/).",
+        "**Make your project folder.** This one folder holds all your Zoomcamp work. Run these one at a time:\n```bash\nmkdir llm-zoomcamp-2026-code\ncd llm-zoomcamp-2026-code\nuv init\nuv add openai python-dotenv requests minsearch jupyter\n```\n`uv init` also starts a Git repo and creates `main.py`. You don't need `main.py`, so delete it.",
+        "**Tell Git to ignore your key file.** Do this before the key exists:\n```bash\necho \".env\" >> .gitignore\ngit check-ignore .env\n```\nThe second command must print `.env`. That means Git will never upload this file.",
+        "**Put your key in `.env`.** Create a file called `.env` in the project folder with these three lines. Replace `paste-your-gemini-key-here` with your key, with no spaces or quotes:\n```text\nOPENAI_API_KEY=paste-your-gemini-key-here\nOPENAI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/\nMODEL=gemini-3.8-flash\n```\nThis file is the only place your key ever goes. You never type it into your code.",
+        "**Why a Gemini key sits on a line called `OPENAI_API_KEY`.** You'll send requests with the `openai` Python package, and that package looks for these names. It's only the tool that sends the request. `OPENAI_BASE_URL` points it at Google, so you're using Gemini and your Gemini key. Nothing goes to OpenAI.",
+        "**Make your first call.** Create `first_call.py` in the same folder:\n```python\nimport os\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\n\nload_dotenv()\nclient = OpenAI()\n\nresponse = client.chat.completions.create(\n    model=os.environ[\"MODEL\"],\n    messages=[{\"role\": \"user\", \"content\": \"Say hello in one short sentence.\"}],\n)\n\nprint(response.choices[0].message.content)\nprint(response.usage.total_tokens, \"tokens used\")\n```\nRun it:\n```bash\nuv run first_call.py\n```\nYou should see a short hello, then a token count. That's a real model answering your own code.",
+        "**Got an error instead?** Read its last line. `Error code: 400`: your key is wrong, so copy it into `.env` again. `Error code: 404`: the model name is out of date, so pick a current one from [Gemini's models page](https://ai.google.dev/gemini-api/docs/models) and change `MODEL`. `Error code: 429`: you hit a [free-tier limit](https://ai.google.dev/gemini-api/docs/rate-limits), so wait a minute and try again. `Missing credentials`: the file isn't named exactly `.env`, or it's in another folder.",
+        "**Save your work.**\n```bash\ngit add .\ngit commit -m \"First model call\"\n```\nGit leaves out `.env`, as you told it to. In your log, write down the model that worked. Stop here when `first_call.py` prints an answer.",
+        "**Only if you pay for OpenAI instead:** OpenAI needs a card that works for international payments. Many banks offer a dual-currency card. Make a new OpenAI project with its own key, add $5 of credit, turn auto-recharge off and set a budget alert. In `.env`, use that key, delete the `OPENAI_BASE_URL` line and set `MODEL=gpt-5.4-mini`. Nothing else changes."
        ],
-       "why": "Get one paid model call working, with a key that can't leak and spending you control.",
+       "why": "Make one real model call from your own code, with your key kept in one safe file.",
        "keep": "Every later lesson runs on this setup. If you've done it before, it's a quick check."
       },
       {
        "day": "Day 2 · about 90 min",
        "steps": [
-        "**No AI for this one:** in your project folder, write `top3.py`. It reads a CSV file, counts the rows for each value in one column and prints the top 3. Check it with a CSV of six rows whose counts you already know. Stuck for 20 minutes? Read the matching part of the [Python tutorial](https://docs.python.org/3/tutorial/), then try again.",
-        "If files, dictionaries or functions still feel new, spend up to two extra sessions on those parts of the Python tutorial, then retry with a different CSV. Pass this check before the model-call lessons. Needing the extra practice is normal.",
-        "Create a file called `AGENTS.md` in your project folder ([the format](https://agents.md/)). It's a note that AI coding assistants read before they work. Write four rules in it: explain code to me, review my code, ask me questions, and never write my lesson solutions. Add one more: no keys, secrets or private code in a prompt.",
-        "Commit `top3.py` and `AGENTS.md`. Run `git status` again: `.env` must still not appear."
+        "**Save your call as a function.** You'll use it for every plain model call. Create `llm.py` in your project folder:\n```python\nimport os\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\n\nload_dotenv()\nclient = OpenAI()\n\n\ndef llm(prompt):\n    response = client.chat.completions.create(\n        model=os.environ[\"MODEL\"],\n        messages=[{\"role\": \"user\", \"content\": prompt}],\n    )\n    return response.choices[0].message.content\n```",
+        "**Open a notebook.** Zoomcamp lessons run in notebooks, so check that yours works:\n```bash\nuv run jupyter notebook\n```\nA browser tab opens. Click **New**, then **Python 3 (ipykernel)**. Save it as `setup-check` in the project folder.",
+        "**Call your function.** Paste this into the first cell and press Shift+Enter:\n```python\nfrom llm import llm\n\nllm(\"What is a token? Answer in one sentence.\")\n```\nYou should see the answer under the cell.",
+        "**Learn the one swap for Zoomcamp code.** Zoomcamp's examples use OpenAI's Responses API. Gemini doesn't have it, so that code stops with `Error code: 404`. When you see this:\n```python\nresponse = openai_client.responses.create(\n    model=\"gpt-5.4-mini\",\n    input=prompt\n)\nanswer = response.output_text\n```\nwrite this instead:\n```python\nanswer = llm(prompt)\n```\nThe lessons on structured output and tools each show their own swap. Paying for OpenAI? Keep Zoomcamp's code as it is.",
+        "**Python check, no AI for this one.** Create `students.csv`:\n```text\nname,department\nAnika,CSE\nRafi,CSE\nMim,EEE\nTanvir,CSE\nNadia,BBA\nSakib,EEE\n```\nWrite `top3.py`. It reads the file, counts the students in each department and prints the top 3:\n```text\nCSE 3\nEEE 2\nBBA 1\n```\nStuck for 20 minutes? Read the Python tutorial on [reading files](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files) and [dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries), then try again.",
+        "If files, dictionaries or functions still feel new, spend up to two extra sessions on those tutorial pages, then retry with a different CSV. Get this working before you move on. Needing the extra practice is normal.",
+        "**Give your AI assistant rules.** Create `AGENTS.md` in the project folder ([the format](https://agents.md/)). AI coding assistants read this file before they work. Put this in it:\n```text\nExplain code to me and review my code. Ask me questions.\nDon't write my lesson solutions.\nNever read .env. Never put keys, secrets or private code in a prompt.\n```",
+        "**Save your work.**\n```bash\ngit add .\ngit commit -m \"Add llm function, Python check and assistant rules\"\n```\nStop here when `llm()` answers in your notebook and `top3.py` prints those three lines."
        ],
-       "why": "Check that your Python is ready for the model lessons, and give your AI assistant rules.",
-       "skip": "you can write the CSV top-3 script in 15 minutes without AI. Still create `AGENTS.md`."
+       "why": "Write the `llm()` function you'll reuse, learn the one swap for Zoomcamp code, and check your Python.",
+       "keep": "Every Zoomcamp lesson uses `llm()` and this swap. If you know Python, the check takes 15 minutes."
       },
       {
        "day": "Day 3 · first win, about 90 min",
        "added": "2026-10-30",
        "steps": [
-        "Before any AI, write five short help pages for an imaginary student office, as plain text files in a folder called `pages` in your project folder. Start each file with an ID, a date and a source, like this: `fees-01 · 2026-09-01 · Accounts office`. Make one page out of date on purpose.",
-        "Without AI-written code, write `search.py`. Given a question, it prints the top 2 page IDs, or `no matching page` when nothing matches. It should be about 30 lines.",
-        "Build it in four parts. First, lowercase the question and split it into words. Second, remove common words (the, a, an, is, are, what, when, how, do, i, my, to, of, for). Third, give each page one point for every remaining word it contains. Fourth, print the two highest-scoring pages, or `no matching page` if the best score is 0.",
-        "Write three tests in `test_search.py` as plain `assert` lines. Run them with `python test_search.py`.",
-        "Test 1: a question with an obvious answer. Test 2: a question no page answers; your search must print `no matching page`, not guess. Test 3: a question that matches the out-of-date page. Assert that it returns that page, and add a comment: this is wrong, because search can't tell the page is old.",
-        "Stop here when all three tests pass and you've recorded a one-minute screen capture: a question goes in, page IDs come out. That's your first search engine."
+        "Today you build a small search engine, with no AI-written code. In your project folder, make a folder called `pages` with five short help pages for an imaginary student office, one text file each. The file name is the page ID. The first line gives the ID, date and source. For example, `pages/fees-01.txt`:\n```text\nfees-01 · 2026-09-01 · Accounts office\nTuition fees are due by 15 January. Pay at the bank or online.\n```",
+        "Make one of the five out of date on purpose, for example a `library-01` page dated 2024 with old closing times.",
+        "Create `search.py` with one function, `search(question)`. It returns a list of up to 2 page IDs, best first, or an empty list if nothing matches. Build it in four parts. First, lowercase the question, split it into words and strip the `?`. Second, remove common words (the, a, an, is, are, what, when, how, do, i, my, to, of, for). Third, give each page one point for every remaining word its text contains. Fourth, return the two highest-scoring pages, leaving out any page with 0 points. It should be about 20 lines.",
+        "Add this to the bottom of `search.py`, so you can ask questions from the terminal:\n```python\nif __name__ == \"__main__\":\n    import sys\n    ids = search(sys.argv[1])\n    print(ids if ids else \"no matching page\")\n```\nTry it:\n```bash\nuv run search.py \"when are tuition fees due?\"\n```\nYou should see page IDs, with the right page first.",
+        "Create `test_search.py` with three tests. Change the questions and IDs to match your own pages:\n```python\nfrom search import search\n\n# A question with an obvious answer\nassert search(\"when are tuition fees due?\")[0] == \"fees-01\"\n\n# A question no page answers\nassert search(\"is there a swimming pool?\") == []\n\n# A question that finds the out-of-date page.\n# This is a wrong answer: search can't read dates yet.\nassert search(\"when does the library close?\")[0] == \"library-01\"\n\nprint(\"all tests passed\")\n```\nRun it with `uv run test_search.py`.",
+        "Stop here when you see `all tests passed`, then commit. That's your first search engine."
        ],
        "why": "Build a tiny search engine by hand, so retrieval, the core of RAG, makes sense before a library hides it.",
        "skip": "you've written keyword search with scoring and tests before. Nothing later uses these files."
@@ -260,7 +267,8 @@ window.COURSE = {
      "recall": [
       {
        "q": "Why must your API key never be in your code or Git history?",
-       "link": "https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/02-environment.md"
+       "link": "#setting-up-your-tools",
+       "answer": "Anyone who gets the key can use your account. Git keeps every old version, so a key you commit stays in the history even after you delete it. Keep it in `.env`, which Git ignores."
       },
       {
        "q": "What are your two log rules for being stuck and for coming back after a break?",
@@ -330,7 +338,7 @@ window.COURSE = {
        "steps": [
         "Predict first: will the same question cost more tokens in English, in Bangla script or in Banglish? Write your guess in your log.",
         "Write one campus question yourself (never copy a real post) in three forms: English, Bangla script and Banglish. Make each one three or four sentences long.",
-        "Send each question to your model with no instructions. Read the input token count in the response's `usage` field. That is the count you're billed for.",
+        "Send each question to your model with no instructions. Read the input token count in `response.usage.prompt_tokens`. That is the count you're billed for.",
         "Every request has a few fixed formatting tokens, so also send a one-word message and subtract its count from each result. Then divide each count by the English one to get a ratio. Record the model, the three counts and the ratios in your log.",
         "Without AI-written code, write `sample.py`. Make up a table of five possible next tokens, each with a score.",
         "Turn the scores into probabilities with softmax: divide each score by the temperature, take e to that power, then divide by the total of all five. Pick a token at random using those probabilities.",
@@ -434,7 +442,8 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Read OpenAI's [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs). Focus on Pydantic models, strict schemas and the `refusal` field.",
-        "Write a script that turns a sentence like “Hackathon, Friday 3pm, Room 402” into an `Event` Pydantic model. Give `Event` a title, date, start time, end time and venue. Make the fields that can be missing optional. Before each run, write down what you expect back, then compare."
+        "Write a script that turns a sentence like “Hackathon, Friday 3pm, Room 402” into an `Event` Pydantic model. Give `Event` a title, date, start time, end time and venue. Make the fields that can be missing optional. Before each run, write down what you expect back, then compare.",
+        "**Using Gemini?** `responses.parse` gives a 404 there, so use this form instead:\n```python\ncompletion = client.beta.chat.completions.parse(\n    model=os.environ[\"MODEL\"],\n    messages=[{\"role\": \"user\", \"content\": text}],\n    response_format=Event,\n)\nevent = completion.choices[0].message.parsed\n```"
        ],
        "why": "Get the model to fill a typed form instead of writing prose.",
        "keep": "Poster Reader is built on this `Event` model."
@@ -443,6 +452,7 @@ window.COURSE = {
        "day": "Day 2 · about 90 min",
        "steps": [
         "Read the [images and vision guide](https://developers.openai.com/api/docs/guides/images-vision). Send one poster image (a photo or a screenshot of any event poster) and get your `Event` back.",
+        "**Using Gemini?** Send the image through `client.chat.completions`, as in [Gemini's image example](https://ai.google.dev/gemini-api/docs/openai#image-understanding).",
         "Work out the cost of that call. Read the token counts in the response's `usage` field and multiply them by the prices on the [pricing page](https://developers.openai.com/api/docs/pricing). Print the cost after every call."
        ],
        "why": "Read an image with a model, and know what each call costs.",
@@ -656,7 +666,8 @@ window.COURSE = {
       {
        "day": "Day 3 · about 90 min",
        "steps": [
-        "[07 LLM](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/07-llm.md) (it shows how to calculate the price, like you did for posters) and [08 RAG helper](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/08-rag-helper.md)."
+        "[07 LLM](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/07-llm.md) (it shows how to calculate the price, like you did for posters) and [08 RAG helper](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/08-rag-helper.md).",
+        "**Using Gemini?** Wherever these pages call `responses.create`, use your `llm()` function. Copy `llm.py` into any new project."
        ],
        "why": "Connect search to the model, and wrap it in a reusable RAG helper.",
        "skip": "you can write search, prompt and answer as one function without the notes."
@@ -851,7 +862,8 @@ window.COURSE = {
       {
        "day": "Day 2 · about 90 min",
        "steps": [
-        "[13 Function calling](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/13-function-calling.md). Watch how the tool's result is sent back to the model."
+        "[13 Function calling](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/13-function-calling.md). Watch how the tool's result is sent back to the model.",
+        "**Using Gemini?** Tools go through Chat Completions, so four things change. Nest each tool under a `function` key. Call `client.chat.completions.create(model=..., messages=messages, tools=tools)`. Read the requests from `response.choices[0].message.tool_calls`. Send each result back as a message with `role` set to `tool` and its `tool_call_id`. See [Gemini's example](https://ai.google.dev/gemini-api/docs/openai#function-calling). The same changes apply in tomorrow's agent loop."
        ],
        "why": "Learn function calling: the model asks, your code runs the tool and sends back the result.",
        "skip": "you've built function calling with any model API."
@@ -1104,7 +1116,8 @@ window.COURSE = {
       {
        "day": "Day 1 · about 90 min",
        "steps": [
-        "Module 4: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/01-intro.md) and [02 Ground truth](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/02-ground-truth.md) (it generates questions with structured output, which you already know)."
+        "Module 4: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/01-intro.md) and [02 Ground truth](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/02-ground-truth.md) (it generates questions with structured output, which you already know).",
+        "**Using Gemini?** Swap `responses.parse` for the `beta.chat.completions.parse` form from [Structured Output and Errors](#structured-output-and-errors)."
        ],
        "why": "Learn how to build an answer key: questions with known correct pages.",
        "skip": "you've built ground-truth question sets for search before."
@@ -1483,7 +1496,8 @@ window.COURSE = {
       {
        "day": "Day 1 · about 90 min",
        "steps": [
-        "Module 5: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/01-intro.md), [02 Assistant setup](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/02-assistant-setup.md) and [03 Chat app](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/03-chat-app.md). Heads-up: the download links in 02 are broken. Copy `ingest.py` and `rag_helper.py` from the [05-monitoring/code folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/code) instead."
+        "Module 5: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/01-intro.md), [02 Assistant setup](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/02-assistant-setup.md) and [03 Chat app](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/03-chat-app.md). Heads-up: the download links in 02 are broken. Copy `ingest.py` and `rag_helper.py` from the [05-monitoring/code folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/code) instead.",
+        "**Using Gemini?** Change the `responses.create` call in `rag_helper.py` to your `llm()` function."
        ],
        "why": "Turn Ask MDN into a full chat app with the Zoomcamp code.",
        "keep": "This lesson's logging is built on top of it."
@@ -1577,7 +1591,7 @@ window.COURSE = {
        "day": "Day 1 · about 90 min",
        "steps": [
         "Read [Deploy your app](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app) and [Secrets management](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).",
-        "Check that no API key is anywhere in your Git history, for example with `git log --all -p -S\"sk-\"`. If you find one, don't panic: revoke that key in OpenAI first, then clean the history. Then put the OpenAI key in the app's Secrets settings.",
+        "Check that no API key is anywhere in your Git history. Run `git log --all -p -S\"first-8-characters-of-your-key\"`, with the start of your real key in the quotes. If it finds anything, don't panic: revoke that key first, then clean the history. Then copy the lines from your `.env` into the app's Secrets settings.",
         "Use the ONNX embedder from Embeddings and Vector Search, so the app stays small. Ship the sqlitesearch index file with the app, or build it when the app starts."
        ],
        "why": "Get ready to deploy without leaking a key.",
@@ -1604,7 +1618,7 @@ window.COURSE = {
       {
        "day": "Day 4 · about 90 min",
        "steps": [
-        "Check your OpenAI budget alerts and credit balance.",
+        "Check your usage. On Gemini's free tier, look at your limits in AI Studio. On OpenAI, check your budget alerts and credit balance.",
         "Write a short “How to deploy” section in your README. Recruiters can't open a private app, so add a short GIF or recording of it working. This is **Ask MDN v0.6**: it's online.",
         "Set a local success target, such as 9 of 10 normal requests finishing within your time and cost limits. Write a short runbook: your failure limits, how to turn the app off, and how to roll back."
        ],
@@ -2542,7 +2556,7 @@ window.COURSE = {
        "day": "Day 4 · about 90 min",
        "steps": [
         "**Test-out:** already run GitHub Actions? Skip the quickstart. Otherwise follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart).",
-        "Add your OpenAI key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Using Gemini? Pick a Gemini model as promptfoo's grader.",
+        "Add your key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Using Gemini? Also add `OPENAI_BASE_URL` and `MODEL`, and pick a Gemini model as promptfoo's grader.",
         "Run pytest and the rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly, and cache unchanged evaluations.",
         "Don't expose API secrets to untrusted fork code."
        ],

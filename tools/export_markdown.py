@@ -103,7 +103,8 @@ for idx, l in enumerate(lessons):
             out += [f"> **Why:** {md(g['why'])}", ">"]
             out += [f"> **Skip if** {md(g['skip'])}" if g.get("skip") else f"> **Don't skip:** {md(g['keep'])}", ""]
         for s in g["steps"]:
-            out.append(f"{k}. {md(s)}")
+            body = md(s).replace("\n", "\n   ")  # keep code blocks inside the numbered step
+            out.append(f"{k}. {body}")
             k += 1
         out.append("")
     if l.get("recall"):

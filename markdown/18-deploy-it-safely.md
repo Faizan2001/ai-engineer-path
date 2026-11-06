@@ -34,7 +34,7 @@ By the end of this lesson, you should be able to:
 > **Don't skip:** A key in your Git history must be revoked before the app goes online.
 
 1. Read [Deploy your app](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app) and [Secrets management](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
-2. Check that no API key is anywhere in your Git history, for example with `git log --all -p -S"sk-"`. If you find one, don't panic: revoke that key in OpenAI first, then clean the history. Then put the OpenAI key in the app's Secrets settings.
+2. Check that no API key is anywhere in your Git history. Run `git log --all -p -S"first-8-characters-of-your-key"`, with the start of your real key in the quotes. If it finds anything, don't panic: revoke that key first, then clean the history. Then copy the lines from your `.env` into the app's Secrets settings.
 3. Use the ONNX embedder from Embeddings and Vector Search, so the app stays small. Ship the sqlitesearch index file with the app, or build it when the app starts.
 
 ### Day 2 · about 90 min
@@ -61,7 +61,7 @@ By the end of this lesson, you should be able to:
 >
 > **Don't skip:** This is Ask MDN v0.6.
 
-8. Check your OpenAI budget alerts and credit balance.
+8. Check your usage. On Gemini's free tier, look at your limits in AI Studio. On OpenAI, check your budget alerts and credit balance.
 9. Write a short “How to deploy” section in your README. Recruiters can't open a private app, so add a short GIF or recording of it working. This is **Ask MDN v0.6**: it's online.
 10. Set a local success target, such as 9 of 10 normal requests finishing within your time and cost limits. Write a short runbook: your failure limits, how to turn the app off, and how to roll back.
 
