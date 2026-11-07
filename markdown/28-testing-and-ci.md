@@ -1,6 +1,6 @@
 # Testing and CI
 
-*Section 5: Make It Sturdy · Lesson 28 of 42 · about 1 week*
+*Section 5: Make It Sturdy · Lesson 28 of 41 · about 1 week*
 
 **Before you start, check that** you have 3 to 6 failure groups from 50 conversations, each with a pass-or-fail check.
 
@@ -76,7 +76,7 @@ promptfoo runs tests against your app. A YAML file lists the questions and the c
 > **Don't skip:** Tomorrow's Day blocks bad changes with these runs. Already know GitHub Actions? Use the Test-out.
 
 6. **Test-out:** already run GitHub Actions? Skip the quickstart. Otherwise follow GitHub's [Actions quickstart](https://docs.github.com/en/actions/writing-workflows/quickstart).
-7. Add your key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Using Gemini? Also add `OPENAI_BASE_URL` and `MODEL`, and pick a Gemini model as promptfoo's grader.
+7. Add your key as a repository [secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Using Gemini? Also add `OPENAI_BASE_URL` and `MODEL`, and pick a [Gemini model](https://www.promptfoo.dev/docs/providers/google/) as promptfoo's grader.
 8. Run pytest and the rule-based promptfoo checks on every push. Run the model-graded checks on your own trusted pull requests before merge, following the [CI/CD guide](https://www.promptfoo.dev/docs/integrations/ci-cd/). Set the grading model and budget explicitly, and cache unchanged evaluations.
 9. Don't expose API secrets to untrusted fork code.
 
@@ -90,12 +90,26 @@ promptfoo runs tests against your app. A YAML file lists the questions and the c
 11. Break a prompt in a PR. Prove that the PR can't merge and that the live app stays on the previous version.
 12. Fix the prompt, wait for the required checks, then merge. A red workflow after deployment is too late.
 
+### Day 6 · a loop that improves your prompt, about 90 min
+
+> **Why:** Build a small self-improving loop: code tries a change, tests it, and keeps it only if the score goes up.
+>
+> **Skip if** you've built an eval-gated prompt loop before, with DSPy, GEPA or your own code.
+
+13. You may hear that prompting is dead. In June 2026, Claude Code's lead [said](https://workos.com/blog/boris-cherny-claude-code-acquired-interview-takeaways) he no longer prompts Claude: he writes loops that do it for him. He meant coding agents, and those loops still run on prompts. Today you build a small one, so you know what the words really mean.
+14. Move your answer prompt into its own file, `prompt.txt`, and make `answer()` read it.
+15. Write `score.py`. It runs your plain-code checks on your 20 practice questions, and returns the number passed and the failures. Plain checks keep each round cheap.
+16. Write `improve.py`, about 40 lines, with at most 3 rounds. Each round: score the current prompt; send the prompt and its failures to the model and ask for one better prompt; score the new prompt; keep it only if the score goes up.
+17. Keep the checker outside the loop. The model may change `prompt.txt` and nothing else: not the checks, not the questions, not the round limit. A loop will game whatever you measure.
+18. Run it. Then test the winning prompt on your 50 old held-back questions, which the loop never saw. If the score falls, the loop learned your practice questions, not the job.
+19. Read the prompt change yourself and open a pull request. CI and you decide, not the loop. Stop here when the PR passes, or you've rejected it and written why in your log.
+
 ### Memory check · 10 min
 
-13. Close this page. In your log, answer from memory, then check:
+20. Close this page. In your log, answer from memory, then check:
    - What does context-faithfulness check? ([where to check](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/))
    - Why does each failure group get its own pass-or-fail check? ([where to check](27-evals-that-catch-real-bugs.md))
-14. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+21. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 
@@ -103,6 +117,10 @@ These are optional. Use them if you want to go further.
 
 - [Made With ML: testing (good habits for the non-AI code)](https://madewithml.com/courses/mlops/testing/)
 - [Made With ML: CI/CD](https://madewithml.com/courses/mlops/cicd/)
+- [Harness design for long-running apps](https://www.anthropic.com/engineering/harness-design-long-running-apps) by Anthropic: why the checker should be separate from the builder.
+- [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/) by Lilian Weng: what's proven, what's still research, and why prompts are only the first rung.
+- [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) by Addy Osmani: loops that drive coding agents, and their risks.
+- [autoresearch](https://github.com/karpathy/autoresearch) by Andrej Karpathy: the same keep-it-if-the-score-improves idea, applied to training a model.
 
 ---
 
@@ -110,4 +128,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Evals That Catch Real Bugs](27-evals-that-catch-real-bugs.md) · [Course map](README.md) · [Next lesson: Postgres Search and Access Rules →](29-postgres-search-and-access-rules.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

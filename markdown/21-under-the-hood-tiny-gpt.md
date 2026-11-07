@@ -1,6 +1,6 @@
 # Under the Hood: A Tiny GPT
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 21 of 42 · about 9 hours*
+*Section 3: RAG with LLM Zoomcamp · Lesson 21 of 41 · about 9 hours*
 
 **Before you start, check that** [Ask MDN](19-project-ask-mdn.md) v1.0 works and your micrograd Days in [ML Basics](10-ml-basics-measuring-quality.md) are done.
 
@@ -128,4 +128,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Campus Knowledge Base](20-campus-knowledge-base.md) · [Course map](README.md) · [Next lesson: Agent Fundamentals →](22-agent-fundamentals.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

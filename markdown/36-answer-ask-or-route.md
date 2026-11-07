@@ -1,6 +1,6 @@
 # Answer, Ask or Route
 
-*Section 6: Capstone: Campus Assistant · Lesson 36 of 42 · about 12 hours*
+*Section 6: Capstone: Campus Assistant · Lesson 36 of 41 · about 12 hours*
 
 **Before you start, check that** [Multilingual Search](35-multilingual-search.md) is complete and you have an office directory with contact channels and hours.
 
@@ -129,6 +129,6 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Multilingual Search: Bangla, Banglish, English](35-multilingual-search.md) · [Course map](README.md) · [Next lesson: A Course-Planning Helper →](37-course-planning-helper.md)
+[← Previous: Multilingual Search: Bangla, Banglish, English](35-multilingual-search.md) · [Course map](README.md) · [Next lesson: Choose Models and a Budget →](37-choose-models-and-budget.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

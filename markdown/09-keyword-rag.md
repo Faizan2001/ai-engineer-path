@@ -1,6 +1,6 @@
 # Keyword RAG
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 9 of 42 · about 1 week*
+*Section 3: RAG with LLM Zoomcamp · Lesson 9 of 41 · about 1 week*
 
 ## Introduction
 
@@ -53,7 +53,10 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 >
 > **Skip if** you can explain RAG's steps, from question to answer, from memory.
 
-1. Zoomcamp Module 1: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/01-intro.md), [03 RAG](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md) (notice why plain models don't know your data) and [04 Dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/04-dataset.md). You did 02 in Setting Up Your Tools.
+1. In your `llm-zoomcamp-2026-code` folder, make a notebook called `rag`. Run each code block as you read, on every Zoomcamp Day. That's where the learning happens.
+2. Zoomcamp Module 1: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/01-intro.md), [03 RAG](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md) (notice why plain models don't know your data) and [04 Dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/04-dataset.md). You did 02 in Setting Up Your Tools.
+3. **Using Gemini?** These pages define their own `llm()` with `responses.create`. Skip that cell and use yours: `from llm import llm`.
+4. Stop when the FAQ documents load in your notebook and you can say why the plain model couldn't answer.
 
 ### Day 2 · about 90 min
 
@@ -61,7 +64,9 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 >
 > **Skip if** you've used minsearch, or built a search-then-prompt pipeline before.
 
-2. [05 Search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/05-search.md) (watch how boosting fields changes results) and [06 Building the prompt](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/06-building-prompt.md).
+5. [05 Search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/05-search.md) (watch how boosting fields changes results) and [06 Building the prompt](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/06-building-prompt.md).
+6. Try it: change the boost on `question` and watch the results reorder.
+7. Stop when `build_prompt()` gives you a full prompt for a question you made up.
 
 ### Day 3 · about 90 min
 
@@ -69,8 +74,9 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 >
 > **Skip if** you can write search, prompt and answer as one function without the notes.
 
-3. [07 LLM](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/07-llm.md) (it shows how to calculate the price, like you did for posters) and [08 RAG helper](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/08-rag-helper.md).
-4. **Using Gemini?** Wherever these pages call `responses.create`, use your `llm()` function. Copy `llm.py` into any new project.
+8. [07 LLM](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/07-llm.md) (it shows how to calculate the price, like you did for posters) and [08 RAG helper](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/08-rag-helper.md).
+9. **Using Gemini?** Read `response.output` and the price section, but keep using your `llm()`. In `rag_helper.py`, change the `responses.create` call the same way.
+10. Stop when `rag()` answers a question you made up, and `rag_helper.py` is saved.
 
 ### Day 4 · about 90 min
 
@@ -78,10 +84,10 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 >
 > **Don't skip:** Ask MDN and all its tests use this exact data.
 
-5. [09 Data ingestion](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/09-data-ingestion.md) and, only if you have time, [10 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/10-rag-next-steps.md).
-6. Start Ask MDN: create a new **public** GitHub repo called `ask-mdn` and clone it.
-7. Next to it, not inside it, download only the two folders you need from [mdn/content](https://github.com/mdn/content). The whole repo is about 500 MB, so run `git clone --depth 1 --filter=blob:none --sparse https://github.com/mdn/content.git`. Then go into the new `content` folder and run `git sparse-checkout set files/en-us/web/css/reference/properties files/en-us/web/javascript/reference/global_objects`.
-8. In the `content` folder, run `git rev-parse HEAD` and write the commit ID in the README of `ask-mdn`. That exact version is your data from now on, so your tests stay fair.
+11. [09 Data ingestion](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/09-data-ingestion.md).
+12. Start Ask MDN: create a new **public** GitHub repo called `ask-mdn` and clone it.
+13. Next to it, not inside it, download only the two folders you need from [mdn/content](https://github.com/mdn/content). The whole repo is about 500 MB, so run `git clone --depth 1 --filter=blob:none --sparse https://github.com/mdn/content.git`. Then go into the new `content` folder and run `git sparse-checkout set files/en-us/web/css/reference/properties files/en-us/web/javascript/reference/global_objects`.
+14. In the `content` folder, run `git rev-parse HEAD` and write the commit ID in the README of `ask-mdn`. That exact version is your data from now on, so your tests stay fair.
 
 ### Day 5 · about 90 min
 
@@ -89,16 +95,16 @@ RAG means “search first, then ask”. Your code finds 3 to 5 pages, pastes the
 >
 > **Don't skip:** Every later Ask MDN version builds on it.
 
-9. Load the two folders into minsearch: CSS properties and JavaScript global objects.
-10. Each MDN page is a Markdown file. It starts with front matter between `---` lines and contains `{{macro}}` lines. Read the title and slug from the front matter, drop the macro lines and keep the text.
-11. Ask it three questions and look at what it finds. This is **Ask MDN v0.1**: it finds the right pages for a question. Commit early and often, with messages that say what changed.
+15. Load the two folders into minsearch: CSS properties and JavaScript global objects.
+16. Each MDN page is a Markdown file. It starts with front matter between `---` lines and contains `{{macro}}` lines. Read the title and slug from the front matter, drop the macro lines and keep the text.
+17. Ask it three questions and look at what it finds. This is **Ask MDN v0.1**: it finds the right pages for a question. Commit early and often, with messages that say what changed.
 
 ### Memory check · 10 min
 
-12. Close this page. In your log, answer from memory, then check:
+18. Close this page. In your log, answer from memory, then check:
    - What are the steps of RAG, from question to answer? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/03-rag.md))
    - What makes structured output better than free text for an app? ([where to check](07-structured-output-and-errors.md))
-13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+19. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 
@@ -113,4 +119,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Project: Poster Reader](08-project-poster-reader.md) · [Course map](README.md) · [Next lesson: ML Basics: Measuring Quality →](10-ml-basics-measuring-quality.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

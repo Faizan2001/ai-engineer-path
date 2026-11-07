@@ -1,6 +1,6 @@
 # Grading Answers
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 16 of 42 · about 9 hours*
+*Section 3: RAG with LLM Zoomcamp · Lesson 16 of 41 · about 9 hours*
 
 **Before you start, check that** running your ingestion script twice changes nothing, and the manifest is committed.
 
@@ -55,6 +55,8 @@ A judge is a second model with a marking scheme. Question, answer and sources go
 > **Skip if** you've evaluated RAG answers before.
 
 1. [11 Evaluation intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/11-evaluation-intro.md) and [12 RAG answers](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/12-rag-answers.md).
+2. **Using Gemini?** Set `max_workers=1`, and run 10 questions rather than all of them.
+3. Stop when the answers are saved to a file.
 
 ### Day 2 · about 90 min
 
@@ -62,7 +64,9 @@ A judge is a second model with a marking scheme. Question, answer and sources go
 >
 > **Skip if** you've built an LLM judge and checked it against your own labels.
 
-2. [13 LLM as judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md). Pay attention to “Evaluating the judge”. Then skim [14 Agent evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/14-agent-evaluation.md) and [15 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/15-next-steps.md). For 14, watch its 2-minute video and read only the headings; the page itself is long.
+4. [13 LLM as judge](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/13-llm-as-judge.md). Pay attention to “Evaluating the judge”.
+5. **Using Gemini?** Use the `beta.chat.completions.parse` swap from Measuring Search here too.
+6. Run the judge on 10 answers. Find one verdict you disagree with. Stop when you can say why the judge got it wrong.
 
 ### Days 3–5 · about 4.5 hours
 
@@ -70,10 +74,10 @@ A judge is a second model with a marking scheme. Question, answer and sources go
 >
 > **Don't skip:** The next lesson starts from these saved answers and the agreement number.
 
-3. Add to Ask MDN, one piece a Day. Run the judge once per change, not after every small idea.
-4. **Day 3:** generate answers for your 20 practice questions and save them to a file, so you can grade again without paying again.
-5. **Day 4:** write the judge and use it to grade all 20 answers.
-6. **Day 5:** grade 10 of the answers yourself, before you look at the judge's verdicts. Write down how often the judge agreed with you.
+7. Add to Ask MDN, one piece a Day. Run the judge once per change, not after every small idea.
+8. **Day 3:** generate answers for your 20 practice questions and save them to a file, so you can grade again without paying again.
+9. **Day 4:** write the judge and use it to grade all 20 answers.
+10. **Day 5:** grade 10 of the answers yourself, before you look at the judge's verdicts. Write down how often the judge agreed with you.
 
 ### Day 6 · about 90 min
 
@@ -81,18 +85,18 @@ A judge is a second model with a marking scheme. Question, answer and sources go
 >
 > **Don't skip:** Ask MDN's README includes this comparison.
 
-7. Read only “Design your eval process” in OpenAI’s [evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices). Use your own files and grader; you don't need OpenAI’s hosted Evals platform.
-8. Choose 10 of your practice questions. Include some with exact identifiers (like `justify-content`) and some your docs can't answer. Compare two models from your current provider. Give both the same retrieved chunks, prompt and output limit. Estimate the cost first. If you can only use one model, compare two settings of it instead, and call it a configuration comparison, not a model comparison.
-9. Hide the model names while you grade correctness, citation support and refusals. Record the cost, total time and failures for each answer. Re-run the two most unclear cases once to see how much answers vary. Don't touch your held-back questions.
-10. Write a five-line decision: the quality you accept, the longest wait and highest cost you accept, which option meets them, one failure it still has, and what would make you reconsider.
-11. Save a run manifest: model ID, prompt or config version, corpus hash, date and scores.
+11. Read only “Design your eval process” in OpenAI’s [evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices). Use your own files and grader; you don't need OpenAI’s hosted Evals platform.
+12. Choose 10 of your practice questions. Include some with exact identifiers (like `justify-content`) and some your docs can't answer. Compare two models from your current provider. Give both the same retrieved chunks, prompt and output limit. Estimate the cost first. If you can only use one model, compare two settings of it instead, and call it a configuration comparison, not a model comparison.
+13. Hide the model names while you grade correctness, citation support and refusals. Record the cost, total time and failures for each answer. Re-run the two most unclear cases once to see how much answers vary. Don't touch your held-back questions.
+14. Write a five-line decision: the quality you accept, the longest wait and highest cost you accept, which option meets them, one failure it still has, and what would make you reconsider.
+15. Save a run manifest: model ID, prompt or config version, corpus hash, date and scores.
 
 ### Memory check · 10 min
 
-12. Close this page. In your log, answer from memory, then check:
+16. Close this page. In your log, answer from memory, then check:
    - When is the cheaper model the better engineering choice? ([where to check](16-grading-answers.md))
    - Why save a content hash for every page? ([where to check](15-data-ingestion.md))
-13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+17. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: When is the cheaper model the better engineering choice?</summary>
@@ -119,6 +123,7 @@ These are optional. Use them if you want to go further.
 - [AI Evals FAQ by Hamel Husain and Shreya Shankar (more on evals)](https://hamel.dev/blog/posts/evals-faq/)
 - [Creating an LLM-as-a-judge that drives business results](https://hamel.dev/blog/posts/llm-judge/) by Hamel Husain: how to build a judge you can actually trust.
 - [Building with the Claude API: prompt evaluation](https://academy.claude.com/courses/building-with-the-claude-api): an optional video alternative. Use only the Prompt evaluation section; you don't need a second full course.
+- [14 Agent evaluation](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/04-evaluation/14-agent-evaluation.md): how to evaluate an agent, not just an answer. It's a long page, so watch its 2-minute video first.
 
 ---
 
@@ -126,4 +131,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Data Ingestion](15-data-ingestion.md) · [Course map](README.md) · [Next lesson: Monitoring →](17-monitoring.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

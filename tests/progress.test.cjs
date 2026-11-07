@@ -114,9 +114,9 @@ test('only remaining inserted lesson is still reachable via Continue', () => {
 });
 
 test('appended Day blocks remain discoverable in completed lessons', () => {
-  const page = boot({v: 1, done: ['ml-basics-measuring-quality', 'embeddings-and-vector-search']});
+  const page = boot({v: 1, done: ['ml-basics-measuring-quality', 'measuring-search']});
   assert.match(page.catchup(), /ml-basics-measuring-quality/);
-  assert.match(page.catchup(), /embeddings-and-vector-search/);
+  assert.match(page.catchup(), /measuring-search/);
 });
 
 test('unknown completion slugs and numeric ticks survive repeated saves', () => {
@@ -162,7 +162,7 @@ test('finished lessons that gained Days list them, including a formerly single-b
 test('an exported legacy file and a migrated save agree', () => {
   const legacy = {v: 1, done: before('project-ask-mdn'), ticks: {'project-ask-mdn': ['0.0', '1.0']}};
   const saved = boot(legacy).save();
-  assert.deepEqual(saved.ticks['project-ask-mdn'], ticksOfGroup('', 0, 6).concat(ticksOfGroup('', 1, 6)));
+  assert.deepEqual(saved.ticks['project-ask-mdn'], ticksOfGroup('', 0, 3).concat(ticksOfGroup('', 1, 5)));
   assert.equal(boot(saved).next(), 'project-ask-mdn');
 });
 

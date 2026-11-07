@@ -1,6 +1,6 @@
 # Embeddings and Vector Search
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 12 of 42 · about 2 weeks, plus 2 hours*
+*Section 3: RAG with LLM Zoomcamp · Lesson 12 of 41 · about 1.5 weeks*
 
 **Before you start, check that** Ask MDN v0.2's chat page runs, and its log shows a search tool call when you ask a CSS question.
 
@@ -56,6 +56,7 @@ An embedding turns a text into a few hundred numbers: a point on a map of meanin
 
 1. Read Google's [Embeddings](https://developers.google.com/machine-learning/crash-course/embeddings) module for the big idea. Then Module 2: [01 Intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/01-intro.md).
 2. Before Day 2: Zoomcamp lesson 02 installs sentence-transformers, which also installs PyTorch. On Linux that can mean several GB of GPU libraries. On a slow connection or a small laptop, first add the PyTorch CPU index to `pyproject.toml` as in uv's [PyTorch guide](https://docs.astral.sh/uv/guides/integration/pytorch/) and run `uv add torch`, then add sentence-transformers. Or work in a Codespace.
+3. Stop when you can explain an embedding to a friend in two lines, and your PyTorch plan is sorted.
 
 ### Day 2 · about 90 min
 
@@ -63,89 +64,66 @@ An embedding turns a text into a few hundred numbers: a point on a map of meanin
 >
 > **Skip if** you've embedded text and ranked it by cosine similarity before.
 
-3. [02 Embeddings](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/02-embeddings.md) (focus on cosine similarity) and [03 Embeddings dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/03-embeddings-dataset.md).
+4. [02 Embeddings](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/02-embeddings.md) (focus on cosine similarity) and [03 Embeddings dataset](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/03-embeddings-dataset.md).
+5. Predict first: write three sentences, two about the same thing. Which pair will score highest? Check with cosine similarity.
+6. Stop when the FAQ embeddings are generated in your notebook.
 
 ### Day 3 · about 90 min
 
-> **Why:** Search by meaning with minsearch's vector mode.
+> **Why:** Search by meaning, then swap it into your RAG code.
 >
-> **Skip if** you've built vector search before.
+> **Skip if** you've built vector search and RAG on top of it before.
 
-4. [04 Vector search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/04-vector-search.md) and [05 minsearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/05-minsearch-vector.md).
+7. [04 Vector search](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/04-vector-search.md), [05 minsearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/05-minsearch-vector.md) and [06 RAG with vectors](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/06-rag-vector.md).
+8. Ask a question in your own words that shares no key word with the FAQ answer. The right document should still come back in the top 5.
+9. **No AI for this one:** close the page and rewrite the top-5 search in numpy from memory, in 15 minutes. Stop when it matches the page's results.
 
 ### Day 4 · about 90 min
-
-> **Why:** Answer questions from vector search results instead of keyword results.
->
-> **Skip if** you've built RAG on top of vector search.
-
-5. [06 RAG with vectors](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/06-rag-vector.md).
-
-### Day 5 · about 90 min
 
 > **Why:** Keep the vector index in one file, the way Ask MDN will run online.
 >
 > **Don't skip:** Ask MDN uses sqlitesearch from here on.
 
-6. [07 sqlitesearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/07-sqlitesearch-vector.md). This keeps your search index in one file, which is what Ask MDN will use online. Skip lesson 08 (pgvector) for now. You don't need it yet.
+10. [07 sqlitesearch vector](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/07-sqlitesearch-vector.md). This keeps your search index in one file, which is what Ask MDN will use online. It's approximate by default: an index picks candidates, trading a little recall for speed. Skip lesson 08 (pgvector) for now. You don't need it yet.
+11. Stop when your index is saved in a file and still works after you restart the notebook.
 
-### Day 6 · about 90 min
+### Day 5 · about 60 min
 
 > **Why:** Switch to a small embedder that runs without PyTorch, so the online app stays light.
 >
 > **Don't skip:** Ask MDN uses this embedder online.
 
-7. [09 ONNX embedder](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/09-onnx-embedder.md) (a smaller embedder that doesn't need PyTorch; Ask MDN will use it online) and [10 Next steps](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/10-next-steps.md).
+12. [09 ONNX embedder](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/02-vector-search/09-onnx-embedder.md): a smaller embedder that doesn't need PyTorch. Ask MDN will use it online.
+13. Stop when the ONNX embedder gives you a vector for a sentence of your own.
 
-### Day 7 · about 90 min
+### Day 6 · about 90 min
 
 > **Why:** Split long pages into chunks and track which page each chunk came from.
 >
 > **Don't skip:** Search scores and citations depend on these IDs and on `unique_pages`.
 
-8. Read [Chunking for longer texts](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/07-project-example/07-chunking.md). MDN pages can be long, so split each page into chunks of a few paragraphs, and keep the page ID on every chunk.
-9. Give every chunk two IDs: `page_id` for the source page and `chunk_id` for the piece. Store the chunk's text and its source URL too.
-10. Search results get scored by page, not by chunk. Write a small function, `unique_pages(chunks)`, that turns a ranked list of chunks into a ranked list of different pages, keeping each page's first appearance: `[A:1, A:2, B:1, C:1]` becomes `[A, B, C]`, so B is now rank 2. Keep the matching chunks too, because the answer prompt needs them.
+14. Read [Chunking for longer texts](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/07-project-example/07-chunking.md). MDN pages can be long, so split each page into chunks of a few paragraphs, and keep the page ID on every chunk.
+15. Give every chunk two IDs: `page_id` for the source page and `chunk_id` for the piece. Store the chunk's text and its source URL too.
+16. Search results get scored by page, not by chunk. Write a small function, `unique_pages(chunks)`, that turns a ranked list of chunks into a ranked list of different pages, keeping each page's first appearance: `[A:1, A:2, B:1, C:1]` becomes `[A, B, C]`, so B is now rank 2. Keep the matching chunks too, because the answer prompt needs them.
 
-### Days 8–11 · about 6 hours
+### Days 7–10 · about 6 hours
 
 > **Why:** Build Ask MDN v0.3: search by meaning over your own chunked docs.
 >
 > **Don't skip:** Every later Ask MDN version uses this index.
 
-11. Add to Ask MDN: build a vector search over your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Do one piece a Day.
-12. **Day 8:** split every MDN page into chunks, keeping `page_id`, `chunk_id`, text and source URL. Stop when you can print all the chunks of one page.
-13. **Day 9:** build the sqlitesearch vector index of your chunks with the ONNX embedder. Embedding every chunk takes a while, so build it once and keep the file. Stop when the index file exists and one question returns 5 chunks.
-14. **Day 10:** write `vector_search(question)`. It returns the top chunks with their `page_id` and source URL, in the same shape as your keyword search, so the rest of Ask MDN can use either one.
-15. **Day 11:** compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning.
-
-### Day 12 · campus track, about 45 min
-
-> **Why:** Get a first measure of how embedders handle Bangla and Banglish.
->
-> **Don't skip:** The capstone's multilingual search starts from these numbers.
-
-16. Take 8 intents from your question bank. Write each one three ways: English, Bangla and Banglish. Embed all 24 sentences with the embedder you use now. Then embed them again with a second embedder whose model card lists Bengali among its training languages.
-17. Take each sentence and search only the sentences in another language. It's a hit when the nearest one has the same intent. For each pair of languages and each embedder, record the hit rate in your log. Expect Banglish to be the hardest. With only 8 sentences per pair, one miss moves a score by 12.5 points, so treat this as a first signal only.
-
-### Day 13 · under the hood, about 90 min
-
-> **Why:** Rebuild vector search in numpy, so you know what the library does for you.
->
-> **Skip if** you've written cosine top-k search in numpy and know why indexes are approximate.
-
-18. Without AI-written code, rebuild the vector search you've been using. In numpy, normalise your MDN chunk vectors, compute the cosine similarity for a question as one matrix product, and take the top 5.
-19. Compare it with sqlitesearch on 5 practice questions. Yours is exact. sqlitesearch's vector search is approximate by default: an index picks candidates, and only those are reranked exactly. Where the top 5 differ, check that your extra result really scores higher. Record how many of the 25 results match.
-20. Time your version on 1,000 and on 100,000 random unit vectors.
-21. Write one sentence on why sqlitesearch, like large systems, trades a little recall for speed.
-22. Stop here when both checks are in your log.
+17. Add to Ask MDN: build a vector search over your chunked MDN data with the ONNX embedder. It runs on your own computer, so it's free. Do one piece a Day.
+18. **Day 7:** split every MDN page into chunks, keeping `page_id`, `chunk_id`, text and source URL. Stop when you can print all the chunks of one page.
+19. **Day 8:** build the sqlitesearch vector index of your chunks with the ONNX embedder. Embedding every chunk takes a while, so build it once and keep the file. Stop when the index file exists and one question returns 5 chunks.
+20. **Day 9:** write `vector_search(question)`. It returns the top chunks with their `page_id` and source URL, in the same shape as your keyword search, so the rest of Ask MDN can use either one.
+21. **Day 10:** compare its answers with keyword search on 5 practice questions. This is **Ask MDN v0.3**: it searches by meaning.
 
 ### Memory check · 10 min
 
-23. Close this page. In your log, answer from memory, then check:
+22. Close this page. In your log, answer from memory, then check:
    - Why can vector search find answers that keyword search misses? ([where to check](https://developers.google.com/machine-learning/crash-course/embeddings))
    - What does function calling let the model do? ([where to check](11-tools-and-the-agent-loop.md))
-24. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+23. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: Why can vector search find answers that keyword search misses?</summary>
@@ -179,4 +157,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Tools and the Agent Loop](11-tools-and-the-agent-loop.md) · [Course map](README.md) · [Next lesson: Measuring Search →](13-measuring-search.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

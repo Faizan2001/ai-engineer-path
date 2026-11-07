@@ -1,6 +1,6 @@
 # Structured Output and Errors
 
-*Section 2: Foundations · Lesson 7 of 42 · about 7.5 hours*
+*Section 2: Foundations · Lesson 7 of 41 · about 7.5 hours*
 
 ## Introduction
 
@@ -61,6 +61,7 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 4. Read the [images and vision guide](https://developers.openai.com/api/docs/guides/images-vision). Send one poster image (a photo or a screenshot of any event poster) and get your `Event` back.
 5. **Using Gemini?** Send the image through `client.chat.completions`, as in [Gemini's image example](https://ai.google.dev/gemini-api/docs/openai#image-understanding).
 6. Work out the cost of that call. Read the token counts in the response's `usage` field and multiply them by the prices on the [pricing page](https://developers.openai.com/api/docs/pricing). Print the cost after every call.
+7. **Using Gemini?** The free tier costs nothing, so use the paid-tier price. It shows what this call would cost at scale.
 
 ### Day 3 · about 90 min
 
@@ -68,8 +69,8 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 >
 > **Skip if** you've built retries with backoff and `Retry-After` before. Still add the refusal handling.
 
-7. Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a request timeout and at most 2 retries, only for rate-limit and server errors. If the response has a `Retry-After` time, wait that long. Otherwise wait a little longer each time, with some randomness. Also set an overall deadline. Never retry bad credentials, or a bad request without changing it.
-8. Handle refusals: log them and return “needs a human” instead of crashing. Using Gemini? It has no documented `refusal` field, so make a fake refusal in your test.
+8. Read the [error codes guide](https://developers.openai.com/api/docs/guides/error-codes). Add a request timeout and at most 2 retries, only for rate-limit and server errors. If the response has a `Retry-After` time, wait that long. Otherwise wait a little longer each time, with some randomness. Also set an overall deadline. Never retry bad credentials, or a bad request without changing it.
+9. Handle refusals: log them and return “needs a human” instead of crashing. Using Gemini? It has no documented `refusal` field, so make a fake refusal in your test.
 
 ### Day 4 · about 90 min
 
@@ -77,8 +78,8 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 >
 > **Skip if** you already use pytest and have built a Streamlit form.
 
-9. Follow pytest's [getting started guide](https://docs.pytest.org/en/stable/getting-started.html), then write 3 tests for your code: one with good input, one with a missing field and one with a refusal.
-10. Follow Streamlit's [get started](https://docs.streamlit.io/get-started) page, then show your `Event` in a small [form](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form) with a Save button.
+10. Follow pytest's [getting started guide](https://docs.pytest.org/en/stable/getting-started.html), then write 3 tests for your code: one with good input, one with a missing field and one with a refusal.
+11. Follow Streamlit's [get started](https://docs.streamlit.io/get-started) page, then show your `Event` in a small [form](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form) with a Save button.
 
 ### Day 5 · about 90 min
 
@@ -86,17 +87,17 @@ This lesson has a 2-minute interactive warm-up. [Try it on the web page](https:/
 >
 > **Don't skip:** This one-change method is how you tune every project.
 
-11. Spend 15 minutes on Anthropic's [Providing examples](https://academy.claude.com/courses/building-with-the-claude-api/providing-examples). Few-shot prompting means showing the model a few examples of input and output. Read the explanation or watch the video, and do the exercise with your own provider.
-12. Make 6 practice inputs, including one with an ambiguous date and one with a missing venue. Save your current prompt as v1. Make v2 by changing one thing only: clearer instructions, or two examples.
-13. Run both on the same inputs, with the same model and settings. Keep the raw outputs. Mark each field correct, wrong or “unknown” (right when the input doesn't say). Neater formatting doesn't mean the facts are better.
-14. Keep v2 only if the scores say it is better. Write the model ID, prompt version, settings and cost next to the scores. If the results are tied, say so. Six practice cases are too few to prove much.
+12. Spend 15 minutes on Anthropic's [Providing examples](https://academy.claude.com/courses/building-with-the-claude-api/providing-examples). Few-shot prompting means showing the model a few examples of input and output. Read the explanation or watch the video, and do the exercise with your own provider.
+13. Make 6 practice inputs, including one with an ambiguous date and one with a missing venue. Save your current prompt as v1. Make v2 by changing one thing only: clearer instructions, or two examples.
+14. Run both on the same inputs, with the same model and settings. Keep the raw outputs. Mark each field correct, wrong or “unknown” (right when the input doesn't say). Neater formatting doesn't mean the facts are better.
+15. Keep v2 only if the scores say it is better. Write the model ID, prompt version, settings and cost next to the scores. If the results are tied, say so. Six practice cases are too few to prove much.
 
 ### Memory check · 10 min
 
-15. Close this page. In your log, answer from memory, then check:
+16. Close this page. In your log, answer from memory, then check:
    - How do you tell whether a prompt change helped? ([where to check](07-structured-output-and-errors.md))
    - When is a workflow a better choice than an agent? ([where to check](06-the-ai-staircase.md))
-16. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+17. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: How do you tell whether a prompt change helped?</summary>
@@ -131,4 +132,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: The AI Staircase](06-the-ai-staircase.md) · [Course map](README.md) · [Next lesson: Project: Poster Reader →](08-project-poster-reader.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

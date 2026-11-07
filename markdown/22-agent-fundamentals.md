@@ -1,6 +1,6 @@
 # Agent Fundamentals
 
-*Section 4: Agents · Lesson 22 of 42 · about 4 hours*
+*Section 4: Agents · Lesson 22 of 41 · about 2.5 hours*
 
 **Before you start, check that** Ask MDN v1.0 is online, and your README has the held-back results table.
 
@@ -40,6 +40,7 @@ The Hugging Face course shows what the API hides. Your message list becomes one 
 
 - **chat template**: the format that turns a message list into one prompt
 - **ReAct**: a pattern where the model alternates reasoning and actions
+- **harness**: everything around the model: the loop, tools, state, limits and checks
 
 ## Assignment
 
@@ -49,38 +50,23 @@ The Hugging Face course shows what the API hides. Your message list becomes one 
 >
 > **Skip if** you can explain chat templates and special tokens.
 
-1. Hugging Face Agents Course, Unit 1: [What are agents?](https://huggingface.co/learn/agents-course/en/unit1/what-are-agents) and [Messages and special tokens](https://huggingface.co/learn/agents-course/en/unit1/messages-and-special-tokens).
+1. Hugging Face Agents Course, Unit 1: [What are agents?](https://huggingface.co/learn/agents-course/en/unit1/what-are-agents), [Messages and special tokens](https://huggingface.co/learn/agents-course/en/unit1/messages-and-special-tokens) and [Agent steps and structure](https://huggingface.co/learn/agents-course/en/unit1/agent-steps-and-structure). Stuck? Ask in the Hugging Face Discord's `#agents-course-questions` channel.
+2. In your log, write a two-message chat as one prompt with special tokens.
 
-### Day 2 · light day, about 45 min
-
-> **Why:** See how tools are described to a model, and how an agent's steps fit together.
->
-> **Skip if** you've defined tools for a model and can explain the agent cycle.
-
-2. [Tools](https://huggingface.co/learn/agents-course/en/unit1/tools) and [Agent steps and structure](https://huggingface.co/learn/agents-course/en/unit1/agent-steps-and-structure).
-
-### Day 3 · light day, about 45 min
-
-> **Why:** Learn the think, act, observe cycle in detail.
->
-> **Skip if** you can explain ReAct and the think, act, observe loop.
-
-3. [Thoughts](https://huggingface.co/learn/agents-course/en/unit1/thoughts), [Actions](https://huggingface.co/learn/agents-course/en/unit1/actions) and [Observations](https://huggingface.co/learn/agents-course/en/unit1/observations). Stuck? Ask in the Hugging Face Discord's `#agents-course-questions` channel.
-
-### Day 4 · about 90 min
+### Day 2 · about 90 min
 
 > **Why:** Extend your own loop by hand: tool errors become observations, plus a second tool.
 >
 > **Don't skip:** The next lesson starts from this loop.
 
-4. **No AI for this one:** take the agent loop you wrote in [Tools and the Agent Loop](11-tools-and-the-agent-loop.md) and add two things. First, make a tool error go back to the model as an observation instead of crashing. Second, add a tool that returns a page's title. Log every step.
+3. **No AI for this one:** take the agent loop you wrote in [Tools and the Agent Loop](11-tools-and-the-agent-loop.md) and add two things. First, make a tool error go back to the model as an observation instead of crashing. Second, add a tool that returns a page's title. Log every step.
 
 ### Memory check · 10 min
 
-5. Close this page. In your log, answer from memory, then check:
+4. Close this page. In your log, answer from memory, then check:
    - What are the three parts of the agent cycle? ([where to check](https://huggingface.co/learn/agents-course/en/unit1/agent-steps-and-structure))
    - What does RRF do with two result lists? ([where to check](14-hybrid-search.md))
-6. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+5. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 
@@ -97,4 +83,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Under the Hood: A Tiny GPT](21-under-the-hood-tiny-gpt.md) · [Course map](README.md) · [Next lesson: LangGraph →](23-langgraph.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

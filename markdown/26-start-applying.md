@@ -1,6 +1,6 @@
 # Start Applying
 
-*Section 4: Agents · Lesson 26 of 42 · about 3 hours, then 1 hour a week*
+*Section 4: Agents · Lesson 26 of 41 · about 3 hours, then 1 hour a week*
 
 ## Introduction
 
@@ -58,4 +58,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Project: Give It Tools](25-project-give-it-tools.md) · [Course map](README.md) · [Next lesson: Evals That Catch Real Bugs →](27-evals-that-catch-real-bugs.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

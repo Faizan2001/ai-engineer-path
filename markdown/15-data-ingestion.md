@@ -1,6 +1,6 @@
 # Data Ingestion
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 15 of 42 · about 4.5 hours*
+*Section 3: RAG with LLM Zoomcamp · Lesson 15 of 41 · about 4.5 hours*
 
 **Before you start, check that** Ask MDN v0.4 combines both searches and says “I don't know” when it can't find supporting evidence, and you have counted both its false answers and its unnecessary refusals.
 
@@ -88,4 +88,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Hybrid Search](14-hybrid-search.md) · [Course map](README.md) · [Next lesson: Grading Answers →](16-grading-answers.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

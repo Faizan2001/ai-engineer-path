@@ -1,6 +1,6 @@
 # Fresh Data
 
-*Section 5: Make It Sturdy · Lesson 31 of 42 · about 6 hours*
+*Section 5: Make It Sturdy · Lesson 31 of 41 · about 4.5 hours*
 
 **Before you start, check that** signed-in users get their group from your `user_groups` table, and a user with no group gets nothing.
 
@@ -64,14 +64,7 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 6. Ask about the deleted pages in a new chat and in a chat started before the sync. Look at the actual model input: no removed chunks or old answers should be in it.
 7. Check every returned citation against the current, allowed source records, and reject stale IDs. Test an edit as well as a deletion, and prove that an old pending approval can't resume.
 8. This stops old content from reaching new answers. It doesn't erase a transcript someone has already read or copied.
-
-### Day 4 · about 90 min
-
-> **Why:** Finish the tests, and write down what this simple policy costs you.
->
-> **Don't skip:** These tests are project evidence.
-
-9. Finish the edit, deletion and stale-approval tests. Write down one weakness of this cautious reset policy, for example losing the conversation's context when unrelated pages change.
+9. Write down one weakness of this cautious reset policy, for example losing the conversation's context when unrelated pages change.
 
 ### Memory check · 10 min
 
@@ -86,4 +79,4 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 [← Previous: Login](30-login.md) · [Course map](README.md) · [Next lesson: Red-Team Your App →](32-red-team-your-app.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

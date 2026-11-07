@@ -1,6 +1,6 @@
 # AI Engineer Path
 
-A free, step-by-step course for becoming an AI engineer, set out like The Odin Project: short lessons, five projects, and a **Next lesson** button that always tells you what to do next. The path ends with a capstone: a **Campus Assistant** that answers students' repeated questions from approved university sources, inside your own web and mobile app. Plan about 54 weeks at nine hours a week (about 41 at twelve); allow 2–4 extra weeks for prerequisite repair or debugging. Along the way, **Under the hood** Days have you build small versions of what you use (micrograd, a vector search, a tiny GPT), Karpathy-style. An optional Electives section adds local models, fine-tuning, MCP, voice and images, and model internals.
+A free, step-by-step course for becoming an AI engineer, set out like The Odin Project: short lessons, five projects, and a **Next lesson** button that always tells you what to do next. The path ends with a capstone: a **Campus Assistant** that answers students' repeated questions from approved university sources, inside your own web and mobile app. Plan about 46 weeks at nine hours a week (about 34 at twelve); allow 2–4 extra weeks for prerequisite repair or debugging. Along the way, **Under the hood** Days have you build small versions of what you use (micrograd, a vector search, a tiny GPT), Karpathy-style. An optional Electives section adds local models, fine-tuning, MCP, voice and images, and model internals.
 
 Along the way you get small hands-on widgets (guess first, then try an idea for 2 minutes), true stories of AI going wrong, a "Before you read" note for hard outside material, a short Memory check at the end of every lesson, and a stage-aware "Welcome back" restart plan if you've been away. "Help me restart" is always available on the course page. On a phone, Previous, Mark complete and Next sit in a dock under your thumb.
 
@@ -80,7 +80,7 @@ The [28 October Campus Assistant review](CAMPUS-ASSISTANT-REVIEW.md) explains th
 
 ## Focused progress checks
 
-Run `node --test tests/` (26 cases) after changing saved progress, Day blocks, durations or Continue behavior. It needs the git history, because it compares against the last live release (0775835).
+Run `node --test tests/` (28 cases) after changing saved progress, Day blocks, durations or Continue behavior. It needs the git history, because it compares against the last live release (0775835).
 
 - `tests/progress.test.cjs` executes the real course and app in a minimal browser shell: partial lessons, catch-up work, legacy Day migration, save/reload, the first account sync, and a page still open on the live release.
 - `tests/course.test.cjs` checks that every live lesson and Day group keeps its place and its number of boxes, that new material is flagged `added`, that internal links resolve, that the stated duration matches the Day count, and that every Day has a `why` plus exactly one of `skip` or `keep`.

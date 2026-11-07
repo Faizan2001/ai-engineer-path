@@ -1,6 +1,6 @@
 # Elective: Fine-Tune a Small Model
 
-*Section 8: Electives · Elective 2 of 5 · about 1.5 weeks*
+*Section 8: Electives · Elective 3 of 6 · about 1.5 weeks*
 
 ## Introduction
 
@@ -52,4 +52,4 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 [← Previous: Elective: Run Models Locally](43-elective-local-models.md) · [Course map](README.md) · [Next lesson: Elective: Share Your Knowledge Base over MCP →](45-elective-mcp-server.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

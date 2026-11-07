@@ -1,6 +1,6 @@
 # How LLMs Work
 
-*Section 2: Foundations · Lesson 5 of 42 · about 3 hours*
+*Section 2: Foundations · Lesson 5 of 41 · about 3 hours*
 
 ## Introduction
 
@@ -111,4 +111,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Setting Up Your Tools](04-setting-up-your-tools.md) · [Course map](README.md) · [Next lesson: The AI Staircase →](06-the-ai-staircase.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

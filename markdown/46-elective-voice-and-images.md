@@ -1,6 +1,6 @@
 # Elective: Voice and Images
 
-*Section 8: Electives · Elective 4 of 5 · about 1 week*
+*Section 8: Electives · Elective 5 of 6 · about 1 week*
 
 ## Introduction
 
@@ -51,4 +51,4 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 [← Previous: Elective: Share Your Knowledge Base over MCP](45-elective-mcp-server.md) · [Course map](README.md) · [Next lesson: Elective: Go Deeper into Model Internals →](47-elective-model-internals.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

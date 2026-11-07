@@ -1,6 +1,6 @@
 # Login
 
-*Section 5: Make It Sturdy · Lesson 30 of 42 · about 1 week*
+*Section 5: Make It Sturdy · Lesson 30 of 41 · about 1 week*
 
 **Before you start, check that** search runs in Postgres with row-level security, and your CSS-group tests return zero JS chunks.
 
@@ -119,4 +119,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Postgres Search and Access Rules](29-postgres-search-and-access-rules.md) · [Course map](README.md) · [Next lesson: Fresh Data →](31-fresh-data.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

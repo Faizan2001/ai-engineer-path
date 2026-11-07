@@ -25,8 +25,13 @@ test('every live lesson is still there, in the same order', () => {
   assert.deepEqual(positions, [...positions].sort((a, b) => a - b), 'live lessons reordered');
 });
 
+// Reworked on 7 Nov 2026 to cut repeated work. The only learner was on Lesson 5, so no saved tick pointed at these Days.
+const REWORKED = new Set(['ml-basics-measuring-quality', 'embeddings-and-vector-search', 'monitoring', 'agent-fundamentals',
+  'project-give-it-tools', 'evals-that-catch-real-bugs', 'fresh-data', 'project-make-it-sturdy']);
+
 test('every live Day group keeps its index and its boxes', () => {
   for (const old of lessons(live)) {
+    if (REWORKED.has(old.slug)) continue;
     const groups = BY[old.slug].assignment || [];
     const was = old.assignment || [];
     assert.ok(groups.length >= was.length, `groups removed in ${old.slug}`);
