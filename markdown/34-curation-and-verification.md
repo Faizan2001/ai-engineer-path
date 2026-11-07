@@ -1,6 +1,6 @@
 # Curation and Verification
 
-*Section 6: Capstone: Campus Assistant · Lesson 34 of 42 · about 1 week*
+*Section 6: Capstone: Campus Assistant · Lesson 34 of 41 · about 7.5 hours*
 
 **Before you start, check that** your knowledge base has at least 65 entries with sources, and [Grading Answers](16-grading-answers.md) and [Fresh Data](31-fresh-data.md) are complete.
 
@@ -28,13 +28,13 @@ By the end of this lesson, you should be able to:
 
 - Move every entry through clear statuses, from draft to approved to expired.
 - Check citations, contradictions, personal data and staleness automatically.
-- Measure judge errors on unseen good and bad entries, and write a human-approval policy.
+- Measure the judge's errors against your own grades, and keep a human approving everything.
 
 ## Try it first
 
 Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
-**Predict:** Your judge agrees with you on 40 good entries. Guess how many of 20 deliberately wrong entries it will still pass. Write the number down before you measure it.
+**Predict:** Your judge agrees with you on 30 good entries. Guess how many of 10 deliberately wrong entries it will still pass. Write the number down before you measure it.
 
 ## Before you read
 
@@ -43,7 +43,6 @@ An LLM judge is a second model that grades an answer against a rubric. It is fas
 - **Cohen's kappa**: Agreement between two graders, corrected for the agreement you'd expect by chance. 1 is perfect, 0 is chance level, and it can be negative.
 - **Confusion matrix**: A 2×2 count of judge versus human: both pass, both fail, judge passed what you failed, judge failed what you passed. For auto-approval, the costly cell is “judge passed what you failed”.
 - **Entailment check**: Does the quoted source actually support each claim in the answer?
-- **Audit sample**: A random slice of published entries that a human rechecks each week. Sampling helps find drift; it does not replace approval.
 
 ## Assignment
 
@@ -72,42 +71,38 @@ An LLM judge is a second model that grades an answer against a rubric. It is fas
 >
 > **Don't skip:** You can't trust the checks without this.
 
-6. Grade 60 entries yourself: correct and supported, or not. Include 15 you deliberately broke (wrong number, outdated semester, unsupported claim). Run the judge on the same 60 and build the confusion matrix. Compute Cohen's kappa too ([scikit-learn's cohen_kappa_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html)).
-7. Read every disagreement and fix the rubric, not the labels. Rerun once. These 60 are now tuning data, so their scores are optimistic.
+6. Grade 40 entries yourself: correct and supported, or not. Include 10 you deliberately broke (wrong number, outdated semester, unsupported claim). Run the judge on the same 40 and build the confusion matrix. Compute Cohen's kappa too ([scikit-learn's cohen_kappa_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html)).
+7. Read every disagreement and fix the rubric, not the labels. Rerun once. These 40 are now tuning data, so their scores are optimistic.
+8. Remember that 0 false accepts out of 10 bad cases doesn't prove safety. By the rule of three, the true rate could still be about 30%.
 
-### Days 4–5 · about 3 hours
+### Day 4 · about 90 min
 
-> **Why:** Test the judge on fresh entries, and write down why it can't publish on its own.
+> **Why:** Approve every entry by hand, and test that the judge can never publish.
 >
-> **Don't skip:** The pilot needs this approval policy.
+> **Don't skip:** The pilot needs this approval flow.
 
-8. Freeze the rubric. Then grade 40 fresh entries before you see the judge's results: 20 sampled real entries, and 20 new entries that you make wrong on purpose. Make 4 wrong entries of each kind: a wrong number, an expired rule, an unsupported claim, a mismatched source, and a wrong student or curriculum.
-9. Don't reuse the 60 tuning entries or rewrites of them. Confirm the expected labels, then run the judge once.
-10. Report the real and the wrong-on-purpose samples separately. Divide false accepts by the entries you failed, and false rejects by the entries you passed. If a denominator is zero, write “not measured”; it is never a pass. If you change the rubric, these cases become regression data. Use fresh cases for the next independent check.
-11. Write `AUTO-APPROVAL.md` with automatic publication **disabled for the course and the pilot**. Record the rubric version, the sample counts, the confusion matrices and the uncertainty.
-12. Remember that 0 false accepts out of 20 bad cases does not prove safety. By the rule of three, the true rate could still be about 15%.
-13. Any later proposal to allow auto-approval would need all of these: an error tolerance approved separately, enough real and challenge cases to measure the uncertainty, an audit owner and schedule, and a rule to suspend it after one confirmed false acceptance or source change. Sensitive topics stay human-only. No kappa score or small zero-error sample can enable publication by itself.
-14. Approve every pilot entry by hand through the queue, with the curator, source revision, timestamp and reason in its changelog. Test that the judge cannot publish, that low-risk entries also wait, and that changing a source removes approval.
+9. Automatic publication stays off for the course and the pilot. The judge helps you review. It never publishes.
+10. Approve every pilot entry by hand through the queue, with the curator, source revision, timestamp and reason in its changelog. Test that the judge cannot publish, that low-risk entries also wait, and that changing a source removes approval.
 
-### Day 6 · about 90 min
+### Day 5 · about 90 min
 
 > **Why:** Add one check yourself, without AI, to prove you understand the system.
 >
 > **Don't skip:** It's short, and it's this lesson's skill check.
 
-15. Without AI-written code, add one new check (for example: an answer that mentions a date must cite the academic calendar). Test it on a passing and a failing entry, and explain it in your log.
+11. Without AI-written code, add one new check (for example: an answer that mentions a date must cite the academic calendar). Test it on a passing and a failing entry, and explain it in your log.
 
 ### Memory check · 10 min
 
-16. Close this page. In your log, answer from memory, then check:
-   - Why does a judge that passed 40 correct entries tell you little about unsafe approvals? ([where to check](34-curation-and-verification.md))
+12. Close this page. In your log, answer from memory, then check:
+   - Why does a judge that passed 30 correct entries tell you little about unsafe approvals? ([where to check](34-curation-and-verification.md))
    - What moves an approved entry back to needs-human without anyone noticing a problem? ([where to check](34-curation-and-verification.md))
-17. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+13. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
-<summary>Check your answer: Why does a judge that passed 40 correct entries tell you little about unsafe approvals?</summary>
+<summary>Check your answer: Why does a judge that passed 30 correct entries tell you little about unsafe approvals?</summary>
 
-Passing correct entries says nothing about whether it rejects wrong ones. Measure false accepts (the share of entries you failed that the judge passed) on unseen real and wrong-on-purpose samples, report the uncertainty, and keep human approval throughout the pilot.
+Passing correct entries says nothing about whether it rejects wrong ones. Count false accepts (entries you failed that the judge passed) on entries you broke on purpose, and keep human approval throughout the pilot.
 
 Different wording is fine. Correct missing pieces, then retry without looking next session.
 
@@ -128,4 +123,4 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 [← Previous: Project: Make It Sturdy](33-project-make-it-sturdy.md) · [Course map](README.md) · [Next lesson: Multilingual Search: Bangla, Banglish, English →](35-multilingual-search.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

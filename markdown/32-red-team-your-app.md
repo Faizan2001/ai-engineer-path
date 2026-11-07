@@ -1,6 +1,6 @@
 # Red-Team Your App
 
-*Section 5: Make It Sturdy · Lesson 32 of 42 · about 6 hours*
+*Section 5: Make It Sturdy · Lesson 32 of 41 · about 6 hours*
 
 **Before you start, check that** your sync removes deleted pages and their chunks, and the deleted-page test passes.
 
@@ -96,4 +96,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Fresh Data](31-fresh-data.md) · [Course map](README.md) · [Next lesson: Project: Make It Sturdy →](33-project-make-it-sturdy.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

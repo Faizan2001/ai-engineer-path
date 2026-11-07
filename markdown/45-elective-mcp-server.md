@@ -1,6 +1,6 @@
 # Elective: Share Your Knowledge Base over MCP
 
-*Section 8: Electives · Elective 3 of 5 · about 4.5 hours*
+*Section 8: Electives · Elective 4 of 6 · about 4.5 hours*
 
 ## Introduction
 
@@ -52,4 +52,4 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 [← Previous: Elective: Fine-Tune a Small Model](44-elective-fine-tuning.md) · [Course map](README.md) · [Next lesson: Elective: Voice and Images →](46-elective-voice-and-images.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

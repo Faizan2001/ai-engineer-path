@@ -1,10 +1,8 @@
 # Elective: Run Models Locally
 
-*Section 8: Electives · Elective 1 of 5 · about 1 week*
+*Section 8: Electives · Elective 2 of 6 · about 1 week*
 
 ## Introduction
-
-*The assistant works. Now you can follow your curiosity: run it on your own machine, improve its Banglish, connect it to other AI tools, add voice, or build a model yourself. Each elective is one small, measured experiment.*
 
 > **Free per token isn't free. Measure what it really costs.**
 
@@ -29,7 +27,7 @@ By the end of this lesson, you should be able to:
 > **Skip if** you've run models with Ollama and measured them on your own eval.
 
 1. Install [Ollama](https://github.com/ollama/ollama) or llama.cpp. Run a small and a medium model; record memory use, how long the first word takes on a long prompt, and tokens per second on your machine.
-2. Run your Bangla and Banglish eval slice with both, at two quantization levels. Compare with the hosted model you chose in [Choose Models and a Budget](38-choose-models-and-budget.md).
+2. Run your Bangla and Banglish eval slice with both, at two quantization levels. Compare with the hosted model you chose in [Choose Models and a Budget](37-choose-models-and-budget.md).
 3. Put the best local model behind your assistant's model interface and use it for offline tests and labelling drafts. Write when local serving would make sense for real users, and what it would cost.
 
 ### Memory check · 10 min
@@ -51,6 +49,6 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: What's Next](42-whats-next.md) · [Course map](README.md) · [Next lesson: Elective: Fine-Tune a Small Model →](44-elective-fine-tuning.md)
+[← Previous: Elective: A Course-Planning Helper](42-course-planning-helper.md) · [Course map](README.md) · [Next lesson: Elective: Fine-Tune a Small Model →](44-elective-fine-tuning.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

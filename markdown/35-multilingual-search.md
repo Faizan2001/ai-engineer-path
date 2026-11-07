@@ -1,6 +1,6 @@
 # Multilingual Search: Bangla, Banglish, English
 
-*Section 6: Capstone: Campus Assistant · Lesson 35 of 42 · about 1 week*
+*Section 6: Capstone: Campus Assistant · Lesson 35 of 41 · about 6 hours*
 
 **Before you start, check that** your question bank has at least 150 questions tagged by language and linked to intents, with at least 15 per language held back in `held_back.jsonl`.
 
@@ -8,7 +8,7 @@
 
 > **Students don't switch language for your search engine. Your search engine switches for them.**
 
-Your users write in English, in Bangla script, in romanized Bangla (Banglish), and sometimes in all three in one sentence. Keyword search fails across scripts, and many embedders handle Banglish poorly. The language check you did in [Embeddings and Vector Search](12-embeddings-and-vector-search.md) gave a first signal of where.
+Your users write in English, in Bangla script, in romanized Bangla (Banglish), and sometimes in all three in one sentence. Keyword search fails across scripts, and many embedders handle Banglish poorly.
 
 You'll measure each language separately, then try a multilingual embedder and a model call that rewrites the question into English and Bangla. Choose using development results. Keep the final held-back questions sealed until the pilot release check.
 
@@ -28,7 +28,7 @@ By the end of this lesson, you should be able to:
 
 Two minutes, before the reading. Make a prediction, then check it against the example or reading. The correction is the useful part.
 
-**Predict:** Your check in Embeddings and Vector Search compared Bengali script with Banglish. Before you measure, guess this lesson's Hit Rate@5 for Bengali-script questions and for the same questions typed in Banglish.
+**Predict:** Before you measure, guess this lesson's Hit Rate@5 for Bengali-script questions and for the same questions typed in Banglish.
 
 ## Assignment
 
@@ -58,8 +58,9 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 
 5. Add a rewrite step: one cheap model call that returns `{language, english_query, bangla_query}` as structured output (as in [Structured Output and Errors](07-structured-output-and-errors.md)). Write `bangla_query` in Bengali script, not romanized.
 6. Run vector search on the raw question and on both rewrites. Run keyword search on the raw and English versions. Fuse everything with RRF (as in [Hybrid Search](14-hybrid-search.md)).
-7. Don't stem or “fix” Banglish spelling. For Bengali text, Unicode normalisation is enough.
-8. Check 10 rewrites by hand for changed meaning, and measure the extra time and cost per question.
+7. Test your fusion with an empty list, duplicates and a missing language.
+8. Don't stem or “fix” Banglish spelling. For Bengali text, Unicode normalisation is enough.
+9. Check 10 rewrites by hand for changed meaning, and measure the extra time and cost per question.
 
 ### Day 4 · about 90 min
 
@@ -67,16 +68,8 @@ Two minutes, before the reading. Make a prediction, then check it against the ex
 >
 > **Don't skip:** The assistant ships with this choice.
 
-9. Pick the configuration using development results, then check known failures in `regression.jsonl`. Put the decision, per-language counts, set versions and cost in your README, labelled development evidence. Do not open `held_back.jsonl` here. It is for the final check of your finished candidate.
-10. Make the answer prompt reply in the student's language, and test 5 mixed-language questions by hand.
-
-### Day 5 · about 90 min
-
-> **Why:** Write the merge function yourself, without AI.
->
-> **Don't skip:** It's short, and it's this lesson's skill check.
-
-11. Without AI-written code, write the function that merges and deduplicates results from the two rewrites. Test it with an empty list, duplicates and a missing language.
+10. Pick the configuration using development results, then check known failures in `regression.jsonl`. Put the decision, per-language counts, set versions and cost in your README, labelled development evidence. Do not open `held_back.jsonl` here. It is for the final check of your finished candidate.
+11. Make the answer prompt reply in the student's language, and test 5 mixed-language questions by hand.
 
 ### Memory check · 10 min
 
@@ -109,4 +102,4 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 [← Previous: Curation and Verification](34-curation-and-verification.md) · [Course map](README.md) · [Next lesson: Answer, Ask or Route →](36-answer-ask-or-route.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

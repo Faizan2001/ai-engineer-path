@@ -1,8 +1,8 @@
 # Ship It: Mobile App
 
-*Section 6: Capstone: Campus Assistant · Lesson 40 of 42 · about 1 week*
+*Section 6: Capstone: Campus Assistant · Lesson 39 of 41 · about 1 week*
 
-**Before you start, check that** [Ship It: Service and Website](39-assistant-service-and-web.md) is live for curators.
+**Before you start, check that** [Ship It: Service and Website](38-assistant-service-and-web.md) is live for curators.
 
 ## Introduction
 
@@ -60,7 +60,7 @@ By the end of this lesson, you should be able to:
 ### Memory check · 10 min
 
 13. Close this page. In your log, answer from memory, then check:
-   - Name two mobile problems a web chat page rarely has. ([where to check](40-assistant-in-the-mobile-app.md))
+   - Name two mobile problems a web chat page rarely has. ([where to check](39-assistant-in-the-mobile-app.md))
 14. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
@@ -76,6 +76,6 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Ship It: Service and Website](39-assistant-service-and-web.md) · [Course map](README.md) · [Next lesson: Project: Campus Assistant Pilot →](41-project-campus-assistant.md)
+[← Previous: Ship It: Service and Website](38-assistant-service-and-web.md) · [Course map](README.md) · [Next lesson: Project: Campus Assistant Pilot →](40-project-campus-assistant.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

@@ -1,8 +1,8 @@
 # Ship It: Service and Website
 
-*Section 6: Capstone: Campus Assistant · Lesson 39 of 42 · about 3 weeks*
+*Section 6: Capstone: Campus Assistant · Lesson 38 of 41 · about 3 weeks*
 
-**Before you start, check that** your [Choose Models and a Budget](38-choose-models-and-budget.md) decision is written, and you can run your platform locally with emulators.
+**Before you start, check that** your [Choose Models and a Budget](37-choose-models-and-budget.md) decision is written, and you can run your platform locally with emulators.
 
 ## Introduction
 
@@ -37,7 +37,7 @@ By the end of this lesson, you should be able to:
 3. Add a scrubber that removes phone numbers, student IDs, emails and national ID numbers before anything is logged or sent to a model. Test it on Bangla and Banglish text.
 4. Write a design note. It covers the request path from client to cited answer, where the service runs, where the index lives, how the gateway proves its identity to the service, and what is logged and for how long.
 5. Start with the simplest store that passes your tests. For about 100 approved entries per university, an index built in memory from the published entries is enough. Move to Postgres with row-level security, as in [Postgres Search and Access Rules](29-postgres-search-and-access-rules.md), when the corpus or traffic needs it, and write down what would trigger the move.
-6. Get the note reviewed by a friend or a peer, or check it against your own [Make It Sturdy](33-project-make-it-sturdy.md) evidence table.
+6. Get the note reviewed by a friend or a peer, or check it against your own [Make It Sturdy](33-project-make-it-sturdy.md) results.
 7. Write two contracts. First, the public contract. The client sends `{question, idempotencyKey, conversationId?, preferredLanguage?, programHint?, curriculumHint?}`. Reject extra identity fields, and never forward client identity headers.
 8. Second, the internal contract. After verifying the student, the gateway creates an internal envelope `{context: {uid, tenantId, requestId, operation}, input: {...}}`. Its context comes only from server authority, and is bound to a gateway-created request record with those fields and a hash of the allowed input. Conversations and results are server-owned. Fetches and retries recheck user and tenant ownership.
 9. Start `PILOT-AUTHORIZATION.md` now, and send your approval requests. Ask the registrar or student-affairs office for written permission for the scope of a small pilot, and ask the platform owner to authorize it. If you haven't yet, send the crisis card to the counselling centre for written approval. Approvals take calendar time. **Stop here** when the policy, the design note and both contracts are committed and the requests are sent.
@@ -71,7 +71,7 @@ By the end of this lesson, you should be able to:
 >
 > **Don't skip:** Double charges and runaway costs start here if you skip it.
 
-19. Add per-user limits and a budget reservation before the model call. Settle the actual cost after success and expire abandoned reservations.
+19. Add per-user limits, a monthly budget alert and a budget reservation before the model call. Settle the actual cost after success and expire abandoned reservations.
 20. Scope idempotency to the verified tenant and user. Claim the key atomically before the model call (a create-only write, or a transaction on the request record). If a request with that key is still running, return `pending` and let the client retry shortly. Never start a second model call.
 21. The same key and input returns the stored answer with no second model call or charge. A changed input with that key is rejected.
 22. Test result fetches and retries after suspension, and requests from another student, including one in the same university. Neither a request ID nor a conversation ID grants access.
@@ -99,8 +99,8 @@ By the end of this lesson, you should be able to:
 ### Memory check · 10 min
 
 29. Close this page. In your log, answer from memory, then check:
-   - Which checks must happen on the server before the assistant searches anything? ([where to check](39-assistant-service-and-web.md))
-   - Why does a thumbs-down create a curation item instead of editing the answer? ([where to check](39-assistant-service-and-web.md))
+   - Which checks must happen on the server before the assistant searches anything? ([where to check](38-assistant-service-and-web.md))
+   - Why does a thumbs-down create a curation item instead of editing the answer? ([where to check](38-assistant-service-and-web.md))
 30. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
@@ -125,6 +125,6 @@ Different wording is fine. Correct missing pieces, then retry without looking ne
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Choose Models and a Budget](38-choose-models-and-budget.md) · [Course map](README.md) · [Next lesson: Ship It: Mobile App →](40-assistant-in-the-mobile-app.md)
+[← Previous: Choose Models and a Budget](37-choose-models-and-budget.md) · [Course map](README.md) · [Next lesson: Ship It: Mobile App →](39-assistant-in-the-mobile-app.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

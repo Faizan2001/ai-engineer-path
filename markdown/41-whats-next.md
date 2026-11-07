@@ -1,6 +1,6 @@
 # What's Next
 
-*Section 7: Conclusion · Lesson 42 of 42 · about 2 weeks (spare)*
+*Section 7: Conclusion · Lesson 41 of 41 · about 2 weeks (spare)*
 
 ## Introduction
 
@@ -60,7 +60,7 @@ By the end of this lesson, you should be able to:
 
 These are optional. Use them if you want to go further.
 
-- [Electives](43-elective-local-models.md): local models, fine-tuning, MCP, voice and images, and model internals, each tied back to your Campus Assistant.
+- [Electives](42-course-planning-helper.md): course planning, local models, fine-tuning, MCP, voice and images, and model internals, each tied back to your Campus Assistant.
 - [Harvard CS50 AI](https://cs50.harvard.edu/ai/): optional broader AI foundations: search, uncertainty and learning, with programming projects. Useful if you have gaps in those ideas.
 - [MIT 6.S191, 2026](https://introtodeeplearning.com/): an optional route toward model training, with neural-network lectures and labs. Review calculus and linear algebra first.
 - [Stanford CS336, Spring 2026](https://cs336.stanford.edu/): an advanced route toward building models, after PyTorch, ML, probability and systems prerequisites. Heavy implementation and GPU work.
@@ -69,6 +69,6 @@ These are optional. Use them if you want to go further.
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Project: Campus Assistant Pilot](41-project-campus-assistant.md) · [Course map](README.md) · [Next lesson: Elective: Run Models Locally →](43-elective-local-models.md)
+[← Previous: Project: Campus Assistant Pilot](40-project-campus-assistant.md) · [Course map](README.md) · [Next lesson: Elective: A Course-Planning Helper →](42-course-planning-helper.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

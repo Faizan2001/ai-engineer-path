@@ -1,6 +1,6 @@
 # Project: Ask MDN
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 19 of 42 · about 3 weeks*
+*Section 3: RAG with LLM Zoomcamp · Lesson 19 of 41 · about 2 weeks*
 
 **Before you start, check that** Ask MDN v0.6 runs online as your private app, with conversations saved in Neon.
 
@@ -23,39 +23,39 @@ This is your Zoomcamp final project, built on MDN. It answers CSS and JavaScript
 
 ## Assignment
 
-### Days 1–6 · about 9 hours
+### Days 1–3 · about 4.5 hours
 
 > **Why:** Bring every piece of this section into one app that cites its pages.
 >
 > **Don't skip:** This is your main RAG portfolio project.
 
-1. **Days 1–3:** Bring together everything from this section: ingestion, hybrid search, the prompt, the chat app and logging. One piece a Day, each one running before you add the next.
-2. **Days 4–5:** Make every answer show links to the MDN pages it used.
-3. **Stop here on Day 6:** 5 practice questions get correct, cited answers.
+1. **Day 1:** Check that everything from this section runs together in one app: ingestion, hybrid search, the prompt, the chat page and logging. Fix whatever doesn't.
+2. **Days 2–3:** Make every answer show links to the MDN pages it used.
+3. **Stop here on Day 3:** 5 practice questions get correct, cited answers.
 
-### Days 7–12 · about 9 hours
+### Days 4–8 · about 7.5 hours
 
 > **Why:** Score Ask MDN honestly on questions it never saw, and against the same model without retrieval.
 >
 > **Don't skip:** These numbers are what interviewers ask about.
 
-4. **Days 7–8:** Check the “I don't know” path on your 10 unanswerable questions.
-5. **Days 9–11:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](13-measuring-search.md) on them and report the range next to each metric.
+4. **Day 4:** Rerun your 10 unanswerable questions, and fix anything that changed.
+5. **Days 5–7:** Run your tests on the 50 held-back questions, once, and record the results. Rerun your bootstrap from [Measuring Search](13-measuring-search.md) on them and report the range next to each metric.
 6. Grade a 10-answer sample by hand: is the answer correct, and does the cited passage support the claim? A valid URL alone is not enough.
 7. Answer the same 10 questions with the same model and output limit, but with no retrieved pages. Prompt it to answer from its own knowledge and to say when it's unsure. Grade both sets the same way. This baseline shows what retrieval really adds.
 8. Record mistakes even when retrieval succeeded. Once you've looked at the held-back results, they become regression data: don't call them unseen after you tune on them.
-9. **Stop here on Day 12:** your README has the results table.
+9. **Stop here on Day 8:** your README has the results table.
 
-### Days 13–18 · about 9 hours
+### Days 9–12 · about 6 hours
 
 > **Why:** Ship v1.0, try it on real questions, and write the README people will read.
 >
 > **Don't skip:** The README is your shop window.
 
-10. **Days 13–14:** Put the final version online as a private app (see [Deploy It Safely](18-deploy-it-safely.md)). This is **Ask MDN v1.0**.
-11. **Day 15:** If a friend can help, ask them for 5 CSS or JavaScript questions they really got stuck on this month, and run them on the live app. No one free? Ask in the Zoomcamp Slack, or use 5 old bugs of your own.
-12. **Days 16–17:** Finish the README. Open it with a real bug you once lost hours to, and Ask MDN's cited answer. Then: how it works, how to run it, your results, a GIF and what you'd improve.
-13. **Day 18:** If a Zoomcamp cohort is open, submit your project for peer review. If not, share your repo in `#course-llm-zoomcamp` and ask for feedback.
+10. **Day 9:** Push the final version to your private app. This is **Ask MDN v1.0**.
+11. **Day 10:** If a friend can help, ask them for 5 CSS or JavaScript questions they really got stuck on this month, and run them on the live app. No one free? Ask in the Zoomcamp Slack, or use 5 old bugs of your own.
+12. **Day 11:** Finish the README. Open it with a real bug you once lost hours to, and Ask MDN's cited answer. Then: how it works, how to run it, your results, a GIF and what you'd improve.
+13. **Day 12:** If a Zoomcamp cohort is open, submit your project for peer review. If not, share your repo in `#course-llm-zoomcamp` and ask for feedback.
 
 ### Memory check · 10 min
 
@@ -101,4 +101,4 @@ What it proves to employers:
 
 [← Previous: Deploy It Safely](18-deploy-it-safely.md) · [Course map](README.md) · [Next lesson: Campus Knowledge Base →](20-campus-knowledge-base.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

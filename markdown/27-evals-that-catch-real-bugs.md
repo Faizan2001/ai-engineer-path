@@ -1,6 +1,6 @@
 # Evals That Catch Real Bugs
 
-*Section 5: Make It Sturdy · Lesson 27 of 42 · about 6 hours*
+*Section 5: Make It Sturdy · Lesson 27 of 41 · about 4 hours*
 
 **Before you start, check that** `save_note` only runs after approval, and your step, cost and retry limit tests pass.
 
@@ -24,7 +24,6 @@ By the end of this lesson, you should be able to:
 
 - Find patterns in real failures (error analysis).
 - Write a pass-or-fail check for each kind of failure.
-- Check that an LLM judge agrees with you.
 
 ## Before you read
 
@@ -46,27 +45,20 @@ Don't invent metrics first. Read 50 real conversations, note each failure in one
 > **Don't skip:** The crisis set takes weeks to build.
 
 1. Read [Why is error analysis so important, and how is it done?](https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html), one answer from Hamel Husain and Shreya Shankar's [AI Evals FAQ](https://hamel.dev/blog/posts/evals-faq/). Keep the full FAQ for later.
-2. Before you look at any data, write down the three failures you expect most often in Ask MDN. Day 3 checks your guess.
+2. Before you look at any data, write down the three failures you expect most often in Ask MDN. Day 2 checks your guess.
 3. This week, also start a crisis test set for the Campus Assistant. It takes 30 minutes a week, outside these Days.
 4. Each week, write 2 messages from a student who might be in crisis, and 2 harmless look-alikes (for example, “I'm dying to see the results”), in each language: English, Bangla and Banglish. Ask a native speaker to review them. Keep going every week: you'll use the set to test your assistant's crisis response later in the capstone.
 
-### Day 2 · light day, about 45 min
+### Day 2 · about 90 min
 
-> **Why:** Compare your evals with a simple three-step method and spot what's missing.
->
-> **Skip if** you already know Eugene Yan's three steps for product evals.
-
-5. Read Eugene Yan's [Product Evals in Three Simple Steps](https://eugeneyan.com/writing/product-evals/). Write down which of his three steps Ask MDN already has, and which it's missing.
-
-### Day 3 · about 90 min
-
-> **Why:** Read 50 real conversations and group the failures you find.
+> **Why:** Run Ask MDN on 50 questions, read what it really did, and group the failures.
 >
 > **Don't skip:** These groups become your tests.
 
-6. Collect 50 conversations that are public or made up: use recent redacted examples from Neon, and top up with the Zoomcamp [synthetic data generator](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/05-monitoring/11-synthetic-data.md). Review them before you keep them as a separate test set. Don't keep raw logs longer just to reach 50. Read them in two 25-minute blocks, write down every failure, and sort the failures into 3 to 6 groups.
+5. Run Ask MDN on 50 of your existing questions: practice, unanswerable and your old held-back ones. Save each question, the pages it found and its answer. Real runs show real failures, which fake data can't.
+6. Read them in two 25-minute blocks, write down every failure, and sort the failures into 3 to 6 groups.
 
-### Day 4 · about 90 min
+### Day 3 · about 90 min
 
 > **Why:** Turn each failure group into a pass-or-fail check.
 >
@@ -74,20 +66,12 @@ Don't invent metrics first. Read 50 real conversations, note each failure in one
 
 7. Write a pass-or-fail check for each group. Use plain code where you can, and an LLM judge only where you must.
 
-### Day 5 · about 90 min
-
-> **Why:** Check that your LLM judge agrees with you before you trust it.
->
-> **Don't skip:** CI relies on this judge.
-
-8. Grade 20 answers yourself, then check how often your LLM judge agrees with you.
-
 ### Memory check · 10 min
 
-9. Close this page. In your log, answer from memory, then check:
+8. Close this page. In your log, answer from memory, then check:
    - Why use pass or fail instead of a 1 to 5 score? ([where to check](https://hamel.dev/blog/posts/evals-faq/))
    - What do you save for every conversation in Ask MDN? ([where to check](17-monitoring.md))
-10. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+9. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 ## Additional resources
 
@@ -96,6 +80,7 @@ These are optional. Use them if you want to go further.
 - [Chip Huyen, AI Engineering, chapters 3 and 4 (book)](https://github.com/chiphuyen/aie-book)
 - [Task-specific LLM evals that do and don't work](https://eugeneyan.com/writing/evals/) by Eugene Yan: which checks catch real problems and which ones just look busy.
 - [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Anthropic, 2026): how to check model graders against people, give the grader an “unknown” option, and test consistency across repeated runs.
+- [Product Evals in Three Simple Steps](https://eugeneyan.com/writing/product-evals/) by Eugene Yan: a short recipe to compare with what you've built.
 
 ---
 
@@ -103,4 +88,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Start Applying](26-start-applying.md) · [Course map](README.md) · [Next lesson: Testing and CI →](28-testing-and-ci.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

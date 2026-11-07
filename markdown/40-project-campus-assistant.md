@@ -1,6 +1,6 @@
 # Project: Campus Assistant Pilot
 
-*Section 6: Capstone: Campus Assistant · Lesson 41 of 42 · about 3 weeks*
+*Section 6: Capstone: Campus Assistant · Lesson 40 of 41 · about 2.5 weeks*
 
 **Before you start, check that** the assistant runs for curators on web and mobile, with release gates in CI.
 
@@ -16,7 +16,7 @@ Your assistant is ready for a small trial with a time limit. If you have all the
 
 ## Before you start
 
-- You started `PILOT-AUTHORIZATION.md` in [Ship It: Service and Website](39-assistant-service-and-web.md). For a real campus pilot, it must record the platform owner's authorization, written registrar or student-affairs permission for the pilot's scope, data-use rights and participant consent. For a community project, use its responsible operator instead. Record institutional endorsement separately: “Unofficial, student-built” describes endorsement. It never replaces permission. If any required authorization is missing, use the isolated rehearsal below, and don't invite campus users through the platform.
+- You started `PILOT-AUTHORIZATION.md` in [Ship It: Service and Website](38-assistant-service-and-web.md). For a real campus pilot, it must record the platform owner's authorization, written registrar or student-affairs permission for the pilot's scope, data-use rights and participant consent. For a community project, use its responsible operator instead. Record institutional endorsement separately: “Unofficial, student-built” describes endorsement. It never replaces permission. If any required authorization is missing, use the isolated rehearsal below, and don't invite campus users through the platform.
 - Invite only students who are 18 or over, checked at invite, unless you have documented guardian consent that your provider's terms and your privacy law accept. A box the student ticks for their guardian is not consent. Record the check in `PILOT-AUTHORIZATION.md`.
 - Give pilot users a short notice: which model provider processes their messages and how long it keeps them, what you log and for how long, and how to ask for deletion.
 - Before the release check, write the prompt, model, retrieval, code and knowledge-base versions, plus your thresholds and set IDs, in `RELEASE-EVAL.md`, and freeze them. Use an untouched `held_back.jsonl` with at least 15 answerable cases per supported language. If earlier results guided a change, move those cases to regression and get fresh, unseen replacements. Report the limits of small samples. Later changes need regression checks, and fresh release evidence when they respond to release failures.
@@ -48,25 +48,23 @@ Your assistant is ready for a small trial with a time limit. If you have all the
 9. **Days 7–12, one session a Day while the pilot runs:** Run the approved pilot or the isolated rehearsal for two weeks. Each day, review redacted feedback and new questions. Approve every published fix by hand and version it, and add failures to regression. A change prompted by release-check failures needs a fresh release sample before that topic or setting is switched back on.
 10. Each Day, regrade a random sample of answers. Track correct answers, appropriate clarifications, routes and declines, and errors. For a rehearsal, state that questions and users were made up or scripted. Don't count them as evidence of real student adoption.
 
-### Days 13–18 · about 9 hours
+### Days 13–15 · about 4.5 hours
 
 > **Why:** Write the report and decide the next step from evidence.
 >
 > **Don't skip:** The report is what you show the university and employers.
 
-11. **Days 13–15:** Write `PILOT-REPORT.md`, headed **Approved pilot** or **Rehearsal**, with the authorization status, data used, quality counts by language, failure modes, fixes, cost and user feedback. Separate development, regression and fresh release results, including failed runs and set versions. A rehearsal cannot establish real-world demand or adoption.
-12. **Days 16–17:** Finish with a decision and its evidence: widen an approved pilot, seek authorization after a rehearsal, or pause and fix. Share the report with the responsible reviewers. Never describe a rehearsal as a completed campus deployment.
-13. **Day 18:** No permission yet? Completing the isolated rehearsal meets this project's learning requirements. List the missing approvals and the real-device and live-user checks as pending before any campus pilot.
-14. Add to your list of changes a real team would need: client attestation (Firebase App Check) on the assistant endpoint. On Expo it needs a native module in a development or release build (not Expo Go).
-15. On Android, Play Integrity needs the app linked in Play Console. By default, App Check accepts only builds that match a version published on Google Play, so an app distributed outside Play needs that setting changed.
-16. Add an iOS build, sign-in and background test before you claim iOS works. Attestation adds a layer. It doesn't replace sign-in, limits or idempotency.
-17. **Stop here on Day 18** when `PILOT-REPORT.md` and the decision are committed.
+11. **Days 13–14:** Write `PILOT-REPORT.md`, headed **Approved pilot** or **Rehearsal**, with the authorization status, data used, quality counts by language, failure modes, fixes, cost and user feedback. Separate development, regression and fresh release results, including failed runs and set versions. A rehearsal cannot establish real-world demand or adoption.
+12. **Day 15:** Finish with a decision and its evidence: widen an approved pilot, seek authorization after a rehearsal, or pause and fix. Share the report with the responsible reviewers. Never describe a rehearsal as a completed campus deployment.
+13. No permission yet? Completing the isolated rehearsal meets this project's learning requirements. List the missing approvals and the real-device and live-user checks as pending before any campus pilot.
+14. List what a real launch would still need, such as [Firebase App Check](https://firebase.google.com/docs/app-check) on the assistant endpoint and an iOS build test.
+15. **Stop here on Day 15** when `PILOT-REPORT.md` and the decision are committed.
 
 ### Memory check · 10 min
 
-18. Close this page. In your log, answer from memory, then check:
-   - What has to be true before you invite pilot users? ([where to check](41-project-campus-assistant.md))
-19. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+16. Close this page. In your log, answer from memory, then check:
+   - What has to be true before you invite pilot users? ([where to check](40-project-campus-assistant.md))
+17. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What has to be true before you invite pilot users?</summary>
@@ -109,6 +107,6 @@ What it proves to employers:
 
 - [ ] Mark complete (a note for yourself; it doesn't sync with the web page)
 
-[← Previous: Ship It: Mobile App](40-assistant-in-the-mobile-app.md) · [Course map](README.md) · [Next lesson: What's Next →](42-whats-next.md)
+[← Previous: Ship It: Mobile App](39-assistant-in-the-mobile-app.md) · [Course map](README.md) · [Next lesson: What's Next →](41-whats-next.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

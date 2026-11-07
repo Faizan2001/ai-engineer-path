@@ -1,6 +1,6 @@
 # Tools and the Agent Loop
 
-*Section 3: RAG with LLM Zoomcamp · Lesson 11 of 42 · about 1 week*
+*Section 3: RAG with LLM Zoomcamp · Lesson 11 of 41 · about 1 week*
 
 **Before you start, check that** your practice questions and unanswerable questions are committed in `ask-mdn`.
 
@@ -43,13 +43,14 @@ It sends back a structured request: “call search with this query”. Your code
 
 - ▶ [What is Tool Calling? Connecting LLMs to Your Data](https://www.youtube.com/watch?v=h8gMhXYAv1k) (IBM Technology, 5 min): Covers the same idea as the reading. Afterwards, write one sentence about it in your log.
 
-### Day 1 · about 90 min
+### Day 1 · light day, about 45 min
 
 > **Why:** See what “agentic RAG” means: the model decides when to search.
 >
 > **Skip if** you can explain tool calling and when a model should search.
 
-1. [11 Agents intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/11-agents-intro.md) and [12 RAG revision](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/12-rag-revision.md) (optional if RAG feels clear).
+1. Read [11 Agents intro](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/11-agents-intro.md). [12 RAG revision](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/12-rag-revision.md) is optional: skip it if your `rag()` works.
+2. In your log, write 5 questions and mark which ones need a search and which don't (“hi” doesn't). That's the decision you're about to hand to the model. Stop when the list is done.
 
 ### Day 2 · about 90 min
 
@@ -57,8 +58,9 @@ It sends back a structured request: “call search with this query”. Your code
 >
 > **Skip if** you've built function calling with any model API.
 
-2. [13 Function calling](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/13-function-calling.md). Watch how the tool's result is sent back to the model.
-3. **Using Gemini?** Tools go through Chat Completions, so four things change. Nest each tool under a `function` key. Call `client.chat.completions.create(model=..., messages=messages, tools=tools)`. Read the requests from `response.choices[0].message.tool_calls`. Send each result back as a message with `role` set to `tool` and its `tool_call_id`. See [Gemini's example](https://ai.google.dev/gemini-api/docs/openai#function-calling). The same changes apply in tomorrow's agent loop.
+3. [13 Function calling](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/13-function-calling.md). Watch how the tool's result is sent back to the model.
+4. **Using Gemini?** Tools go through Chat Completions, so four things change. Nest each tool under a `function` key. Call `client.chat.completions.create(model=..., messages=messages, tools=tools)`. Read the requests from `response.choices[0].message.tool_calls`. Send each result back as a message with `role` set to `tool` and its `tool_call_id`. See [Gemini's example](https://ai.google.dev/gemini-api/docs/openai#function-calling). The same changes apply in tomorrow's agent loop.
+5. Stop when the model asks for your `search` tool, your code runs it, and the model answers from the result.
 
 ### Day 3 · about 90 min
 
@@ -66,7 +68,8 @@ It sends back a structured request: “call search with this query”. Your code
 >
 > **Don't skip:** You rewrite this loop from memory tomorrow.
 
-4. [14 Agentic loop](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md). Keep your loop code; you'll use it on Day 4.
+6. [14 Agentic loop](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md). Keep your loop code; you'll use it on Day 4.
+7. Stop when your loop keeps going until the model answers without asking for a tool.
 
 ### Day 4 · about 90 min
 
@@ -74,9 +77,9 @@ It sends back a structured request: “call search with this query”. Your code
 >
 > **Don't skip:** Ask MDN's search tool and its limits are built here.
 
-5. **No AI for this one:** close the course code and rewrite the agent loop from memory, in 20 minutes at most. Then compare it with the course code and fix the gaps.
-6. Add to Ask MDN: turn your search into a tool, let the model call it, and log every call.
-7. Before you put the loop in a chat page, add three limits: at most 8 rounds of model and tool calls, a timeout on each network call, and a clear “stopped” status. Test it with a fake model that keeps asking for search: it must stop at the limit. Keep tools read-only for now. A step limit doesn't cap cost, so also record token usage.
+8. **No AI for this one:** close the course code and rewrite the agent loop from memory, in 20 minutes at most. Then compare it with the course code and fix the gaps.
+9. Add to Ask MDN: turn your search into a tool, let the model call it, and log every call.
+10. Before you put the loop in a chat page, add three limits: at most 8 rounds of model and tool calls, a timeout on each network call, and a clear “stopped” status. Test it with a fake model that keeps asking for search: it must stop at the limit. Keep tools read-only for now. A step limit doesn't cap cost, so also record token usage.
 
 ### Day 5 · about 90 min
 
@@ -84,15 +87,15 @@ It sends back a structured request: “call search with this query”. Your code
 >
 > **Don't skip:** This is Ask MDN v0.2.
 
-8. Build a small Streamlit chat page for Ask MDN, about 20 lines. You used Streamlit in Structured Output and Errors.
-9. This is **Ask MDN v0.2**: you can chat with it, and it decides when to search. Ask it 5 of your practice questions, then show it to a friend if one is around.
+11. Build a small Streamlit chat page for Ask MDN, about 20 lines. You used Streamlit in Structured Output and Errors.
+12. This is **Ask MDN v0.2**: you can chat with it, and it decides when to search. Ask it 5 of your practice questions, then show it to a friend if one is around.
 
 ### Memory check · 10 min
 
-10. Close this page. In your log, answer from memory, then check:
+13. Close this page. In your log, answer from memory, then check:
    - What stops an agent loop from running forever? ([where to check](https://github.com/DataTalksClub/llm-zoomcamp/blob/1c42efbeb8141c183e7ae51698ad912c70c06a06/01-agentic-rag/14-agentic-loop.md))
    - What is the difference between precision and recall? ([where to check](10-ml-basics-measuring-quality.md))
-11. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
+14. If an answer is shaky, revisit just that section and try again. Finish your log with one result you checked and the exact file or small action to start next time. Two lines are enough.
 
 <details>
 <summary>Check your answer: What stops an agent loop from running forever?</summary>
@@ -130,4 +133,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: ML Basics: Measuring Quality](10-ml-basics-measuring-quality.md) · [Course map](README.md) · [Next lesson: Embeddings and Vector Search →](12-embeddings-and-vector-search.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026

@@ -292,3 +292,54 @@ The owner has a free Gemini key and no OpenAI key, and could not tell where the 
 
 **Tested:** every command in a clean folder with uv, Google's endpoint reached with a fake key, and the success path, `llm.py` and a notebook against a local stand-in server. **Not tested:** a real answer from Gemini, because no real key was used.
 
+### Round 6: doability and time-waster audit (7 November 2026)
+
+The owner asked whether the lessons are coherent, doable and worth the time. Checked: all 270 links, every named package and image, every Zoomcamp page behind a Day, the order of code terms, checkpoints and memory checks, and the workload of each Day.
+
+**Clean:** links, tools, memory-check order, Ask MDN's version chain, and time labels against Day labels.
+
+| Fault found | Fix |
+|---|---|
+| 13 Days were only links, with nothing to run and no end point. One 434-word page was labelled 90 minutes | Each now says to run the code, adds one small task of the learner's own, and ends with a Stop line. Thin Days are relabelled light. |
+| Round 4 moved Docker to Lesson 29, but Zoomcamp's `05 Database` page needs it in Lesson 17 | Docker now installs in Lesson 17, Day 2. |
+| Zoomcamp's first `responses.create` is in `03 RAG`, Lesson 9 Day 1, but the Gemini note was on Day 3 | The note moved to Day 1. |
+| `llm()` returns text only, but Monitoring needs token counts | Lesson 17 keeps the whole response on Gemini. |
+| Six parallel workers will hit Gemini's free-tier limit | Lessons 13 and 16 set `max_workers=1`. |
+| Skims that paid nothing back: a 2022 syllabus, dashboards the course doesn't build, `Next steps` pages | Cut. Agent evaluation moved to optional resources. |
+| Lesson 34 Day 3 asked for 60 graded entries in 90 minutes; Lesson 20 Day 2 asked for 25 sources; Lesson 20 Days 5–6 asked for 20 full entries | Now 40 entries, 15 sources and 15 entries. The weekly hour covers the rest. |
+| Lesson 27 Day 5 repeated the judge check from Grading Answers | It now has a Skip if. |
+
+**Left for the owner to decide:** A Course-Planning Helper takes 9 hours, and its tools stay out of the student pilot.
+
+### Round 7: cuts and the "prompting is dead" check (7 November 2026)
+
+Two separate studies looked for what isn't essential: an independent agent and the maintainer, each writing a list before seeing the other's. A cut went in if both lists had it, or if one had it and it was shown to be a duplicate or unused later. Claims were checked against the sources first. The core path went from about 54 weeks to about 46, and from 42 lessons to 41.
+
+| Cut | Sessions saved | Why |
+|---|---|---|
+| A Course-Planning Helper moved to Electives | 6 | Its tools stay out of the student pilot. |
+| Make It Sturdy, 31 Days to 20 | 11 | It rebuilt Lessons 28 to 32. The backend lab and failure drills stay. |
+| Ask MDN, 18 Days to 12 | 6 | v0.6 is already integrated and online. |
+| Monitoring, 8 Days to 4 | 4 | Zoomcamp's separate FAQ app is skipped, so logging goes straight onto Ask MDN. The data policy is left to the capstone, which handles real student data. |
+| Embeddings, 13 Days to 10 | 3 | Merged short pages, dropped the early Banglish check (Multilingual Search does it properly) and the repeat numpy Day. Rewriting top-5 search from memory stays, as a 15-minute step. |
+| Campus Assistant Pilot, report 6 Days to 3 | 3 | Writing a report and a decision doesn't need six sessions. |
+| Give It Tools, 2 planning Days | 2 | The steps are printed, so the rehearsal fed nothing. |
+| Evals, 2 Days | 2 | Extra reading, and a judge check already done in Grading Answers. |
+| Agent Fundamentals, 2 Days | 2 | Tools and the Agent Loop built this already. |
+| Choose Models, 2 Days | 2 | Ship It rebuilds the guards. Caching can wait for real traffic. |
+| ML Basics, Fresh Data, Curation, Multilingual Search | 1 each | Tail ends, a policy for a feature that stays off, and a repeat merge function. |
+
+**Also fixed:** Zoomcamp's data generator pairs five canned questions with five canned answers at random, so Evals That Catch Real Bugs could never find real failures from it. That lesson now runs Ask MDN on 50 real questions.
+
+**Kept after a challenge:** the bootstrap in Measuring Search, the model comparison in Grading Answers, the new-domain task in What's Next, the micrograd and tiny GPT builds, LangGraph, Ship It's gateway, and all crisis, tenant and consent work.
+
+**Tests:** eight lessons reworked here are listed in `REWORKED` in `tests/course.test.cjs`, because the only learner was on Lesson 5 and no saved tick pointed at those Days. Every other live lesson keeps the old protection.
+
+**"Prompting is dead":** a real shift, wrongly named.
+- The claim traces to Boris Cherny at Acquired Unplugged on 2 June 2026: he no longer prompts Claude directly, and writes loops that do. He meant coding with Claude Code. A viral line about loops and graphs replacing prompts, credited to Andrew Ng, can't be traced to him.
+- [Addy Osmani](https://addyosmani.com/blog/loop-engineering/) says verification stays your job. [Lilian Weng](https://lilianweng.github.io/posts/2026-07-04-harness/) calls prompts the first rung of a longer ladder, with evaluators kept outside the loop. [Anthropic's harness post](https://www.anthropic.com/engineering/harness-design-long-running-apps) found that the wording of grading criteria still shaped results.
+- In the [job-post analysis](https://github.com/alexeygrigorev/ai-engineering-field-guide/blob/main/role/07-trends.md) this course cites, "harness" and "context engineering" don't appear in the skills or trends reports, while Prompt Engineering shows up in 51% of the largest job type.
+- The course already teaches the durable parts: the agent loop, LangGraph, limits, approvals, evals, CI and held-back sets.
+
+So one Day was added, not a section: Testing and CI Day 6 builds a small loop that changes a prompt and keeps the change only if the score improves, with the checker outside the loop and a held-back check at the end. Agent Fundamentals gained the word "harness", and Testing and CI lists further reading.
+

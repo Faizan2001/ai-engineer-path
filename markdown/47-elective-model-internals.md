@@ -1,6 +1,6 @@
 # Elective: Go Deeper into Model Internals
 
-*Section 8: Electives · Elective 5 of 5 · about 3 weeks*
+*Section 8: Electives · Elective 6 of 6 · about 3 weeks*
 
 ## Introduction
 
@@ -59,4 +59,4 @@ These are optional. Use them if you want to go further.
 
 [← Previous: Elective: Voice and Images](46-elective-voice-and-images.md) · [Course map](README.md) · [Back to the course map →](README.md)
 
-[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 30 Oct 2026
+[Improve on GitHub](https://github.com/Faizan2001/ai-engineer-path/edit/main/data/course.js) · [Report an issue](https://github.com/Faizan2001/ai-engineer-path/issues/new) · [See lesson changelog](https://github.com/Faizan2001/ai-engineer-path/commits/main/data/course.js) · Links checked 7 Nov 2026
